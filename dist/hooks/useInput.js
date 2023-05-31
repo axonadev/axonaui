@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 require("core-js/modules/web.dom-collections.iterator.js");
 var _react = require("react");
-var _lib = require("../lib");
+var _axonalib = require("axonalib");
 const useInput = () => {
   const [enteredValue, setEnteredValue] = (0, _react.useState)("");
   const [listValue, setListValue] = (0, _react.useState)("");
@@ -47,7 +47,7 @@ const useInput = () => {
     };
     if (validate) {
       if (validate.type) {
-        rvalidate = (0, _lib.validateInput)(enteredValue, validate.type, validate.label ? validate.label : "");
+        rvalidate = (0, _axonalib.validateInput)(enteredValue, validate.type, validate.label ? validate.label : "");
       }
     }
     setIsValid(rvalidate.validate);

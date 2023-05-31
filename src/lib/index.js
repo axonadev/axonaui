@@ -1,5 +1,5 @@
 import "./components/style/general.css";
-import Button from "./components/Button";
+import Button from "./components/Button/Button";
 import Img from "./components/Img";
 import MessageModal from "./components/MessageModal";
 import Card from "./components/Card";

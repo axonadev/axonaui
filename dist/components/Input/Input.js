@@ -9,7 +9,7 @@ exports.default = void 0;
 var _react = _interopRequireWildcard(require("react"));
 var _useInput = _interopRequireDefault(require("../../hooks/useInput"));
 var _InputModule = _interopRequireDefault(require("../style/Input.module.css"));
-var _lib = require("../../lib");
+var _axonalib = require("axonalib");
 var _Checklist = _interopRequireDefault(require("./Checklist"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -18,7 +18,7 @@ const Input = props => {
   const pers = localStorage.getItem("pers");
   let effVal = "";
   if (props.type === "date") {
-    effVal = (0, _lib.formatDate)(props.value);
+    effVal = (0, _axonalib.formatDate)(props.value);
   } else if (props.list) {
     try {
       if (props.list.length > 0) {
