@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import useInput from "../../hooks/useInput";
 import classes from "../style/Input.module.css";
-import { formatDate } from "../../lib";
+import { formatDate } from "axonalib";
 import Checklist from "./Checklist";
 
 const Input = (props) => {
