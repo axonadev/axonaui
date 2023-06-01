@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
-var _Button = _interopRequireDefault(require("./Button"));
+var _Button = _interopRequireDefault(require("./Button/Button"));
 var _MessageModalModule = _interopRequireDefault(require("./style/MessageModal.module.css"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 const MessageModal = (_ref, props) => {

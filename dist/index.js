@@ -40,7 +40,7 @@ Object.defineProperty(exports, "MessageModal", {
   }
 });
 require("./components/style/general.css");
-var _Button = _interopRequireDefault(require("./components/Button"));
+var _Button = _interopRequireDefault(require("./components/Button/Button"));
 var _Img = _interopRequireDefault(require("./components/Img"));
 var _MessageModal = _interopRequireDefault(require("./components/MessageModal"));
 var _Card = _interopRequireDefault(require("./components/Card"));
