@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./style/Img.module.css";
+import classes from "../style/Img.module.css";
 const Img = ({ className, src, alt, type }) => {
   const classn = [
     classes["img_" + type],
