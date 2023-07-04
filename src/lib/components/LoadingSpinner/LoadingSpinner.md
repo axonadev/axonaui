@@ -1,0 +1,5 @@
+LoadingSpinner example:
+
+```js
+<LoadingSpinner />
+```
