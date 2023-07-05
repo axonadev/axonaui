@@ -10,12 +10,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const Img = _ref => {
   let {
     className,
+    id,
     src,
     alt,
     type
   } = _ref;
   const classn = [_ImgModule.default["img_" + type], _ImgModule.default.img, className ? " " + className : ""];
   return /*#__PURE__*/_react.default.createElement("img", {
+    id: id,
     src: src,
     alt: alt ? alt : "",
     className: classn.join(" ")

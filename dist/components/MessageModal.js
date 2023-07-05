@@ -10,6 +10,7 @@ var _MessageModalModule = _interopRequireDefault(require("./style/MessageModal.m
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 const MessageModal = (_ref, props) => {
   let {
+    id,
     type,
     buttons,
     onOut,
@@ -29,7 +30,9 @@ const MessageModal = (_ref, props) => {
     type: "stop",
     label: "Annulla"
   }];
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    id: id
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: _MessageModalModule.default.backdrop,
     onClick: onOut
   }), /*#__PURE__*/_react.default.createElement("div", {

@@ -45,7 +45,6 @@ Object.defineProperty(exports, "MessageModal", {
     return _MessageModal.default;
   }
 });
-require("./components/style/general.css");
 var _Button = _interopRequireDefault(require("./components/Button/Button"));
 var _Img = _interopRequireDefault(require("./components/Img/Img"));
 var _MessageModal = _interopRequireDefault(require("./components/MessageModal"));

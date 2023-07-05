@@ -29,23 +29,35 @@ const CssStruct = ({ children, url, piva }) => {
     if (defaultCss) {
       const dftrootElement = defaultCss.root;
       for (var prop in dftrootElement) {
-        document.documentElement.style.setProperty(prop, dftrootElement[prop]);
+        try {
+          document.documentElement.style.setProperty(
+            prop,
+            dftrootElement[prop]
+          );
+        } catch (error) {}
       }
     }
 
     if (personalCss) {
       const prsrootElement = personalCss.root;
       for (var prop in prsrootElement) {
-        document.documentElement.style.setProperty(prop, prsrootElement[prop]);
+        try {
+          document.documentElement.style.setProperty(
+            prop,
+            prsrootElement[prop]
+          );
+        } catch (error) {}
       }
 
       const prsidElement = personalCss.id;
       for (var prop in prsidElement) {
         let idElem = prsidElement[prop];
         for (var propid in idElem) {
-          document
-            .getElementById(prop)
-            .style.setProperty(propid, idElem[propid]);
+          try {
+            document
+              .getElementById(prop)
+              .style.setProperty(propid, idElem[propid]);
+          } catch (error) {}
         }
       }
     }

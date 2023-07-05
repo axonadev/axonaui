@@ -10,6 +10,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const Button = _ref => {
   let {
     children,
+    id,
     onClick,
     className
   } = _ref;
@@ -20,6 +21,7 @@ const Button = _ref => {
     } catch (error) {}
   };
   return /*#__PURE__*/_react.default.createElement("button", {
+    id: id,
     className: clsStyle.join(" "),
     onClick: onClickHandler
   }, children);

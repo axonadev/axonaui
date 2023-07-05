@@ -10,10 +10,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const Card = _ref => {
   let {
     children,
-    className
+    className,
+    id
   } = _ref;
   const cls = [_CardModule.default.card, className];
   return /*#__PURE__*/_react.default.createElement("div", {
+    id: id,
     className: cls.join(" ")
   }, children);
 };

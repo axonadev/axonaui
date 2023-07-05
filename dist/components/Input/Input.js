@@ -77,6 +77,7 @@ const Input = props => {
     optionList(effList);
   }, [effVal, fnvalidate, effList]);
   return /*#__PURE__*/_react.default.createElement("div", {
+    id: "cont_" + props.id,
     className: classContent.join(" ")
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: classLabel.join(" ")
