@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "../style/Button.module.css";
-const Button = ({ children, onClick, className }) => {
+const Button = ({ children, id, onClick, className }) => {
   const clsStyle = [classes.button, className];
 
   const onClickHandler = (evt) => {
@@ -9,7 +9,7 @@ const Button = ({ children, onClick, className }) => {
     } catch (error) {}
   };
   return (
-    <button className={clsStyle.join(" ")} onClick={onClickHandler}>
+    <button id={id} className={clsStyle.join(" ")} onClick={onClickHandler}>
       {children}
     </button>
   );

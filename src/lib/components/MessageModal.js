@@ -3,7 +3,7 @@ import Button from "./Button/Button";
 import classes from "./style/MessageModal.module.css";
 
 const MessageModal = (
-  { type, buttons, onOut, title, message, children },
+  { id, type, buttons, onOut, title, message, children },
   props
 ) => {
   const classContent = [
@@ -29,7 +29,7 @@ const MessageModal = (
       ];
 
   return (
-    <div>
+    <div id={id}>
       <div className={classes.backdrop} onClick={onOut} />
       <div className={classContent.join(" ")}>
         <header className={classes.header}>

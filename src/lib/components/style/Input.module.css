@@ -17,13 +17,13 @@
 .input_input input{
     width: calc(100% - 8px);
     font-size: 25px;
-    border: var(--adk-primary-text-color) 1px solid;
+    border: var(--anx-primary-text-color) 1px solid;
     border-radius: 3px;
     height: 35px;
 }
 
 .input_focused input{
-    border: 1px solid var(--adk-input-active);
+    border: 1px solid var(--axn-input-active);
 }
 
 .input_checklist{

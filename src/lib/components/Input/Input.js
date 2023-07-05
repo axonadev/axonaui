@@ -88,7 +88,7 @@ const Input = (props) => {
   }, [effVal, fnvalidate, effList]);
 
   return (
-    <div className={classContent.join(" ")}>
+    <div id={"cont_" + props.id} className={classContent.join(" ")}>
       <div className={classLabel.join(" ")}>
         <label>
           {objLabel}

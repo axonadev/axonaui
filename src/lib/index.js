@@ -1,4 +1,3 @@
-import "./components/style/general.css";
 import Button from "./components/Button/Button";
 import Img from "./components/Img/Img";
 import MessageModal from "./components/MessageModal";
