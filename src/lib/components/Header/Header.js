@@ -1,3 +1,4 @@
+import React from "react";
 import Img from "../Img/Img";
 import classes from "../style/Header.module.css";
 const Header = ({ id, logo, titolo, pathimg }) => {
