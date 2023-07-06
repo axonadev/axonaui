@@ -1,7 +1,9 @@
 .sidemenu_content {
-  height: 100vh;
-  background-color: #625bfe;
-  color: white;
+  position: absolute;
+  top: 80px;
+  height: calc(100vh - 80px);
+  background-color: var(--axn-primary-color);
+  color: var(--axn-primary-text-color);
   transition: 1s width;
 }
 .sidemenu_open {

@@ -2,7 +2,7 @@
   text-align: left;
   float: left;
   width: calc(100% - 20px);
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid var(--axn-secondary-text-color);
   padding: 10px;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .sidemenuambito_label {
-  background-color: navy;
+  background-color: var(--axn-secondary-color);
 }
 .sidemenuambito_listopen {
 }

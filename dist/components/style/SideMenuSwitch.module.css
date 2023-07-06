@@ -3,7 +3,7 @@
   width: 40px;
   height: 40px;
 
-  background-color: #625bfe;
+  background-color: var(--axn-primary-color);
   border-radius: 7px;
   padding: 5px;
   font-size: 20px;
