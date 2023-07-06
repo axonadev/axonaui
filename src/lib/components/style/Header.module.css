@@ -1,0 +1,28 @@
+.header_content{
+    background-color: var(--axn-primary-color);
+    height: 8vh;
+    min-height: 60px;
+    max-height: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+}
+.header_contentorizontal{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 8vw 80vw;
+ 
+}
+.header_contentvertical{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.header_label{
+    font-size: calc(20px + 1vh);
+    color: var(--axn-primary-text-color);
+    text-align: center;
+}
