@@ -43,9 +43,11 @@ const CssStruct = ({ children, url, piva }) => {
       for (var prop in prsidElement) {
         let idElem = prsidElement[prop];
         for (var propid in idElem) {
-          document
-            .getElementById(prop)
-            .style.setProperty(propid, idElem[propid]);
+          try {
+            document
+              .getElementById(prop)
+              .style.setProperty(propid, idElem[propid]);
+          } catch (error) {}
         }
       }
     }

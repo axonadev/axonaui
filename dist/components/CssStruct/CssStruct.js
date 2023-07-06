@@ -34,25 +34,19 @@ const CssStruct = _ref => {
     if (defaultCss) {
       const dftrootElement = defaultCss.root;
       for (var prop in dftrootElement) {
-        try {
-          document.documentElement.style.setProperty(prop, dftrootElement[prop]);
-        } catch (error) {}
+        document.documentElement.style.setProperty(prop, dftrootElement[prop]);
       }
     }
     if (personalCss) {
       const prsrootElement = personalCss.root;
       for (var prop in prsrootElement) {
-        try {
-          document.documentElement.style.setProperty(prop, prsrootElement[prop]);
-        } catch (error) {}
+        document.documentElement.style.setProperty(prop, prsrootElement[prop]);
       }
       const prsidElement = personalCss.id;
       for (var prop in prsidElement) {
         let idElem = prsidElement[prop];
         for (var propid in idElem) {
-          try {
-            document.getElementById(prop).style.setProperty(propid, idElem[propid]);
-          } catch (error) {}
+          document.getElementById(prop).style.setProperty(propid, idElem[propid]);
         }
       }
     }
