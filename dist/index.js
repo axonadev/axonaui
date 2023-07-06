@@ -51,6 +51,18 @@ Object.defineProperty(exports, "MessageModal", {
     return _MessageModal.default;
   }
 });
+Object.defineProperty(exports, "SideMenu", {
+  enumerable: true,
+  get: function get() {
+    return _SideMenu.default;
+  }
+});
+Object.defineProperty(exports, "SnackBar", {
+  enumerable: true,
+  get: function get() {
+    return _SnackBar.default;
+  }
+});
 var _Button = _interopRequireDefault(require("./components/Button/Button"));
 var _Img = _interopRequireDefault(require("./components/Img/Img"));
 var _MessageModal = _interopRequireDefault(require("./components/MessageModal"));
@@ -59,4 +71,6 @@ var _Input = _interopRequireDefault(require("./components/Input/Input"));
 var _LoadingSpinner = _interopRequireDefault(require("./components/LoadingSpinner/LoadingSpinner"));
 var _CssStruct = _interopRequireDefault(require("./components/CssStruct/CssStruct"));
 var _Header = _interopRequireDefault(require("./components/Header/Header"));
+var _SideMenu = _interopRequireDefault(require("./components/SideMenu/SideMenu"));
+var _SnackBar = _interopRequireDefault(require("./components/SnackBar/SnackBar"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

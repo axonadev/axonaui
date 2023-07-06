@@ -6,7 +6,7 @@ float: left;
 margin-left: 5%;
 margin-bottom: 3px;
 /* border: 1px solid white; */
-background-color: var(--axn-secondary-color);
+background-color: navy;
 border-radius: 7px;
 cursor: pointer;
 min-width: 40px;
@@ -17,18 +17,13 @@ min-width: 40px;
 .sidemenubottone_content div{
     float: left;
     width: 50%;
-    min-width: 40px;
     height: 100%;
    display:flex;
    justify-content: center;
    flex-direction: column;
    
 }
-.SideMenu_sidemenu_close .sidemenubottone_content div{
-    width: 100%;
-}
 .sidemenubottone_content img{
-    max-width: 30px;
     width: 40px;
     float: left;
     padding-left: 5px;
