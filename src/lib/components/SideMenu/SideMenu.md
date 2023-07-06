@@ -1,0 +1,5 @@
+SideMenu example:
+
+```js
+<SideMenu />
+```

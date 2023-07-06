@@ -6,6 +6,8 @@ import Input from "./components/Input/Input";
 import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 import CssStruct from "./components/CssStruct/CssStruct";
 import Header from "./components/Header/Header";
+import SideMenu from "./components/SideMenu/SideMenu";
+import SnackBar from "./components/SnackBar/SnackBar";
 
 export {
   Button,
@@ -16,4 +18,6 @@ export {
   LoadingSpinner,
   CssStruct,
   Header,
+  SideMenu,
+  SnackBar,
 };

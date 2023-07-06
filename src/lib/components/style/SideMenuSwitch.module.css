@@ -1,0 +1,24 @@
+.sidemenuswitch_content {
+  position: relative;
+  width: 40px;
+  height: 40px;
+
+  background-color: #625bfe;
+  border-radius: 7px;
+  padding: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 1s left;
+}
+.sidemenuswitch_content label {
+  cursor: pointer;
+}
+
+.sidemenuswitch_open {
+  left: 225px;
+}
+
+.sidemenuswitch_close {
+  left: 25px;
+}

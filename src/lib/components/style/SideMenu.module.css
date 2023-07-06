@@ -1,0 +1,12 @@
+.sidemenu_content {
+  height: 100vh;
+  background-color: #625bfe;
+  color: white;
+  transition: 1s width;
+}
+.sidemenu_open {
+  width: 250px;
+}
+.sidemenu_close {
+  width: 60px;
+}
