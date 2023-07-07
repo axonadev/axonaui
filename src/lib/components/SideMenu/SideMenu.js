@@ -5,7 +5,13 @@ import SideMenuAmbito from "./SideMenuAmbito";
 import SideMenuSwitch from "./SideMenuSwitch";
 
 const SideMenu = () => {
-  const [onoff, setOnoff] = useState(true);
+  const [onoff, setOnoff] = useState(
+    localStorage.getItem("axn_sidemenuswitch")
+      ? localStorage.getItem("axn_sidemenuswitch") === "true"
+        ? true
+        : false
+      : true
+  );
   const [idAmbito, setIdAmbito] = useState(0);
 
   const listmoduli = JSON.parse(localStorage.getItem("axn_v_moduli"));
@@ -46,6 +52,7 @@ const SideMenu = () => {
 
   const switchEvent = () => {
     setOnoff((prevonoff) => {
+      localStorage.setItem("axn_sidemenuswitch", !prevonoff);
       return !prevonoff;
     });
   };
