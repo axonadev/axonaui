@@ -35,6 +35,10 @@ const SideMenu = () => {
     });
   };
 
+  const selProgetto = (path) => {
+    window.location = path;
+  };
+
   const stylecontent = [
     classes.sidemenu_content,
     onoff ? classes.sidemenu_open : classes.sidemenu_close,
@@ -48,7 +52,13 @@ const SideMenu = () => {
   return (
     <div className={stylecontent.join(" ")}>
       <SideMenuSwitch onoff={onoff} onClick={switchEvent} />
-      <SideMenuBottone onoff={onoff} label="Home" src="logo192.png" />
+      <SideMenuBottone
+        onoff={onoff}
+        label="Home"
+        src="logo192.png"
+        onClick={selProgetto}
+        path={"/"}
+      />
 
       {datatextanagrafica.length > 0 && (
         <SideMenuAmbito
@@ -59,6 +69,7 @@ const SideMenu = () => {
           selezionato={idAmbito}
           list={datatextanagrafica}
           onClick={selAmbito}
+          onSelProgetto={selProgetto}
         />
       )}
       {datatextgestione.length > 0 && (
@@ -69,6 +80,7 @@ const SideMenu = () => {
           selezionato={idAmbito}
           list={datatextgestione}
           onClick={selAmbito}
+          onSelProgetto={selProgetto}
         />
       )}
       {datatextordini.length > 0 && (
@@ -79,6 +91,7 @@ const SideMenu = () => {
           selezionato={idAmbito}
           list={datatextordini}
           onClick={selAmbito}
+          onSelProgetto={selProgetto}
         />
       )}
 
@@ -90,6 +103,7 @@ const SideMenu = () => {
           selezionato={idAmbito}
           list={datatextutilita}
           onClick={selAmbito}
+          onSelProgetto={selProgetto}
         />
       )}
 
@@ -101,6 +115,7 @@ const SideMenu = () => {
           selezionato={idAmbito}
           list={datatextservizi}
           onClick={selAmbito}
+          onSelProgetto={selProgetto}
         />
       )}
     </div>

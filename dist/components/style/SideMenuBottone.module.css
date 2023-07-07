@@ -24,7 +24,7 @@ min-width: 40px;
    flex-direction: column;
    
 }
-.SideMenu_sidemenu_close .sidemenubottone_content div{
+.sidemenu_close .sidemenubottone_content div{
     width: 100%;
 }
 .sidemenubottone_content img{

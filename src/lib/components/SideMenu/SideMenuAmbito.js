@@ -10,9 +10,13 @@ const SideMenuAmbito = ({
   selezionato,
   idAmbito,
   onClick,
+  onSelProgetto,
 }) => {
   const selAmbitoEvent = () => {
     onClick(idAmbito);
+  };
+  const selProgetto = (path) => {
+    onSelProgetto(path);
   };
   const stylelist = [
     classes.sidemenuambito_list,
@@ -23,12 +27,13 @@ const SideMenuAmbito = ({
 
   console.log(src);
   return (
-    <div className={classes.sidemenuambito_content} onClick={selAmbitoEvent}>
+    <div className={classes.sidemenuambito_content}>
       <SideMenuBottone
         onoff={onoff}
         label={label}
         src={src}
         className={classes.sidemenuambito_label}
+        onClick={selAmbitoEvent}
       />
       <div
         className={stylelist.join(" ")}
@@ -42,6 +47,8 @@ const SideMenuAmbito = ({
                 onoff={onoff}
                 label={item.Moduli_Nome}
                 src={item.Moduli_Icona}
+                onClick={selProgetto}
+                path={item.Moduli_IndirizzoModulo}
               />
             );
           })}
