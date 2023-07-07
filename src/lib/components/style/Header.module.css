@@ -24,3 +24,6 @@
     color: var(--axn-primary-text-color);
     text-align: center;
 }
+.header_doc{
+    position:relative !important;
+}

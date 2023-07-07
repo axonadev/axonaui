@@ -1,9 +1,11 @@
 import React from "react";
 import Img from "../Img/Img";
 import classes from "../style/Header.module.css";
-const Header = ({ id, logo, titolo, pathimg }) => {
+const Header = ({ id, logo, titolo, pathimg, className }) => {
+  const clsName = [classes.header_content, classes[className]];
+
   return (
-    <header id={id} className={classes.header_content}>
+    <header id={id} className={clsName.join(" ")}>
       <div id={id} className={classes.header_contentorizontal}>
         <Img src={logo} type={"icon"} />
         <div className={classes.header_contentvertical}>
