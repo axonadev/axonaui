@@ -20,7 +20,15 @@ esempio di css di default:
     "--axn-sidemenu-background-color": "teal",
     "--axn-sidemenu-color": "#f1f1f1",
     "--axn-sidemenu-border-color": "blue",
-    "--axn-sidemenu-btn-background-color": "blue"
+    "--axn-sidemenu-btn-background-color": "blue",
+    "--axn-msgbox-header-background-color": "#a4a4a5",
+    "--axn-msgbox-header-color": "darkgreen",
+    "--axn-msgbox-background-color": "#f1f1f1",
+    "--axn-msgbox-color": "darkgreen",
+    "--axn-msgbox-border-color": "darkgreen",
+    "--axn-msgbox-footer-background-color": "#a4a4a5",
+    "--axn-msgbox-btn-background-color": "blue",
+    "--axn-msgbox-btn-color": "white"
   }
 }
 ```
