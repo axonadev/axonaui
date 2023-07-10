@@ -8,6 +8,7 @@ import CssStruct from "./components/CssStruct/CssStruct";
 import Header from "./components/Header/Header";
 import SideMenu from "./components/SideMenu/SideMenu";
 import SnackBar from "./components/SnackBar/SnackBar";
+import ContentForm from "./components/ContentForm/ContentForm";
 
 export {
   Button,
@@ -20,4 +21,5 @@ export {
   Header,
   SideMenu,
   SnackBar,
+  ContentForm,
 };

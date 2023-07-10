@@ -1,0 +1,10 @@
+.content_body{
+    width: calc(100vw - 60px);
+    height: calc(100vh - 80px);
+    background-color: var(--axn-primary-text-color);
+    position: relative;
+    top: 80px;
+    left: 60px;
+    z-index: -10;
+    overflow-y: scroll;
+}
