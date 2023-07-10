@@ -18,8 +18,6 @@ const Grid = ({
   onBtnInsert,
 }) => {
   const [rowSelected, setRowSelected] = useState(0);
-  const items = items ? items : [];
-
   const { filterGrid, initList, filteredListItem } = useGrid();
 
   const onDoubleClickHandler = (IDOBJ) => {
