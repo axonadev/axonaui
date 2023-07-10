@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import classes from "../style/Grid.module.css";
-import Row from "./Row";
+import Row from "../Row/Row";
 
 import useGrid from "../../hooks/useGrid";
 
@@ -40,6 +40,10 @@ const Grid = ({
 
   const idFilter = id ? "filter_" + id : "filter_generic";
 
+  const onClickHeaderHandler = (IDOBJ) => {
+    console.log(IDOBJ);
+  };
+
   useEffect(() => {
     initList(items);
   }, [items]);
@@ -62,7 +66,13 @@ const Grid = ({
           )}
         </div>
       )}
-      <Row key="INT" columns={columns} type="testata" />
+      <Row
+        key="INT"
+        columns={columns}
+        type="testata"
+        onClick={onClickHeaderHandler}
+        onDoubleClick={() => {}}
+      />
       {filteredListItem &&
         filteredListItem.map((item) => {
           return (
