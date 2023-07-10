@@ -1,0 +1,41 @@
+.sidemenubottone_content{
+
+width: 90%;
+height: 50px;
+float: left;
+margin-left: 5%;
+margin-bottom: 3px;
+/* border: 1px solid white; */
+background-color: var(--axn-sidemenu-btn-background-color);
+border-radius: 7px;
+cursor: pointer;
+min-width: 40px;
+
+
+}
+
+.sidemenubottone_content div{
+    float: left;
+    width: 50%;
+    min-width: 40px;
+    height: 100%;
+   display:flex;
+   justify-content: center;
+   flex-direction: column;
+   
+}
+.sidemenu_close .sidemenubottone_content div{
+    width: 100%;
+}
+.sidemenubottone_content img{
+    max-width: 30px;
+    width: 40px;
+    float: left;
+    padding-left: 5px;
+}
+.sidemenubottone_content label{
+    width: 100%;
+    text-align: center;
+    vertical-align: center;
+    cursor: pointer;
+}

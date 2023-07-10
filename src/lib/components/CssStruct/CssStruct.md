@@ -28,7 +28,13 @@ esempio di css di default:
     "--axn-msgbox-border-color": "darkgreen",
     "--axn-msgbox-footer-background-color": "#a4a4a5",
     "--axn-msgbox-btn-background-color": "blue",
-    "--axn-msgbox-btn-color": "white"
+    "--axn-msgbox-btn-color": "white",
+    "--axn-grid-header-row-background-color": "black",
+    "--axn-grid-header-row-color": "beige",
+    "--axn-grid-row-background-color": "white",
+    "--axn-grid-row-color": "black",
+    "--axn-grid-row-border-color": "#0070c0",
+    "--axn-grid-row-selected-background-color": "white"
   }
 }
 ```

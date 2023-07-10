@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import classes from "../style/Grid.module.css";
 import Row from "./Row";
 
-import useGrid from "../../../hooks/useGrid";
+import useGrid from "../../hooks/useGrid";
 
 import Filter from "../Filter/Filter";
 import Button from "../Button/Button";
@@ -28,6 +28,7 @@ const Grid = ({
     setRowSelected(() => {
       return IDOBJ;
     });
+
     onClickRow(IDOBJ);
   };
 
@@ -44,11 +45,11 @@ const Grid = ({
   }, [items]);
 
   return (
-    <div className={classes.KGrid}>
+    <div className={classes.grid_content}>
       {contentDiv && (
-        <div className={classes.filtergrid}>
+        <div className={classes.grid_filtergrid}>
           {btn_insert && (
-            <Button onClick={insertHandler} className={classes.button}>
+            <Button onClick={insertHandler} className={classes.grid_button}>
               Inserisci
             </Button>
           )}
@@ -62,7 +63,7 @@ const Grid = ({
         </div>
       )}
       <Row key="INT" columns={columns} style="testata" />
-      {filteredListItem !== [] &&
+      {filteredListItem &&
         filteredListItem.map((item) => {
           return (
             <Row

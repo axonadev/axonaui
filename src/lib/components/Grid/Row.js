@@ -1,14 +1,22 @@
 import React from "react";
 import classes from "../style/Row.module.css";
 
-const Row = ({ items, columns, onClick, onDoubleClick }) => {
+const Row = ({
+  items,
+  columns,
+  className,
+  style,
+  rowSelect,
+  onClick,
+  onDoubleClick,
+}) => {
   const IDOBJ = items ? items.IDOBJ : null;
 
   const classStyle = [
-    classes.KRow,
-    props.className ? classes[props.className] : "",
-    props.style ? classes[props.style] : "",
-    props.rowSelect ? classes.rowselected : "",
+    classes.row_content,
+    className ? classes[className] : "",
+    style ? classes["row_" + style] : "",
+    rowSelect ? classes.row_rowselected : "",
   ];
 
   const onDoubleClickHandler = () => {
@@ -19,18 +27,20 @@ const Row = ({ items, columns, onClick, onDoubleClick }) => {
   };
 
   let hRow = 0;
-  columns.map((item) => {
-    try {
-      let cStr = items ? items[item.dbField] : "";
-      return item.order === 0
-        ? 0
-        : cStr.length > 30
-        ? (hRow += 2)
-        : (hRow += 1);
-    } catch (error) {
-      return item.order === 0 ? 0 : (hRow += 1);
-    }
-  });
+  if (columns) {
+    columns.map((item) => {
+      try {
+        let cStr = items ? items[item.dbField] : "";
+        return item.order === 0
+          ? 0
+          : cStr.length > 30
+          ? (hRow += 2)
+          : (hRow += 1);
+      } catch (error) {
+        return item.order === 0 ? 0 : (hRow += 1);
+      }
+    });
+  }
   return (
     <React.Fragment>
       <div
