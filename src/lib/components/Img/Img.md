@@ -11,3 +11,5 @@ icon, button
 <Img className={"test"} src={"/logo192.png"} alt={""} type={"icon"} />
 <Img className={"test"} src={"/logo192.png"} alt={""} type={"button"} />
 ```
+
+se non viene inserito il src verrà caricata un immagine dalla root del dominio con il nome del messo nel type .png

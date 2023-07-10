@@ -16,9 +16,10 @@ const Img = _ref => {
     type
   } = _ref;
   const classn = [_ImgModule.default["img_" + type], _ImgModule.default.img, className ? " " + className : ""];
+  const urlsite = window.location.hostname;
   return /*#__PURE__*/_react.default.createElement("img", {
     id: id,
-    src: src,
+    src: src ? src : urlsite + "/img/" + type + ".png",
     alt: alt ? alt : "",
     className: classn.join(" ")
   });
