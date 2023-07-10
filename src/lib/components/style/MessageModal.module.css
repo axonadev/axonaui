@@ -1,4 +1,4 @@
-.backdrop {
+.messagemodal_backdrop {
     position: fixed;
     top: 0;
     left: 0;
@@ -8,12 +8,13 @@
     background: rgba(0, 0, 0, 0.75);
   }
   
-  .modal {
+  .messagemodal_modal {
     padding: 0rem;
     margin: 0rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     border-radius: 6px;
-    background-color: #f1f1f1;
+    background-color: var(--axn-msgbox-background-color);
+    color: var(--axn-msgbox-color);
 
     position: fixed;
     top: 20vh;
@@ -25,72 +26,73 @@
 
   
   
-  .header {
-    background: lightslategray;
+  .messagemodal_header {
+    background: var(--axn-msgbox-header-background-color);
     padding: 1rem;
   }
   
-  .header h2 {
+  .messagemodal_header h2 {
     margin: 0;
-    color: white;
+    color: var(--axn-msgbox-header-color);
   }
 
-  footer{
-    background-color: #c2c2c2;
-    border-top: lightslategray 1px solid;
+  .messagemodal_footer{
+    background-color: var(--axn-msgbox-footer-background-color);
+    border-top: var(--axn-msgbox-border-color) 1px solid;
     bottom: 0px;
     position: absolute;
     width: 100%;
   }
   
-  .content {
+  .messagemodal_content {
     padding: 1rem;
     overflow-y: scroll;
     max-height: 45vh;
+    
 
   }
   
-  .actions {
+  .messagemodal_actions {
     padding: 1rem;
     display: flex;
     justify-content: space-between;
   }
 
-  .minButton{
+  .messagemodal_minButton{
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
   }
    
   @media (min-width: 768px) {
-    .modal {
+    .messagemodal_modal {
       left: calc(50% - 20rem);
       width: 40rem;
     }
-    .modal_form{
+    .messagemodal_modal_form{
       top: 5vh;
       bottom: 5vh;
       left: 10%;
       width: 80%;
     }
-    .modal_msg{
+    .messagemodal_modal_msg{
       top: 20vh;
       left: 30%;
       width: 40%;
       height: 30vh;
     }
-    .content {
+    .messagemodal_content {
       padding: 1rem;
       overflow-y: scroll;
       max-height: 75vh;
   
     }
-    .minButton{
+    .messagemodal_minButton{
       width: auto;
       margin-left: 20px;
       margin-right: 0;
     }
-    .actions {
+    .messagemodal_actions {
       width: calc(100% - 2rem);
       padding: 1rem;
       display: flex;
