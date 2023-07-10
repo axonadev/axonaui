@@ -1,6 +1,7 @@
-.KRow{
-    background-color: white;
-    border:1px #0070c0 solid;
+.row_content{
+    background-color: var(--axn-grid-row-background-color);
+    border:1px var(--axn-grid-row-border-color) solid;
+    color: var(--axn-grid-row-color);
     border-radius: 5px;
     padding: 10px;
     display: flex;
@@ -12,38 +13,34 @@
     
 
 }
-.swipeable-list-item__content{
-    flex-direction: column;
-}
-
-.KRow_Label{
+.row_label{
     flex-basis: 100%;
     
 }
-.KRow label{
+.row_content label{
     overflow: auto;
     height: 22px;
     
 }
 
 @media (min-width: 768px) {
-    .testata{
+    .row_testata{
         position: fixed;
         top: 0px;
-        background-color: black;
-        color: beige;
+        background-color: var(--axn-grid-header-row-background-color);
+        color: var(--axn-grid-header-row-color);
         display: flex;
         flex-basis: 20%;
         flex-direction: row;
         justify-content: left;
     }
-    .testata label{
+    .row_testata label{
         padding: 2px;    
     }
 
-    .KRow{
+    .row_content{
         background-color: auto;
-        border:1px #0070c0 solid;
+        border:1px  var(--axn-grid-row-border-color) solid;
         border-radius: 5px;
         padding: 10px;
         display: flex;
@@ -55,15 +52,13 @@
         
     
     }
-    .swipeable-list-item__content{
-        flex-direction: column;
-    }
+   
     
-    .KRow_Label{
+    .row_content_Label{
         flex-basis: 100%;
         
     }
-    .KRow label{
+    .row_content label{
         overflow: auto;
         height: 22px;
         width: inherit;
@@ -72,8 +67,8 @@
         position: sticky;
         top: 51.5px;
     }
-    .rowselected{
-        background-color: yellow;
+    .row_rowselected{
+        background-color: var(--axn-grid-row-selected-background-color);
 
     }   
     

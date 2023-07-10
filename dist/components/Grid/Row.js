@@ -11,11 +11,14 @@ const Row = _ref => {
   let {
     items,
     columns,
+    className,
+    type,
+    rowSelect,
     onClick,
     onDoubleClick
   } = _ref;
   const IDOBJ = items ? items.IDOBJ : null;
-  const classStyle = [_RowModule.default.KRow, props.className ? _RowModule.default[props.className] : "", props.style ? _RowModule.default[props.style] : "", props.rowSelect ? _RowModule.default.rowselected : ""];
+  const classStyle = [_RowModule.default.row_content, className ? _RowModule.default[className] : "", type ? _RowModule.default["row_" + type] : "", rowSelect ? _RowModule.default.row_rowselected : ""];
   const onDoubleClickHandler = () => {
     onDoubleClick(IDOBJ);
   };
@@ -23,14 +26,16 @@ const Row = _ref => {
     onClick(IDOBJ);
   };
   let hRow = 0;
-  columns.map(item => {
-    try {
-      let cStr = items ? items[item.dbField] : "";
-      return item.order === 0 ? 0 : cStr.length > 30 ? hRow += 2 : hRow += 1;
-    } catch (error) {
-      return item.order === 0 ? 0 : hRow += 1;
-    }
-  });
+  if (columns) {
+    columns.map(item => {
+      try {
+        let cStr = items ? items[item.dbField] : "";
+        return item.order === 0 ? 0 : cStr.length > 30 ? hRow += 2 : hRow += 1;
+      } catch (error) {
+        return item.order === 0 ? 0 : hRow += 1;
+      }
+    });
+  }
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
     className: classStyle.join(" "),
     onDoubleClick: onDoubleClickHandler,

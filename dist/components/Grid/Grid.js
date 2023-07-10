@@ -9,7 +9,7 @@ require("core-js/modules/web.dom-collections.iterator.js");
 var _react = _interopRequireWildcard(require("react"));
 var _GridModule = _interopRequireDefault(require("../style/Grid.module.css"));
 var _Row = _interopRequireDefault(require("./Row"));
-var _useGrid = _interopRequireDefault(require("../../../hooks/useGrid"));
+var _useGrid = _interopRequireDefault(require("../../hooks/useGrid"));
 var _Filter = _interopRequireDefault(require("../Filter/Filter"));
 var _Button = _interopRequireDefault(require("../Button/Button"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -50,12 +50,12 @@ const Grid = _ref => {
     initList(items);
   }, [items]);
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: _GridModule.default.KGrid
+    className: _GridModule.default.grid_content
   }, contentDiv && /*#__PURE__*/_react.default.createElement("div", {
-    className: _GridModule.default.filtergrid
+    className: _GridModule.default.grid_filtergrid
   }, btn_insert && /*#__PURE__*/_react.default.createElement(_Button.default, {
     onClick: insertHandler,
-    className: _GridModule.default.button
+    className: _GridModule.default.grid_button
   }, "Inserisci"), itemSearch && /*#__PURE__*/_react.default.createElement(_Filter.default, {
     onFilter: filterGrid,
     itemSearch: itemSearch,
@@ -63,8 +63,8 @@ const Grid = _ref => {
   })), /*#__PURE__*/_react.default.createElement(_Row.default, {
     key: "INT",
     columns: columns,
-    style: "testata"
-  }), filteredListItem !== [] && filteredListItem.map(item => {
+    type: "testata"
+  }), filteredListItem && filteredListItem.map(item => {
     return /*#__PURE__*/_react.default.createElement(_Row.default, {
       items: item,
       key: item.IDOBJ,

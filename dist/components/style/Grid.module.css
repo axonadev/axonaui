@@ -1,31 +1,31 @@
-.KGrid{
+.grid_content{
     width: 100%;
     overflow: hidden;
 }
 
-.filtergrid{
+.grid_filtergrid{
     display: flex;
-    background-color: var(--primary-color);
+    background-color: var(--axn-primary-color);
     position: sticky;
     top:0px;
     
 }
-.filtergrid input{
+.grid_filtergrid input{
     width: 20% !important;
     margin:0px !important;
     float: right;
     
 }
-.button{
-    background-color: var(--primary-color);
+.grid_button{
+    background-color: var(--axn-primary-color);
     width: 10vw;
 }
-.button:hover{
-    background-color: var(--secondary-color);
+.grid_button:hover{
+    background-color: var(--axn-secondary-color);
 }
 
 @media (min-width: 768px) {
-    .KGrid{
+    .grid_content{
         width: 100%;
         overflow: hidden;
         overflow-y: scroll;
