@@ -1,0 +1,20 @@
+.img{
+    max-width: 900px;
+    width: 100%;
+}
+.img_icon {
+    max-width: 50px;
+    
+}
+.img_button {
+    max-width: 20px !important;
+    
+}
+.img_icon .svg{
+    
+    filter: var(--anx-svg-color-bianco);
+}
+.img_button .svg{
+    
+    filter: var(--anx-svg-color-bianco);
+}

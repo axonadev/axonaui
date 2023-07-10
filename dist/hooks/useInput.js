@@ -1,21 +1,25 @@
-import React, { useEffect, useState } from "react";
-import { validateInput } from "axonalib";
+"use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+require("core-js/modules/web.dom-collections.iterator.js");
+var _react = require("react");
+var _axonalib = require("axonalib");
 const useInput = () => {
-  const [enteredValue, setEnteredValue] = useState("");
-  const [listValue, setListValue] = useState("");
-  const [list, setList] = useState(null);
-  const [isTouched, setIsTouched] = useState(false);
-  const [isFocussed, setIsFocussed] = useState(false);
-  const [isValid, setIsValid] = useState(true);
-  const [messageError, setMessageError] = useState("");
-  const [validate, setValidate] = useState({});
-
-  const valueChangeHandler = (evt) => {
+  const [enteredValue, setEnteredValue] = (0, _react.useState)("");
+  const [listValue, setListValue] = (0, _react.useState)("");
+  const [list, setList] = (0, _react.useState)(null);
+  const [isTouched, setIsTouched] = (0, _react.useState)(false);
+  const [isFocussed, setIsFocussed] = (0, _react.useState)(false);
+  const [isValid, setIsValid] = (0, _react.useState)(true);
+  const [messageError, setMessageError] = (0, _react.useState)("");
+  const [validate, setValidate] = (0, _react.useState)({});
+  const valueChangeHandler = evt => {
     setEnteredValue(evt.target.value);
     if (evt.target.attributes.tipo.value === "list") {
-      if (list === null || list === undefined) {
-      } else {
+      if (list === null || list === undefined) {} else {
         try {
           if (list.length > 0) {
             let rr = list.filter(function (x) {
@@ -29,45 +33,38 @@ const useInput = () => {
       }
     }
   };
-  const checkItemChange = (evt) => {
+  const checkItemChange = evt => {
     console.log(evt);
     const valn = !evt.target.checked;
     setEnteredValue(valn);
   };
-  const inputBlurHandler = (evt) => {
+  const inputBlurHandler = evt => {
     setIsTouched(true);
     setIsFocussed(false);
-
-    let rvalidate = { validate: true, message: "" };
-
+    let rvalidate = {
+      validate: true,
+      message: ""
+    };
     if (validate) {
       if (validate.type) {
-        rvalidate = validateInput(
-          enteredValue,
-          validate.type,
-          validate.label ? validate.label : ""
-        );
+        rvalidate = (0, _axonalib.validateInput)(enteredValue, validate.type, validate.label ? validate.label : "");
       }
     }
     setIsValid(rvalidate.validate);
     setMessageError(rvalidate.message);
   };
-
-  const inputFocusHandler = (evt) => {
+  const inputFocusHandler = evt => {
     setIsFocussed(true);
   };
-
   const reset = () => {
     setEnteredValue("");
     setIsTouched(false);
     setIsFocussed(false);
   };
-
-  const setValue = (value) => {
+  const setValue = value => {
     setEnteredValue(value);
   };
-
-  useEffect(() => {
+  (0, _react.useEffect)(() => {
     try {
       if (list.length > 0) {
         let rr = list.filter(function (x) {
@@ -76,38 +73,30 @@ const useInput = () => {
         if (rr.length > 0) {
           setValue(rr[0].props.value);
         }
-      } else {
-      }
+      } else {}
     } catch (error) {}
   }, [list]);
-
-  const optionList = (plist) => {
+  const optionList = plist => {
     let rr = null;
-
-    if (plist === null || plist === undefined) {
-    } else {
+    if (plist === null || plist === undefined) {} else {
       try {
         if (plist.list.length > 0) {
-          rr = plist.list.map((item) => {
+          rr = plist.list.map(item => {
             if (enteredValue === item[plist.id]) {
               setEnteredValue(item[plist.descr]);
               setListValue(item[plist.id]);
             }
-            return (
-              <option
-                value={item[plist.descr]}
-                key={item[plist.id]}
-                idobj={item[plist.id]}
-              />
-            );
+            return /*#__PURE__*/React.createElement("option", {
+              value: item[plist.descr],
+              key: item[plist.id],
+              idobj: item[plist.id]
+            });
           });
-
           setList(rr);
         }
       } catch (error) {}
     }
   };
-
   return {
     value: enteredValue,
     listValue,
@@ -124,8 +113,8 @@ const useInput = () => {
     reset,
     setValidate,
     optionList,
-    checkItemChange,
+    checkItemChange
   };
 };
-
-export default useInput;
+var _default = useInput;
+exports.default = _default;

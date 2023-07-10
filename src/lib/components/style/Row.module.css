@@ -1,0 +1,80 @@
+.KRow{
+    background-color: white;
+    border:1px #0070c0 solid;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+    top: 0px;
+    position: absolute;
+    
+
+}
+.swipeable-list-item__content{
+    flex-direction: column;
+}
+
+.KRow_Label{
+    flex-basis: 100%;
+    
+}
+.KRow label{
+    overflow: auto;
+    height: 22px;
+    
+}
+
+@media (min-width: 768px) {
+    .testata{
+        position: fixed;
+        top: 0px;
+        background-color: black;
+        color: beige;
+        display: flex;
+        flex-basis: 20%;
+        flex-direction: row;
+        justify-content: left;
+    }
+    .testata label{
+        padding: 2px;    
+    }
+
+    .KRow{
+        background-color: auto;
+        border:1px #0070c0 solid;
+        border-radius: 5px;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 1px;
+        top: 0px;
+        position:unset;
+        
+    
+    }
+    .swipeable-list-item__content{
+        flex-direction: column;
+    }
+    
+    .KRow_Label{
+        flex-basis: 100%;
+        
+    }
+    .KRow label{
+        overflow: auto;
+        height: 22px;
+        width: inherit;
+    }
+    .sw_testata{
+        position: sticky;
+        top: 51.5px;
+    }
+    .rowselected{
+        background-color: yellow;
+
+    }   
+    
+  }
