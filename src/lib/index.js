@@ -11,6 +11,7 @@ import SnackBar from "./components/SnackBar/SnackBar";
 import ContentForm from "./components/ContentForm/ContentForm";
 import Frame from "./components/Frame/Frame";
 import FrameInRow from "./components/Frame/FrameInRow";
+import Filter from "./components/Filter/Filter";
 
 export {
   Button,
@@ -26,4 +27,5 @@ export {
   ContentForm,
   Frame,
   FrameInRow,
+  Filter,
 };

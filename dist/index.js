@@ -27,6 +27,18 @@ Object.defineProperty(exports, "CssStruct", {
     return _CssStruct.default;
   }
 });
+Object.defineProperty(exports, "Frame", {
+  enumerable: true,
+  get: function get() {
+    return _Frame.default;
+  }
+});
+Object.defineProperty(exports, "FrameInRow", {
+  enumerable: true,
+  get: function get() {
+    return _FrameInRow.default;
+  }
+});
 Object.defineProperty(exports, "Header", {
   enumerable: true,
   get: function get() {
@@ -80,4 +92,6 @@ var _Header = _interopRequireDefault(require("./components/Header/Header"));
 var _SideMenu = _interopRequireDefault(require("./components/SideMenu/SideMenu"));
 var _SnackBar = _interopRequireDefault(require("./components/SnackBar/SnackBar"));
 var _ContentForm = _interopRequireDefault(require("./components/ContentForm/ContentForm"));
+var _Frame = _interopRequireDefault(require("./components/Frame/Frame"));
+var _FrameInRow = _interopRequireDefault(require("./components/Frame/FrameInRow"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

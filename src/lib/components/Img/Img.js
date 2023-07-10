@@ -7,8 +7,15 @@ const Img = ({ className, id, src, alt, type }) => {
     className ? " " + className : "",
   ];
 
+  const urlsite = window.location.hostname;
+
   return (
-    <img id={id} src={src} alt={alt ? alt : ""} className={classn.join(" ")} />
+    <img
+      id={id}
+      src={src ? src : urlsite + "/img/" + type + ".png"}
+      alt={alt ? alt : ""}
+      className={classn.join(" ")}
+    />
   );
 };
 export default Img;

@@ -1,0 +1,18 @@
+.search{
+    width: fit-content;
+    margin: 1vh;
+}
+.search_img{
+    width: 30px;
+}
+.search input{
+    margin: 1vh;
+}
+.button{
+    background-color: var(--axn-primary-color);
+    width: 10vw;
+    max-width: 50px;
+}
+.button:hover{
+    background-color: var(--axn-secondary-color);
+}
