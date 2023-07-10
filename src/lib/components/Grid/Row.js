@@ -5,7 +5,7 @@ const Row = ({
   items,
   columns,
   className,
-  style,
+  type,
   rowSelect,
   onClick,
   onDoubleClick,
@@ -15,7 +15,7 @@ const Row = ({
   const classStyle = [
     classes.row_content,
     className ? classes[className] : "",
-    style ? classes["row_" + style] : "",
+    type ? classes["row_" + type] : "",
     rowSelect ? classes.row_rowselected : "",
   ];
 

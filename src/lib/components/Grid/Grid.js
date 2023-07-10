@@ -62,7 +62,7 @@ const Grid = ({
           )}
         </div>
       )}
-      <Row key="INT" columns={columns} style="testata" />
+      <Row key="INT" columns={columns} type="testata" />
       {filteredListItem &&
         filteredListItem.map((item) => {
           return (

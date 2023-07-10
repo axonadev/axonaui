@@ -5,7 +5,7 @@ function App() {
     <>
       <div className="App">Axona UI library</div>
 
-      <Grid />
+      <Grid id="testid" />
     </>
   );
 }
