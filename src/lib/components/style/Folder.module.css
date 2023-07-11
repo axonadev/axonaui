@@ -1,0 +1,26 @@
+.contentfolder{
+    display: flex;
+    justify-content: left;
+}
+
+.contentfolder div{
+    padding: 10px;
+    background-color: var(--axn-primary-color);
+    color: var(--axn-primary-text-color);
+    border-top-right-radius: 10px;
+    border: 1px solid var(--axn-border-color);
+    cursor:pointer;
+
+}
+.contentfolder .active {
+    padding: 10px;
+    background-color: var(--axn-activate-background-color);
+    color: var(--axn-activate-color);
+    border-top-right-radius: 10px;
+    border: 1px solid var(--axn-border-color);
+    cursor:pointer;    
+}
+
+.contentfolder div label{
+    cursor:pointer;
+}

@@ -1,4 +1,4 @@
-import { Filter, Grid, CssStruct } from "./lib";
+import { Filter, Grid, CssStruct, Folder } from "./lib";
 import Form from "./lib/components/Form/Form";
 
 function App() {
@@ -7,19 +7,21 @@ function App() {
       <div className="App">Axona UI library</div>
       <CssStruct url="http://192.168.2.159:8011/css">
         {/* tenere per sviluppare il css */}
-        <Form
-          idobj={1}
-          modulo={"soggetti"}
-          db={"soggetti"}
-          afterSubmit={() => {
-            console.log("after");
+
+        <Folder
+          onClick={(id) => {
+            console.log(id);
           }}
-          token={localStorage.getItem("axn_token")}
-          serverApi={"http://192.168.2.159:8811/"}
-        >
-          <input id="Soggetti_Nome1" tipo="text"></input>
-          <button type="submit">invia</button>
-        </Form>
+          items={[
+            {
+              key: 1,
+              label: "Destinazioni",
+              target: "soggettidestinazioni",
+              active: true,
+            },
+            { key: 2, label: "CRM", target: "soggetticrm", active: false },
+          ]}
+        ></Folder>
       </CssStruct>
     </>
   );

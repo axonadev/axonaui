@@ -13,6 +13,7 @@ import Frame from "./components/Frame/Frame";
 import FrameInRow from "./components/Frame/FrameInRow";
 import Filter from "./components/Filter/Filter";
 import Grid from "./components/Grid/Grid";
+import Folder from "./components/Folder/Folder";
 
 export {
   Button,
@@ -30,4 +31,5 @@ export {
   FrameInRow,
   Filter,
   Grid,
+  Folder,
 };
