@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import classes from "../style/Grid.module.css";
-import Row from "../Row/Row";
+import Row from "./Row.prv";
 
 import useGrid from "../../hooks/useGrid";
 

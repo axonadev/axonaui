@@ -1,5 +1,5 @@
 import React from "react";
-import SideMenuBottone from "./SideMenuBottone";
+import SideMenuBottone from "./SideMenuBottone.prv";
 import classes from "../style/SideMenuAmbito.module.css";
 
 const SideMenuAmbito = ({

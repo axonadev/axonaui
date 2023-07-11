@@ -1,5 +1,0 @@
-SideMenu example:
-
-```js
-<SideMenu />
-```

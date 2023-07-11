@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import classes from "../style/SideMenu.module.css";
-import SideMenuBottone from "./SideMenuBottone";
-import SideMenuAmbito from "./SideMenuAmbito";
-import SideMenuSwitch from "./SideMenuSwitch";
+import SideMenuBottone from "./SideMenuBottone.prv";
+import SideMenuAmbito from "./SideMenuAmbito.prv";
+import SideMenuSwitch from "./SideMenuSwitch.prv";
 
 const SideMenu = () => {
   const [onoff, setOnoff] = useState(

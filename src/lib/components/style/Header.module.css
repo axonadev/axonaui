@@ -11,7 +11,7 @@
 .header_contentorizontal{
     padding: 10px;
     display: grid;
-    grid-template-columns: 8vw 80vw;
+    grid-template-columns: 10% 80%;
  
 }
 .header_contentvertical{
@@ -26,4 +26,6 @@
 }
 .header_doc{
     position:relative !important;
+    width: 100%;
+ 
 }
