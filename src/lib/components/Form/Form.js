@@ -6,11 +6,19 @@ import Button from "../Button/Button";
 import Img from "../Img/Img";
 import SnackBar from "../SnackBar/SnackBar";
 
-const Form = ({ id, idobj, pidobj, modulo, db, afterSubmit, children }) => {
+const Form = ({
+  id,
+  idobj,
+  pidobj,
+  modulo,
+  db,
+  afterSubmit,
+  children,
+  token,
+  serverApi,
+}) => {
   const [mex, setMex] = useState(null);
   const [isSnackBar, setSnackBar] = useState(null);
-  const token = localStorage.getItem("token");
-  const serverApi = localStorage.getItem("serverApi");
   const id_submit = "b_submit_" + id;
 
   const onConfirmhandler = () => {
@@ -59,7 +67,7 @@ const Form = ({ id, idobj, pidobj, modulo, db, afterSubmit, children }) => {
 
     console.log(evt.target.elements);
 
-    if (pidobj !== null) {
+    if (pidobj) {
       obj = obj + ',"PIDOBJ":"' + pidobj + '"';
     }
     for (const item of evt.target.elements) {
@@ -96,7 +104,7 @@ const Form = ({ id, idobj, pidobj, modulo, db, afterSubmit, children }) => {
     console.log(obj);
 
     setMex({
-      title: "aggiornamento",
+      title: idobj === 0 ? "Inserimento" : "Aggiornamento",
       label: "salvare il record selezionato?",
       icon: "",
       obj: obj,
@@ -128,13 +136,13 @@ const Form = ({ id, idobj, pidobj, modulo, db, afterSubmit, children }) => {
               key: 1,
               label: "Annulla",
               type: "stop",
-              onClick: "onClickBtn2",
+              onClick: onStophandler,
             },
             {
               key: 2,
               label: "Avanti",
               type: "run",
-              onClick: "onClickBtn1",
+              onClick: onConfirmhandler,
             },
           ]}
         />

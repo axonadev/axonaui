@@ -1,4 +1,5 @@
 import { Filter, Grid, CssStruct } from "./lib";
+import Form from "./lib/components/Form/Form";
 
 function App() {
   return (
@@ -6,42 +7,19 @@ function App() {
       <div className="App">Axona UI library</div>
       <CssStruct url="http://192.168.2.159:8011/css">
         {/* tenere per sviluppare il css */}
-        <Grid
-          id={"id"}
-          onDoubleClickRow={() => {
-            console.log("doubleclick");
+        <Form
+          idobj={1}
+          modulo={"soggetti"}
+          db={"soggetti"}
+          afterSubmit={() => {
+            console.log("after");
           }}
-          onClickRow={() => {
-            console.log("click");
-          }}
-          items={[
-            { id: 1, Soggetti_Nome1: "nome1" },
-            { id: 2, Soggetti_Nome1: "nome2" },
-          ]}
-          columns={[
-            {
-              key: 1,
-              Label: "ID",
-              dbField: "IDOBJ",
-              order: 0,
-            },
-            {
-              key: 2,
-              Label: "Cliente",
-              dbField: "Soggetti_Nome1",
-              nullVal: "-",
-              order: 2,
-            },
-          ]}
-          itemSearch={["Soggetti_Nome1"]}
-          itemInsert={true}
-          onFilter={() => {
-            console.log("filter");
-          }}
-          onBtnInsert={() => {
-            console.log("click insert");
-          }}
-        />
+          token={localStorage.getItem("axn_token")}
+          serverApi={"http://192.168.2.159:8811/"}
+        >
+          <input id="Soggetti_Nome1" tipo="text"></input>
+          <button type="submit">invia</button>
+        </Form>
       </CssStruct>
     </>
   );

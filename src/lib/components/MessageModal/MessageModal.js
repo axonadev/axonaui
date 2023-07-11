@@ -2,10 +2,15 @@ import React from "react";
 import Button from "../Button/Button";
 import classes from "../style/MessageModal.module.css";
 
-const MessageModal = (
-  { id, type, buttons, title, message, children, onOut },
-  props
-) => {
+const MessageModal = ({
+  id,
+  type,
+  buttons,
+  title,
+  message,
+  children,
+  onOut,
+}) => {
   const classContent = [
     classes.messagemodal_modal,
     classes["messagemodal_modal_" + (type ? type : "msg")],
@@ -46,7 +51,7 @@ const MessageModal = (
             return (
               <Button
                 key={item.key}
-                onClick={props[item.onClick]}
+                onClick={item.onClick}
                 className={`${classes.messagemodal_minButton} ${
                   classes[item.type]
                 }`}
