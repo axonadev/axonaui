@@ -1,24 +1,66 @@
 .sidemenuswitch_content {
   position: relative;
   width: 40px;
-  height: 40px;
-
-  background-color: var(--axn-sidemenu-background-color);
-  border-radius: 7px;
+  height: var(--axn-height-top);
   padding: 5px;
   font-size: 20px;
   font-weight: 600;
   cursor: pointer;
   transition: 1s left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .sidemenuswitch_content label {
   cursor: pointer;
 }
 
 .sidemenuswitch_open {
-  left: 225px;
+  left: 10px;
 }
 
 .sidemenuswitch_close {
-  left: 25px;
+  left: 10px;
+}
+
+.msasidetoggler{
+  padding: 0.25rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  
+}
+
+.msasidetoggler .mstogglerbar {
+  height: 2px;
+  width: 20px;
+  margin-bottom: 4px;
+  transition: .3s;
+  display: block;
+  background-color: var(--axn-primary-color);
+}
+.msasidetoggler .mstogglerbarclose {
+  height: 2px;
+  width: 20px;
+  margin-bottom: 4px;
+  transition: .3s;
+  display: block;
+  background-color: var(--axn-primary-color);
+}
+
+.msasidetoggler .mstogglerbar:nth-child(2) {
+  width: 15px;
+}
+.msasidetoggler .mstogglerbar:nth-child(3) {
+  width: 10px;
+}
+
+.msasidetoggler .mstogglerbarclose:nth-child(2) {
+  width: 20px;
+}
+.msasidetoggler .mstogglerbarclose:nth-child(3) {
+  width: 20px;
 }

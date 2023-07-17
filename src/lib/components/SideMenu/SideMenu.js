@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import classes from "../style/SideMenu.module.css";
+import Img from "../Img/Img";
 import SideMenuBottone from "./SideMenuBottone.prv";
 import SideMenuAmbito from "./SideMenuAmbito.prv";
 import SideMenuSwitch from "./SideMenuSwitch.prv";
@@ -58,15 +59,24 @@ const SideMenu = () => {
   };
   return (
     <div className={stylecontent.join(" ")}>
-      <SideMenuSwitch onoff={onoff} onClick={switchEvent} />
-      <SideMenuBottone
-        onoff={onoff}
-        label="Home"
-        src="logo192.png"
-        onClick={selProgetto}
-        path={"/"}
-      />
-
+      <div className={classes.sidemenu_top}>
+        <div className={classes.sidemenu_topimg}>
+          <div className={classes.sidemenu_topimgcenter}>
+            <Img type="my_logo" />
+          </div>
+        </div>
+        <SideMenuSwitch onoff={onoff} onClick={switchEvent} />
+      </div>
+      <div className={classes.sidemenu_buttoncontent}>
+        <SideMenuBottone
+          onoff={onoff}
+          label="Home"
+          src="logo192.png"
+          onClick={selProgetto}
+          path={"/"}
+          className={"sidemenubottone_contentambito"}
+        />
+      </div>
       {datatextanagrafica.length > 0 && (
         <SideMenuAmbito
           idAmbito={1}
@@ -125,6 +135,7 @@ const SideMenu = () => {
           onSelProgetto={selProgetto}
         />
       )}
+      <div className={classes.sidemenu_blanc}></div>
     </div>
   );
 };

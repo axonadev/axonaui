@@ -34,6 +34,8 @@ const SideMenuAmbito = ({
         src={src}
         className={classes.sidemenuambito_label}
         onClick={selAmbitoEvent}
+        ambito={true}
+        selezionato={selezionato === idAmbito}
       />
       <div
         className={stylelist.join(" ")}

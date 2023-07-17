@@ -1,5 +1,4 @@
-import { Filter, Grid, CssStruct, Folder } from "./lib";
-import Form from "./lib/components/Form/Form";
+import { Filter, Grid, SideMenu, CssStruct, Folder } from "./lib";
 
 function App() {
   return (
@@ -8,20 +7,7 @@ function App() {
       <CssStruct url="http://192.168.2.159:8011/css">
         {/* tenere per sviluppare il css */}
 
-        <Folder
-          onClick={(id) => {
-            console.log(id);
-          }}
-          items={[
-            {
-              key: 1,
-              label: "Destinazioni",
-              target: "soggettidestinazioni",
-              active: true,
-            },
-            { key: 2, label: "CRM", target: "soggetticrm", active: false },
-          ]}
-        ></Folder>
+        <SideMenu />
       </CssStruct>
     </>
   );

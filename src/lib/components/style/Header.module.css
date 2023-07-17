@@ -1,6 +1,6 @@
 .header_content{
     background-color: var(--axn-primary-color);
-    height: 75px;
+    height: var(--axn-height-top);
     display: flex;
     justify-content: center;
     flex-direction: column;

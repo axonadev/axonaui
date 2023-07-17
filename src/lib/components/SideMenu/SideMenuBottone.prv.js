@@ -1,8 +1,21 @@
 import React from "react";
 import classes from "../style/SideMenuBottone.module.css";
 
-const SideMenuBottone = ({ path, src, label, onoff, className, onClick }) => {
-  const stylecontent = [classes.sidemenubottone_content, className];
+const SideMenuBottone = ({
+  path,
+  src,
+  label,
+  onoff,
+  className,
+  onClick,
+  ambito,
+  selezionato,
+}) => {
+  const stylecontent = [
+    classes.sidemenubottone_content,
+    classes[className],
+    ambito ? classes.sidemenubottone_contentambito : "",
+  ];
 
   const btnhandler = () => {
     onClick(path);
@@ -16,6 +29,11 @@ const SideMenuBottone = ({ path, src, label, onoff, className, onClick }) => {
       {onoff && (
         <div>
           <label>{label}</label>
+        </div>
+      )}
+      {ambito && (
+        <div>
+          <label>{selezionato ? "-" : "+"}</label>
         </div>
       )}
     </div>
