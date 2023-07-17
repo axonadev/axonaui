@@ -5,7 +5,7 @@ import SideMenuBottone from "./SideMenuBottone.prv";
 import SideMenuAmbito from "./SideMenuAmbito.prv";
 import SideMenuSwitch from "./SideMenuSwitch.prv";
 
-const SideMenu = () => {
+const SideMenu = ({ onSideMenuChange }) => {
   const [onoff, setOnoff] = useState(
     localStorage.getItem("axn_sidemenuswitch")
       ? localStorage.getItem("axn_sidemenuswitch") === "true"
@@ -54,6 +54,7 @@ const SideMenu = () => {
   const switchEvent = () => {
     setOnoff((prevonoff) => {
       localStorage.setItem("axn_sidemenuswitch", !prevonoff);
+      onSideMenuChange(!prevonoff);
       return !prevonoff;
     });
   };

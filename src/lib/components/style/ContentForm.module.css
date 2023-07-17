@@ -1,10 +1,19 @@
 .content_body{
-    width: calc(100vw - 60px);
-    height: calc(100vh - 80px);
+    height: calc(100vh - var(--axn-height-top));
     background-color: var(--axn-primary-text-color);
-    position: relative;
-    top: 80px;
-    left: 60px;
+    position: absolute;
+    top:  var(--axn-height-top);
     z-index: -10;
-    overflow-y: scroll;
+    overflow-y: scroll;    
+    right: 0px;
+    transition: 1s left;
+}
+
+.content_body_sidemenuopen{
+    
+    left:250px;
+}
+.content_body_sidemenuclose{
+    
+    left:60px;
 }

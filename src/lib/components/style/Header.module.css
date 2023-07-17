@@ -11,7 +11,7 @@
 .header_contentorizontal{
     padding: 10px;
     display: grid;
-    grid-template-columns: 10% 80%;
+    grid-template-columns: 100%;
  
 }
 .header_contentvertical{
