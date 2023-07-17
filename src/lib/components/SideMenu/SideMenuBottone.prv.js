@@ -15,6 +15,15 @@ const SideMenuBottone = ({
     classes.sidemenubottone_content,
     classes[className],
     ambito ? classes.sidemenubottone_contentambito : "",
+    onoff
+      ? classes.sidemenubottone_contentopen
+      : classes.sidemenubottone_contentclose,
+  ];
+
+  const stylelabel = [
+    onoff
+      ? classes.sidemenubottone_labelopen
+      : classes.sidemenubottone_labelclose,
   ];
 
   const btnhandler = () => {
@@ -26,11 +35,11 @@ const SideMenuBottone = ({
       <div>
         <img src={src} alt="" />
       </div>
-      {onoff && (
-        <div>
-          <label>{label}</label>
-        </div>
-      )}
+
+      <div className={stylelabel.join(" ")}>
+        <label>{label}</label>
+      </div>
+
       {ambito && (
         <div>
           <label>{selezionato ? "-" : "+"}</label>

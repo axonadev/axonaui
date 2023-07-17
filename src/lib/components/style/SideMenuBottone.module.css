@@ -8,8 +8,8 @@ float: left;
 background-color: var(--axn-sidemenu-btn-background-color);
 cursor: pointer;
 min-width: 40px;
-display: grid;
-grid-template-columns: 45px auto 30px;
+
+
 }
 .sidemenubottone_contentambito{
     background-color: var(--axn-sidemenu-btn-ambito-background-color) !important;
@@ -38,4 +38,38 @@ grid-template-columns: 45px auto 30px;
 }
 .sidemenubottone_content:hover{
     color: var(--axn-sidemenu-color-hover);
+}
+.sidemenubottone_contentopen{
+    display: grid;
+    grid-template-columns: 45px auto 30px;
+}
+.sidemenubottone_contentclose{
+    display: flex;
+    grid-template-columns: none;
+}
+
+.sidemenubottone_labelclose{
+    display: none !important;
+    width: 0px;
+    visibility: hidden;
+
+}
+  
+.sidemenubottone_contentclose:hover .sidemenubottone_labelclose:nth-child(2) {
+    display: flex !important;
+    visibility: visible;
+    background-color: var(--axn-sidemenu-btn-closed-background-color);
+    color:  var(--axn-sidemenu-btn-closed-color);
+    position: relative;
+    min-width: fit-content;
+    padding: 5px;
+    height: 25px;
+    border-radius: 7px;
+    font-size: calc(4px + 1vh);
+    margin-top: 8px;
+    
+}
+.sidemenubottone_contentclose:hover :nth-child(3) {
+    visibility: hidden;
+    
 }
