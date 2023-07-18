@@ -13,22 +13,22 @@ import {
 import { Line } from "react-chartjs-2";
 import Card from "../Card/Card";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
-
 const ChartLine = ({
   data = [],
   title = "Grafico",
   legendposition = "top",
   messaggioerroredati = "Non sono presenti dati",
 }) => {
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+  );
+
   const options = {
     responsive: true,
     plugins: {
