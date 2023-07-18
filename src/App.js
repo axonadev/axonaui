@@ -7,6 +7,8 @@ import {
   Folder,
   Header,
   ContentForm,
+  ChartLine,
+  Card,
 } from "./lib";
 
 const App = () => {
@@ -16,6 +18,13 @@ const App = () => {
   const onSideMenuChangeHandler = (stmenu) => {
     setStyleMenu(stmenu);
   };
+
+  const datacomm = [
+    { label: "grafico1", gennaio: 12, febbraio: 23, marzo: 33 },
+    { label: "grafico2", gennaio: 22, febbraio: 43, marzo: 13 },
+    { label: "grafico3", gennaio: 42, febbraio: 21, marzo: 3 },
+  ];
+
   return (
     <>
       <CssStruct url="http://192.168.2.159:8011/css">
@@ -26,7 +35,7 @@ const App = () => {
         />
         <SideMenu onSideMenuChange={onSideMenuChangeHandler} />
         <ContentForm sidemenuopen={styleMenu}>
-          <label>contenuto del form</label>
+          <ChartLine title="grafico stocazzo" data={datacomm} />
         </ContentForm>
       </CssStruct>
     </>

@@ -1,7 +1,7 @@
 import Button from "./components/Button/Button";
 import Img from "./components/Img/Img";
 import MessageModal from "./components/MessageModal/MessageModal";
-import Card from "./components/Card";
+import Card from "./components/Card/Card";
 import Input from "./components/Input/Input";
 import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 import CssStruct from "./components/CssStruct/CssStruct";
@@ -14,6 +14,7 @@ import FrameInRow from "./components/Frame/FrameInRow";
 import Filter from "./components/Filter/Filter";
 import Grid from "./components/Grid/Grid";
 import Folder from "./components/Folder/Folder";
+import ChartLine from "./components/Chart/ChartLine";
 
 export {
   Button,
@@ -32,4 +33,5 @@ export {
   Filter,
   Grid,
   Folder,
+  ChartLine,
 };
