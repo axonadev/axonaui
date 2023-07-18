@@ -5,7 +5,7 @@ import SideMenuBottone from "./SideMenuBottone.prv";
 import SideMenuAmbito from "./SideMenuAmbito.prv";
 import SideMenuSwitch from "./SideMenuSwitch.prv";
 
-const SideMenu = ({ onSideMenuChange }) => {
+const SideMenu = ({ onSideMenuChange, pathImg }) => {
   const [onoff, setOnoff] = useState(
     localStorage.getItem("axn_sidemenuswitch")
       ? localStorage.getItem("axn_sidemenuswitch") === "true"
@@ -67,7 +67,7 @@ const SideMenu = ({ onSideMenuChange }) => {
       <div className={classes.sidemenu_top}>
         <div className={classes.sidemenu_topimg}>
           <div className={classes.sidemenu_topimgcenter}>
-            <Img type="my_logo" />
+            <Img type="my_logo" pathImg={pathImg} />
           </div>
         </div>
         <SideMenuSwitch onoff={onoff} onClick={switchEvent} />
@@ -80,6 +80,7 @@ const SideMenu = ({ onSideMenuChange }) => {
           onClick={selProgetto}
           path={"/"}
           className={"sidemenubottone_contentambito"}
+          pathImg={pathImg}
         />
       </div>
       {datatextanagrafica.length > 0 && (
@@ -92,6 +93,7 @@ const SideMenu = ({ onSideMenuChange }) => {
           list={datatextanagrafica}
           onClick={selAmbito}
           onSelProgetto={selProgetto}
+          pathImg={pathImg}
         />
       )}
       {datatextgestione.length > 0 && (
@@ -104,6 +106,7 @@ const SideMenu = ({ onSideMenuChange }) => {
           list={datatextgestione}
           onClick={selAmbito}
           onSelProgetto={selProgetto}
+          pathImg={pathImg}
         />
       )}
       {datatextordini.length > 0 && (
@@ -116,6 +119,7 @@ const SideMenu = ({ onSideMenuChange }) => {
           list={datatextordini}
           onClick={selAmbito}
           onSelProgetto={selProgetto}
+          pathImg={pathImg}
         />
       )}
       {datatextconta.length > 0 && (
@@ -128,6 +132,7 @@ const SideMenu = ({ onSideMenuChange }) => {
           list={datatextconta}
           onClick={selAmbito}
           onSelProgetto={selProgetto}
+          pathImg={pathImg}
         />
       )}
 
@@ -141,6 +146,7 @@ const SideMenu = ({ onSideMenuChange }) => {
           list={datatextutilita}
           onClick={selAmbito}
           onSelProgetto={selProgetto}
+          pathImg={pathImg}
         />
       )}
 
@@ -154,6 +160,7 @@ const SideMenu = ({ onSideMenuChange }) => {
           list={datatextservizi}
           onClick={selAmbito}
           onSelProgetto={selProgetto}
+          pathImg={pathImg}
         />
       )}
     </div>

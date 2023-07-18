@@ -11,6 +11,7 @@ const SideMenuAmbito = ({
   idAmbito,
   onClick,
   onSelProgetto,
+  pathImg = "",
 }) => {
   const selAmbitoEvent = () => {
     onClick(idAmbito);
@@ -36,6 +37,7 @@ const SideMenuAmbito = ({
         onClick={selAmbitoEvent}
         ambito={true}
         selezionato={selezionato === idAmbito}
+        pathImg={pathImg}
       />
       <div
         className={stylelist.join(" ")}
@@ -51,6 +53,7 @@ const SideMenuAmbito = ({
                 src={item.Moduli_Icona}
                 onClick={selProgetto}
                 path={item.Moduli_IndirizzoModulo}
+                pathImg={pathImg}
               />
             );
           })}

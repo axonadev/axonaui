@@ -11,6 +11,7 @@ const SideMenuBottone = ({
   onClick,
   ambito,
   selezionato,
+  pathImg = "",
 }) => {
   const stylecontent = [
     classes.sidemenubottone_content,
@@ -34,7 +35,7 @@ const SideMenuBottone = ({
   return (
     <div className={stylecontent.join(" ")} onClick={btnhandler}>
       <div>
-        <Img type={src} />
+        <Img type={src} pathImg={pathImg} />
       </div>
 
       <div className={stylelabel.join(" ")}>

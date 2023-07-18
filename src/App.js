@@ -20,9 +20,11 @@ const App = () => {
   };
 
   const datacomm = [
-    { label: "grafico1", gennaio: 12, febbraio: 23, marzo: 33 },
-    { label: "grafico2", gennaio: 22, febbraio: 43, marzo: 13 },
-    { label: "grafico3", gennaio: 42, febbraio: 21, marzo: 3 },
+    { label: "grafaaa", gennaio: 12, febbraio: 23, marzo: 33, pippo: 53 },
+    { label: "grafico2", gennaio: 22, febbraio: 43, marzo: 13, pippo: 5 },
+    { label: "grafico3", gennaio: 42, febbraio: 21, marzo: 3, pippo: 55 },
+    { label: "grafico4", gennaio: 42, febbraio: 21, marzo: 3, pippo: 55 },
+    { label: "grafico4", gennaio: 42, febbraio: 21, marzo: 3, pippo: 55 },
   ];
 
   return (
