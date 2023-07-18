@@ -28,6 +28,10 @@ const SideMenu = ({ onSideMenuChange }) => {
     return item.Ambito_Nome === "Ordini";
   });
 
+  const datatextconta = listmoduli.filter((item) => {
+    return item.Ambito_Nome === "Contabilita";
+  });
+
   const datatextutilita = listmoduli.filter((item) => {
     return item.Ambito_Nome === "Utilita";
   });
@@ -72,7 +76,7 @@ const SideMenu = ({ onSideMenuChange }) => {
         <SideMenuBottone
           onoff={onoff}
           label="Home"
-          src="logo192.png"
+          src="home"
           onClick={selProgetto}
           path={"/"}
           className={"sidemenubottone_contentambito"}
@@ -83,7 +87,7 @@ const SideMenu = ({ onSideMenuChange }) => {
           idAmbito={1}
           onoff={onoff}
           label="Anagrafica"
-          src="logo192.png"
+          src={datatextanagrafica[0].Ambito_Icona}
           selezionato={idAmbito}
           list={datatextanagrafica}
           onClick={selAmbito}
@@ -95,6 +99,7 @@ const SideMenu = ({ onSideMenuChange }) => {
           idAmbito={2}
           onoff={onoff}
           label="Gestione"
+          src={datatextgestione[0].Ambito_Icona}
           selezionato={idAmbito}
           list={datatextgestione}
           onClick={selAmbito}
@@ -106,8 +111,21 @@ const SideMenu = ({ onSideMenuChange }) => {
           idAmbito={3}
           onoff={onoff}
           label="Ordini"
+          src={datatextordini[0].Ambito_Icona}
           selezionato={idAmbito}
           list={datatextordini}
+          onClick={selAmbito}
+          onSelProgetto={selProgetto}
+        />
+      )}
+      {datatextconta.length > 0 && (
+        <SideMenuAmbito
+          idAmbito={4}
+          onoff={onoff}
+          label="Contabilità"
+          src={datatextconta[0].Ambito_Icona}
+          selezionato={idAmbito}
+          list={datatextconta}
           onClick={selAmbito}
           onSelProgetto={selProgetto}
         />
@@ -118,6 +136,7 @@ const SideMenu = ({ onSideMenuChange }) => {
           idAmbito={4}
           onoff={onoff}
           label="utilita"
+          src={datatextutilita[0].Ambito_Icona}
           selezionato={idAmbito}
           list={datatextutilita}
           onClick={selAmbito}
@@ -130,13 +149,13 @@ const SideMenu = ({ onSideMenuChange }) => {
           idAmbito={5}
           onoff={onoff}
           label="Servizi"
+          src={datatextservizi[0].Ambito_Icona}
           selezionato={idAmbito}
           list={datatextservizi}
           onClick={selAmbito}
           onSelProgetto={selProgetto}
         />
       )}
-      <div className={classes.sidemenu_blanc}></div>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "../style/SideMenuBottone.module.css";
+import Img from "../Img/Img";
 
 const SideMenuBottone = ({
   path,
@@ -33,7 +34,7 @@ const SideMenuBottone = ({
   return (
     <div className={stylecontent.join(" ")} onClick={btnhandler}>
       <div>
-        <img src={src} alt="" />
+        <Img type={src} />
       </div>
 
       <div className={stylelabel.join(" ")}>
