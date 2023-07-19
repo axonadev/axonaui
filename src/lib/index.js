@@ -15,6 +15,7 @@ import Filter from "./components/Filter/Filter";
 import Grid from "./components/Grid/Grid";
 import Folder from "./components/Folder/Folder";
 import ChartLine from "./components/Chart/ChartLine";
+import { Line } from "react-chartjs-2";
 
 export {
   Button,
@@ -34,4 +35,5 @@ export {
   Grid,
   Folder,
   ChartLine,
+  Line,
 };
