@@ -61,7 +61,7 @@ const Grid = ({
               className={classes.grid_button}
               type="sm"
             >
-              Inserisci
+              +
             </Button>
           )}
           {itemSearch && (
@@ -73,26 +73,28 @@ const Grid = ({
           )}
         </div>
       )}
-      <Row
-        key="INT"
-        columns={columns}
-        type="testata"
-        onClick={onClickHeaderHandler}
-        onDoubleClick={() => {}}
-      />
-      {filteredListItem &&
-        filteredListItem.map((item) => {
-          return (
-            <Row
-              items={item}
-              key={item.IDOBJ}
-              columns={columns}
-              onClick={onClickRowHandler}
-              onDoubleClick={onDoubleClickHandler}
-              rowSelect={rowSelected === item.IDOBJ ? true : false}
-            />
-          );
-        })}
+      <table className={classes.grid_table}>
+        <Row
+          key="INT"
+          columns={columns}
+          type="testata"
+          onClick={onClickHeaderHandler}
+          onDoubleClick={() => {}}
+        />
+        {filteredListItem &&
+          filteredListItem.map((item) => {
+            return (
+              <Row
+                items={item}
+                key={item.IDOBJ}
+                columns={columns}
+                onClick={onClickRowHandler}
+                onDoubleClick={onDoubleClickHandler}
+                rowSelect={rowSelected === item.IDOBJ ? true : false}
+              />
+            );
+          })}
+      </table>
     </div>
   );
 };

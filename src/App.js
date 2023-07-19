@@ -302,6 +302,7 @@ const App = () => {
               onClickRow={() => {
                 console.log("click");
               }}
+              btn_insert={true}
               onDoubleClickRow={() => {
                 console.log("click");
               }}
@@ -312,6 +313,7 @@ const App = () => {
               id="idGriglia"
               columns={columns}
               items={items}
+              btn_insert={true}
               onClickRow={() => {
                 console.log("click");
               }}
@@ -321,7 +323,7 @@ const App = () => {
               }}
             />
           </Frame>
-          <Frame label="Dati di prova">
+          <Frame label="Dati di prova" type="form_d">
             <FrameInRow width={[30, 30, 40]}>
               <Input label="prova"></Input>
               <Input label="prova"></Input>

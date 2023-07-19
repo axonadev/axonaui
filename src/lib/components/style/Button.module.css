@@ -18,7 +18,7 @@
 
 .button_type_sm{
     padding: 5px;
-    width: auto;
+    width: auto !important;
     border-radius: 6px;
     
 }

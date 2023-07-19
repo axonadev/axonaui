@@ -43,25 +43,34 @@ const Row = ({
   }
   return (
     <React.Fragment>
-      <div
+      <tr
         className={classStyle.join(" ")}
         onDoubleClick={onDoubleClickHandler}
         onClick={onClickHandler}
         idobj={IDOBJ}
       >
         {columns &&
+          !items &&
           columns.map((item) => {
             return item.order === 0 ? (
               <></>
             ) : (
-              <label
-                key={"l_" + (IDOBJ ? IDOBJ : "TESTA") + "_" + Math.random()}
-              >
-                {items ? items[item.dbField] : item.label}
-              </label>
+              <th key={"l_testata_" + Math.random()}>{item.label}</th>
             );
           })}
-      </div>
+
+        {columns &&
+          items &&
+          columns.map((item) => {
+            return item.order === 0 ? (
+              <></>
+            ) : (
+              <td key={"l_" + IDOBJ + "_" + Math.random()}>
+                {items[item.dbField]}
+              </td>
+            );
+          })}
+      </tr>
     </React.Fragment>
   );
 };

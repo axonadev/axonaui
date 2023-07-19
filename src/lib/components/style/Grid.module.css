@@ -1,3 +1,6 @@
+.grid_table{
+    width: 100%;
+}
 .grid_content{
     width: 100%;
     overflow: hidden;
@@ -8,10 +11,16 @@
 
 .grid_filtergrid{
     display: flex;
-    background-color: var(--axn-grid-top-header-background-color);
+
     position: sticky;
     top:0px;
     
+}
+.grid_type_t .grid_filtergrid{
+    background-color:var(--axn-grid-top-header-t-background-color) !important;
+}
+.grid_type_d .grid_filtergrid{
+    background-color:var(--axn-grid-top-header-d-background-color) !important;
 }
 .grid_filtergrid input{
     width: 20% !important;
@@ -31,23 +40,19 @@
 
 
 
-
-.row_content{
+.grid_table {
+    border-collapse: collapse;
     width: 100%;
-    position:unset;   
-    background-color: var(--axn-grid-row-background-color);
-    border-bottom:1px  var(--axn-grid-row-border-color) solid;
-    color: var(--axn-grid-row-color);
-    padding: 2px;
-    display: flex;
-    flex-direction: row;
+  }
+  /* 
+  .grid_table td, .grid_table th {
+    border: 1px solid #ddd;
     
-}   
-
-.row_content label{
-    overflow: auto;
-    flex-basis: 20%;        
-}
+  }
+   */
+  
+  
+  
 
 .sw_testata{
     position: sticky;
@@ -57,28 +62,35 @@
     background-color: var(--axn-grid-row-selected-background-color);
 
 }
-.row_testata{
-    background-color: var(--axn-grid-header-row-background-color);
-    border:1px  var(--axn-grid-row-border-color) solid;
-    color: var(--axn-grid-header-row-color);
-    border-radius: 5px;
-    padding: 2px;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    margin-bottom: 1px;
-    top: 0px;
-    position:unset;
+
+th{
+    position: sticky;
+    top: 26px;
+}
+td{
+  border-bottom: solid 1px ;
+}
+
+.grid_table .grid_type_t{
+    background-color: var(--axn-grid-top-header-t-row-background-color);
+}
+.grid_table .grid_type_d{
+    background-color: var(--axn-grid-top-header-d-row-background-color);
+}
+
+.grid_type_t tr:nth-child(even){background-color: var(--axn-grid-2row-t-background-color)}
+.grid_type_d tr:nth-child(even){background-color: var(--axn-grid-2row-d-background-color)}
   
-}
+.grid_type_t tr:hover {background-color: #ddd; cursor: pointer;}
+.grid_type_d tr:hover {background-color: #ddd; cursor: pointer;}
 
-.grid_type_t .row_testata{
+.grid_type_t th{
     background-color: var(--axn-grid-header-row-background-color);
     border:1px  var(--axn-grid-row-border-color) solid;
     color: var(--axn-grid-header-row-color);
 }
 
-.grid_type_d .row_testata{
+.grid_type_d th{
     background-color: var(--axn-grid-header-d-row-background-color);
     border:1px  var(--axn-grid-row-d-border-color) solid;
     color: var(--axn-grid-header-d-row-color);
