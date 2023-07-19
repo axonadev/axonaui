@@ -1,20 +1,38 @@
 import React from "react";
 import Chart from "chart.js/auto";
-import { Line } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
 import Card from "../Card/Card";
 
-const ChartLine = ({
+const ChartPie = ({
   data = [],
   title = "Grafico",
   legendposition = "top",
   messaggioerroredati = "Non sono presenti dati",
 }) => {
-  /* const datacomm = [
-    { label: "grafaaa", gennaio: 12, febbraio: 23, marzo: 33, pippo: 53 },
-    { label: "grafico2", gennaio: 22, febbraio: 43, marzo: 13, pippo: 5 },
-    { label: "grafico3", gennaio: 42, febbraio: 21, marzo: 3, pippo: 55 },
-    { label: "grafico4", gennaio: 42, febbraio: 21, marzo: 3, pippo: 55 },
-    { label: "grafico4", gennaio: 42, febbraio: 21, marzo: 3, pippo: 55 },
+  /* 
+  const datacommpie = [
+    {
+      label: "grafaaa",
+      gennaio: 12,
+      febbraio: 23,
+      marzo: 33,
+      pippo: 53,
+      pippo1: 53,
+      pippo2: 53,
+      pippo3: 53,
+      pippo4: 53,
+    },
+    {
+      label: "grafaaa",
+      gennaio1: 112,
+      febbraio: 123,
+      marzo: 233,
+      pippo: 353,
+      pippo1: 53,
+      pippo2: 53,
+      pippo3: 53,
+      pippo4: 53,
+    },
   ]; */
 
   const options = {
@@ -53,8 +71,24 @@ const ChartLine = ({
       let datasingle = {
         label: items[Object.keys(items)[0]],
         data: Object.values(items).slice(1),
-        borderColor: key >= colors.length ? rndcolor : colors[key],
-        backgroundColor: key >= colors.length ? rndcolor : colors[key],
+        borderColor: [
+          ...Object.keys(items).map((item, key) => {
+            return key >= colors.length ? rndcolor : colors[key];
+          }),
+        ],
+        backgroundColor: [
+          ...Object.keys(items).map((item, key) => {
+            rndcolor =
+              "rgb(" +
+              parseInt(Math.random() * 255) +
+              "," +
+              parseInt(Math.random() * 255) +
+              "," +
+              parseInt(Math.random() * 255) +
+              ")";
+            return key >= colors.length ? rndcolor : colors[key];
+          }),
+        ],
       };
 
       return datasingle;
@@ -68,9 +102,9 @@ const ChartLine = ({
 
   return (
     <Card>
-      {data.length > 0 && <Line options={options} data={datacomm} />}
+      {data.length > 0 && <Pie options={options} data={datacomm} />}
       {data.length === 0 && <p>{messaggioerroredati}</p>}
     </Card>
   );
 };
-export default ChartLine;
+export default ChartPie;

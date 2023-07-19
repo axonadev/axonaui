@@ -8,21 +8,26 @@ const Img = ({ className, id, src, alt, type, pathImg = "" }) => {
   ];
   const urlsite =
     pathImg === ""
-      ? window.location.hostname +
-        (window.location.port ? ":" + window.location.port : "")
-      : pathImg;
+      ? window.location.protocol +
+        "//" +
+        window.location.hostname +
+        (window.location.port ? ":" + window.location.port : "") +
+        "/img"
+      : pathImg.indexOf("/img") > -1
+      ? pathImg
+      : pathImg + "/img";
 
   const srcImage = src
     ? src
     : type.substring(0, 3) === "my_"
-    ? "//" +
+    ? "" +
       urlsite +
-      "/img/" +
+      "/" +
       localStorage.getItem("axn_piva") +
       "/" +
       type +
       ".png"
-    : "//" + urlsite + "/img/" + type + ".png";
+    : "" + urlsite + "/" + type + ".png";
 
   return (
     <img
