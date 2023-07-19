@@ -1,11 +1,14 @@
 .grid_content{
     width: 100%;
     overflow: hidden;
+    overflow-y: scroll;
+    height: 30vh;
+    margin:1vh;
 }
 
 .grid_filtergrid{
     display: flex;
-    background-color: var(--axn-primary-color);
+    background-color: var(--axn-grid-top-header-background-color);
     position: sticky;
     top:0px;
     
@@ -17,19 +20,66 @@
     
 }
 .grid_button{
-    background-color: var(--axn-primary-color);
+    background-color: var(--axn-grid-header-button-background-color);
+    color: var(--axn-grid-header-button-color);
     width: 10vw;
 }
 .grid_button:hover{
-    background-color: var(--axn-secondary-color);
+    background-color: var(--axn-grid-header-button-background-color-hover);
+    color: var(--axn-grid-header-button-color-hover);
 }
 
-@media (min-width: 768px) {
-    .grid_content{
-        width: 100%;
-        overflow: hidden;
-        overflow-y: scroll;
-        height: 30vh;
-        margin:1vh;
-    }   
+
+
+
+.row_content{
+    width: 100%;
+    position:unset;   
+    background-color: var(--axn-grid-row-background-color);
+    border-bottom:1px  var(--axn-grid-row-border-color) solid;
+    color: var(--axn-grid-row-color);
+    padding: 2px;
+    display: flex;
+    flex-direction: row;
+    
+}   
+
+.row_content label{
+    overflow: auto;
+    flex-basis: 20%;        
+}
+
+.sw_testata{
+    position: sticky;
+    top: 51.5px;
+}
+.row_rowselected{
+    background-color: var(--axn-grid-row-selected-background-color);
+
+}
+.row_testata{
+    background-color: var(--axn-grid-header-row-background-color);
+    border:1px  var(--axn-grid-row-border-color) solid;
+    color: var(--axn-grid-header-row-color);
+    border-radius: 5px;
+    padding: 2px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 1px;
+    top: 0px;
+    position:unset;
+  
+}
+
+.grid_type_t .row_testata{
+    background-color: var(--axn-grid-header-row-background-color);
+    border:1px  var(--axn-grid-row-border-color) solid;
+    color: var(--axn-grid-header-row-color);
+}
+
+.grid_type_d .row_testata{
+    background-color: var(--axn-grid-header-d-row-background-color);
+    border:1px  var(--axn-grid-row-d-border-color) solid;
+    color: var(--axn-grid-header-d-row-color);
 }

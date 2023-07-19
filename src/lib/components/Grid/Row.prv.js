@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "../style/Row.module.css";
+import classes from "../style/Grid.module.css";
 
 const Row = ({
   items,
@@ -54,8 +54,10 @@ const Row = ({
             return item.order === 0 ? (
               <></>
             ) : (
-              <label key={"l_" + IDOBJ + "_" + Math.random()}>
-                {items ? items[item.dbField] : item.Label}
+              <label
+                key={"l_" + (IDOBJ ? IDOBJ : "TESTA") + "_" + Math.random()}
+              >
+                {items ? items[item.dbField] : item.label}
               </label>
             );
           })}

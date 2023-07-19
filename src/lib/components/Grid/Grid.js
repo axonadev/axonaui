@@ -16,9 +16,12 @@ const Grid = ({
   onDoubleClickRow,
   onClickRow,
   onBtnInsert,
+  type = "t",
 }) => {
   const [rowSelected, setRowSelected] = useState(0);
   const { filterGrid, initList, filteredListItem } = useGrid();
+
+  const styles = [classes.grid_content, classes["grid_type_" + type]];
 
   const onDoubleClickHandler = (IDOBJ) => {
     onDoubleClickRow(IDOBJ);
@@ -49,11 +52,15 @@ const Grid = ({
   }, [items]);
 
   return (
-    <div className={classes.grid_content}>
+    <div className={styles.join(" ")}>
       {contentDiv && (
         <div className={classes.grid_filtergrid}>
           {btn_insert && (
-            <Button onClick={insertHandler} className={classes.grid_button}>
+            <Button
+              onClick={insertHandler}
+              className={classes.grid_button}
+              type="sm"
+            >
               Inserisci
             </Button>
           )}

@@ -5,7 +5,8 @@
     color:var(--axn-primary-text-color) ;
     overflow: hidden;
     padding: 10px;
-    margin:2px;
+    margin:0px;
+    margin-bottom: 1px;
     transition: 0.2s background-color,color;
     
 }
@@ -13,4 +14,11 @@
     background-color: var(--axn-background-color-hover);
     color: var(--axn-color-hover);
     cursor: pointer;
+}
+
+.button_type_sm{
+    padding: 5px;
+    width: auto;
+    border-radius: 6px;
+    
 }

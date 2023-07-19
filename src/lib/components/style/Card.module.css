@@ -1,13 +1,50 @@
 .card{
 
-        margin: 3rem auto;
-        width: 95%;
+        margin: 10px;
+        width: calc(100% - 20px);
         max-width: 25rem;
         border-radius: 6px;
-        background-color: var(--axn-background-color);
+        background-color: var(--axn-card-background-color);
         box-shadow: 0 1px 4px var(--axn-box-shadow);
-        padding: 1rem;
+        padding: 1px;
+        padding-right: 1rem;
         text-align: center;
-        color: var(--axn-secondary-text-color);
+        color: var(--axn-card-color);
       
+}
+.card_sm{
+        max-width: 25%;
+        
+      
+}
+.card_md{
+
+        max-width: 50%;
+      
+}
+.card_lg{
+
+        max-width: calc(100% - 42px);
+        
+      
+}
+.card_form{
+        text-align: left;
+        max-width: calc(100% - 42px);
+}
+.card_form_t{
+        text-align: left;
+        max-width: calc(100% - 42px);
+        background-color: var(--axn-card-form-t-background-color);
+
+}
+.card_form_d{
+        text-align: left;
+        max-width: calc(100% - 42px);
+        background-color: var(--axn-card-form-d-background-color);
+        
+}
+.card_form input{
+        
+        background-color: var(--axn-card-form-input-background-color);
 }
