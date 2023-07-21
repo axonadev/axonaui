@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProjectMenuButton from "./ProjectMenuButton.prv";
 import classes from "../style/ProjectMenu.module.css";
-const ProjectMenu = ({ items, children, onClick }) => {
+const ProjectMenu = ({ items, onClick }) => {
   const [openMenu, setOpenMenu] = useState(false);
 
   const onClickHandler = (idprogectitem) => {
@@ -44,9 +44,7 @@ const ProjectMenu = ({ items, children, onClick }) => {
             X
           </div>
         </div>
-        <div className={classes.projectmenu_sideoperation_content}>
-          {children}
-        </div>
+        <div className={classes.projectmenu_sideoperation_content}></div>
       </div>
     </aside>
   );

@@ -17,6 +17,7 @@ import {
 import ChartBar from "./lib/components/Chart/ChartBar";
 import ChartRadar from "./lib/components/Chart/ChartRadar";
 import ProjectMenu from "./lib/components/ProjectMenu/ProjectMenu";
+import useProjectMenu from "./lib/hooks/useProjectMenu";
 
 const App = () => {
   const [styleMenu, setStyleMenu] = useState(
@@ -29,6 +30,8 @@ const App = () => {
   const projectMenuClickHandler = (idProject) => {
     alert(idProject);
   };
+
+  const { items: pjItems } = useProjectMenu();
 
   const columns = [
     { dbField: "IDOBJ", label: "IDOBJ", order: 0 },
@@ -90,149 +93,6 @@ const App = () => {
       Soggetti_Indirizzo: null,
     },
     {
-      IDOBJ: 3.0,
-      AZIENDA: "00000000000",
-      S_INS: "2023-07-12T10:23:23.16",
-      S_VAR: "2023-07-12T10:23:23.16",
-      Soggetti_ScadenzaOBJ: "2999-12-31T00:00:00",
-      Soggetti_Codice: null,
-      Soggetti_Tipo: null,
-      Soggetti_Titolo: null,
-      Soggetti_Nome1: "Davide",
-      Soggetti_Nome2: "Sciarpa",
-      Soggetti_Indirizzo: null,
-    },
-    {
-      IDOBJ: 2.0,
-      AZIENDA: "00000000000",
-      S_INS: "2023-07-12T10:23:23.16",
-      S_VAR: "2023-07-12T10:23:23.16",
-      Soggetti_ScadenzaOBJ: "2999-12-31T00:00:00",
-      Soggetti_Codice: null,
-      Soggetti_Tipo: null,
-      Soggetti_Titolo: null,
-      Soggetti_Nome1: "Mirko",
-      Soggetti_Nome2: "Sciarpa",
-      Soggetti_Indirizzo: null,
-    },
-    {
-      IDOBJ: 2.0,
-      AZIENDA: "00000000000",
-      S_INS: "2023-07-12T10:23:23.16",
-      S_VAR: "2023-07-12T10:23:23.16",
-      Soggetti_ScadenzaOBJ: "2999-12-31T00:00:00",
-      Soggetti_Codice: null,
-      Soggetti_Tipo: null,
-      Soggetti_Titolo: null,
-      Soggetti_Nome1: "Mirko",
-      Soggetti_Nome2: "Sciarpa",
-      Soggetti_Indirizzo: null,
-    },
-    {
-      IDOBJ: 3.0,
-      AZIENDA: "00000000000",
-      S_INS: "2023-07-12T10:23:23.16",
-      S_VAR: "2023-07-12T10:23:23.16",
-      Soggetti_ScadenzaOBJ: "2999-12-31T00:00:00",
-      Soggetti_Codice: null,
-      Soggetti_Tipo: null,
-      Soggetti_Titolo: null,
-      Soggetti_Nome1: "Davide",
-      Soggetti_Nome2: "Sciarpa",
-      Soggetti_Indirizzo: null,
-    },
-    {
-      IDOBJ: 2.0,
-      AZIENDA: "00000000000",
-      S_INS: "2023-07-12T10:23:23.16",
-      S_VAR: "2023-07-12T10:23:23.16",
-      Soggetti_ScadenzaOBJ: "2999-12-31T00:00:00",
-      Soggetti_Codice: null,
-      Soggetti_Tipo: null,
-      Soggetti_Titolo: null,
-      Soggetti_Nome1: "Mirko",
-      Soggetti_Nome2: "Sciarpa",
-      Soggetti_Indirizzo: null,
-    },
-    {
-      IDOBJ: 2.0,
-      AZIENDA: "00000000000",
-      S_INS: "2023-07-12T10:23:23.16",
-      S_VAR: "2023-07-12T10:23:23.16",
-      Soggetti_ScadenzaOBJ: "2999-12-31T00:00:00",
-      Soggetti_Codice: null,
-      Soggetti_Tipo: null,
-      Soggetti_Titolo: null,
-      Soggetti_Nome1: "Mirko",
-      Soggetti_Nome2: "Sciarpa",
-      Soggetti_Indirizzo: null,
-    },
-    {
-      IDOBJ: 3.0,
-      AZIENDA: "00000000000",
-      S_INS: "2023-07-12T10:23:23.16",
-      S_VAR: "2023-07-12T10:23:23.16",
-      Soggetti_ScadenzaOBJ: "2999-12-31T00:00:00",
-      Soggetti_Codice: null,
-      Soggetti_Tipo: null,
-      Soggetti_Titolo: null,
-      Soggetti_Nome1: "Davide",
-      Soggetti_Nome2: "Sciarpa",
-      Soggetti_Indirizzo: null,
-    },
-    {
-      IDOBJ: 2.0,
-      AZIENDA: "00000000000",
-      S_INS: "2023-07-12T10:23:23.16",
-      S_VAR: "2023-07-12T10:23:23.16",
-      Soggetti_ScadenzaOBJ: "2999-12-31T00:00:00",
-      Soggetti_Codice: null,
-      Soggetti_Tipo: null,
-      Soggetti_Titolo: null,
-      Soggetti_Nome1: "Mirko",
-      Soggetti_Nome2: "Sciarpa",
-      Soggetti_Indirizzo: null,
-    },
-    {
-      IDOBJ: 2.0,
-      AZIENDA: "00000000000",
-      S_INS: "2023-07-12T10:23:23.16",
-      S_VAR: "2023-07-12T10:23:23.16",
-      Soggetti_ScadenzaOBJ: "2999-12-31T00:00:00",
-      Soggetti_Codice: null,
-      Soggetti_Tipo: null,
-      Soggetti_Titolo: null,
-      Soggetti_Nome1: "Mirko",
-      Soggetti_Nome2: "Sciarpa",
-      Soggetti_Indirizzo: null,
-    },
-    {
-      IDOBJ: 3.0,
-      AZIENDA: "00000000000",
-      S_INS: "2023-07-12T10:23:23.16",
-      S_VAR: "2023-07-12T10:23:23.16",
-      Soggetti_ScadenzaOBJ: "2999-12-31T00:00:00",
-      Soggetti_Codice: null,
-      Soggetti_Tipo: null,
-      Soggetti_Titolo: null,
-      Soggetti_Nome1: "Davide",
-      Soggetti_Nome2: "Sciarpa",
-      Soggetti_Indirizzo: null,
-    },
-    {
-      IDOBJ: 2.0,
-      AZIENDA: "00000000000",
-      S_INS: "2023-07-12T10:23:23.16",
-      S_VAR: "2023-07-12T10:23:23.16",
-      Soggetti_ScadenzaOBJ: "2999-12-31T00:00:00",
-      Soggetti_Codice: null,
-      Soggetti_Tipo: null,
-      Soggetti_Titolo: null,
-      Soggetti_Nome1: "Mirko",
-      Soggetti_Nome2: "Sciarpa",
-      Soggetti_Indirizzo: null,
-    },
-    {
       IDOBJ: 2.0,
       AZIENDA: "00000000000",
       S_INS: "2023-07-12T10:23:23.16",
@@ -286,26 +146,9 @@ const App = () => {
     },
   ];
 
-  const itemspj = [
-    {
-      id: 0,
-      label: "Anni",
-      img: "calendar",
-      function: () => {
-        console.log("click anni");
-      },
-    },
-    {
-      id: 1,
-      label: "Contabilizzazione",
-      img: "print",
-      function: () => {
-        console.log("click stampa");
-      },
-    },
-  ];
   const itemsSearch = ["Soggetti_Nome1", "Soggetti_Nome2"];
-
+  console.log("------");
+  console.log(pjItems);
   return (
     <>
       <CssStruct url="http://192.168.2.159:8011/css">
@@ -415,7 +258,7 @@ const App = () => {
             </FrameInRow>
           </Frame>
         </ContentForm>
-        <ProjectMenu items={itemspj} onClick={projectMenuClickHandler} />
+        <ProjectMenu items={pjItems} onClick={projectMenuClickHandler} />
       </CssStruct>
     </>
   );
