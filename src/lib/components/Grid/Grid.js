@@ -6,6 +6,7 @@ import useGrid from "../../hooks/useGrid";
 
 import Filter from "../Filter/Filter";
 import Button from "../Button/Button";
+import Img from "../Img/Img";
 
 const Grid = ({
   id,
@@ -60,7 +61,9 @@ const Grid = ({
               onClick={insertHandler}
               className={classes.grid_button}
               type="sm"
-            ></Button>
+            >
+              <Img type="add" />
+            </Button>
           )}
           {itemSearch && (
             <Filter

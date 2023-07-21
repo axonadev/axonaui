@@ -1,9 +1,24 @@
 import React from "react";
 import classes from "../style/ProjectMenu.module.css";
 import Img from "../Img/Img";
-const ProjectMenuButton = ({ img, label, gofunction, pathImg = "" }) => {
+const ProjectMenuButton = ({
+  id,
+  img,
+  label,
+  gofunction,
+  onClick,
+  pathImg = "",
+}) => {
+  const onClickHandler = () => {
+    gofunction();
+    onClick(id);
+  };
   return (
-    <div className={classes.projectmenubutton_item} onClick={gofunction}>
+    <div
+      className={classes.projectmenubutton_item}
+      onClick={onClickHandler}
+      idprojectitem={id}
+    >
       <div className={classes.projectmenubutton_item_label}>
         <label>{label}</label>
       </div>

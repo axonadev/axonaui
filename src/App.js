@@ -26,10 +26,15 @@ const App = () => {
     setStyleMenu(stmenu);
   };
 
+  const projectMenuClickHandler = (idProject) => {
+    alert(idProject);
+  };
+
   const columns = [
     { dbField: "IDOBJ", label: "IDOBJ", order: 0 },
     { dbField: "Soggetti_Nome1", label: "Nome", order: 1 },
     { dbField: "Soggetti_Nome2", label: "Cognome", order: 2 },
+    { dbField: "Soggetti_Indirizzo", label: "Indirizzo", order: 3 },
   ];
   const items = [
     {
@@ -43,7 +48,7 @@ const App = () => {
       Soggetti_Titolo: null,
       Soggetti_Nome1: "Emanuele",
       Soggetti_Nome2: "Croce",
-      Soggetti_Indirizzo: null,
+      Soggetti_Indirizzo: "via da qui",
     },
     {
       IDOBJ: 2.0,
@@ -283,6 +288,7 @@ const App = () => {
 
   const itemspj = [
     {
+      id: 0,
       label: "Anni",
       img: "calendar",
       function: () => {
@@ -290,6 +296,7 @@ const App = () => {
       },
     },
     {
+      id: 1,
       label: "Contabilizzazione",
       img: "print",
       function: () => {
@@ -297,7 +304,7 @@ const App = () => {
       },
     },
   ];
-  const itemsSearch = ["Soggetti_Nome1"];
+  const itemsSearch = ["Soggetti_Nome1", "Soggetti_Nome2"];
 
   return (
     <>
@@ -312,11 +319,12 @@ const App = () => {
           pathImg={"http://192.168.2.159:8011/img"}
         />
         <ContentForm sidemenuopen={styleMenu}>
-          <Frame label="Testata" type="form_t">
+          <Frame label="TESTATA" type="form_t">
             <Grid
               id="idGriglia"
               columns={columns}
               items={items}
+              itemSearch={itemsSearch}
               onClickRow={() => {
                 console.log("click");
               }}
@@ -326,7 +334,7 @@ const App = () => {
               }}
             />
           </Frame>
-          <Frame label="Dettaglio" type="form_d">
+          <Frame label="DETTAGLIO" type="form_d">
             <Grid
               id="idGriglia"
               columns={columns}
@@ -342,8 +350,8 @@ const App = () => {
               }}
             />
           </Frame>
-          <Frame label="Dati di prova">
-            <FrameInRow width={[30, 30, 40]}>
+          <Frame label="DATI DI PROVA">
+            <FrameInRow width={[80, 10, 10]}>
               <Input label="prova"></Input>
               <Input label="prova"></Input>
               <Input label="prova"></Input>
@@ -407,7 +415,7 @@ const App = () => {
             </FrameInRow>
           </Frame>
         </ContentForm>
-        <ProjectMenu items={itemspj} />
+        <ProjectMenu items={itemspj} onClick={projectMenuClickHandler} />
       </CssStruct>
     </>
   );

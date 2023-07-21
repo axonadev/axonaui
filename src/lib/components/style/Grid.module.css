@@ -30,7 +30,7 @@
     
 }
 .grid_button{
-    background-color: var(--axn-grid-header-button-background-color);
+    background-color:  var(--axn-grid-header-button-background-color);
     color: var(--axn-grid-header-button-color);
     width: 10vw;
 }
@@ -38,7 +38,10 @@
     background-color: var(--axn-grid-header-button-background-color-hover);
     color: var(--axn-grid-header-button-color-hover);
 }
-
+.grid_button img{
+   width: 20px;
+   height: 20px;
+}
 
 
 .grid_table {

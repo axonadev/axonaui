@@ -6,8 +6,12 @@
 }
 
 .frame_label{
-   text-align: center;
-    border-bottom: none;
+   text-align: left;
+   border-bottom: none;
+  
+   font-weight: 600;
+   padding-left: 15px;
+   font-size: 18px;
 }
 
 .frameinrow{
