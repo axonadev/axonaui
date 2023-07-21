@@ -60,9 +60,7 @@ const Grid = ({
               onClick={insertHandler}
               className={classes.grid_button}
               type="sm"
-            >
-              +
-            </Button>
+            ></Button>
           )}
           {itemSearch && (
             <Filter
@@ -73,28 +71,30 @@ const Grid = ({
           )}
         </div>
       )}
-      <table className={classes.grid_table}>
-        <Row
-          key="INT"
-          columns={columns}
-          type="testata"
-          onClick={onClickHeaderHandler}
-          onDoubleClick={() => {}}
-        />
-        {filteredListItem &&
-          filteredListItem.map((item) => {
-            return (
-              <Row
-                items={item}
-                key={item.IDOBJ}
-                columns={columns}
-                onClick={onClickRowHandler}
-                onDoubleClick={onDoubleClickHandler}
-                rowSelect={rowSelected === item.IDOBJ ? true : false}
-              />
-            );
-          })}
-      </table>
+      <div className={classes.grid_table_content}>
+        <table className={classes.grid_table}>
+          <Row
+            key="INT"
+            columns={columns}
+            type="testata"
+            onClick={onClickHeaderHandler}
+            onDoubleClick={() => {}}
+          />
+          {filteredListItem &&
+            filteredListItem.map((item) => {
+              return (
+                <Row
+                  items={item}
+                  key={item.IDOBJ}
+                  columns={columns}
+                  onClick={onClickRowHandler}
+                  onDoubleClick={onDoubleClickHandler}
+                  rowSelect={rowSelected === item.IDOBJ ? true : false}
+                />
+              );
+            })}
+        </table>
+      </div>
     </div>
   );
 };

@@ -16,6 +16,7 @@ import {
 } from "./lib";
 import ChartBar from "./lib/components/Chart/ChartBar";
 import ChartRadar from "./lib/components/Chart/ChartRadar";
+import ProjectMenu from "./lib/components/ProjectMenu/ProjectMenu";
 
 const App = () => {
   const [styleMenu, setStyleMenu] = useState(
@@ -279,6 +280,23 @@ const App = () => {
       Soggetti_Indirizzo: null,
     },
   ];
+
+  const itemspj = [
+    {
+      label: "Anni",
+      img: "calendar",
+      function: () => {
+        console.log("click anni");
+      },
+    },
+    {
+      label: "Contabilizzazione",
+      img: "print",
+      function: () => {
+        console.log("click stampa");
+      },
+    },
+  ];
   const itemsSearch = ["Soggetti_Nome1"];
 
   return (
@@ -314,6 +332,7 @@ const App = () => {
               columns={columns}
               items={items}
               btn_insert={true}
+              itemSearch={itemsSearch}
               onClickRow={() => {
                 console.log("click");
               }}
@@ -323,7 +342,7 @@ const App = () => {
               }}
             />
           </Frame>
-          <Frame label="Dati di prova" type="form_d">
+          <Frame label="Dati di prova">
             <FrameInRow width={[30, 30, 40]}>
               <Input label="prova"></Input>
               <Input label="prova"></Input>
@@ -388,6 +407,7 @@ const App = () => {
             </FrameInRow>
           </Frame>
         </ContentForm>
+        <ProjectMenu items={itemspj} />
       </CssStruct>
     </>
   );

@@ -1,18 +1,13 @@
-.search{
+.filter_search{
     width: fit-content;
-    margin: 1vh;
 }
-.search_img{
-    width: 30px;
+.filter_search_img{
+    width: 100%;
 }
-.search input{
-    margin: 1vh;
+
+.filter_button{
+   width: 5vw;
+   max-width: 40px;
+   max-height: 40px;
 }
-.button{
-    background-color: var(--axn-primary-color);
-    width: 10vw;
-    max-width: 50px;
-}
-.button:hover{
-    background-color: var(--axn-secondary-color);
-}
+

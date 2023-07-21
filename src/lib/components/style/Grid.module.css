@@ -1,17 +1,18 @@
-.grid_table{
-    width: 100%;
-}
+
 .grid_content{
     width: 100%;
-    overflow: hidden;
-    overflow-y: scroll;
     height: 30vh;
     margin:1vh;
+    margin-top: 0px;
 }
-
+.grid_table_content{
+    width: 100%;
+    height: calc(100% - 25px);
+    overflow: hidden;
+    overflow-y: scroll;
+}
 .grid_filtergrid{
     display: flex;
-
     position: sticky;
     top:0px;
     
@@ -65,21 +66,21 @@
 
 th{
     position: sticky;
-    top: 26px;
+    top: 0px;
 }
 td{
   border-bottom: solid 1px ;
 }
 
-.grid_table .grid_type_t{
+.grid_table_content .grid_type_t{
     background-color: var(--axn-grid-top-header-t-row-background-color);
 }
-.grid_table .grid_type_d{
+.grid_table_content .grid_type_d{
     background-color: var(--axn-grid-top-header-d-row-background-color);
 }
 
-.grid_type_t tr:nth-child(even){background-color: var(--axn-grid-2row-t-background-color)}
-.grid_type_d tr:nth-child(even){background-color: var(--axn-grid-2row-d-background-color)}
+/* .grid_type_t tr:nth-child(even){background-color: var(--axn-grid-2row-t-background-color)}
+.grid_type_d tr:nth-child(even){background-color: var(--axn-grid-2row-d-background-color)} */
   
 .grid_type_t tr:hover {background-color: #ddd; cursor: pointer;}
 .grid_type_d tr:hover {background-color: #ddd; cursor: pointer;}
@@ -95,3 +96,27 @@ td{
     border:1px  var(--axn-grid-row-d-border-color) solid;
     color: var(--axn-grid-header-d-row-color);
 }
+
+  
+  /* Handle */
+  .grid_type_t .grid_table_content::-webkit-scrollbar-thumb {
+    background: var(--axn-grid-header-row-background-color); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  .grid_type_t .grid_table_content::-webkit-scrollbar-thumb:hover {
+    background:var(--axn-grid-header-row-background-color); 
+  }
+
+  /* Handle */
+  .grid_type_d .grid_table_content::-webkit-scrollbar-thumb {
+    background: var(--axn-grid-header-d-row-background-color); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  .grid_type_d .grid_table_content::-webkit-scrollbar-thumb:hover {
+    background:var(--axn-grid-header-d-row-background-color); 
+  }
+  

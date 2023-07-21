@@ -1,0 +1,95 @@
+.projectmenubutton_item{
+
+    width: 100%;
+    height: 50px;
+    float: left;
+    
+    background-color: var(--axn-sidemenu-btn-background-color);
+    cursor: pointer;
+    min-width: 40px;
+    
+    
+    }
+
+    .projectmenubutton_item_div{
+        float: left;
+        min-width: 40px;
+        height: 100%;
+       display:flex;
+       justify-content: center;
+       flex-direction: column;
+       display: flex ;
+       justify-content: center ;
+       flex-direction: column ;
+    }
+
+
+
+
+
+
+
+
+.projectmenu_content{
+    position: absolute;
+    width: 60px;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    background-color: var(--axn-sidemenu-background-color);
+    color: var(--axn-sidemenu-color);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 5px 0px, rgba(0, 0, 0, 0.12) 0px 2px 10px 0px;
+
+}
+
+.projectmenubutton_item{
+    width: 100%;
+    display: flex;
+    grid-template-columns: none;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 1px 59px;
+}
+
+.projectmenubutton_item .projectmenubutton_item_label:nth-child(1) {
+
+}
+
+.projectmenubutton_item_img{
+    width:auto;
+    display:flex;
+    justify-content:center;
+    
+}
+
+.projectmenubutton_item_img img{
+    max-width: 25px;
+    width: 40px;  
+    padding-right: 10px;
+
+}
+.projectmenubutton_item_label{
+     display: none !important; 
+    width: 0px;
+    visibility: hidden;
+
+}
+
+.projectmenubutton_item:hover .projectmenubutton_item_label:nth-child(1) {
+    display: block !important;
+    visibility: visible;
+    background-color: var(--axn-sidemenu-btn-closed-background-color);
+    color:  var(--axn-sidemenu-btn-closed-color);
+    position: relative;
+    width: 100px;
+    padding: 7px;
+    height: 25px;
+    border-radius: 7px;
+    font-size: calc(4px + 1vh);
+    margin-top: 8px;
+    right: 110px;
+    text-align: center;
+    overflow: hidden;
+
+    
+}

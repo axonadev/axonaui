@@ -12,8 +12,10 @@
 .content_body_sidemenuopen{
     
     left:250px;
+    right:60px;
 }
 .content_body_sidemenuclose{
     
     left:60px;
+    right:60px;
 }
