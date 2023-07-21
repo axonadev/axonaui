@@ -16,6 +16,7 @@ import Grid from "./components/Grid/Grid";
 import Folder from "./components/Folder/Folder";
 import ChartLine from "./components/Chart/ChartLine";
 import ChartPie from "./components/Chart/ChartPie";
+import ProjectMenu from "./components/ProjectMenu/ProjectMenu";
 
 export {
   Button,
@@ -36,4 +37,5 @@ export {
   Folder,
   ChartLine,
   ChartPie,
+  ProjectMenu,
 };
