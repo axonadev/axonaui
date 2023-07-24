@@ -23,15 +23,26 @@ const App = () => {
   const [styleMenu, setStyleMenu] = useState(
     localStorage.getItem("axn_sidemenuswitch") === "true" ? true : false
   );
+
   const onSideMenuChangeHandler = (stmenu) => {
     setStyleMenu(stmenu);
   };
 
   const projectMenuClickHandler = (idProject) => {
-    alert(idProject);
+    setFormPj(getFormMenuPj(idProject));
   };
 
-  const { items: pjItems } = useProjectMenu();
+  const projectMenuRequestSubmitHandler = (evt) => {
+    processRequest(evt);
+  };
+
+  const [formPj, setFormPj] = useState(null);
+  const {
+    items: pjItems,
+    getFormMenuPj,
+    processRequest,
+    answerReq,
+  } = useProjectMenu();
 
   const columns = [
     { dbField: "IDOBJ", label: "IDOBJ", order: 0 },
@@ -161,7 +172,7 @@ const App = () => {
           onSideMenuChange={onSideMenuChangeHandler}
           pathImg={"http://192.168.2.159:8011/img"}
         />
-        <ContentForm sidemenuopen={styleMenu}>
+        <ContentForm sidemenuopen={styleMenu} request={answerReq}>
           <Frame label="TESTATA" type="form_t">
             <Grid
               id="idGriglia"
@@ -258,7 +269,13 @@ const App = () => {
             </FrameInRow>
           </Frame>
         </ContentForm>
-        <ProjectMenu items={pjItems} onClick={projectMenuClickHandler} />
+        <ProjectMenu
+          items={pjItems}
+          onClick={projectMenuClickHandler}
+          onRequestSubmit={projectMenuRequestSubmitHandler}
+        >
+          {formPj}
+        </ProjectMenu>
       </CssStruct>
     </>
   );

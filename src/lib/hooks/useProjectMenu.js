@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 const useProjectMenu = () => {
   const [items, setItems] = useState([]);
+  const [answerReq, setAnserReq] = useState([]);
 
   const calendario = () => {
     console.log("funzione esterna");
@@ -28,9 +29,23 @@ const useProjectMenu = () => {
 
     setItems(itemspj);
   }, []);
-
+  const getFormMenuPj = (idItem) => {
+    return <input type="date" />;
+  };
+  const processRequest = (evt) => {
+    setAnserReq([
+      {
+        id: 0,
+        data: "",
+        operazione: "tra",
+      },
+    ]);
+  };
   return {
     items,
+    answerReq,
+    getFormMenuPj,
+    processRequest,
   };
 };
 export default useProjectMenu;

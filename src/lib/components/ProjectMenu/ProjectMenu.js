@@ -1,12 +1,26 @@
-import React, { useState } from "react";
+import React, { Children, useState } from "react";
 import ProjectMenuButton from "./ProjectMenuButton.prv";
 import classes from "../style/ProjectMenu.module.css";
-const ProjectMenu = ({ items, onClick }) => {
+import Button from "../Button/Button";
+const ProjectMenu = ({
+  items,
+  onClick,
+  children,
+  onRequestSubmit,
+  pathImg,
+}) => {
   const [openMenu, setOpenMenu] = useState(false);
 
   const onClickHandler = (idprogectitem) => {
     setOpenMenu(true);
     onClick(idprogectitem);
+  };
+
+  const onClickFormHandler = (evt) => {
+    evt.preventDefault();
+
+    onRequestSubmit(evt);
+    setOpenMenu(false);
   };
 
   const styled = [
@@ -28,6 +42,7 @@ const ProjectMenu = ({ items, onClick }) => {
                 label={item.label}
                 gofunction={item.function}
                 onClick={onClickHandler}
+                pathImg={pathImg}
               />
             );
           })}
@@ -44,7 +59,17 @@ const ProjectMenu = ({ items, onClick }) => {
             X
           </div>
         </div>
-        <div className={classes.projectmenu_sideoperation_content}></div>
+        <div className={classes.projectmenu_sideoperation_content}>
+          <form>
+            {children}
+
+            <div>
+              <Button type="submit" onClick={onClickFormHandler}>
+                Avanti
+              </Button>
+            </div>
+          </form>
+        </div>
       </div>
     </aside>
   );
