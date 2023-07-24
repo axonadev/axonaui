@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "../style/ContentForm.module.css";
+import Form from "../Form/Form";
 
 const ContentForm = ({ children, sidemenuopen }) => {
   const stylecontent = [
@@ -9,6 +10,10 @@ const ContentForm = ({ children, sidemenuopen }) => {
       : classes.content_body_sidemenuclose,
   ];
 
-  return <div className={stylecontent.join(" ")}>{children}</div>;
+  return (
+    <Form>
+      <div className={stylecontent.join(" ")}>{children}</div>
+    </Form>
+  );
 };
 export default ContentForm;

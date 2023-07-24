@@ -90,71 +90,6 @@ const App = () => {
       Soggetti_Nome2: "Sciarpa",
       Soggetti_Indirizzo: null,
     },
-    {
-      IDOBJ: 2.0,
-      AZIENDA: "00000000000",
-      S_INS: "2023-07-12T10:23:23.16",
-      S_VAR: "2023-07-12T10:23:23.16",
-      Soggetti_ScadenzaOBJ: "2999-12-31T00:00:00",
-      Soggetti_Codice: null,
-      Soggetti_Tipo: null,
-      Soggetti_Titolo: null,
-      Soggetti_Nome1: "Mirko",
-      Soggetti_Nome2: "Sciarpa",
-      Soggetti_Indirizzo: null,
-    },
-    {
-      IDOBJ: 2.0,
-      AZIENDA: "00000000000",
-      S_INS: "2023-07-12T10:23:23.16",
-      S_VAR: "2023-07-12T10:23:23.16",
-      Soggetti_ScadenzaOBJ: "2999-12-31T00:00:00",
-      Soggetti_Codice: null,
-      Soggetti_Tipo: null,
-      Soggetti_Titolo: null,
-      Soggetti_Nome1: "Mirko",
-      Soggetti_Nome2: "Sciarpa",
-      Soggetti_Indirizzo: null,
-    },
-    {
-      IDOBJ: 3.0,
-      AZIENDA: "00000000000",
-      S_INS: "2023-07-12T10:23:23.16",
-      S_VAR: "2023-07-12T10:23:23.16",
-      Soggetti_ScadenzaOBJ: "2999-12-31T00:00:00",
-      Soggetti_Codice: null,
-      Soggetti_Tipo: null,
-      Soggetti_Titolo: null,
-      Soggetti_Nome1: "Davide",
-      Soggetti_Nome2: "Sciarpa",
-      Soggetti_Indirizzo: null,
-    },
-    {
-      IDOBJ: 2.0,
-      AZIENDA: "00000000000",
-      S_INS: "2023-07-12T10:23:23.16",
-      S_VAR: "2023-07-12T10:23:23.16",
-      Soggetti_ScadenzaOBJ: "2999-12-31T00:00:00",
-      Soggetti_Codice: null,
-      Soggetti_Tipo: null,
-      Soggetti_Titolo: null,
-      Soggetti_Nome1: "Mirko",
-      Soggetti_Nome2: "Sciarpa",
-      Soggetti_Indirizzo: null,
-    },
-    {
-      IDOBJ: 3.0,
-      AZIENDA: "00000000000",
-      S_INS: "2023-07-12T10:23:23.16",
-      S_VAR: "2023-07-12T10:23:23.16",
-      Soggetti_ScadenzaOBJ: "2999-12-31T00:00:00",
-      Soggetti_Codice: null,
-      Soggetti_Tipo: null,
-      Soggetti_Titolo: null,
-      Soggetti_Nome1: "Davide",
-      Soggetti_Nome2: "Sciarpa",
-      Soggetti_Indirizzo: null,
-    },
   ];
 
   const itemsSearch = ["Soggetti_Nome1", "Soggetti_Nome2"];
@@ -204,6 +139,7 @@ const App = () => {
               }}
             />
           </Frame>
+
           <Frame label="DATI DI PROVA">
             <FrameInRow width={[80, 10, 10]}>
               <Input label="prova"></Input>

@@ -118,11 +118,10 @@ const Form = ({
         onSubmit={formSubmissionHandler}
         id={id}
       >
-        {children}
-
         <Button className={classes.form_save} type="submit" id={id_submit}>
-          <Img type="save" />
+          <Img type="save" pathImg="getlocal" />
         </Button>
+        {children}
       </form>
       {mex && (
         <MessageModal

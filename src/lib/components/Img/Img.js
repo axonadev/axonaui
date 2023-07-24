@@ -7,7 +7,9 @@ const Img = ({ className, id, src, alt, type, pathImg = "" }) => {
     className ? " " + className : "",
   ];
   const urlsite =
-    pathImg === ""
+    pathImg === "getlocal"
+      ? localStorage.getItem("axn_pathimg")
+      : pathImg === ""
       ? window.location.protocol +
         "//" +
         window.location.hostname +

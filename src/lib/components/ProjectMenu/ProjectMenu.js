@@ -2,13 +2,7 @@ import React, { Children, useState } from "react";
 import ProjectMenuButton from "./ProjectMenuButton.prv";
 import classes from "../style/ProjectMenu.module.css";
 import Button from "../Button/Button";
-const ProjectMenu = ({
-  items,
-  onClick,
-  children,
-  onRequestSubmit,
-  pathImg,
-}) => {
+const ProjectMenu = ({ items, onClick, children, onRequestSubmit }) => {
   const [openMenu, setOpenMenu] = useState(false);
 
   const onClickHandler = (idprogectitem) => {
@@ -42,7 +36,6 @@ const ProjectMenu = ({
                 label={item.label}
                 gofunction={item.function}
                 onClick={onClickHandler}
-                pathImg={pathImg}
               />
             );
           })}
