@@ -16,6 +16,10 @@ module.exports = {
           name: "Configuration",
           content: "docs/configuration.md",
         },
+        {
+          name: "API",
+          content: "docs/api.md",
+        },
       ],
     },
     {
