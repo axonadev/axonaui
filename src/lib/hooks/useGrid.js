@@ -5,6 +5,7 @@ const useGrid = () => {
   const [isGridLoading, setIsLoading] = useState(false);
   const [gridError, setError] = useState(null);
   const [listItems, setListItem] = useState([]);
+  const [columns, setColumns] = useState([]);
   const [rootModule, setRootModule] = useState("");
   const [filteredListItem, setFilteredListItem] = useState([]);
   const [selectedRow, setSelectedRow] = useState(0);
@@ -15,8 +16,6 @@ const useGrid = () => {
   const loadGrid = useCallback(async (requestURL, afterLoad) => {
     setIsLoading(true);
     setError(null);
-    setRootModule(requestURL.rootModule);
-
     try {
       const response = await fetch(requestURL.url, {
         method: "GET",
@@ -29,6 +28,25 @@ const useGrid = () => {
       const data = await response.json();
       setListItem(data.Itemset[requestURL.dt_filter]);
       setFilteredListItem(data.Itemset[requestURL.dt_filter]);
+
+      const arrcol = Object.keys(data.Itemset[requestURL.dt_filter][0]);
+
+      const jsoncol = arrcol.map((item) => {
+        return {
+          dbField: item,
+          label: item,
+          order:
+            item === "IDOBJ"
+              ? 0
+              : item === "PIDOBJ"
+              ? 0
+              : item === "AZIENDA"
+              ? 0
+              : 1,
+        };
+      });
+      setColumns(jsoncol);
+
       if (afterLoad === undefined) {
       } else {
         afterLoad(data.Itemset[requestURL.dt_filter]);
@@ -98,6 +116,7 @@ const useGrid = () => {
     isVarIns,
     idVarIns,
     isReload,
+    columns,
     loadGrid,
     selectRow,
     clickRow,

@@ -11,16 +11,26 @@ import Img from "../Img/Img";
 const Grid = ({
   id,
   columns,
-  items,
+  items = null,
   itemSearch,
   btn_insert,
   onDoubleClickRow,
   onClickRow,
   onBtnInsert,
   type = "t",
+  nameView = "",
+  loadGrid = "",
 }) => {
   const [rowSelected, setRowSelected] = useState(0);
-  const { filterGrid, initList, filteredListItem } = useGrid();
+  const {
+    filterGrid,
+    initList,
+    filteredListItem,
+    loadGrid: loadGridint,
+    IsLoading,
+    columns: columnsint,
+    itemsearch: itemsearchint,
+  } = useGrid();
 
   const styles = [classes.grid_content, classes["grid_type_" + type]];
 
@@ -48,9 +58,19 @@ const Grid = ({
     console.log(IDOBJ);
   };
 
+  const requestGrid = {
+    url: loadGrid,
+    dt_filter: nameView,
+  };
+
   useEffect(() => {
-    initList(items);
-  }, [items]);
+    loadGridint(requestGrid);
+  }, []);
+
+  console.log(
+    columns === undefined || columns === null ? true : false,
+    "columns1"
+  );
 
   return (
     <div className={styles.join(" ")}>
@@ -68,7 +88,11 @@ const Grid = ({
           {itemSearch && (
             <Filter
               onFilter={filterGrid}
-              itemSearch={itemSearch}
+              itemSearch={
+                itemSearch === null || itemSearch === undefined
+                  ? itemsearchint
+                  : itemSearch
+              }
               id={idFilter}
             />
           )}
@@ -78,7 +102,9 @@ const Grid = ({
         <table className={classes.grid_table}>
           <Row
             key="INT"
-            columns={columns}
+            columns={
+              columns === undefined || columns === null ? columnsint : columns
+            }
             type="testata"
             onClick={onClickHeaderHandler}
             onDoubleClick={() => {}}
@@ -89,7 +115,11 @@ const Grid = ({
                 <Row
                   items={item}
                   key={item.IDOBJ}
-                  columns={columns}
+                  columns={
+                    columns === undefined || columns === null
+                      ? columnsint
+                      : columns
+                  }
                   onClick={onClickRowHandler}
                   onDoubleClick={onDoubleClickHandler}
                   rowSelect={rowSelected === item.IDOBJ ? true : false}

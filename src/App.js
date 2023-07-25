@@ -16,7 +16,8 @@ import useProjectMenu from "./lib/hooks/useProjectMenu";
 import useForm from "./lib/hooks/useForm";
 
 const App = () => {
-  const nameView = "soggetti";
+  const nameView = "v_soggetti";
+  const nameTable = "soggetti";
 
   const [styleMenu, setStyleMenu] = useState(
     localStorage.getItem("axn_sidemenuswitch") === "true" ? true : false
@@ -45,54 +46,6 @@ const App = () => {
   } = useProjectMenu();
   const { onChangeSelected } = useForm();
 
-  const columns = [
-    { dbField: "IDOBJ", label: "IDOBJ", order: 0 },
-    { dbField: "Soggetti_Nome1", label: "Nome", order: 1 },
-    { dbField: "Soggetti_Nome2", label: "Cognome", order: 2 },
-    { dbField: "Soggetti_Indirizzo", label: "Indirizzo", order: 3 },
-  ];
-  const items = [
-    {
-      IDOBJ: 1.0,
-      AZIENDA: "00000000000",
-      S_INS: "2023-07-12T10:23:23.16",
-      S_VAR: "2023-07-12T10:23:23.16",
-      Soggetti_ScadenzaOBJ: "2999-12-31T00:00:00",
-      Soggetti_Codice: null,
-      Soggetti_Tipo: null,
-      Soggetti_Titolo: null,
-      Soggetti_Nome1: "Emanuele",
-      Soggetti_Nome2: "Croce",
-      Soggetti_Indirizzo: "via da qui",
-    },
-    {
-      IDOBJ: 2.0,
-      AZIENDA: "00000000000",
-      S_INS: "2023-07-12T10:23:23.16",
-      S_VAR: "2023-07-12T10:23:23.16",
-      Soggetti_ScadenzaOBJ: "2999-12-31T00:00:00",
-      Soggetti_Codice: null,
-      Soggetti_Tipo: null,
-      Soggetti_Titolo: null,
-      Soggetti_Nome1: "Mirko",
-      Soggetti_Nome2: "Sciarpa",
-      Soggetti_Indirizzo: null,
-    },
-    {
-      IDOBJ: 3.0,
-      AZIENDA: "00000000000",
-      S_INS: "2023-07-12T10:23:23.16",
-      S_VAR: "2023-07-12T10:23:23.16",
-      Soggetti_ScadenzaOBJ: "2999-12-31T00:00:00",
-      Soggetti_Codice: null,
-      Soggetti_Tipo: null,
-      Soggetti_Titolo: null,
-      Soggetti_Nome1: "Davide",
-      Soggetti_Nome2: "Sciarpa",
-      Soggetti_Indirizzo: null,
-    },
-  ];
-
   const itemsSearch = ["Soggetti_Nome1", "Soggetti_Nome2"];
   return (
     <>
@@ -109,10 +62,14 @@ const App = () => {
         <ContentForm sidemenuopen={styleMenu} request={answerReq}>
           <Frame label="TESTATA" type="form_t">
             <Grid
-              id="idGriglia"
-              columns={columns}
-              items={items}
               itemSearch={itemsSearch}
+              id="idGriglia"
+              loadGrid={
+                "http://192.168.2.159:8811/api/axo_sel/" +
+                localStorage.getItem("axn_token") +
+                "/soggetti/soggettisel/leggisoggetti"
+              }
+              nameView={nameView}
               onClickRow={(IDOBJ) => {
                 setIdobj_T(IDOBJ);
                 onChangeSelected(
@@ -120,7 +77,7 @@ const App = () => {
                     localStorage.getItem("axn_token") +
                     "/soggetti/soggettisel/getrow/" +
                     IDOBJ,
-                  nameView
+                  nameTable
                 );
               }}
               btn_insert={true}
@@ -129,22 +86,7 @@ const App = () => {
               }}
             />
           </Frame>
-          <Frame label="DETTAGLIO" type="form_d">
-            <Grid
-              id="idGriglia"
-              columns={columns}
-              items={items}
-              btn_insert={true}
-              itemSearch={itemsSearch}
-              onClickRow={() => {
-                console.log("click");
-              }}
-              type="d"
-              onDoubleClickRow={() => {
-                console.log("click");
-              }}
-            />
-          </Frame>
+
           <Form
             id="form_t"
             idobj={idobj_T}
