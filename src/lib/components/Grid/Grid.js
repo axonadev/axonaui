@@ -99,7 +99,7 @@ const Grid = ({
         </div>
       )}
       <div className={classes.grid_table_content}>
-        <table className={classes.grid_table}>
+        <table className={classes.grid_table} id={id}>
           <Row
             key="INT"
             columns={

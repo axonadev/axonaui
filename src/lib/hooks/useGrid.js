@@ -29,23 +29,7 @@ const useGrid = () => {
       setListItem(data.Itemset[requestURL.dt_filter]);
       setFilteredListItem(data.Itemset[requestURL.dt_filter]);
 
-      const arrcol = Object.keys(data.Itemset[requestURL.dt_filter][0]);
-
-      const jsoncol = arrcol.map((item) => {
-        return {
-          dbField: item,
-          label: item,
-          order:
-            item === "IDOBJ"
-              ? 0
-              : item === "PIDOBJ"
-              ? 0
-              : item === "AZIENDA"
-              ? 0
-              : 1,
-        };
-      });
-      setColumns(jsoncol);
+      setColumns(data.Itemset["conf_griglia"]);
 
       if (afterLoad === undefined) {
       } else {

@@ -63,7 +63,7 @@ const App = () => {
           <Frame label="TESTATA" type="form_t">
             <Grid
               itemSearch={itemsSearch}
-              id="idGriglia"
+              id="main_t"
               loadGrid={
                 "http://192.168.2.159:8811/api/axo_sel/" +
                 localStorage.getItem("axn_token") +

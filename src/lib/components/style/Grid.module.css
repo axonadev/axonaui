@@ -8,7 +8,7 @@
 .grid_table_content{
     width: 100%;
     height: calc(100% - 25px);
-    overflow: hidden;
+    overflow-x: auto;
     overflow-y: scroll;
 }
 .grid_filtergrid{
@@ -46,7 +46,9 @@
 
 .grid_table {
     border-collapse: collapse;
-    width: 100%;
+    width: max-content;
+    min-width: 100%;
+
   }
   /* 
   .grid_table td, .grid_table th {

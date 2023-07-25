@@ -30,14 +30,14 @@ const Row = ({
   if (columns) {
     columns.map((item) => {
       try {
-        let cStr = items ? items[item.dbField] : "";
+        let cStr = items ? items[item.ConfigGriglie_NomeCampo] : "";
         return item.order === 0
           ? 0
           : cStr.length > 30
           ? (hRow += 2)
           : (hRow += 1);
       } catch (error) {
-        return item.order === 0 ? 0 : (hRow += 1);
+        return item.ConfigGriglie_Ordinamento === 0 ? 0 : (hRow += 1);
       }
     });
   }
@@ -52,21 +52,28 @@ const Row = ({
         {columns &&
           !items &&
           columns.map((item) => {
-            return item.order === 0 ? (
+            return item.ConfigGriglie_Ordinamento === 0 ||
+              item.ConfigGriglie_Dimensione === 0 ? (
               <></>
             ) : (
-              <th key={"l_testata_" + Math.random()}>{item.label}</th>
+              <th
+                key={"l_testata_" + Math.random()}
+                style={{ width: item.ConfigGriglie_Dimensione + "px" }}
+              >
+                {item.ConfigGriglie_Label.replaceAll("_", " ")}
+              </th>
             );
           })}
 
         {columns &&
           items &&
           columns.map((item) => {
-            return item.order === 0 ? (
+            return item.ConfigGriglie_Ordinamento === 0 ||
+              item.ConfigGriglie_Dimensione === 0 ? (
               <></>
             ) : (
               <td key={"l_" + IDOBJ + "_" + Math.random()}>
-                {items[item.dbField]}
+                {items[item.ConfigGriglie_Label]}
               </td>
             );
           })}
