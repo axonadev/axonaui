@@ -18,6 +18,7 @@ import ChartLine from "./components/Chart/ChartLine";
 import ChartPie from "./components/Chart/ChartPie";
 import ProjectMenu from "./components/ProjectMenu/ProjectMenu";
 import Form from "./components/Form/Form";
+import useForm from "./hooks/useForm";
 
 export {
   Button,
@@ -40,4 +41,5 @@ export {
   ChartPie,
   ProjectMenu,
   Form,
+  useForm,
 };
