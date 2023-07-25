@@ -8,8 +8,16 @@ const Button = ({ children, id, onClick, className, type = "md" }) => {
       onClick(evt);
     } catch (error) {}
   };
+
+  const btntype = type === "submit" ? type : "button";
+
   return (
-    <button id={id} className={clsStyle.join(" ")} onClick={onClickHandler}>
+    <button
+      id={id}
+      className={clsStyle.join(" ")}
+      onClick={onClickHandler}
+      type={btntype}
+    >
       {children}
     </button>
   );

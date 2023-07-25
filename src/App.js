@@ -1,28 +1,28 @@
 import React, { useState } from "react";
 import {
-  Filter,
   Grid,
   SideMenu,
   CssStruct,
-  Folder,
   Header,
   ContentForm,
-  ChartLine,
-  Card,
-  ChartPie,
   FrameInRow,
   Frame,
   Input,
+  Form,
 } from "./lib";
-import ChartBar from "./lib/components/Chart/ChartBar";
-import ChartRadar from "./lib/components/Chart/ChartRadar";
+
 import ProjectMenu from "./lib/components/ProjectMenu/ProjectMenu";
 import useProjectMenu from "./lib/hooks/useProjectMenu";
+import useForm from "./lib/hooks/useForm";
 
 const App = () => {
+  const nameView = "soggetti";
+
   const [styleMenu, setStyleMenu] = useState(
     localStorage.getItem("axn_sidemenuswitch") === "true" ? true : false
   );
+
+  const [idobj_T, setIdobj_T] = useState(0);
 
   const onSideMenuChangeHandler = (stmenu) => {
     setStyleMenu(stmenu);
@@ -43,6 +43,7 @@ const App = () => {
     processRequest,
     answerReq,
   } = useProjectMenu();
+  const { onChangeSelected } = useForm();
 
   const columns = [
     { dbField: "IDOBJ", label: "IDOBJ", order: 0 },
@@ -93,8 +94,6 @@ const App = () => {
   ];
 
   const itemsSearch = ["Soggetti_Nome1", "Soggetti_Nome2"];
-  console.log("------");
-  console.log(pjItems);
   return (
     <>
       <CssStruct url="http://192.168.2.159:8011/css">
@@ -114,8 +113,15 @@ const App = () => {
               columns={columns}
               items={items}
               itemSearch={itemsSearch}
-              onClickRow={() => {
-                console.log("click");
+              onClickRow={(IDOBJ) => {
+                setIdobj_T(IDOBJ);
+                onChangeSelected(
+                  "http://192.168.2.159:8811/api/axo_sel/" +
+                    localStorage.getItem("axn_token") +
+                    "/soggetti/soggettisel/getrow/" +
+                    IDOBJ,
+                  nameView
+                );
               }}
               btn_insert={true}
               onDoubleClickRow={() => {
@@ -139,23 +145,30 @@ const App = () => {
               }}
             />
           </Frame>
-
-          <Frame label="DATI DI PROVA">
-            <FrameInRow width={[80, 10, 10]}>
-              <Input label="prova"></Input>
-              <Input label="prova"></Input>
-              <Input label="prova"></Input>
-            </FrameInRow>
-            <FrameInRow width={[30, 30, 40]}>
-              <Input label="prova"></Input>
-              <Input label="prova"></Input>
-              <Input label="prova"></Input>
-            </FrameInRow>
-            <FrameInRow width={[20, 20]}>
-              <Input label="prova"></Input>
-              <Input label="prova"></Input>
-            </FrameInRow>
-          </Frame>
+          <Form
+            id="form_t"
+            idobj={idobj_T}
+            modulo="soggetti"
+            db="soggetti"
+            serverApi="http://192.168.2.159:8811/"
+          >
+            <Frame label="DATI DI PROVA">
+              <FrameInRow width={[80, 10, 10]}>
+                <Input label="prova" id="Soggetti_Nome1"></Input>
+                <Input label="prova" id="Soggetti_Nome2"></Input>
+                <Input label="prova"></Input>
+              </FrameInRow>
+              <FrameInRow width={[30, 30, 40]}>
+                <Input label="prova"></Input>
+                <Input label="prova"></Input>
+                <Input label="prova"></Input>
+              </FrameInRow>
+              <FrameInRow width={[20, 20]}>
+                <Input label="prova"></Input>
+                <Input label="prova"></Input>
+              </FrameInRow>
+            </Frame>
+          </Form>
           <Frame label="Dati di prova">
             <FrameInRow width={[30, 30, 40]}>
               <Input label="prova"></Input>

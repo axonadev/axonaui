@@ -40,6 +40,7 @@ const Input = (props) => {
     isValid: InputIsValid,
     isTouched: InputIsTouched,
     isFocussed: InputIsFocussed,
+    isChanged: InputIsChanged,
     messageError: InputMessageError,
     valueChangeHandler: InputChange,
     inputBlurHandler: InputBlur,

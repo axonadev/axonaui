@@ -11,11 +11,13 @@
 	bottom: 1vh;
 	border-radius: 50%;
 	right: 10vh;
+
 }
 .form_save img {
-	position: relative;
 	width: 40px;
 	margin: 0;
 	padding: 0;
 	left: -10px;
 }
+
+

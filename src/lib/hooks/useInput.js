@@ -8,6 +8,7 @@ const useInput = () => {
   const [isTouched, setIsTouched] = useState(false);
   const [isFocussed, setIsFocussed] = useState(false);
   const [isValid, setIsValid] = useState(true);
+  const [isChanged, setIsChanged] = useState(false);
   const [messageError, setMessageError] = useState("");
   const [validate, setValidate] = useState({});
 
@@ -28,6 +29,7 @@ const useInput = () => {
         } catch (error) {}
       }
     }
+    setIsChanged(true);
   };
   const checkItemChange = (evt) => {
     console.log(evt);
@@ -116,6 +118,7 @@ const useInput = () => {
     messageError,
     isTouched,
     isFocussed,
+    isChanged,
     valueChangeHandler,
     inputBlurHandler,
     inputFocusHandler,

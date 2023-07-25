@@ -22,3 +22,19 @@
     border-radius: 6px;
     
 }
+
+.button_type_submit{
+    z-index: 80;
+	height: 65px;
+	width: 65px !important;
+	position: fixed;
+	bottom: 1vh;
+	border-radius: 50%;
+	right: 10vh;
+}
+.button_type_submit img {
+	width: 40px;
+	margin: 0;
+	padding: 0;
+	left: -10px;
+}

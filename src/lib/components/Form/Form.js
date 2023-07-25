@@ -14,7 +14,7 @@ const Form = ({
   db,
   afterSubmit,
   children,
-  token,
+  token = "",
   serverApi,
 }) => {
   const [mex, setMex] = useState(null);
@@ -26,7 +26,7 @@ const Form = ({
     let obj = JSON.parse(mex.obj);
 
     let data = {
-      Token: token,
+      Token: token === "" ? localStorage.getItem("axn_token") : token,
       Idobj: idobj,
       Modulo: modulo,
       DB: db,
@@ -35,7 +35,7 @@ const Form = ({
     };
     console.log(JSON.stringify(data));
 
-    postData(serverApi + "/api/axo_sel", data).then((data) => {
+    postData(serverApi + "api/axo_sel", data).then((data) => {
       console.log(data.Errore);
       setMex(null);
       if (data.Errore === "") {
@@ -60,8 +60,10 @@ const Form = ({
   const onStophandler = () => {
     setMex(null);
   };
-  const formSubmissionHandler = (evt) => {
-    console.log("submit!!!");
+  const formSubmissionHandler = (evt, idb) => {
+    console.log(evt);
+    console.log(idb);
+
     evt.preventDefault();
     let obj = "";
 
@@ -70,32 +72,45 @@ const Form = ({
     if (pidobj) {
       obj = obj + ',"PIDOBJ":"' + pidobj + '"';
     }
+    if (idobj) {
+      obj = obj + ',"IDOBJ":"' + idobj + '"';
+    }
     for (const item of evt.target.elements) {
       try {
-        if (item.attributes.tipo === undefined) {
+        if (item.id === "") {
         } else {
-          if (item.attributes.tipo.value === "list") {
-            obj =
-              obj +
-              ',"' +
-              item.id +
-              '":"' +
-              item.attributes.list_value.value +
-              '"';
-          } else if (item.attributes.tipo.value === "cbox") {
-            if (item.checked) {
-              obj = obj + ',"' + item.id + '":"true"';
+          try {
+            if (item.attributes.tipo === undefined) {
             } else {
-              obj = obj + ',"' + item.id + '":"false"';
+              if (item.attributes.tipo.value === "list") {
+                obj =
+                  obj +
+                  ',"' +
+                  item.id +
+                  '":"' +
+                  item.attributes.list_value.value +
+                  '"';
+              } else if (item.attributes.tipo.value === "cbox") {
+                if (item.checked) {
+                  obj = obj + ',"' + item.id + '":"true"';
+                } else {
+                  obj = obj + ',"' + item.id + '":"false"';
+                }
+              } else if (item.attributes.tipo.value === "listbox") {
+                obj =
+                  obj +
+                  ',"' +
+                  item.attributes.db.value +
+                  '":[' +
+                  item.value +
+                  "]";
+              } else if (item.attributes.tipo.value === "cboxi") {
+                //non devono andare nel form
+              } else {
+                obj = obj + ',"' + item.id + '":"' + item.value + '"';
+              }
             }
-          } else if (item.attributes.tipo.value === "listbox") {
-            obj =
-              obj + ',"' + item.attributes.db.value + '":[' + item.value + "]";
-          } else if (item.attributes.tipo.value === "cboxi") {
-            //non devono andare nel form
-          } else {
-            obj = obj + ',"' + item.id + '":"' + item.value + '"';
-          }
+          } catch (error) {}
         }
       } catch (error) {}
     }

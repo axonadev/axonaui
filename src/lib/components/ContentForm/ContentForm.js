@@ -10,10 +10,6 @@ const ContentForm = ({ children, sidemenuopen }) => {
       : classes.content_body_sidemenuclose,
   ];
 
-  return (
-    <Form>
-      <div className={stylecontent.join(" ")}>{children}</div>
-    </Form>
-  );
+  return <div className={stylecontent.join(" ")}>{children}</div>;
 };
 export default ContentForm;
