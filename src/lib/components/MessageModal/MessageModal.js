@@ -44,11 +44,12 @@ const MessageModal = ({
           {message && <p>{message}</p>}
           {children && children}
         </div>
-        <footer
+        <footer 
           className={`${classes.messagemodal_actions} ${classes.messagemodal_footer}`}
         >
           {c_buttons.map((item) => {
             return (
+              
               <Button
                 key={item.key}
                 onClick={item.onClick}
@@ -56,8 +57,11 @@ const MessageModal = ({
                   classes[item.type]
                 }`}
               >
+                
                 {item.label}
+              
               </Button>
+              
             );
           })}
         </footer>

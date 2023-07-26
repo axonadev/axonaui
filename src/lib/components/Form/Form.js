@@ -120,7 +120,7 @@ const Form = ({
 
     setMex({
       title: idobj === 0 ? "Inserimento" : "Aggiornamento",
-      label: "salvare il record selezionato?",
+      label: "Salvare il record selezionato?",
       icon: "",
       obj: obj,
     });
@@ -154,7 +154,7 @@ const Form = ({
             },
             {
               key: 2,
-              label: "Avanti",
+              label: "Salva",
               type: "run",
               onClick: onConfirmhandler,
             },
