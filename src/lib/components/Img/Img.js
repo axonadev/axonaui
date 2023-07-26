@@ -6,9 +6,20 @@ const Img = ({ className, id, src, alt, type, pathImg = "" }) => {
     classes.img,
     className ? " " + className : "",
   ];
+
+  const varpath =
+    localStorage.getItem("axn_pathimg") === null ||
+    localStorage.getItem("axn_pathimg") === undefined
+      ? window.location.protocol +
+        "//" +
+        window.location.hostname +
+        (window.location.port ? ":" + window.location.port : "") +
+        "/img"
+      : localStorage.getItem("axn_pathimg");
+
   const urlsite =
     pathImg === "getlocal"
-      ? localStorage.getItem("axn_pathimg")
+      ? varpath
       : pathImg === "" || pathImg === null || pathImg === undefined
       ? window.location.protocol +
         "//" +
