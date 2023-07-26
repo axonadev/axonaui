@@ -11,6 +11,7 @@ import Img from "../Img/Img";
 const Grid = ({
   id,
   columns,
+  stato,
   items = null,
   itemSearch,
   btn_insert,
@@ -47,7 +48,7 @@ const Grid = ({
   };
 
   const insertHandler = () => {
-    onBtnInsert();
+    onBtnInsert(id);
   };
 
   const contentDiv = itemSearch || btn_insert ? true : false;
@@ -67,6 +68,13 @@ const Grid = ({
     loadGridint(requestGrid);
   }, []);
 
+  /* useEffect(() => {
+    try {
+      if(id==="main_t")
+      onClickRow(filteredListItem[0].IDOBJ);
+    } catch (error) {}
+  }, [filteredListItem]); */
+
   console.log(
     columns === undefined || columns === null ? true : false,
     "columns1"
@@ -85,6 +93,9 @@ const Grid = ({
               <Img type="add" />
             </Button>
           )}
+
+          {stato && <label className={classes.grid_labelstato}>{stato}</label>}
+
           {itemSearch && (
             <Filter
               onFilter={filterGrid}

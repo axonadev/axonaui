@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 const useProjectMenu = () => {
   const [items, setItems] = useState([]);
   const [answerReq, setAnserReq] = useState([]);
@@ -10,7 +11,7 @@ const useProjectMenu = () => {
   useEffect(() => {
     const itemspj = [
       {
-        id: 0,
+        id: "anni",
         label: "Anni",
         img: "calendar",
         function: () => {
@@ -18,7 +19,7 @@ const useProjectMenu = () => {
         },
       },
       {
-        id: 1,
+        id: "conta",
         label: "Contabilizzazione",
         img: "print",
         function: () => {

@@ -19,6 +19,9 @@ const App = () => {
   const nameView = "v_soggetti";
   const nameTable = "soggetti";
 
+  const [focusForm, setFocusForm] = useState("");
+  const [statoGriglia, setStatoGriglia] = useState("");
+
   const [styleMenu, setStyleMenu] = useState(
     localStorage.getItem("axn_sidemenuswitch") === "true" ? true : false
   );
@@ -36,6 +39,14 @@ const App = () => {
   const projectMenuRequestSubmitHandler = (evt) => {
     processRequest(evt);
   };
+  const { onChangeSelected, onReset } = useForm();
+  const insertClickHandler = (idGriglia) => {
+    const idform = "form_" + idGriglia.split("_")[1];
+    onReset();
+    setFocusForm(idform);
+    setStatoGriglia("INSERIMENTO");
+    setIdobj_T(0);
+  };
 
   const [formPj, setFormPj] = useState(null);
   const {
@@ -44,7 +55,6 @@ const App = () => {
     processRequest,
     answerReq,
   } = useProjectMenu();
-  const { onChangeSelected } = useForm();
 
   const itemsSearch = ["Soggetti_Nome1", "Soggetti_Nome2"];
   return (
@@ -64,6 +74,7 @@ const App = () => {
             <Grid
               itemSearch={itemsSearch}
               id="main_t"
+              stato={statoGriglia}
               loadGrid={
                 "http://192.168.2.159:8811/api/axo_sel/" +
                 localStorage.getItem("axn_token") +
@@ -72,6 +83,8 @@ const App = () => {
               nameView={nameView}
               onClickRow={(IDOBJ) => {
                 setIdobj_T(IDOBJ);
+                setFocusForm("form_t");
+                setStatoGriglia("");
                 onChangeSelected(
                   "http://192.168.2.159:8811/api/axo_sel/" +
                     localStorage.getItem("axn_token") +
@@ -84,81 +97,31 @@ const App = () => {
               onDoubleClickRow={() => {
                 console.log("click");
               }}
+              onBtnInsert={insertClickHandler}
             />
           </Frame>
 
-          <Form
-            id="form_t"
-            idobj={idobj_T}
-            modulo="soggetti"
-            db="soggetti"
-            serverApi="http://192.168.2.159:8811/"
-          >
-            <Frame label="DATI DI PROVA">
-              <FrameInRow width={[80, 10, 10]}>
-                <Input label="prova" id="Soggetti_Nome1"></Input>
-                <Input label="prova" id="Soggetti_Nome2"></Input>
-                <Input label="prova"></Input>
-              </FrameInRow>
-              <FrameInRow width={[30, 30, 40]}>
-                <Input label="prova"></Input>
-                <Input label="prova"></Input>
-                <Input label="prova"></Input>
-              </FrameInRow>
-              <FrameInRow width={[20, 20]}>
-                <Input label="prova"></Input>
-                <Input label="prova"></Input>
-              </FrameInRow>
-            </Frame>
-          </Form>
-          <Frame label="Dati di prova">
-            <FrameInRow width={[30, 30, 40]}>
-              <Input label="prova"></Input>
-              <Input label="prova"></Input>
-              <Input label="prova"></Input>
-            </FrameInRow>
-            <FrameInRow width={[30, 30, 40]}>
-              <Input label="prova"></Input>
-              <Input label="prova"></Input>
-              <Input label="prova"></Input>
-            </FrameInRow>
-            <FrameInRow width={[20, 20]}>
-              <Input label="prova"></Input>
-              <Input label="prova"></Input>
-            </FrameInRow>
-          </Frame>
-          <Frame label="Dati di prova">
-            <FrameInRow width={[30, 30, 40]}>
-              <Input label="prova"></Input>
-              <Input label="prova"></Input>
-              <Input label="prova"></Input>
-            </FrameInRow>
-            <FrameInRow width={[30, 30, 40]}>
-              <Input label="prova"></Input>
-              <Input label="prova"></Input>
-              <Input label="prova"></Input>
-            </FrameInRow>
-            <FrameInRow width={[20, 20]}>
-              <Input label="prova"></Input>
-              <Input label="prova"></Input>
-            </FrameInRow>
-          </Frame>
-          <Frame label="Dati di prova">
-            <FrameInRow width={[30, 30, 40]}>
-              <Input label="prova"></Input>
-              <Input label="prova"></Input>
-              <Input label="prova"></Input>
-            </FrameInRow>
-            <FrameInRow width={[30, 30, 40]}>
-              <Input label="prova"></Input>
-              <Input label="prova"></Input>
-              <Input label="prova"></Input>
-            </FrameInRow>
-            <FrameInRow width={[20, 20]}>
-              <Input label="prova"></Input>
-              <Input label="prova"></Input>
-            </FrameInRow>
-          </Frame>
+          {focusForm === "form_t" && (
+            <Form
+              id="form_t"
+              idobj={idobj_T}
+              modulo="soggetti"
+              db="soggetti"
+              serverApi="http://192.168.2.159:8811/"
+            >
+              <Frame label="DATI DI PROVA">
+                <FrameInRow width={[80, 10, 10]}>
+                  <Input label="prova" id="Soggetti_Nome1"></Input>
+                  <Input label="prova" id="Soggetti_Nome2"></Input>
+                  <Input
+                    label="prova"
+                    type="date"
+                    id="Soggetti_ScadenzaOBJ"
+                  ></Input>
+                </FrameInRow>
+              </Frame>
+            </Form>
+          )}
         </ContentForm>
         <ProjectMenu
           items={pjItems}

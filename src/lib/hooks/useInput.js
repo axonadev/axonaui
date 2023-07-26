@@ -66,6 +66,10 @@ const useInput = () => {
   };
 
   const setValue = (value) => {
+    if (value === undefined) {
+    } else {
+      // alert(value);
+    }
     setEnteredValue(value);
   };
 
