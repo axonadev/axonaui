@@ -21,6 +21,7 @@ const Grid = ({
   type = "t",
   nameView = "",
   loadGrid = "",
+  reload = 0,
 }) => {
   const [rowSelected, setRowSelected] = useState(0);
   const {
@@ -66,7 +67,7 @@ const Grid = ({
 
   useEffect(() => {
     loadGridint(requestGrid);
-  }, []);
+  }, [reload]);
 
   /* useEffect(() => {
     try {
