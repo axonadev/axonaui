@@ -28,9 +28,10 @@
     
 }
 .grid_buttonoperation{
-    width: 100px;
+    width: auto;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 32px 32px;
+    
 }
 .grid_button{
     background-color:  var(--axn-grid-header-button-background-color);

@@ -204,6 +204,56 @@ const App = () => {
                   <Input label="Conto Acquisti" id="Ive_ContoAcquisti"></Input>
                 </FrameInRow>
               </Frame>
+              <Frame label="CONTABILITÀ">
+                <FrameInRow width={[30, 30, 40]}>
+                  <Input
+                    label="Conto Ideducibile"
+                    id="Ive_ContoIndeducibile"
+                  ></Input>
+                  <Input label="Conto Vendite" id="Ive_ContoVendite"></Input>
+                  <Input label="Conto Acquisti" id="Ive_ContoAcquisti"></Input>
+                </FrameInRow>
+              </Frame>
+              <Frame label="CONTABILITÀ">
+                <FrameInRow width={[30, 30, 40]}>
+                  <Input
+                    label="Conto Ideducibile"
+                    id="Ive_ContoIndeducibile"
+                  ></Input>
+                  <Input label="Conto Vendite" id="Ive_ContoVendite"></Input>
+                  <Input label="Conto Acquisti" id="Ive_ContoAcquisti"></Input>
+                </FrameInRow>
+              </Frame>
+              <Frame label="CONTABILITÀ">
+                <FrameInRow width={[30, 30, 40]}>
+                  <Input
+                    label="Conto Ideducibile"
+                    id="Ive_ContoIndeducibile"
+                  ></Input>
+                  <Input label="Conto Vendite" id="Ive_ContoVendite"></Input>
+                  <Input label="Conto Acquisti" id="Ive_ContoAcquisti"></Input>
+                </FrameInRow>
+              </Frame>
+              <Frame label="CONTABILITÀ">
+                <FrameInRow width={[30, 30, 40]}>
+                  <Input
+                    label="Conto Ideducibile"
+                    id="Ive_ContoIndeducibile"
+                  ></Input>
+                  <Input label="Conto Vendite" id="Ive_ContoVendite"></Input>
+                  <Input label="Conto Acquisti" id="Ive_ContoAcquisti"></Input>
+                </FrameInRow>
+              </Frame>
+              <Frame label="CONTABILITÀ">
+                <FrameInRow width={[30, 30, 40]}>
+                  <Input
+                    label="Conto Ideducibile"
+                    id="Ive_ContoIndeducibile"
+                  ></Input>
+                  <Input label="Conto Vendite" id="Ive_ContoVendite"></Input>
+                  <Input label="Conto Acquisti" id="Ive_ContoAcquisti"></Input>
+                </FrameInRow>
+              </Frame>
             </Form>
           )}
         </ContentForm>

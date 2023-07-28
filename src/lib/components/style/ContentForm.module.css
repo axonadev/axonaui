@@ -1,12 +1,13 @@
 .content_body{
-    height: calc(100vh - var(--axn-height-top));
+    height: calc(100vh - var(--axn-height-top) - 70px);
     background-color: var(--axn-primary-text-color);
     position: absolute;
     top:  var(--axn-height-top);
+    bottom: 50px;
     z-index: -10;
-    overflow-y: scroll;    
     right: 0px;
     transition: 1s left;
+    overflow-y: hidden;
 }
 
 .content_body_sidemenuopen{

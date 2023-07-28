@@ -1,6 +1,6 @@
 .button{
     border-radius: 7px;
-    border:1px solid;
+    border:1px solid  var(--axn-primary-color);;
     background-color: var(--axn-primary-color);
     color:var(--axn-primary-text-color) ;
     overflow: hidden;
@@ -18,8 +18,15 @@
 
 .button_type_sm{
     padding: 5px;
-    width: auto !important;
+    width: 30px !important;
+    height: 25px;
     border-radius: 6px;
+    
+}
+.button_type_sm img{
+    width: 15px !important;
+    max-height: 15px;
+    height: auto;    
     
 }
 

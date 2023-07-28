@@ -64,7 +64,6 @@ const Form = ({
   const onStophandler = () => {
     setMex(null);
     setMexAnnulla(null);
-  
   };
   const formSubmissionHandler = (evt, idb) => {
     console.log(evt);
@@ -132,22 +131,20 @@ const Form = ({
     });
   };
 
-  const clickAnnulla=()=>{
+  const clickAnnulla = () => {
     setMexAnnulla({
       title: "Annulla",
       label: "Le tue modifiche verranno perse, continuare?",
       icon: "",
-     
     });
-   
-  }
-  const onConfirmAnnulla=()=>{
+  };
+  const onConfirmAnnulla = () => {
     setMexAnnulla(null);
     onAnnulla();
-        }
+  };
   return (
     <React.Fragment>
-<Folder items={folders}></Folder>
+      <Folder items={folders}></Folder>
       <form
         className={classes.form_content}
         onSubmit={formSubmissionHandler}
@@ -156,11 +153,14 @@ const Form = ({
         <Button className={classes.form_save} type="submit" id={id_submit}>
           <Img type="save" pathImg="getlocal" />
         </Button>
-        <Button className={classes.form_annulla} onClick={clickAnnulla} id={id_submit}>
+        <Button
+          className={classes.form_annulla}
+          onClick={clickAnnulla}
+          id={id_submit}
+        >
           <Img type="annulla" pathImg="getlocal" />
         </Button>
-        
-        {children}
+        <div className={classes.form_body}>{children}</div>
       </form>
       {mex && (
         <MessageModal
@@ -185,7 +185,7 @@ const Form = ({
           ]}
         />
       )}
-       {mexAnnulla && (
+      {mexAnnulla && (
         <MessageModal
           onClickBtn1={onConfirmAnnulla}
           onClickBtn2={onStophandler}

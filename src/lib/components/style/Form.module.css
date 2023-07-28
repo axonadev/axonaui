@@ -2,35 +2,41 @@
 	width: 100%;
 	margin-bottom: 50px;
 	height: fit-content;
+	overflow-y: auto;
+}
+.form_body{
+
+    height: 450px;
+	overflow-y: auto;
 }
 .form_save {
 	z-index: 80;
-	height: 65px;
+	height: 45px;
 	width: 65px !important;
 	position: fixed;
 	bottom: 1vh;
-	border-radius: 50%;
-	right: 5vw;
+	border-radius: 7px;
+	right: 90px;
 
 }
 .form_save img {
-	width: 40px;
+	width: 25px;
 	margin: 0;
 	padding: 0;
 	left: -10px;
 }
 .form_annulla {
 	z-index: 80;
-	height: 65px;
+	height: 45px;
 	width: 65px !important;
 	position: fixed;
 	bottom: 1vh;
-	border-radius: 50%;
-	right: 9vw;
+	border-radius: 7px;
+	right: 170px;
 
 }
 .form_annulla img {
-	width: 40px;
+	width: 25px;
 	margin: 0;
 	padding: 0;
 	left: -10px;
