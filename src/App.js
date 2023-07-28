@@ -58,6 +58,9 @@ const App = () => {
     setIdobj_T(0);
   };
 
+  const deleteClickHandler = (idGriglia) => {
+    console.log(idGriglia);
+  };
   const [formPj, setFormPj] = useState(null);
   const {
     items: pjItems,
@@ -80,11 +83,10 @@ const App = () => {
           pathImg={"http://192.168.2.159:8011/img"}
         />
         <ContentForm sidemenuopen={styleMenu} request={answerReq}>
-          <Frame label="TESTATA" type="form_t">
+          <Frame label="TESTATA" type="form_t" stato={statoGriglia}>
             <Grid
               itemSearch={itemsSearch}
               id="main_t"
-              stato={statoGriglia}
               loadGrid={
                 "http://192.168.2.159:8811/api/axo_sel/" +
                 localStorage.getItem("axn_token") +
@@ -116,6 +118,7 @@ const App = () => {
                 console.log("click");
               }}
               onBtnInsert={insertClickHandler}
+              onBtnDelete={deleteClickHandler}
               reload={reloadGriglia}
             />
           </Frame>
