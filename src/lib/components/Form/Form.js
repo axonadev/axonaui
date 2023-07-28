@@ -16,8 +16,10 @@ const Form = ({
   children,
   token = "",
   serverApi,
+  onAnnulla,
 }) => {
   const [mex, setMex] = useState(null);
+  const [mexAnnulla, setMexAnnulla] = useState(null);
   const [isSnackBar, setSnackBar] = useState(null);
   const id_submit = "b_submit_" + id;
 
@@ -59,6 +61,8 @@ const Form = ({
 
   const onStophandler = () => {
     setMex(null);
+    setMexAnnulla(null);
+  
   };
   const formSubmissionHandler = (evt, idb) => {
     console.log(evt);
@@ -126,6 +130,19 @@ const Form = ({
     });
   };
 
+  const clickAnnulla=()=>{
+    setMexAnnulla({
+      title: "Annulla",
+      label: "Le tue modifiche verranno perse, continuare?",
+      icon: "",
+     
+    });
+   
+  }
+  const onConfirmAnnulla=()=>{
+    setMexAnnulla(null);
+    onAnnulla();
+        }
   return (
     <React.Fragment>
       <form
@@ -136,6 +153,10 @@ const Form = ({
         <Button className={classes.form_save} type="submit" id={id_submit}>
           <Img type="save" pathImg="getlocal" />
         </Button>
+        <Button className={classes.form_annulla} onClick={clickAnnulla} id={id_submit}>
+          <Img type="annulla" pathImg="getlocal" />
+        </Button>
+        
         {children}
       </form>
       {mex && (
@@ -157,6 +178,29 @@ const Form = ({
               label: "Salva",
               type: "run",
               onClick: onConfirmhandler,
+            },
+          ]}
+        />
+      )}
+       {mexAnnulla && (
+        <MessageModal
+          onClickBtn1={onConfirmAnnulla}
+          onClickBtn2={onStophandler}
+          onOut={onStophandler}
+          title={mexAnnulla.title}
+          message={mexAnnulla.label}
+          buttons={[
+            {
+              key: 1,
+              label: "No",
+              type: "stop",
+              onClick: onStophandler,
+            },
+            {
+              key: 2,
+              label: "Si",
+              type: "run",
+              onClick: onConfirmAnnulla,
             },
           ]}
         />
