@@ -13,8 +13,6 @@
 }
 .grid_filtergrid{
     display: flex;
-    position: sticky;
-    top:0px;
     
 }
 .grid_type_t .grid_filtergrid{
@@ -28,6 +26,11 @@
     margin:0px !important;
     float: right;
     
+}
+.grid_buttonoperation{
+    width: 100px;
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 .grid_button{
     background-color:  var(--axn-grid-header-button-background-color);

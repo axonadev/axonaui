@@ -16,7 +16,11 @@ const Filter = ({ id, itemSearch, onFilter }) => {
     <React.Fragment>
       <Input className={classes.filter_search} id={idFilter}></Input>
       <Button onClick={clickSearchHandler} className={classes.filter_button}>
-        <Img type="find" className={classes.filter_search_img}></Img>
+        <Img
+          type="find"
+          className={classes.filter_search_img}
+          pathImg="getlocal"
+        ></Img>
       </Button>
     </React.Fragment>
   );

@@ -11,13 +11,13 @@ import Img from "../Img/Img";
 const Grid = ({
   id,
   columns,
-  stato,
   items = null,
   itemSearch,
   btn_insert,
   onDoubleClickRow,
   onClickRow,
   onBtnInsert,
+  onBtnDelete,
   type = "t",
   nameView = "",
   loadGrid = "",
@@ -51,6 +51,9 @@ const Grid = ({
   const insertHandler = () => {
     onBtnInsert(id);
   };
+  const deleteHandler = () => {
+    onBtnDelete(id);
+  };
 
   const contentDiv = itemSearch || btn_insert ? true : false;
 
@@ -82,65 +85,74 @@ const Grid = ({
   );
 
   return (
-    <div className={styles.join(" ")}>
-      {contentDiv && (
-        <div className={classes.grid_filtergrid}>
-          {btn_insert && (
-            <Button
-              onClick={insertHandler}
-              className={classes.grid_button}
-              type="sm"
-            >
-              <Img type="add" />
-            </Button>
-          )}
+    <>
+      <div className={styles.join(" ")}>
+        {contentDiv && (
+          <div className={classes.grid_filtergrid}>
+            {btn_insert && (
+              <div className={classes.grid_buttonoperation}>
+                <Button
+                  onClick={insertHandler}
+                  className={classes.grid_button}
+                  type="sm"
+                >
+                  <Img type="add" pathImg="getlocal" />
+                </Button>
+                <Button
+                  onClick={deleteHandler}
+                  className={classes.grid_button}
+                  type="sm"
+                >
+                  <Img type="delete" pathImg="getlocal" />
+                </Button>
+              </div>
+            )}
 
-          {stato && <label className={classes.grid_labelstato}>{stato}</label>}
-
-          {itemSearch && (
-            <Filter
-              onFilter={filterGrid}
-              itemSearch={
-                itemSearch === null || itemSearch === undefined
-                  ? itemsearchint
-                  : itemSearch
+            {itemSearch && (
+              <Filter
+                onFilter={filterGrid}
+                itemSearch={
+                  itemSearch === null || itemSearch === undefined
+                    ? itemsearchint
+                    : itemSearch
+                }
+                id={idFilter}
+              />
+            )}
+          </div>
+        )}
+        <div className={classes.grid_table_content}>
+          <table className={classes.grid_table} id={id}>
+            <Row
+              key="INT"
+              columns={
+                columns === undefined || columns === null ? columnsint : columns
               }
-              id={idFilter}
+              type="testata"
+              onClick={onClickHeaderHandler}
+              onDoubleClick={() => {}}
             />
-          )}
+            {filteredListItem &&
+              filteredListItem.map((item) => {
+                return (
+                  <Row
+                    items={item}
+                    key={item.IDOBJ}
+                    columns={
+                      columns === undefined || columns === null
+                        ? columnsint
+                        : columns
+                    }
+                    onClick={onClickRowHandler}
+                    onDoubleClick={onDoubleClickHandler}
+                    rowSelect={rowSelected === item.IDOBJ ? true : false}
+                  />
+                );
+              })}
+          </table>
         </div>
-      )}
-      <div className={classes.grid_table_content}>
-        <table className={classes.grid_table} id={id}>
-          <Row
-            key="INT"
-            columns={
-              columns === undefined || columns === null ? columnsint : columns
-            }
-            type="testata"
-            onClick={onClickHeaderHandler}
-            onDoubleClick={() => {}}
-          />
-          {filteredListItem &&
-            filteredListItem.map((item) => {
-              return (
-                <Row
-                  items={item}
-                  key={item.IDOBJ}
-                  columns={
-                    columns === undefined || columns === null
-                      ? columnsint
-                      : columns
-                  }
-                  onClick={onClickRowHandler}
-                  onDoubleClick={onDoubleClickHandler}
-                  rowSelect={rowSelected === item.IDOBJ ? true : false}
-                />
-              );
-            })}
-        </table>
       </div>
-    </div>
+    </>
   );
 };
 export default Grid;
