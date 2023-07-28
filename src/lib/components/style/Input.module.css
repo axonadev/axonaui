@@ -16,10 +16,10 @@
 }
 .input_input input{
     width: calc(100% - 8px);
-    font-size: 25px;
+    font-size:  var(--axn-input-font-size);
     border: var(--axn-input-border-color) 1px solid;
     border-radius: 3px;
-    height: 35px;
+    height: calc(var(--axn-input-font-size) + 5px);
 }
 .input_input input:hover{
     border: var(--axn-input-border-color-hover) 1px solid;
