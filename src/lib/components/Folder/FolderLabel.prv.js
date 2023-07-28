@@ -1,14 +1,14 @@
 import React from "react";
-const FolderLabel = ({ onClick, target, children }) => {
-  const clickHandler = () => {
-    onClick(target);
-  };
+const FolderLabel = ({ target, children, onClick}) => {
 
+  const onClickHandler =()=>{
+    onClick(target);
+  }
   return (
     <React.Fragment>
-      <div onClick={clickHandler}>
+      <a href={"#"+target} onClick={onClickHandler}>
         <label>{children}</label>
-      </div>
+      </a>
     </React.Fragment>
   );
 };
