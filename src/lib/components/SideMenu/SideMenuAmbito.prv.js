@@ -50,7 +50,7 @@ const SideMenuAmbito = ({
                 label={item.Moduli_Nome}
                 src={item.Moduli_Icona}
                 onClick={selProgetto}
-                path={item.Moduli_IndirizzoModulo}
+                path={"../" + item.Moduli_IndirizzoModulo}
               />
             );
           })}
