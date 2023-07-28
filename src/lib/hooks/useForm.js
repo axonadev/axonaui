@@ -47,17 +47,11 @@ const useForm = () => {
           idfield.map((item) => {
             try {
               if (document.getElementById(item).type === "date") {
-                console.log(document.getElementById(item));
-                /* document.getElementById(item).value = formatDate(
-                  datarow[0][item],
-                  "dd-MM-yyyy"
-                ); */
-
-                const dt = new Date("2024-08-02");
-
-                console.log(dt);
-                document.getElementById(item).value = formatDate(dt);
-                console.log(document.getElementById(item));
+                document.getElementById(item).value = formatDate(
+                  datarow[0][item]
+                );
+              } else if (document.getElementById(item).type === "checkbox") {
+                document.getElementById(item).checked = datarow[0][item];
               } else {
                 document.getElementById(item).value = datarow[0][item];
               }

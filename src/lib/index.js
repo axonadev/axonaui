@@ -3,6 +3,8 @@ import Img from "./components/Img/Img";
 import MessageModal from "./components/MessageModal/MessageModal";
 import Card from "./components/Card/Card";
 import Input from "./components/Input/Input";
+import InputData from "./components/Input/InputData";
+import InputCheckBox from "./components/Input/InputCheckBox";
 import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 import CssStruct from "./components/CssStruct/CssStruct";
 import Header from "./components/Header/Header";
@@ -26,6 +28,8 @@ export {
   MessageModal,
   Card,
   Input,
+  InputData,
+  InputCheckBox,
   LoadingSpinner,
   CssStruct,
   Header,

@@ -1,16 +1,27 @@
 import React, { useEffect } from "react";
 import useInput from "../../hooks/useInput";
 import classes from "../style/Input.module.css";
+import Checklist from "./Checklist";
 
-const Input = ({ value, label, icon, className, id }) => {
+const InputCheckBox = ({
+  value,
+  label,
+  icon,
+  className,
+  id,
+  type,
+  pidobj,
+  list,
+}) => {
   const pers = localStorage.getItem("pers");
 
   let effVal = "";
-
   effVal = value;
 
   const objLabel = label;
   let sTipo = "text";
+
+  const effList = list ? list : null;
 
   const {
     value: InputValue,
@@ -21,13 +32,14 @@ const Input = ({ value, label, icon, className, id }) => {
     inputBlurHandler: InputBlur,
     inputFocusHandler: InputFocus,
     setValue: setInputValue,
+    optionList,
   } = useInput();
 
   const classFocus = InputIsFocussed ? classes["input_focused"] : "";
   const classContent = [
     classes.input,
     classes["input_" + pers],
-    classes["cont_text"],
+    classes["cont_" + type],
   ];
   const classLabel = [classes.input_label, classFocus, className];
   const classDivInput = [
@@ -35,10 +47,18 @@ const Input = ({ value, label, icon, className, id }) => {
     classFocus,
     classes["validate_" + InputIsValid],
   ];
+  const classDivCheckList = [
+    classes.input_checklist,
+    classFocus,
+    classes["validate_" + InputIsValid],
+  ];
+
+  sTipo = "cbox";
 
   useEffect(() => {
     setInputValue(effVal);
-  }, [effVal]);
+    optionList(effList);
+  }, [effVal, effList]);
 
   return (
     <div id={"cont_" + id} className={classContent.join(" ")}>
@@ -50,18 +70,25 @@ const Input = ({ value, label, icon, className, id }) => {
           )}
         </label>
       </div>
-      <div className={classDivInput.join(" ")}>
-        <input
-          id={id}
-          type="text"
-          tipo={sTipo}
-          onChange={InputChange}
-          onBlur={InputBlur}
-          onFocus={InputFocus}
-          value={InputValue}
-        />
-      </div>
+      {type != "checklist" && (
+        <div className={classDivInput.join(" ")}>
+          <input
+            id={id}
+            type="checkbox"
+            tipo={sTipo}
+            onChange={InputChange}
+            onBlur={InputBlur}
+            onFocus={InputFocus}
+            value={InputValue}
+          />
+        </div>
+      )}
+      {type === "checklist" && (
+        <div className={classDivCheckList.join(" ")}>
+          <Checklist list={effList} id={id} pidobj={pidobj} />
+        </div>
+      )}
     </div>
   );
 };
-export default Input;
+export default InputCheckBox;

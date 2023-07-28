@@ -14,6 +14,8 @@ import {
 import ProjectMenu from "./lib/components/ProjectMenu/ProjectMenu";
 import useProjectMenu from "./lib/hooks/useProjectMenu";
 import useForm from "./lib/hooks/useForm";
+import InputData from "./lib/components/Input/InputData";
+import InputCheckBox from "./lib/components/Input/InputCheckBox";
 
 const App = () => {
   const modulo = "ive";
@@ -141,7 +143,17 @@ const App = () => {
                 <FrameInRow width={[80, 10, 10]}>
                   <Input label="prova" id="Ive_Descrizione"></Input>
                   <Input label="prova" id="Ive_Valore"></Input>
-                  <Input label="prova" type="date" id="Ive_ScadenzaOBJ"></Input>
+                  <InputData
+                    label="prova"
+                    type="date"
+                    id="Ive_ScadenzaOBJ"
+                  ></InputData>
+                </FrameInRow>
+                <FrameInRow width={[80, 10, 10]}>
+                  <InputCheckBox
+                    label="prova"
+                    id="Ive_DefaultTestoLibero"
+                  ></InputCheckBox>
                 </FrameInRow>
               </Frame>
             </Form>

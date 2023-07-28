@@ -1,13 +1,20 @@
 import React, { useEffect } from "react";
 import useInput from "../../hooks/useInput";
 import classes from "../style/Input.module.css";
+import { formatDate } from "axonalib";
 
-const Input = ({ value, label, icon, className, id }) => {
+const InputData = ({ value, label, icons, className, id }) => {
   const pers = localStorage.getItem("pers");
 
   let effVal = "";
+  try {
+    console.log(document.getElementById(id).value, "inputdata");
+  } catch (error) {}
 
-  effVal = value;
+  if (value === undefined) {
+  } else {
+    effVal = formatDate(value);
+  }
 
   const objLabel = label;
   let sTipo = "text";
@@ -23,11 +30,16 @@ const Input = ({ value, label, icon, className, id }) => {
     setValue: setInputValue,
   } = useInput();
 
+  let icon = icons;
+  if (icon === null) {
+    icon = "";
+  }
+
   const classFocus = InputIsFocussed ? classes["input_focused"] : "";
   const classContent = [
     classes.input,
     classes["input_" + pers],
-    classes["cont_text"],
+    classes["cont_date"],
   ];
   const classLabel = [classes.input_label, classFocus, className];
   const classDivInput = [
@@ -35,10 +47,18 @@ const Input = ({ value, label, icon, className, id }) => {
     classFocus,
     classes["validate_" + InputIsValid],
   ];
+  const classDivCheckList = [
+    classes.input_checklist,
+    classFocus,
+    classes["validate_" + InputIsValid],
+  ];
 
-  useEffect(() => {
-    setInputValue(effVal);
-  }, [effVal]);
+  /*  useEffect(() => {
+    if (effVal === "") {
+    } else {
+      setInputValue(effVal);
+    }
+  }, [effVal]); */
 
   return (
     <div id={"cont_" + id} className={classContent.join(" ")}>
@@ -53,7 +73,7 @@ const Input = ({ value, label, icon, className, id }) => {
       <div className={classDivInput.join(" ")}>
         <input
           id={id}
-          type="text"
+          type="date"
           tipo={sTipo}
           onChange={InputChange}
           onBlur={InputBlur}
@@ -64,4 +84,4 @@ const Input = ({ value, label, icon, className, id }) => {
     </div>
   );
 };
-export default Input;
+export default InputData;

@@ -73,7 +73,7 @@ const useInput = () => {
     setEnteredValue(value);
   };
 
-  useEffect(() => {
+  /*   useEffect(() => {
     try {
       if (list.length > 0) {
         let rr = list.filter(function (x) {
@@ -85,10 +85,10 @@ const useInput = () => {
       } else {
       }
     } catch (error) {}
-  }, [list]);
+  }, [list]); */
 
   const optionList = (plist) => {
-    let rr = null;
+    /* let rr = null;
 
     if (plist === null || plist === undefined) {
     } else {
@@ -111,7 +111,7 @@ const useInput = () => {
           setList(rr);
         }
       } catch (error) {}
-    }
+    } */
   };
 
   return {
