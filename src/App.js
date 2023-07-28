@@ -9,6 +9,7 @@ import {
   Frame,
   Input,
   Form,
+  Folder,
 } from "./lib";
 
 import ProjectMenu from "./lib/components/ProjectMenu/ProjectMenu";
@@ -29,7 +30,7 @@ const App = () => {
   const [styleMenu, setStyleMenu] = useState(
     localStorage.getItem("axn_sidemenuswitch") === "true" ? true : false
   );
-
+  const itemsFolder=[{key:1,label:"Prova 1", target:"idTarget"},{key:2,label:"Prova 2", target:"idTarget2"}, {key:2,label:"Prova 3", target:"idTarget3"},{key:2,label:"Prova 4", target:"idTarget4"}]
   const [idobj_T, setIdobj_T] = useState(0);
 
   const onSideMenuChangeHandler = (stmenu) => {
@@ -120,6 +121,7 @@ const App = () => {
               idobj={idobj_T}
               modulo={modulo}
               db={modulo}
+              folders={itemsFolder}
               onAnnulla={() => {
                 setReloadGriglia((item) => {
                   return item + 1;
@@ -172,9 +174,123 @@ const App = () => {
                     id="Ive_DefaultTestoLibero"
                   ></InputCheckBox>
                 </FrameInRow>
+              </Frame> <Frame label="DATI DI PROVA target 1" id="idTarget">
+                <FrameInRow width={[80, 10, 10]}>
+                  <Input label="prova" id="Ive_Descrizione"></Input>
+                  <Input label="prova" id="Ive_Valore"></Input>
+                  <InputData
+                    label="prova"
+                    type="date"
+                    id="Ive_ScadenzaOBJ"
+                  ></InputData>
+                </FrameInRow>
+                <FrameInRow width={[80, 10, 10]}>
+                  <InputCheckBox
+                    label="prova"
+                    id="Ive_DefaultTestoLibero"
+                  ></InputCheckBox>
+                </FrameInRow>
+              </Frame> <Frame label="DATI DI PROVA">
+                <FrameInRow width={[80, 10, 10]}>
+                  <Input label="prova" id="Ive_Descrizione"></Input>
+                  <Input label="prova" id="Ive_Valore"></Input>
+                  <InputData
+                    label="prova"
+                    type="date"
+                    id="Ive_ScadenzaOBJ"
+                  ></InputData>
+                </FrameInRow>
+                <FrameInRow width={[80, 10, 10]}>
+                  <InputCheckBox
+                    label="prova"
+                    id="Ive_DefaultTestoLibero"
+                  ></InputCheckBox>
+                </FrameInRow>
+              </Frame> <Frame label="DATI DI PROVA target2" id="idTarget2">
+                <FrameInRow width={[80, 10, 10]}>
+                  <Input label="prova" id="Ive_Descrizione"></Input>
+                  <Input label="prova" id="Ive_Valore"></Input>
+                  <InputData
+                    label="prova"
+                    type="date"
+                    id="Ive_ScadenzaOBJ"
+                  ></InputData>
+                </FrameInRow>
+                <FrameInRow width={[80, 10, 10]}>
+                  <InputCheckBox
+                    label="prova"
+                    id="Ive_DefaultTestoLibero"
+                  ></InputCheckBox>
+                </FrameInRow>
+              </Frame><Frame label="DATI DI PROVA target2" id="idTarget3">
+                <FrameInRow width={[80, 10, 10]}>
+                  <Input label="prova" id="Ive_Descrizione"></Input>
+                  <Input label="prova" id="Ive_Valore"></Input>
+                  <InputData
+                    label="prova"
+                    type="date"
+                    id="Ive_ScadenzaOBJ"
+                  ></InputData>
+                </FrameInRow>
+                <FrameInRow width={[80, 10, 10]}>
+                  <InputCheckBox
+                    label="prova"
+                    id="Ive_DefaultTestoLibero"
+                  ></InputCheckBox>
+                </FrameInRow>
+              </Frame><Frame label="DATI DI PROVA target2" id="idTarget4">
+                <FrameInRow width={[80, 10, 10]}>
+                  <Input label="prova" id="Ive_Descrizione"></Input>
+                  <Input label="prova" id="Ive_Valore"></Input>
+                  <InputData
+                    label="prova"
+                    type="date"
+                    id="Ive_ScadenzaOBJ"
+                  ></InputData>
+                </FrameInRow>
+                <FrameInRow width={[80, 10, 10]}>
+                  <InputCheckBox
+                    label="prova"
+                    id="Ive_DefaultTestoLibero"
+                  ></InputCheckBox>
+                </FrameInRow>
+              </Frame> <Frame label="DATI DI PROVA">
+                <FrameInRow width={[80, 10, 10]}>
+                  <Input label="prova" id="Ive_Descrizione"></Input>
+                  <Input label="prova" id="Ive_Valore"></Input>
+                  <InputData
+                    label="prova"
+                    type="date"
+                    id="Ive_ScadenzaOBJ"
+                  ></InputData>
+                </FrameInRow>
+                <FrameInRow width={[80, 10, 10]}>
+                  <InputCheckBox
+                    label="prova"
+                    id="Ive_DefaultTestoLibero"
+                  ></InputCheckBox>
+                </FrameInRow>
+              </Frame> <Frame label="DATI DI PROVA">
+                <FrameInRow width={[80, 10, 10]}>
+                  <Input label="prova" id="Ive_Descrizione"></Input>
+                  <Input label="prova" id="Ive_Valore"></Input>
+                  <InputData
+                    label="prova"
+                    type="date"
+                    id="Ive_ScadenzaOBJ"
+                  ></InputData>
+                </FrameInRow>
+                <FrameInRow width={[80, 10, 10]}>
+                  <InputCheckBox
+                    label="prova"
+                    id="Ive_DefaultTestoLibero"
+                  ></InputCheckBox>
+                </FrameInRow>
               </Frame>
             </Form>
           )}
+
+         
         </ContentForm>
         <ProjectMenu
           items={pjItems}

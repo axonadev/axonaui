@@ -5,6 +5,7 @@ import MessageModal from "../MessageModal/MessageModal";
 import Button from "../Button/Button";
 import Img from "../Img/Img";
 import SnackBar from "../SnackBar/SnackBar";
+import Folder from "../Folder/Folder";
 
 const Form = ({
   id,
@@ -17,6 +18,7 @@ const Form = ({
   token = "",
   serverApi,
   onAnnulla,
+  folders,
 }) => {
   const [mex, setMex] = useState(null);
   const [mexAnnulla, setMexAnnulla] = useState(null);
@@ -145,6 +147,7 @@ const Form = ({
         }
   return (
     <React.Fragment>
+<Folder items={folders}></Folder>
       <form
         className={classes.form_content}
         onSubmit={formSubmissionHandler}
