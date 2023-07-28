@@ -10,7 +10,7 @@
 	position: fixed;
 	bottom: 1vh;
 	border-radius: 50%;
-	right: 10vh;
+	right: 5vw;
 
 }
 .form_save img {
@@ -19,5 +19,22 @@
 	padding: 0;
 	left: -10px;
 }
+.form_annulla {
+	z-index: 80;
+	height: 65px;
+	width: 65px !important;
+	position: fixed;
+	bottom: 1vh;
+	border-radius: 50%;
+	right: 9vw;
+
+}
+.form_annulla img {
+	width: 40px;
+	margin: 0;
+	padding: 0;
+	left: -10px;
+}
+
 
 

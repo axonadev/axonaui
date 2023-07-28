@@ -120,6 +120,23 @@ const App = () => {
               idobj={idobj_T}
               modulo={modulo}
               db={modulo}
+              onAnnulla={() => {
+                setReloadGriglia((item) => {
+                  return item + 1;
+                });
+                setStatoGriglia("");
+                onChangeSelected(
+                  "http://192.168.2.159:8811/api/axo_sel/" +
+                    localStorage.getItem("axn_token") +
+                    "/" +
+                    modulo +
+                    "/" +
+                    modulo +
+                    "sel/getrow/" +
+                    idobj_T,
+                  nameTable
+                );
+              }}
               serverApi="http://192.168.2.159:8811/"
               afterSubmit={() => {
                 setReloadGriglia((item) => {
