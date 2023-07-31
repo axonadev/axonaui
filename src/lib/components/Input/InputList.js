@@ -1,33 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import useInput from "../../hooks/useInput";
 import classes from "../style/Input.module.css";
 
-const InputList = (props) => {
-  let effVal = "";
-  try {
-    if (props.list.length > 0) {
-      let rr = props.list.filter(function (x) {
-        return x.props.idobj === props.value;
-      });
-      if (rr.length > 0) {
-        effVal = rr[0].props.value;
-      }
-    } else {
-      effVal = props.value;
-    }
-  } catch (error) {}
-
-  const effList = props.list ? props.list : null;
-
-  const objLabel = props.label;
-  let sTipo = "text";
-
-  const fnvalidate = props.validate;
-
+const InputList = ({
+  url,
+  nameList,
+  field_id,
+  field_description,
+  value,
+  id,
+  label,
+  validate,
+  className,
+  type,
+}) => {
   const {
     value: InputValue,
-    listValue,
-    list,
     isValid: InputIsValid,
     isFocussed: InputIsFocussed,
     messageError: InputMessageError,
@@ -36,21 +24,14 @@ const InputList = (props) => {
     inputFocusHandler: InputFocus,
     setValue: setInputValue,
     setValidate: setInputValidate,
-    optionList,
   } = useInput();
 
-  let icon = props.icons;
-  if (icon === null) {
-    icon = "";
-  }
+  const [list, setList] = useState(null);
+  const [list_value, setListValue] = useState(0);
 
   const classFocus = InputIsFocussed ? classes["input_focused"] : "";
-  const classContent = [
-    classes.input,
-    classes["input_" + pers],
-    classes["cont_" + props.type],
-  ];
-  const classLabel = [classes.input_label, classFocus, props.className];
+  const classContent = [classes.input, classes["cont_" + type]];
+  const classLabel = [classes.input_label, classFocus, className];
   const classDivInput = [
     classes.input_input,
     classFocus,
@@ -61,19 +42,67 @@ const InputList = (props) => {
     classFocus,
     classes["validate_" + InputIsValid],
   ];
-  sTipo = "list";
+
+  const inputChangeHandler = (evt) => {
+    if (list) {
+      let rr = list.filter(function (x) {
+        const val = field_description.map((columnselect) => {
+          return x[columnselect];
+          console.log(x[columnselect]);
+        });
+
+        return val.join(" ") === evt.target.value;
+      });
+
+      if (rr.length > 0) {
+        setListValue(rr[0][field_id]);
+      } else {
+        setListValue(0);
+      }
+    }
+    InputChange(evt);
+  };
 
   useEffect(() => {
-    setInputValue(effVal);
-    setInputValidate(fnvalidate);
-    optionList(effList);
-  }, [effVal, fnvalidate, effList]);
+    const loadList = () => {
+      fetch(url)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          setList(data.Itemset[nameList]);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+
+    loadList();
+  }, []);
+
+  /* try {
+    if (props.list.length > 0) {
+      let rr = props.list.filter(function (x) {
+        return x.props.idobj === props.value;
+      });
+      if (rr.length > 0) {
+        effVal = rr[0].props.value;
+      }
+    } else {
+      effVal = props.value;
+    }
+  } catch (error) {} */
+
+  useEffect(() => {
+    setInputValue(value ? value : "");
+    setInputValidate(validate ? validate : "");
+  }, [value, validate]);
 
   return (
-    <div id={"cont_" + props.id} className={classContent.join(" ")}>
+    <div id={"cont_" + id} className={classContent.join(" ")}>
       <div className={classLabel.join(" ")}>
         <label>
-          {objLabel}
+          {label && label}
           {!InputIsValid && (
             <span className={classes.errorText}>{InputMessageError}</span>
           )}
@@ -82,18 +111,29 @@ const InputList = (props) => {
 
       <div className={classDivInput.join(" ")}>
         <input
-          id={props.id}
-          type={props.type}
-          tipo={sTipo}
-          onChange={InputChange}
+          id={id}
+          type="text"
+          tipo="list"
+          onChange={inputChangeHandler}
           onBlur={InputBlur}
           onFocus={InputFocus}
           value={InputValue}
-          list_value={effList && listValue}
-          list={effList && "list_" + props.id}
+          list_value={list_value}
+          list={"list_" + id}
         />
       </div>
-      <datalist id={"list_" + props.id}>{list}</datalist>
+      <datalist id={"list_" + id}>
+        {list &&
+          list.map((item) => {
+            const val = field_description.map((columnselect) => {
+              return item[columnselect];
+            });
+
+            return (
+              <option value={val.join(" ")} idobj={item[field_id]}></option>
+            );
+          })}
+      </datalist>
     </div>
   );
 };

@@ -2,12 +2,16 @@ import React, { useEffect } from "react";
 import useInput from "../../hooks/useInput";
 import classes from "../style/Input.module.css";
 
-const Input = ({ value, label, icon, className, id }) => {
+const Input = ({ value, label, icon, className, id, val }) => {
   const pers = localStorage.getItem("pers");
 
   let effVal = "";
 
-  effVal = value;
+  const valList = val
+    ? val.filter((item) => item !== undefined).filter((item) => item.id === id)
+    : "";
+
+  effVal = valList[0] ? valList[0].value : value;
 
   const objLabel = label;
   let sTipo = "text";

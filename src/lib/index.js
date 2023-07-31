@@ -5,6 +5,7 @@ import Card from "./components/Card/Card";
 import Input from "./components/Input/Input";
 import InputData from "./components/Input/InputData";
 import InputCheckBox from "./components/Input/InputCheckBox";
+import InputList from "./components/Input/InputList";
 import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 import CssStruct from "./components/CssStruct/CssStruct";
 import Header from "./components/Header/Header";
@@ -30,6 +31,7 @@ export {
   Input,
   InputData,
   InputCheckBox,
+  InputList,
   LoadingSpinner,
   CssStruct,
   Header,

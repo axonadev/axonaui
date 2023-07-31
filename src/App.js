@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   Grid,
   SideMenu,
@@ -8,6 +8,7 @@ import {
   FrameInRow,
   Frame,
   Input,
+  InputList,
   Form,
   Folder,
 } from "./lib";
@@ -26,6 +27,8 @@ const App = () => {
   const [focusForm, setFocusForm] = useState("");
   const [statoGriglia, setStatoGriglia] = useState("");
   const [reloadGriglia, setReloadGriglia] = useState(0);
+
+  const inpref = useRef();
 
   const [styleMenu, setStyleMenu] = useState(
     localStorage.getItem("axn_sidemenuswitch") === "true" ? true : false
@@ -49,7 +52,7 @@ const App = () => {
   const projectMenuRequestSubmitHandler = (evt) => {
     processRequest(evt);
   };
-  const { onChangeSelected, onReset } = useForm();
+  const { onChangeSelected, onReset, formValue } = useForm();
   const insertClickHandler = (idGriglia) => {
     const idform = "form_" + idGriglia.split("_")[1];
     onReset();
@@ -70,6 +73,11 @@ const App = () => {
   } = useProjectMenu();
 
   const itemsSearch = ["Soggetti_Nome1", "Soggetti_Nome2"];
+
+  useEffect(() => {
+    console.log(formValue, "asdaawwwq");
+  }, [formValue]);
+
   return (
     <>
       <CssStruct url="http://192.168.2.159:8011/css">
@@ -168,21 +176,33 @@ const App = () => {
             >
               <Frame label="DATI DI PROVA">
                 <FrameInRow width={[10, 10, 50]}>
-                  <Input label="Valore" id="Ive_Valore"></Input>
-                  <InputData
-                    type="date"
-                    label="Scadenza"
-                    id="Ive_ScadenzaOBJ"
-                  ></InputData>
-                  <Input label="Deducibilità" id="Ive_Deducibilita"></Input>
+                  <Input label="Valore" id="Ive_Valore" val={formValue}></Input>
                 </FrameInRow>
                 <FrameInRow width={[30, 30, 40]}>
-                  <Input label="Descrizione" id="Ive_Descrizione"></Input>
+                  <InputList
+                    label="Natura iva"
+                    id="Ive_Natura"
+                    url={
+                      "http://192.168.2.159:8811/api/axo_sel/" +
+                      localStorage.getItem("axn_token") +
+                      "/" +
+                      modulo +
+                      "/" +
+                      modulo +
+                      "sel/legginaturaiva"
+                    }
+                    nameList="v_naturaiva"
+                    field_id="IDOBJ"
+                    field_description={[
+                      "NaturaIVA_Codice",
+                      "NaturaIVA_Descrizione",
+                    ]}
+                    /* ref={(element) => (inputRef.current[0] = element)} */
+                  ></InputList>
                   <Input label="Conto Vendite" id="Ive_ContoVendite"></Input>
                   <Input label="Conto Acquisti" id="Ive_ContoAcquisti"></Input>
                 </FrameInRow>
-                <FrameInRow width={[25, 25, 25, 5]}>
-                  <Input label="Natura" id="Ive_Natura"></Input>
+                <FrameInRow width={[30, 30, 30]}>
                   <Input
                     label="Riferimento Normativi"
                     id="Ive_RiferimentoNormativo"

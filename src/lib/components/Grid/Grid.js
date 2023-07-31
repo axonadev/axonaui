@@ -49,6 +49,7 @@ const Grid = ({
   };
 
   const insertHandler = () => {
+    localStorage.setItem("axn_form_change", "1");
     onBtnInsert(id);
   };
   const deleteHandler = () => {

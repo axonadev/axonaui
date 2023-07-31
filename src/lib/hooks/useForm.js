@@ -6,6 +6,7 @@ const useForm = () => {
   const [isloading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [datarow, setDataRow] = useState(null);
+  const [formValue, setFormValue] = useState();
 
   const onChangeSelected = useCallback(async (url, nameView) => {
     setIsLoading(true);
@@ -42,7 +43,7 @@ const useForm = () => {
   useEffect(() => {
     const writeform = () => {
       if (datarow) {
-        try {
+        /* try {
           const idfield = Object.keys(datarow[0]);
           idfield.map((item) => {
             try {
@@ -52,18 +53,47 @@ const useForm = () => {
                 );
               } else if (document.getElementById(item).type === "checkbox") {
                 document.getElementById(item).checked = datarow[0][item];
+              } else if (
+                document.getElementById(item).getAttribute("tipo") === "list"
+              ) {
+                inputRef[0].current.value = "aaaa";
+                let rr = document
+                  .getElementById("list_" + item)
+                  .filter(function (x) {
+                    return x.getAttribute("idobj") === datarow[0][item];
+                  });
+
+                document.getElementById(item).value = rr.getAttribute("value");
+                document
+                  .getElementById(item)
+                  .setAttribute("list_value", rr.getAttribute("idobj"));
               } else {
                 document.getElementById(item).value = datarow[0][item];
               }
             } catch (error) {}
           });
+        } catch (error) {} */
+
+        try {
+          const idfield = Object.keys(datarow[0]);
+
+          const arr = idfield.map((item) => {
+            try {
+              if (document.getElementById(item).type === "date") {
+                return { id: item, value: formatDate(datarow[0][item]) };
+              } else {
+                return { id: item, value: datarow[0][item] };
+              }
+            } catch (error) {}
+          });
+
+          setFormValue(arr);
         } catch (error) {}
       }
-      const dt = new Date("2024-08-02");
     };
     writeform();
   }, [datarow]);
 
-  return { datarow, isloading, error, onChangeSelected, onReset };
+  return { datarow, isloading, error, onChangeSelected, onReset, formValue };
 };
 export default useForm;

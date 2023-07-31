@@ -13,22 +13,9 @@ const useInput = () => {
   const [validate, setValidate] = useState({});
 
   const valueChangeHandler = (evt) => {
+    localStorage.setItem("axn_form_change", "1");
     setEnteredValue(evt.target.value);
-    if (evt.target.attributes.tipo.value === "list") {
-      if (list === null || list === undefined) {
-      } else {
-        try {
-          if (list.length > 0) {
-            let rr = list.filter(function (x) {
-              return x.props.value === evt.target.value;
-            });
-            if (rr.length > 0) {
-              setListValue(rr[0].props.idobj);
-            }
-          }
-        } catch (error) {}
-      }
-    }
+
     setIsChanged(true);
   };
   const checkItemChange = (evt) => {

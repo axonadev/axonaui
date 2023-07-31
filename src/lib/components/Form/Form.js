@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "../style/Form.module.css";
 import { postData } from "axonalib";
 import MessageModal from "../MessageModal/MessageModal";
@@ -23,10 +23,13 @@ const Form = ({
   const [mex, setMex] = useState(null);
   const [mexAnnulla, setMexAnnulla] = useState(null);
   const [isSnackBar, setSnackBar] = useState(null);
+  const [btnVisible, setBtnVisible] = useState(false);
   const id_submit = "b_submit_" + id;
+  const [seconds, setSeconds] = useState(0);
 
   const onConfirmhandler = () => {
     console.log("json passato:");
+    localStorage.setItem("axn_form_change", "0");
     let obj = JSON.parse(mex.obj);
 
     let data = {
@@ -140,8 +143,22 @@ const Form = ({
   };
   const onConfirmAnnulla = () => {
     setMexAnnulla(null);
+    localStorage.setItem("axn_form_change", "0");
     onAnnulla();
   };
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSeconds(seconds + 1);
+      if (localStorage.getItem("axn_form_change") === "1") {
+        setBtnVisible(true);
+      } else {
+        setBtnVisible(false);
+      }
+    }, 500);
+    // clearing interval
+    return () => clearInterval(timer);
+  }, [seconds]);
+
   return (
     <React.Fragment>
       <form
@@ -149,16 +166,20 @@ const Form = ({
         onSubmit={formSubmissionHandler}
         id={id}
       >
-        <Button className={classes.form_save} type="submit" id={id_submit}>
-          <Img type="save" pathImg="getlocal" />
-        </Button>
-        <Button
-          className={classes.form_annulla}
-          onClick={clickAnnulla}
-          id={id_submit}
-        >
-          <Img type="annulla" pathImg="getlocal" />
-        </Button>
+        {btnVisible && (
+          <>
+            <Button className={classes.form_save} type="submit" id={id_submit}>
+              <Img type="save" pathImg="getlocal" />
+            </Button>
+            <Button
+              className={classes.form_annulla}
+              onClick={clickAnnulla}
+              id={id_submit}
+            >
+              <Img type="annulla" pathImg="getlocal" />
+            </Button>
+          </>
+        )}
         <div className={classes.form_body}>{children}</div>
         <div className={classes.form_folders}>
           <Folder items={folders}></Folder>
