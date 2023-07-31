@@ -144,7 +144,6 @@ const Form = ({
   };
   return (
     <React.Fragment>
-      <Folder items={folders}></Folder>
       <form
         className={classes.form_content}
         onSubmit={formSubmissionHandler}
@@ -161,6 +160,9 @@ const Form = ({
           <Img type="annulla" pathImg="getlocal" />
         </Button>
         <div className={classes.form_body}>{children}</div>
+        <div className={classes.form_folders}>
+          <Folder items={folders}></Folder>
+        </div>
       </form>
       {mex && (
         <MessageModal
