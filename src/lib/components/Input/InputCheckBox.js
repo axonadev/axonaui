@@ -12,11 +12,17 @@ const InputCheckBox = ({
   type,
   pidobj,
   list,
+  val,
 }) => {
   const pers = localStorage.getItem("pers");
 
   let effVal = "";
-  effVal = value;
+
+  const valList = val
+    ? val.filter((item) => item !== undefined).filter((item) => item.id === id)
+    : "";
+
+  effVal = valList[0] ? valList[0].value : value;
 
   const objLabel = label;
   let sTipo = "text";
@@ -79,7 +85,7 @@ const InputCheckBox = ({
             onChange={InputChange}
             onBlur={InputBlur}
             onFocus={InputFocus}
-            value={InputValue}
+            checked={InputValue}
           />
         </div>
       )}

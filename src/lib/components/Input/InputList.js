@@ -13,7 +13,14 @@ const InputList = ({
   validate,
   className,
   type,
+  val,
 }) => {
+  const valList = val
+    ? val.filter((item) => item !== undefined).filter((item) => item.id === id)
+    : "";
+
+  const effVal = valList[0] ? valList[0].value : value;
+
   const {
     value: InputValue,
     isValid: InputIsValid,
@@ -48,7 +55,6 @@ const InputList = ({
       let rr = list.filter(function (x) {
         const val = field_description.map((columnselect) => {
           return x[columnselect];
-          console.log(x[columnselect]);
         });
 
         return val.join(" ") === evt.target.value;
@@ -63,6 +69,19 @@ const InputList = ({
     InputChange(evt);
   };
 
+  const getValore = (lista) => {
+    if (lista) {
+      let rr = lista.filter(function (x) {
+        return x.IDOBJ === effVal;
+      });
+      const valList = field_description.map((columnselect) => {
+        return rr[0][columnselect];
+      });
+
+      setInputValue(valList ? valList.join(" ") : value);
+    }
+  };
+
   useEffect(() => {
     const loadList = () => {
       fetch(url)
@@ -71,6 +90,7 @@ const InputList = ({
         })
         .then((data) => {
           setList(data.Itemset[nameList]);
+          getValore(data.Itemset[nameList]);
         })
         .catch((err) => {
           console.log(err);
@@ -80,21 +100,9 @@ const InputList = ({
     loadList();
   }, []);
 
-  /* try {
-    if (props.list.length > 0) {
-      let rr = props.list.filter(function (x) {
-        return x.props.idobj === props.value;
-      });
-      if (rr.length > 0) {
-        effVal = rr[0].props.value;
-      }
-    } else {
-      effVal = props.value;
-    }
-  } catch (error) {} */
-
   useEffect(() => {
-    setInputValue(value ? value : "");
+    getValore(list);
+
     setInputValidate(validate ? validate : "");
   }, [value, validate]);
 
@@ -125,12 +133,12 @@ const InputList = ({
       <datalist id={"list_" + id}>
         {list &&
           list.map((item) => {
-            const val = field_description.map((columnselect) => {
+            const valList = field_description.map((columnselect) => {
               return item[columnselect];
             });
 
             return (
-              <option value={val.join(" ")} idobj={item[field_id]}></option>
+              <option value={valList.join(" ")} idobj={item[field_id]}></option>
             );
           })}
       </datalist>

@@ -3,17 +3,20 @@ import useInput from "../../hooks/useInput";
 import classes from "../style/Input.module.css";
 import { formatDate } from "axonalib";
 
-const InputData = ({ value, label, icons, className, id }) => {
+const InputData = ({ value, label, icons, className, id, val }) => {
   const pers = localStorage.getItem("pers");
 
   let effVal = "";
-  try {
-    console.log(document.getElementById(id).value, "inputdata");
-  } catch (error) {}
+
+  const valList = val
+    ? val.filter((item) => item !== undefined).filter((item) => item.id === id)
+    : "";
+
+  effVal = valList[0] ? valList[0].value : value;
 
   if (value === undefined) {
   } else {
-    effVal = formatDate(value);
+    effVal = formatDate(effVal);
   }
 
   const objLabel = label;
@@ -59,6 +62,10 @@ const InputData = ({ value, label, icons, className, id }) => {
       setInputValue(effVal);
     }
   }, [effVal]); */
+
+  useEffect(() => {
+    setInputValue(effVal);
+  }, [effVal]);
 
   return (
     <div id={"cont_" + id} className={classContent.join(" ")}>

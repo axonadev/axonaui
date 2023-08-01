@@ -197,81 +197,26 @@ const App = () => {
                       "NaturaIVA_Codice",
                       "NaturaIVA_Descrizione",
                     ]}
+                    val={formValue}
                     /* ref={(element) => (inputRef.current[0] = element)} */
                   ></InputList>
-                  <Input label="Conto Vendite" id="Ive_ContoVendite"></Input>
-                  <Input label="Conto Acquisti" id="Ive_ContoAcquisti"></Input>
+                  <Input
+                    label="Descrizione"
+                    id="Ive_Descrizione"
+                    val={formValue}
+                  ></Input>
+                  <InputData
+                    label="Scadenza"
+                    id="Ive_ScadenzaOBJ"
+                    val={formValue}
+                  ></InputData>
                 </FrameInRow>
                 <FrameInRow width={[30, 30, 30]}>
-                  <Input
-                    label="Riferimento Normativi"
-                    id="Ive_RiferimentoNormativo"
-                  ></Input>
-                  <Input
-                    type="checkbox"
+                  <InputCheckBox
                     label="Default Testo Libero"
                     id="Ive_DefaultTestoLibero"
-                  ></Input>
-                </FrameInRow>
-              </Frame>
-              <Frame label="CONTABILITÀ">
-                <FrameInRow width={[30, 30, 40]}>
-                  <Input
-                    label="Conto Ideducibile"
-                    id="Ive_ContoIndeducibile"
-                  ></Input>
-                  <Input label="Conto Vendite" id="Ive_ContoVendite"></Input>
-                  <Input label="Conto Acquisti" id="Ive_ContoAcquisti"></Input>
-                </FrameInRow>
-              </Frame>
-              <Frame label="CONTABILITÀ">
-                <FrameInRow width={[30, 30, 40]}>
-                  <Input
-                    label="Conto Ideducibile"
-                    id="Ive_ContoIndeducibile"
-                  ></Input>
-                  <Input label="Conto Vendite" id="Ive_ContoVendite"></Input>
-                  <Input label="Conto Acquisti" id="Ive_ContoAcquisti"></Input>
-                </FrameInRow>
-              </Frame>
-              <Frame label="CONTABILITÀ">
-                <FrameInRow width={[30, 30, 40]}>
-                  <Input
-                    label="Conto Ideducibile"
-                    id="Ive_ContoIndeducibile"
-                  ></Input>
-                  <Input label="Conto Vendite" id="Ive_ContoVendite"></Input>
-                  <Input label="Conto Acquisti" id="Ive_ContoAcquisti"></Input>
-                </FrameInRow>
-              </Frame>
-              <Frame label="CONTABILITÀ">
-                <FrameInRow width={[30, 30, 40]}>
-                  <Input
-                    label="Conto Ideducibile"
-                    id="Ive_ContoIndeducibile"
-                  ></Input>
-                  <Input label="Conto Vendite" id="Ive_ContoVendite"></Input>
-                  <Input label="Conto Acquisti" id="Ive_ContoAcquisti"></Input>
-                </FrameInRow>
-              </Frame>
-              <Frame label="CONTABILITÀ">
-                <FrameInRow width={[30, 30, 40]}>
-                  <Input
-                    label="Conto Ideducibile"
-                    id="Ive_ContoIndeducibile"
-                  ></Input>
-                  <Input label="Conto Vendite" id="Ive_ContoVendite"></Input>
-                  <Input label="Conto Acquisti" id="Ive_ContoAcquisti"></Input>
-                </FrameInRow>
-              </Frame>
-              <Frame label="CONTABILITÀ">
-                <FrameInRow width={[30, 30, 40]}>
-                  <Input
-                    label="Conto Ideducibile"
-                    id="Ive_ContoIndeducibile"
-                  ></Input>
-                  <Input label="Conto Vendite" id="Ive_ContoVendite"></Input>
-                  <Input label="Conto Acquisti" id="Ive_ContoAcquisti"></Input>
+                    val={formValue}
+                  ></InputCheckBox>
                 </FrameInRow>
               </Frame>
             </Form>
