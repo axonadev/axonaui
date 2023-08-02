@@ -91,9 +91,12 @@ td{
 
 .grid_table_content .grid_type_t{
     background-color: var(--axn-grid-top-header-t-row-background-color);
+    
 }
 .grid_table_content .grid_type_d{
     background-color: var(--axn-grid-top-header-d-row-background-color);
+
+    
 }
 
 /* .grid_type_t tr:nth-child(even){background-color: var(--axn-grid-2row-t-background-color)}
@@ -119,21 +122,27 @@ td{
   .grid_type_t .grid_table_content::-webkit-scrollbar-thumb {
     background: var(--axn-grid-header-row-background-color); 
     border-radius: 10px;
+    width: 50px;
+    
+
+    
   }
   
   /* Handle on hover */
   .grid_type_t .grid_table_content::-webkit-scrollbar-thumb:hover {
     background:var(--axn-grid-header-row-background-color); 
+
   }
 
   /* Handle */
   .grid_type_d .grid_table_content::-webkit-scrollbar-thumb {
     background: var(--axn-grid-header-d-row-background-color); 
     border-radius: 10px;
+
   }
   
   /* Handle on hover */
   .grid_type_d .grid_table_content::-webkit-scrollbar-thumb:hover {
-    background:var(--axn-grid-header-d-row-background-color); 
+    background:var(--axn-grid-header-d-row-background-color);
   }
   
