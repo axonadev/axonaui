@@ -60,9 +60,7 @@ const Grid = ({
 
   const idFilter = id ? "filter_" + id : "filter_generic";
 
-  const onClickHeaderHandler = (IDOBJ) => {
-    console.log(IDOBJ);
-  };
+  const onClickHeaderHandler = (IDOBJ) => {};
 
   const requestGrid = {
     url: loadGrid,
@@ -79,11 +77,6 @@ const Grid = ({
       onClickRow(filteredListItem[0].IDOBJ);
     } catch (error) {}
   }, [filteredListItem]); */
-
-  console.log(
-    columns === undefined || columns === null ? true : false,
-    "columns1"
-  );
 
   return (
     <>

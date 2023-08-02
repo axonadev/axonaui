@@ -1,236 +1,26 @@
-import React, { useState, useRef, useEffect } from "react";
-import {
-  Grid,
-  SideMenu,
-  CssStruct,
-  Header,
-  ContentForm,
-  FrameInRow,
-  Frame,
-  Input,
-  InputList,
-  Form,
-  Folder,
-} from "./lib";
-
-import ProjectMenu from "./lib/components/ProjectMenu/ProjectMenu";
-import useProjectMenu from "./lib/hooks/useProjectMenu";
-import useForm from "./lib/hooks/useForm";
-import InputData from "./lib/components/Input/InputData";
-import InputCheckBox from "./lib/components/Input/InputCheckBox";
+import React from "react";
+import { useEnv, useToken } from "axonalib";
+import { CssStruct, LoadingSpinner } from "./lib/index";
+import Layout from "./Layout/Layout";
 
 const App = () => {
-  const modulo = "ive";
-  const nameView = "v_" + modulo;
-  const nameTable = modulo;
+  const { REACT_APP_CSSFOLDER, REACT_APP_SERVERAPI } = useEnv();
 
-  const [focusForm, setFocusForm] = useState("");
-  const [statoGriglia, setStatoGriglia] = useState("");
-  const [reloadGriglia, setReloadGriglia] = useState(0);
-
-  const inpref = useRef();
-
-  const [styleMenu, setStyleMenu] = useState(
-    localStorage.getItem("axn_sidemenuswitch") === "true" ? true : false
+  const { connesso } = useToken(
+    REACT_APP_SERVERAPI + "api/axo_login",
+    localStorage.getItem("axn_token")
   );
-  const itemsFolder = [
-    { key: 1, label: "Prova 1", target: "idTarget" },
-    { key: 2, label: "Prova 2", target: "idTarget2" },
-    { key: 2, label: "Prova 3", target: "idTarget3" },
-    { key: 2, label: "Prova 4", target: "idTarget4" },
-  ];
-  const [idobj_T, setIdobj_T] = useState(0);
-
-  const onSideMenuChangeHandler = (stmenu) => {
-    setStyleMenu(stmenu);
-  };
-
-  const projectMenuClickHandler = (idProject) => {
-    setFormPj(getFormMenuPj(idProject));
-  };
-
-  const projectMenuRequestSubmitHandler = (evt) => {
-    processRequest(evt);
-  };
-  const { onChangeSelected, onReset, formValue } = useForm();
-  const insertClickHandler = (idGriglia) => {
-    const idform = "form_" + idGriglia.split("_")[1];
-    onReset();
-    setFocusForm(idform);
-    setStatoGriglia("INSERIMENTO");
-    setIdobj_T(0);
-  };
-
-  const deleteClickHandler = (idGriglia) => {
-    console.log(idGriglia);
-  };
-  const [formPj, setFormPj] = useState(null);
-  const {
-    items: pjItems,
-    getFormMenuPj,
-    processRequest,
-    answerReq,
-  } = useProjectMenu();
-
-  const itemsSearch = ["Soggetti_Nome1", "Soggetti_Nome2"];
-
-  useEffect(() => {
-    console.log(formValue, "asdaawwwq");
-  }, [formValue]);
 
   return (
-    <>
-      <CssStruct url="http://192.168.2.159:8011/css">
-        {/* tenere per sviluppare il css */}
-        <Header
-          logo={process.env.REACT_APP_IMGFOLDER + "/55555555550/logo.png"}
-          titolo={"titolo"}
-        />
-        <SideMenu
-          onSideMenuChange={onSideMenuChangeHandler}
-          pathImg={"http://192.168.2.159:8011/img"}
-        />
-        <ContentForm sidemenuopen={styleMenu} request={answerReq}>
-          <Frame label="TESTATA" type="form_t" stato={statoGriglia}>
-            <Grid
-              itemSearch={itemsSearch}
-              id="main_t"
-              loadGrid={
-                "http://192.168.2.159:8811/api/axo_sel/" +
-                localStorage.getItem("axn_token") +
-                "/" +
-                modulo +
-                "/" +
-                modulo +
-                "sel/leggi"
-              }
-              nameView={nameView}
-              onClickRow={(IDOBJ) => {
-                setIdobj_T(IDOBJ);
-                setFocusForm("form_t");
-                setStatoGriglia("");
-                onChangeSelected(
-                  "http://192.168.2.159:8811/api/axo_sel/" +
-                    localStorage.getItem("axn_token") +
-                    "/" +
-                    modulo +
-                    "/" +
-                    modulo +
-                    "sel/getrow/" +
-                    IDOBJ,
-                  nameTable
-                );
-              }}
-              btn_insert={true}
-              onDoubleClickRow={() => {
-                console.log("click");
-              }}
-              onBtnInsert={insertClickHandler}
-              onBtnDelete={deleteClickHandler}
-              reload={reloadGriglia}
-            />
-          </Frame>
-
-          {focusForm === "form_t" && (
-            <Form
-              id="form_t"
-              idobj={idobj_T}
-              modulo={modulo}
-              db={modulo}
-              folders={itemsFolder}
-              onAnnulla={() => {
-                setReloadGriglia((item) => {
-                  return item + 1;
-                });
-                setStatoGriglia("");
-                onChangeSelected(
-                  "http://192.168.2.159:8811/api/axo_sel/" +
-                    localStorage.getItem("axn_token") +
-                    "/" +
-                    modulo +
-                    "/" +
-                    modulo +
-                    "sel/getrow/" +
-                    idobj_T,
-                  nameTable
-                );
-              }}
-              serverApi="http://192.168.2.159:8811/"
-              afterSubmit={() => {
-                setReloadGriglia((item) => {
-                  return item + 1;
-                });
-                setStatoGriglia("");
-                onChangeSelected(
-                  "http://192.168.2.159:8811/api/axo_sel/" +
-                    localStorage.getItem("axn_token") +
-                    "/" +
-                    modulo +
-                    "/" +
-                    modulo +
-                    "sel/getrow/" +
-                    idobj_T,
-                  nameTable
-                );
-              }}
-            >
-              <Frame label="DATI DI PROVA">
-                <FrameInRow width={[10, 10, 50]}>
-                  <Input label="Valore" id="Ive_Valore" val={formValue}></Input>
-                </FrameInRow>
-                <FrameInRow width={[30, 30, 40]}>
-                  <InputList
-                    label="Natura iva"
-                    id="Ive_Natura"
-                    url={
-                      "http://192.168.2.159:8811/api/axo_sel/" +
-                      localStorage.getItem("axn_token") +
-                      "/" +
-                      modulo +
-                      "/" +
-                      modulo +
-                      "sel/legginaturaiva"
-                    }
-                    nameList="v_naturaiva"
-                    field_id="IDOBJ"
-                    field_description={[
-                      "NaturaIVA_Codice",
-                      "NaturaIVA_Descrizione",
-                    ]}
-                    val={formValue}
-                    /* ref={(element) => (inputRef.current[0] = element)} */
-                  ></InputList>
-                  <Input
-                    label="Descrizione"
-                    id="Ive_Descrizione"
-                    val={formValue}
-                  ></Input>
-                  <InputData
-                    label="Scadenza"
-                    id="Ive_ScadenzaOBJ"
-                    val={formValue}
-                  ></InputData>
-                </FrameInRow>
-                <FrameInRow width={[30, 30, 30]}>
-                  <InputCheckBox
-                    label="Default Testo Libero"
-                    id="Ive_DefaultTestoLibero"
-                    val={formValue}
-                  ></InputCheckBox>
-                </FrameInRow>
-              </Frame>
-            </Form>
-          )}
-        </ContentForm>
-        <ProjectMenu
-          items={pjItems}
-          onClick={projectMenuClickHandler}
-          onRequestSubmit={projectMenuRequestSubmitHandler}
-        >
-          {formPj}
-        </ProjectMenu>
-      </CssStruct>
-    </>
+    <CssStruct
+      url={REACT_APP_CSSFOLDER}
+      piva={localStorage.getItem("axn_piva")}
+    >
+      <div className="App">
+        {connesso === 0 && <LoadingSpinner />}
+        {connesso === 1 && <Layout piva={localStorage.getItem("axn_piva")} />}
+      </div>
+    </CssStruct>
   );
 };
 

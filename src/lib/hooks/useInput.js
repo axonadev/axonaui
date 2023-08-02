@@ -19,7 +19,6 @@ const useInput = () => {
     setIsChanged(true);
   };
   const checkItemChange = (evt) => {
-    console.log(evt);
     const valn = !evt.target.checked;
     setEnteredValue(valn);
   };

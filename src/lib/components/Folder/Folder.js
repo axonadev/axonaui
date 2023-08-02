@@ -1,14 +1,14 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import FolderLabel from "./FolderLabel.prv";
 import classes from "../style/Folder.module.css";
 
+const Folder = ({ items, onSelect, startSelect }) => {
+  const [active, setActive] = useState(startSelect);
 
-const Folder = ({ items }) => {
- const [active,setActive]=useState("");
-
- const onClickHendler=(itemAttivo)=>{
-  setActive(itemAttivo);
- }
+  const onClickHendler = (itemAttivo) => {
+    setActive(itemAttivo);
+    onSelect(itemAttivo);
+  };
 
   return (
     <React.Fragment>
@@ -16,20 +16,20 @@ const Folder = ({ items }) => {
         {items &&
           items.map((item) => {
             return (
-              <div className={(item.target===active?classes.folder_active:"")}>
-              <FolderLabel
-                key={item.key}
-                target={item.target}
-                onClick={onClickHendler}
-            
+              <div
+                className={item.target === active ? classes.folder_active : ""}
               >
-                {item.label}
-              </FolderLabel>
+                <FolderLabel
+                  key={item.key}
+                  target={item.target}
+                  onClick={onClickHendler}
+                >
+                  {item.label}
+                </FolderLabel>
               </div>
             );
           })}
       </div>
-
     </React.Fragment>
   );
 };
