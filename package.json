@@ -1,12 +1,13 @@
 {
   "name": "axonaui",
-  "version": "0.1.76",
+  "version": "0.1.78",
   "private": false,
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axonaform": "^0.1.22",
     "axonalib": "^0.1.18",
     "chart.js": "^4.3.0",
     "react": "^18.2.0",

@@ -53,13 +53,11 @@ const ProjectMenu = ({ items, onClick, children, onRequestSubmit }) => {
           </div>
         </div>
         <div className={classes.projectmenu_sideoperation_content}>
-          <form>
+          <form onSubmit={onClickFormHandler}>
             {children}
 
             <div>
-              <Button type="submit" onClick={onClickFormHandler}>
-                Avanti
-              </Button>
+              <Button type="submit">Avanti</Button>
             </div>
           </form>
         </div>

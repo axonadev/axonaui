@@ -20,15 +20,18 @@ const Form = ({
   onAnnulla,
   folders,
 }) => {
+  const idFolder1 = folders.filter((item) => item.key === 1);
   const [mex, setMex] = useState(null);
   const [mexAnnulla, setMexAnnulla] = useState(null);
   const [isSnackBar, setSnackBar] = useState(null);
   const [btnVisible, setBtnVisible] = useState(false);
+  const [frameIdSelezionato, setFrameIdSelezionato] = useState(
+    idFolder1[0].target
+  );
   const id_submit = "b_submit_" + id;
   const [seconds, setSeconds] = useState(0);
 
   const onConfirmhandler = () => {
-    console.log("json passato:");
     localStorage.setItem("axn_form_change", "0");
     let obj = JSON.parse(mex.obj);
 
@@ -40,10 +43,7 @@ const Form = ({
       Operazione: "",
       Item: "[{" + db + ":" + JSON.stringify(obj) + "}]",
     };
-    console.log(JSON.stringify(data));
-
     postData(serverApi + "api/axo_sel", data).then((data) => {
-      console.log(data.Errore);
       setMex(null);
       if (data.Errore === "") {
         setSnackBar(() => {
@@ -69,13 +69,8 @@ const Form = ({
     setMexAnnulla(null);
   };
   const formSubmissionHandler = (evt, idb) => {
-    console.log(evt);
-    console.log(idb);
-
     evt.preventDefault();
     let obj = "";
-
-    console.log(evt.target.elements);
 
     if (pidobj) {
       obj = obj + ',"PIDOBJ":"' + pidobj + '"';
@@ -124,8 +119,6 @@ const Form = ({
     }
     obj = "[{" + obj.substring(1) + "}]";
 
-    console.log(obj);
-
     setMex({
       title: idobj === 0 ? "Inserimento" : "Aggiornamento",
       label: "Salvare il record selezionato?",
@@ -159,6 +152,10 @@ const Form = ({
     return () => clearInterval(timer);
   }, [seconds]);
 
+  const folderSelect = (idFrameSelezionato) => {
+    setFrameIdSelezionato(idFrameSelezionato);
+  };
+
   return (
     <React.Fragment>
       <form
@@ -180,9 +177,18 @@ const Form = ({
             </Button>
           </>
         )}
-        <div className={classes.form_body}>{children}</div>
+        <div className={classes.form_body}>
+          {children &&
+            children.map((item) => {
+              return item.props.id === frameIdSelezionato ? item : <></>;
+            })}
+        </div>
         <div className={classes.form_folders}>
-          <Folder items={folders}></Folder>
+          <Folder
+            items={folders}
+            onSelect={folderSelect}
+            startSelect={idFolder1[0].target}
+          ></Folder>
         </div>
       </form>
       {mex && (
