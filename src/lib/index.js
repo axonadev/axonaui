@@ -12,6 +12,7 @@ import Header from "./components/Header/Header";
 import SideMenu from "./components/SideMenu/SideMenu";
 import SnackBar from "./components/SnackBar/SnackBar";
 import ContentForm from "./components/ContentForm/ContentForm";
+import FrameContainer from "./components/Frame/FrameContainer";
 import Frame from "./components/Frame/Frame";
 import FrameInRow from "./components/Frame/FrameInRow";
 import Filter from "./components/Filter/Filter";
@@ -38,6 +39,7 @@ export {
   SideMenu,
   SnackBar,
   ContentForm,
+  FrameContainer,
   Frame,
   FrameInRow,
   Filter,

@@ -9,6 +9,7 @@ import {
   FrameInRow,
   Grid,
   InputList,
+  FrameContainer,
 } from "../lib";
 import { useEnv } from "axonalib";
 
@@ -104,76 +105,139 @@ const Project = () => {
           afterSubmit={onLoadRow}
           onAnnulla={onLoadRow}
         >
-          <Frame label="DATI DI PROVA 1" id="frame_1">
-            <FrameInRow width={[80, 10, 10]}>
-              <Input label="prova" id="Soggetti_Nome1" val={formValue}></Input>
-              <Input label="prova" id="Soggetti_Nome2" val={formValue}></Input>
-              <InputData
-                label="Scadenza"
-                id="Soggetti_ScadenzaOBJ"
-                val={formValue}
-              />
-            </FrameInRow>
-            <FrameInRow width={[30, 30, 40]}>
-              <InputCheckBox label="checkbox" val={formValue} />
-              <InputList
-                label="Natura iva"
-                id="Ive_Natura"
-                url={
-                  REACT_APP_SERVERAPI +
-                  "api/axo_sel/" +
-                  localStorage.getItem("axn_token") +
-                  "/" +
-                  moduloForm +
-                  "/" +
-                  moduloForm +
-                  "sel/legginaturaiva"
-                }
-                nameList="v_naturaiva"
-                field_id="IDOBJ"
-                field_description={[
-                  "NaturaIVA_Codice",
-                  "NaturaIVA_Descrizione",
-                ]}
-                val={formValue}
-              />
-            </FrameInRow>
-          </Frame>
-          <Frame label="DATI DI PROVA 4" id="frame_4">
-            <FrameInRow width={[80, 10, 10]}>
-              <Input label="prova" id="Soggetti_Nome1" val={formValue}></Input>
-              <Input label="prova" id="Soggetti_Nome2" val={formValue}></Input>
-              <InputData
-                label="Scadenza"
-                id="Soggetti_ScadenzaOBJ"
-                val={formValue}
-              />
-            </FrameInRow>
-            <FrameInRow width={[30, 30, 40]}>
-              <InputCheckBox label="checkbox" val={formValue} />
-              <InputList
-                label="Natura iva"
-                id="Ive_Natura"
-                url={
-                  REACT_APP_SERVERAPI +
-                  "api/axo_sel/" +
-                  localStorage.getItem("axn_token") +
-                  "/" +
-                  moduloForm +
-                  "/" +
-                  moduloForm +
-                  "sel/legginaturaiva"
-                }
-                nameList="v_naturaiva"
-                field_id="IDOBJ"
-                field_description={[
-                  "NaturaIVA_Codice",
-                  "NaturaIVA_Descrizione",
-                ]}
-                val={formValue}
-              />
-            </FrameInRow>
-          </Frame>
+          <FrameContainer id="frame_1">
+            <Frame label="DATI DI PROVA 1">
+              <FrameInRow width={[80, 10, 10]}>
+                <Input
+                  label="prova"
+                  id="Soggetti_Nome1"
+                  val={formValue}
+                ></Input>
+                <Input
+                  label="prova"
+                  id="Soggetti_Nome2"
+                  val={formValue}
+                ></Input>
+                <InputData
+                  label="Scadenza"
+                  id="Soggetti_ScadenzaOBJ"
+                  val={formValue}
+                />
+              </FrameInRow>
+              <FrameInRow width={[30, 30, 40]}>
+                <InputCheckBox label="checkbox" val={formValue} />
+                <InputList
+                  label="Natura iva"
+                  id="Ive_Natura"
+                  url={
+                    REACT_APP_SERVERAPI +
+                    "api/axo_sel/" +
+                    localStorage.getItem("axn_token") +
+                    "/" +
+                    moduloForm +
+                    "/" +
+                    moduloForm +
+                    "sel/legginaturaiva"
+                  }
+                  nameList="v_naturaiva"
+                  field_id="IDOBJ"
+                  field_description={[
+                    "NaturaIVA_Codice",
+                    "NaturaIVA_Descrizione",
+                  ]}
+                  val={formValue}
+                />
+              </FrameInRow>
+            </Frame>
+            <Frame label="DATI DI PROVA 2">
+              <FrameInRow width={[80, 10, 10]}>
+                <Input
+                  label="prova"
+                  id="Soggetti_Nome1"
+                  val={formValue}
+                ></Input>
+                <Input
+                  label="prova"
+                  id="Soggetti_Nome2"
+                  val={formValue}
+                ></Input>
+                <InputData
+                  label="Scadenza"
+                  id="Soggetti_ScadenzaOBJ"
+                  val={formValue}
+                />
+              </FrameInRow>
+              <FrameInRow width={[30, 30, 40]}>
+                <InputCheckBox label="checkbox" val={formValue} />
+                <InputList
+                  label="Natura iva"
+                  id="Ive_Natura"
+                  url={
+                    REACT_APP_SERVERAPI +
+                    "api/axo_sel/" +
+                    localStorage.getItem("axn_token") +
+                    "/" +
+                    moduloForm +
+                    "/" +
+                    moduloForm +
+                    "sel/legginaturaiva"
+                  }
+                  nameList="v_naturaiva"
+                  field_id="IDOBJ"
+                  field_description={[
+                    "NaturaIVA_Codice",
+                    "NaturaIVA_Descrizione",
+                  ]}
+                  val={formValue}
+                />
+              </FrameInRow>
+            </Frame>
+          </FrameContainer>
+          <FrameContainer id="frame_4">
+            <Frame label="DATI DI PROVA 4">
+              <FrameInRow width={[80, 10, 10]}>
+                <Input
+                  label="prova"
+                  id="Soggetti_Nome1"
+                  val={formValue}
+                ></Input>
+                <Input
+                  label="prova"
+                  id="Soggetti_Nome2"
+                  val={formValue}
+                ></Input>
+                <InputData
+                  label="Scadenza"
+                  id="Soggetti_ScadenzaOBJ"
+                  val={formValue}
+                />
+              </FrameInRow>
+              <FrameInRow width={[30, 30, 40]}>
+                <InputCheckBox label="checkbox" val={formValue} />
+                <InputList
+                  label="Natura iva"
+                  id="Ive_Natura"
+                  url={
+                    REACT_APP_SERVERAPI +
+                    "api/axo_sel/" +
+                    localStorage.getItem("axn_token") +
+                    "/" +
+                    moduloForm +
+                    "/" +
+                    moduloForm +
+                    "sel/legginaturaiva"
+                  }
+                  nameList="v_naturaiva"
+                  field_id="IDOBJ"
+                  field_description={[
+                    "NaturaIVA_Codice",
+                    "NaturaIVA_Descrizione",
+                  ]}
+                  val={formValue}
+                />
+              </FrameInRow>
+            </Frame>
+          </FrameContainer>
         </Form>
       )}
     </>
