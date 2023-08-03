@@ -19,17 +19,13 @@ const useProjectMenu = () => {
     );
   };
   const processRequest = (evt) => {
-    console.log(evt, "processRequest");
+    let arr = [];
+    for (const item of evt.target.elements) {
+      console.log(item.id, "id item");
+      arr = [...{ id: item.id, data: item.value }];
+    }
 
-    console.log(evt.target[0].id, "processRequest");
-
-    setAnserReq([
-      {
-        id: 0,
-        data: "",
-        operazione: "tra",
-      },
-    ]);
+    setAnserReq([arr]);
   };
   return {
     items,

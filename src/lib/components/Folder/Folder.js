@@ -23,6 +23,7 @@ const Folder = ({ items, onSelect, startSelect }) => {
                   key={item.key}
                   target={item.target}
                   onClick={onClickHendler}
+                  img={item.img}
                 >
                   {item.label}
                 </FolderLabel>

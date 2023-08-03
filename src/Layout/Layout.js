@@ -43,8 +43,8 @@ const Layout = () => {
         onSideMenuChange={onSideMenuChangeHandler}
         pathImg={REACT_APP_IMGFOLDER}
       />
-      <ContentForm sidemenuopen={styleMenu} request={answerReq}>
-        <Project />
+      <ContentForm sidemenuopen={styleMenu}>
+        <Project request={answerReq} />
       </ContentForm>
       <ProjectMenu
         items={pjItems}

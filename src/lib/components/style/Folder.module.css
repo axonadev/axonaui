@@ -41,5 +41,11 @@
 */
 
 .folderlabel label{
+    padding-left: 5px;
     cursor:pointer;
 }
+
+.folderlabel img{
+    width: 15px;
+    height: 15px;
+ }

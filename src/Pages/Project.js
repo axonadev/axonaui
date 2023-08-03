@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   useForm,
   Input,
@@ -13,7 +13,7 @@ import {
 } from "../lib";
 import { useEnv } from "axonalib";
 
-const Project = () => {
+const Project = ({ request }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
 
   const moduloForm = "soggetti";
@@ -66,9 +66,15 @@ const Project = () => {
     );
   };
 
+  useEffect(() => {
+    const loadRequest = () => {};
+
+    loadRequest();
+  }, [request]);
+
   const itemFolders = [
-    { key: 1, label: "label 1", img: "image", target: "frame_1" },
-    { key: 2, label: "label 4", img: "image", target: "frame_4" },
+    { key: 1, label: "label 1", img: "save", target: "frame_1" },
+    { key: 2, label: "label 4", img: "delete", target: "frame_4" },
   ];
   const itemsSearch = ["Soggetti_Nome1", "Soggetti_Nome2"];
   return (
