@@ -15,33 +15,33 @@
 
 }
 .form_save {
-	z-index: 80;
-	height: 45px;
+	z-index: 100;
+	height: 35px;
 	width: 65px !important;
 	position: fixed;
-	bottom: 1vh;
+	bottom: 63.5vh;
 	border-radius: 7px;
-	right: 90px;
+	right: 74px;
 
 }
 .form_save img {
-	width: 25px;
+	width: 15px;
 	margin: 0;
 	padding: 0;
 	left: -10px;
 }
 .form_annulla {
 	z-index: 80;
-	height: 45px;
+	height: 35px;
 	width: 65px !important;
 	position: fixed;
-	bottom: 1vh;
+	bottom: 63.5vh;
 	border-radius: 7px;
-	right: 170px;
+	right: 150px;
 
 }
 .form_annulla img {
-	width: 25px;
+	width: 15px;
 	margin: 0;
 	padding: 0;
 	left: -10px;
