@@ -156,6 +156,7 @@ const Form = ({
     setFrameIdSelezionato(idFrameSelezionato);
   };
 
+  console.log(children.length, "children");
   return (
     <React.Fragment>
       <form
@@ -185,10 +186,11 @@ const Form = ({
           ></Folder>
         </div>
         <div className={classes.form_body}>
-          {children &&
+          {children.length > 1 &&
             children.map((item) => {
               return item.props.id === frameIdSelezionato ? item : <></>;
             })}
+          {children.length === undefined && children}
         </div>
       </form>
       {mex && (
