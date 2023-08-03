@@ -1,8 +1,9 @@
 .form_content {
-	width: 100%;
+    width: 100%;
 	margin-bottom: 50px;
 	height: fit-content;
-	overflow-y: auto;
+	overflow-x: hidden;
+	
 }
 .form_body{
 
