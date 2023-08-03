@@ -74,8 +74,10 @@ const Project = ({ request }) => {
 
   const itemFolders = [
     { key: 1, label: "label 1", img: "save", target: "frame_1" },
-    { key: 2, label: "label 4", img: "delete", target: "frame_4" },
+    { key: 2, label: "label 4", img: "save", target: "frame_4" },
+    { key: 3, label: "label 4", img: "save", target: "frame_5" },
   ];
+  const idFolder1 = "frame_1";
   const itemsSearch = ["Soggetti_Nome1", "Soggetti_Nome2"];
   return (
     <>
@@ -100,6 +102,7 @@ const Project = ({ request }) => {
           btn_insert={true}
         />
       </Frame>
+
       {focusForm === "form_t" && (
         <Form
           id="form_t"

@@ -177,18 +177,18 @@ const Form = ({
             </Button>
           </>
         )}
-        <div className={classes.form_body}>
-          {children &&
-            children.map((item) => {
-              return item.props.id === frameIdSelezionato ? item : <></>;
-            })}
-        </div>
         <div className={classes.form_folders}>
           <Folder
             items={folders}
             onSelect={folderSelect}
             startSelect={idFolder1[0].target}
           ></Folder>
+        </div>
+        <div className={classes.form_body}>
+          {children &&
+            children.map((item) => {
+              return item.props.id === frameIdSelezionato ? item : <></>;
+            })}
         </div>
       </form>
       {mex && (

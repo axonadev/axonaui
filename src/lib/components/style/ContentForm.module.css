@@ -1,5 +1,5 @@
 .content_body{
-    height: calc(100vh - var(--axn-height-top) - 70px);
+    height: calc(100vh - var(--axn-height-top));
     background-color: var(--axn-primary-text-color);
     position: absolute;
     top:  var(--axn-height-top);
