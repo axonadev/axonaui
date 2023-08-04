@@ -20,9 +20,13 @@
     justify-content: center;
 }
 .header_label{
-    font-size: calc(20px + 1vh);
-    color: var(--axn-primary-text-color);
+    font-size: calc(30px + 1vh);
+    color: #FF8306;/*var(--axn-primary-text-color);*/
     text-align: center;
+    font-variant: small-caps;
+    
+
+
 }
 .header_doc{
     position:relative !important;
