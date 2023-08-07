@@ -13,6 +13,36 @@ const InputCheckList = ({
   const [list, setList] = useState(null);
   const [jsonDriver, setJsonDriver] = useState("");
 
+  const changeSeleztion = (evt) => {
+    if (list) {
+      let comm = "";
+
+      list.map((item) => {
+        var checkbox = document.getElementById(
+          field_description + "_" + item[field_id]
+        );
+
+        if (checkbox.checked) {
+          comm =
+            comm +
+            ",{pidobj:" +
+            pidobj +
+            "," +
+            field_target +
+            ":" +
+            item[field_id] +
+            "}";
+        }
+      });
+
+      if (comm === "") {
+        comm = ",{pidobj:" + pidobj + "," + field_target + ":0}";
+      }
+
+      setJsonDriver("[" + comm.substring(1) + "]");
+    }
+  };
+
   useEffect(() => {
     const loadList = () => {
       fetch(url)
@@ -48,6 +78,9 @@ const InputCheckList = ({
           }
         });
 
+        if (comm === "") {
+          comm = ",{pidobj:" + pidobj + "," + field_target + ":0}";
+        }
         setJsonDriver("[" + comm.substring(1) + "]");
       }
     };
@@ -63,6 +96,7 @@ const InputCheckList = ({
               label={item[field_description]}
               value={item[field_value]}
               id={field_description + "_" + item[field_id]}
+              onChange={changeSeleztion}
             />
           );
         })}

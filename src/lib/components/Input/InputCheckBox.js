@@ -2,7 +2,16 @@ import React, { useEffect, useState } from "react";
 import useInput from "../../hooks/useInput";
 import classes from "../style/Input.module.css";
 
-const InputCheckBox = ({ value, label, className, id, type, list, val }) => {
+const InputCheckBox = ({
+  value,
+  label,
+  className,
+  id,
+  type,
+  list,
+  val,
+  onChange,
+}) => {
   const pers = localStorage.getItem("pers");
 
   let effVal = "";
@@ -38,7 +47,8 @@ const InputCheckBox = ({ value, label, className, id, type, list, val }) => {
     optionList,
   } = useInput();
 
-  const InputChangeHandler = () => {
+  const InputChangeHandler = (evt) => {
+    onChange(evt);
     setIsChecked((prev) => {
       return !prev;
     });
