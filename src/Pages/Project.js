@@ -27,11 +27,13 @@ const Project = ({ request }) => {
   const [statoGriglia, setStatoGriglia] = useState("");
   const [reloadGriglia, setReloadGriglia] = useState(0);
   const [idobj_T, setIdobj_T] = useState(0);
-  const { onChangeSelected, onReset, formValue } = useForm();
+  const { onChangeSelected, onReset, formValue, isChanged, setIsChanged } =
+    useForm();
 
   const insertClickHandler = (idGriglia) => {
     const idform = "form_" + idGriglia.split("_")[1];
     onReset();
+    setIsChanged(false);
     setFocusForm(idform);
     setStatoGriglia("INSERIMENTO");
     setIdobj_T(0);
@@ -39,6 +41,7 @@ const Project = ({ request }) => {
   const deleteClickHandler = (idGriglia) => {};
 
   const onLoadRow = () => {
+    setIsChanged(false);
     setReloadGriglia((item) => {
       return item + 1;
     });
@@ -54,6 +57,7 @@ const Project = ({ request }) => {
     );
   };
   const onChangeRow = (idobj) => {
+    setIsChanged(false);
     setIdobj_T(idobj);
     setFocusForm("form_t");
     setStatoGriglia("");
@@ -65,6 +69,9 @@ const Project = ({ request }) => {
         idobj,
       nameTable
     );
+  };
+  const onChangeInput = () => {
+    setIsChanged(true);
   };
 
   useEffect(() => {
@@ -114,6 +121,7 @@ const Project = ({ request }) => {
           folders={itemFolders}
           afterSubmit={onLoadRow}
           onAnnulla={onLoadRow}
+          isChanged={isChanged}
         >
           <FrameContainer id="frame_1">
             <Frame label="DATI DI PROVA 1">
@@ -122,20 +130,27 @@ const Project = ({ request }) => {
                   label="prova"
                   id="Soggetti_Nome1"
                   val={formValue}
+                  onChange={onChangeInput}
                 ></Input>
                 <Input
                   label="prova"
                   id="Soggetti_Nome2"
                   val={formValue}
+                  onChange={onChangeInput}
                 ></Input>
                 <InputData
                   label="Scadenza"
                   id="Soggetti_ScadenzaOBJ"
                   val={formValue}
+                  onChange={onChangeInput}
                 />
               </FrameInRow>
               <FrameInRow width={[30, 30, 40]}>
-                <InputCheckBox label="checkbox" val={formValue} />
+                <InputCheckBox
+                  label="checkbox"
+                  val={formValue}
+                  onChange={onChangeInput}
+                />
                 <InputList
                   label="Natura iva"
                   id="Ive_Natura"
@@ -152,6 +167,7 @@ const Project = ({ request }) => {
                     "NaturaIVA_Descrizione",
                   ]}
                   val={formValue}
+                  onChange={onChangeInput}
                 />
                 <InputChecklist
                   label="tipisoggetto"
@@ -169,6 +185,7 @@ const Project = ({ request }) => {
                   field_value="valore"
                   val={formValue}
                   pidobj={idobj_T}
+                  onChange={onChangeInput}
                 />
               </FrameInRow>
             </Frame>

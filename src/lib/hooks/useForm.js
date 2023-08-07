@@ -7,6 +7,7 @@ const useForm = () => {
   const [error, setError] = useState("");
   const [datarow, setDataRow] = useState(null);
   const [formValue, setFormValue] = useState();
+  const [isChanged, setIsChanged] = useState(false);
 
   const onChangeSelected = useCallback(async (url, nameView) => {
     setIsLoading(true);
@@ -94,6 +95,15 @@ const useForm = () => {
     writeform();
   }, [datarow]);
 
-  return { datarow, isloading, error, onChangeSelected, onReset, formValue };
+  return {
+    datarow,
+    isloading,
+    error,
+    onChangeSelected,
+    onReset,
+    formValue,
+    isChanged,
+    setIsChanged,
+  };
 };
 export default useForm;
