@@ -1,18 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import useInput from "../../hooks/useInput";
 import classes from "../style/Input.module.css";
 
-const InputCheckBox = ({
-  value,
-  label,
-  icon,
-  className,
-  id,
-  type,
-  pidobj,
-  list,
-  val,
-}) => {
+const InputCheckBox = ({ value, label, className, id, type, list, val }) => {
   const pers = localStorage.getItem("pers");
 
   let effVal = "";
@@ -31,7 +21,7 @@ const InputCheckBox = ({
     ? true
     : false;
 
-  console.log(effVal, "ck_valore");
+  const [isChecked, setIsChecked] = useState(effVal);
 
   const objLabel = label;
   let sTipo = "text";
@@ -39,16 +29,20 @@ const InputCheckBox = ({
   const effList = list ? list : null;
 
   const {
-    value: InputValue,
     isValid: InputIsValid,
     isFocussed: InputIsFocussed,
     messageError: InputMessageError,
-    valueChangeHandler: InputChange,
     inputBlurHandler: InputBlur,
     inputFocusHandler: InputFocus,
     setValue: setInputValue,
     optionList,
   } = useInput();
+
+  const InputChangeHandler = () => {
+    setIsChecked((prev) => {
+      return !prev;
+    });
+  };
 
   const classFocus = InputIsFocussed ? classes["input_focused"] : "";
   const classContent = [
@@ -91,10 +85,10 @@ const InputCheckBox = ({
           id={id}
           type="checkbox"
           tipo={sTipo}
-          onChange={InputChange}
+          onChange={InputChangeHandler}
           onBlur={InputBlur}
           onFocus={InputFocus}
-          checked={InputValue}
+          checked={isChecked}
         />
       </div>
     </div>
