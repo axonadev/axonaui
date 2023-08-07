@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import useInput from "../../hooks/useInput";
 import classes from "../style/Input.module.css";
 
-const Input = ({ value, label, icon, className, id, val }) => {
+const Input = ({ value, label, icon, className, id, val, onChange }) => {
   const pers = localStorage.getItem("pers");
 
   let effVal = "";
@@ -40,6 +40,10 @@ const Input = ({ value, label, icon, className, id, val }) => {
     classes["validate_" + InputIsValid],
   ];
 
+  const onChangeInput = (evt) => {
+    InputChange(evt);
+  };
+
   useEffect(() => {
     setInputValue(effVal);
   }, [effVal]);
@@ -59,7 +63,7 @@ const Input = ({ value, label, icon, className, id, val }) => {
           id={id}
           type="text"
           tipo={sTipo}
-          onChange={InputChange}
+          onChange={onChangeInput}
           onBlur={InputBlur}
           onFocus={InputFocus}
           value={InputValue}
