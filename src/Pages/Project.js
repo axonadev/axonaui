@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   useForm,
   Input,
+  InputCheckList,
   InputCheckBox,
   InputData,
   Form,
@@ -12,7 +13,6 @@ import {
   FrameContainer,
 } from "../lib";
 import { useEnv } from "axonalib";
-import InputChecklist from "../lib/components/Input/InputChecklist";
 
 const Project = ({ request }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
@@ -182,6 +182,7 @@ const Project = ({ request }) => {
                   nameList="v_tipisoggetto"
                   field_id="IDOBJ"
                   field_description="TipiSoggetto_Descrizione"
+                  field_target="SoggettiTipi_Tipo"
                   field_value="valore"
                   val={formValue}
                   pidobj={idobj_T}

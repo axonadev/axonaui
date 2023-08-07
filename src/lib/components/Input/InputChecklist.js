@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import InputCheckBox from "./InputCheckBox";
 
-const InputChecklist = ({
+const InputCheckList = ({
   url,
   nameList,
   field_id,
   field_description,
   field_value,
+  field_target,
 }) => {
   const [list, setList] = useState(null);
 
@@ -35,11 +36,11 @@ const InputChecklist = ({
             <InputCheckBox
               label={item[field_description]}
               value={item[field_value]}
-              id={field_description + "_" + item[field_id]}
+              id={field_target + "_" + item[field_id]}
             />
           );
         })}
     </>
   );
 };
-export default InputChecklist;
+export default InputCheckList;
