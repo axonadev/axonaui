@@ -23,6 +23,12 @@ const Project = ({ request }) => {
   const cmd_getForm = "/" + moduloForm + "/" + moduloForm + "sel/getrow/";
   const cmd_getGrid = "/" + moduloForm + "/" + moduloForm + "sel/leggi";
 
+  const listaanni = [
+    { IDOBJ: 2020, Anni_Descrizione: "duemilaventi" },
+    { IDOBJ: 2021, Anni_Descrizione: "duemilaventuno" },
+    { IDOBJ: 2022, Anni_Descrizione: "duemilaventidue" },
+  ];
+
   const [focusForm, setFocusForm] = useState("");
   const [statoGriglia, setStatoGriglia] = useState("");
   const [reloadGriglia, setReloadGriglia] = useState(0);
@@ -145,7 +151,7 @@ const Project = ({ request }) => {
                   onChange={onChangeInput}
                 />
               </FrameInRow>
-              <FrameInRow width={[30, 30, 40]}>
+              <FrameInRow width={[20, 25, 20, 20]}>
                 <InputCheckBox
                   label="checkbox"
                   val={formValue}
@@ -166,6 +172,16 @@ const Project = ({ request }) => {
                     "NaturaIVA_Codice",
                     "NaturaIVA_Descrizione",
                   ]}
+                  val={formValue}
+                  onChange={onChangeInput}
+                />
+                <InputList
+                  label="Anni"
+                  id="Ive_Anni"
+                  nameList="v_anni"
+                  field_id="IDOBJ"
+                  field_description={["Anni_Descrizione"]}
+                  defList={listaanni}
                   val={formValue}
                   onChange={onChangeInput}
                 />

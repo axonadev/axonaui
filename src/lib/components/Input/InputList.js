@@ -14,6 +14,7 @@ const InputList = ({
   className,
   type,
   val,
+  defList,
 }) => {
   const valList = val
     ? val.filter((item) => item !== undefined).filter((item) => item.id === id)
@@ -33,7 +34,7 @@ const InputList = ({
     setValidate: setInputValidate,
   } = useInput();
 
-  const [list, setList] = useState(null);
+  const [list, setList] = useState(defList);
   const [list_value, setListValue] = useState(0);
 
   const classFocus = InputIsFocussed ? classes["input_focused"] : "";
@@ -96,14 +97,19 @@ const InputList = ({
           console.log(err);
         });
     };
-
-    loadList();
+    if (defList) {
+    } else {
+      loadList();
+    }
   }, []);
 
   useEffect(() => {
-    getValore(list);
+    if (defList) {
+    } else {
+      getValore(list);
 
-    setInputValidate(validate ? validate : "");
+      setInputValidate(validate ? validate : "");
+    }
   }, [value, validate]);
 
   return (
