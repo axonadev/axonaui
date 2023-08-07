@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import useInput from "../../hooks/useInput";
 import classes from "../style/Input.module.css";
-import Checklist from "./Checklist";
 
 const InputCheckBox = ({
   value,
@@ -22,7 +21,17 @@ const InputCheckBox = ({
     ? val.filter((item) => item !== undefined).filter((item) => item.id === id)
     : "";
 
-  effVal = valList[0] ? valList[0].value : value;
+  effVal = valList[0]
+    ? valList[0].value
+    : value === "True"
+    ? true
+    : value === "true"
+    ? true
+    : value === true
+    ? true
+    : false;
+
+  console.log(effVal, "ck_valore");
 
   const objLabel = label;
   let sTipo = "text";
@@ -76,24 +85,18 @@ const InputCheckBox = ({
           )}
         </label>
       </div>
-      {type != "checklist" && (
-        <div className={classDivInput.join(" ")}>
-          <input
-            id={id}
-            type="checkbox"
-            tipo={sTipo}
-            onChange={InputChange}
-            onBlur={InputBlur}
-            onFocus={InputFocus}
-            checked={InputValue}
-          />
-        </div>
-      )}
-      {type === "checklist" && (
-        <div className={classDivCheckList.join(" ")}>
-          <Checklist list={effList} id={id} pidobj={pidobj} />
-        </div>
-      )}
+
+      <div className={classDivInput.join(" ")}>
+        <input
+          id={id}
+          type="checkbox"
+          tipo={sTipo}
+          onChange={InputChange}
+          onBlur={InputBlur}
+          onFocus={InputFocus}
+          checked={InputValue}
+        />
+      </div>
     </div>
   );
 };
