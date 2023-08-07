@@ -12,7 +12,7 @@ import {
   FrameContainer,
 } from "../lib";
 import { useEnv } from "axonalib";
-import InputChecklist from "../lib/components/Input/InputChecklist";
+import InputCheckList from "../lib/components/Input/InputCheckList";
 
 const Project = ({ request }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
@@ -169,7 +169,7 @@ const Project = ({ request }) => {
                   val={formValue}
                   onChange={onChangeInput}
                 />
-                <InputChecklist
+                <InputCheckList
                   label="tipisoggetto"
                   id="tipisoggetto"
                   url={
@@ -183,6 +183,7 @@ const Project = ({ request }) => {
                   field_id="IDOBJ"
                   field_description="TipiSoggetto_Descrizione"
                   field_value="valore"
+                  field_target="SoggettiTipi_Tipo"
                   val={formValue}
                   pidobj={idobj_T}
                   onChange={onChangeInput}
