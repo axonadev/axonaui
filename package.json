@@ -46,7 +46,8 @@
     "@babel/cli": "^7.21.5",
     "@babel/core": "^7.21.8",
     "@babel/preset-env": "^7.21.5",
-    "react-styleguidist": "^13.1.1"
+    "react-styleguidist": "^13.1.1",
+    "standard-version": "^9.5.0"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "dist/index.js",
