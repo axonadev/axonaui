@@ -11,6 +11,8 @@ const useInput = () => {
   const [isChanged, setIsChanged] = useState(false);
   const [messageError, setMessageError] = useState("");
   const [validate, setValidate] = useState({});
+  const [contaCaratteri, setContaCaratteri] = useState(0);
+  const [avantiCaratteri, setAvantiCaratteri] = useState(1);
 
   const valueChangeHandler = (evt) => {
     localStorage.setItem("axn_form_change", "1");
@@ -18,6 +20,15 @@ const useInput = () => {
     console.debug(evt.target.value, "terged changed");
 
     setEnteredValue(evt.target.value);
+    setContaCaratteri((prev) => {
+      if (prev < evt.target.value.length) {
+        setAvantiCaratteri((nprev) => {
+          return nprev + 1;
+        });
+      }
+
+      return evt.target.value.length;
+    });
 
     setIsChanged(true);
   };
@@ -106,6 +117,8 @@ const useInput = () => {
   return {
     value: enteredValue,
     listValue,
+    contaCaratteri,
+    avantiCaratteri,
     list,
     isValid,
     messageError,

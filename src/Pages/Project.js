@@ -18,7 +18,7 @@ import FormButton from "../lib/components/Form/FormButton";
 const Project = ({ request }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
 
-  const moduloForm = "soggetti";
+  const moduloForm = "ive";
   const nameView = "v_" + moduloForm;
   const nameTable = moduloForm;
   const cmd_getForm = "/" + moduloForm + "/" + moduloForm + "sel/getrow/";
@@ -131,13 +131,13 @@ const Project = ({ request }) => {
               <FrameInRow width={[80, 10, 10]}>
                 <Input
                   label="prova"
-                  id="Soggetti_Nome1"
+                  id="Ive_Descrizione"
                   val={formValue}
                   onChange={onChangeInput}
                 ></Input>
                 <Input
                   label="prova"
-                  id="Soggetti_Nome2"
+                  id="Ive_Valore"
                   val={formValue}
                   onChange={onChangeInput}
                 ></Input>
@@ -171,6 +171,7 @@ const Project = ({ request }) => {
                   ]}
                   val={formValue}
                   onChange={onChangeInput}
+                  numerocaratteri={3}
                 />
                 <InputList
                   label="Anni"

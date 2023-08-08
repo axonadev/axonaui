@@ -15,6 +15,7 @@ const InputList = ({
   type,
   val,
   defList,
+  numerocaratteri = 0,
 }) => {
   const valList = val
     ? val.filter((item) => item !== undefined).filter((item) => item.id === id)
@@ -24,6 +25,8 @@ const InputList = ({
 
   const {
     value: InputValue,
+    contaCaratteri: InputContaCaratteri,
+    avantiCaratteri: InputCaratteriAvanti,
     isValid: InputIsValid,
     isFocussed: InputIsFocussed,
     messageError: InputMessageError,
@@ -42,11 +45,6 @@ const InputList = ({
   const classLabel = [classes.input_label, classFocus, className];
   const classDivInput = [
     classes.input_input,
-    classFocus,
-    classes["validate_" + InputIsValid],
-  ];
-  const classDivCheckList = [
-    classes.input_checklist,
     classFocus,
     classes["validate_" + InputIsValid],
   ];
@@ -83,9 +81,43 @@ const InputList = ({
     }
   };
 
+  const keydownHandler = (evt) => {
+    if (evt.keyCode === 46) {
+      setInputValue("");
+      setListValue(0);
+    }
+  };
+
   useEffect(() => {
-    const loadList = () => {
-      fetch(url)
+    const loadList = (val_idobj = 0) => {
+      let goUrl = val_idobj === 0 ? url : url + "/" + val_idobj;
+      fetch(goUrl)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          setList(data.Itemset[nameList]);
+          //getValore(data.Itemset[nameList]);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    if (defList) {
+    } else {
+      if (numerocaratteri <= InputContaCaratteri) {
+        loadList();
+      }
+      if (InputContaCaratteri === 0) {
+        loadList(effVal);
+      }
+    }
+  }, [InputCaratteriAvanti]);
+
+  useEffect(() => {
+    const loadList = (val_idobj = 0) => {
+      let goUrl = val_idobj === 0 ? url : url + "/" + val_idobj;
+      fetch(goUrl)
         .then((response) => {
           return response.json();
         })
@@ -99,7 +131,9 @@ const InputList = ({
     };
     if (defList) {
     } else {
-      loadList();
+      if (InputContaCaratteri === 0) {
+        loadList(effVal);
+      }
     }
   }, []);
 
@@ -134,6 +168,7 @@ const InputList = ({
           value={InputValue}
           list_value={list_value}
           list={"list_" + id}
+          onKeyDown={keydownHandler}
         />
       </div>
       <datalist id={"list_" + id}>
