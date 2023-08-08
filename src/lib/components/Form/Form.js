@@ -17,12 +17,10 @@ const Form = ({
   children,
   token = "",
   serverApi,
-  onAnnulla,
   folders,
 }) => {
   const idFolder1 = folders.filter((item) => item.key === 1);
   const [mex, setMex] = useState(null);
-  const [mexAnnulla, setMexAnnulla] = useState(null);
   const [isSnackBar, setSnackBar] = useState(null);
   const [frameIdSelezionato, setFrameIdSelezionato] = useState(
     idFolder1[0].target
@@ -63,7 +61,6 @@ const Form = ({
 
   const onStophandler = () => {
     setMex(null);
-    setMexAnnulla(null);
   };
   const formSubmissionHandler = (evt, idb) => {
     evt.preventDefault();
@@ -124,18 +121,6 @@ const Form = ({
     });
   };
 
-  const clickAnnulla = () => {
-    setMexAnnulla({
-      title: "Annulla",
-      label: "Le tue modifiche verranno perse, continuare?",
-      icon: "",
-    });
-  };
-  const onConfirmAnnulla = () => {
-    setMexAnnulla(null);
-    onAnnulla();
-  };
-
   const folderSelect = (idFrameSelezionato) => {
     setFrameIdSelezionato(idFrameSelezionato);
   };
@@ -148,19 +133,6 @@ const Form = ({
         onSubmit={formSubmissionHandler}
         id={id}
       >
-        <>
-          <Button className={classes.form_save} type="submit" id={id_submit}>
-            <Img type="save" pathImg="getlocal" />
-          </Button>
-          <Button
-            className={classes.form_annulla}
-            onClick={clickAnnulla}
-            id={id_submit}
-          >
-            <Img type="annulla" pathImg="getlocal" />
-          </Button>
-        </>
-
         <div className={classes.form_folders}>
           <Folder
             items={folders}
@@ -175,6 +147,14 @@ const Form = ({
             })}
           {children.length === undefined && children}
         </div>
+
+        <Button
+          className={classes.form_save_hidden}
+          type="submit"
+          id={id_submit}
+        >
+          <Img type="save" pathImg="getlocal" />
+        </Button>
       </form>
       {mex && (
         <MessageModal
@@ -199,29 +179,7 @@ const Form = ({
           ]}
         />
       )}
-      {mexAnnulla && (
-        <MessageModal
-          onClickBtn1={onConfirmAnnulla}
-          onClickBtn2={onStophandler}
-          onOut={onStophandler}
-          title={mexAnnulla.title}
-          message={mexAnnulla.label}
-          buttons={[
-            {
-              key: 1,
-              label: "No",
-              type: "stop",
-              onClick: onStophandler,
-            },
-            {
-              key: 2,
-              label: "Si",
-              type: "run",
-              onClick: onConfirmAnnulla,
-            },
-          ]}
-        />
-      )}
+
       {isSnackBar && (
         <SnackBar
           label={isSnackBar.label}

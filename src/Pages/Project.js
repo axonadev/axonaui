@@ -13,6 +13,7 @@ import {
 } from "../lib";
 import { useEnv } from "axonalib";
 import InputCheckList from "../lib/components/Input/InputCheckList";
+import FormButton from "../lib/components/Form/FormButton";
 
 const Project = ({ request }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
@@ -33,13 +34,13 @@ const Project = ({ request }) => {
   const [statoGriglia, setStatoGriglia] = useState("");
   const [reloadGriglia, setReloadGriglia] = useState(0);
   const [idobj_T, setIdobj_T] = useState(0);
-  const { onChangeSelected, onReset, formValue, isChanged, setIsChanged } =
-    useForm();
+
+  const { onChangeSelected, onReset, formValue } = useForm();
 
   const insertClickHandler = (idGriglia) => {
     const idform = "form_" + idGriglia.split("_")[1];
     onReset();
-    setIsChanged(false);
+
     setFocusForm(idform);
     setStatoGriglia("INSERIMENTO");
     setIdobj_T(0);
@@ -47,7 +48,6 @@ const Project = ({ request }) => {
   const deleteClickHandler = (idGriglia) => {};
 
   const onLoadRow = () => {
-    setIsChanged(false);
     setReloadGriglia((item) => {
       return item + 1;
     });
@@ -63,7 +63,6 @@ const Project = ({ request }) => {
     );
   };
   const onChangeRow = (idobj) => {
-    setIsChanged(false);
     setIdobj_T(idobj);
     setFocusForm("form_t");
     setStatoGriglia("");
@@ -75,9 +74,6 @@ const Project = ({ request }) => {
         idobj,
       nameTable
     );
-  };
-  const onChangeInput = () => {
-    setIsChanged(true);
   };
 
   useEffect(() => {
@@ -93,6 +89,8 @@ const Project = ({ request }) => {
   ];
   const idFolder1 = "frame_1";
   const itemsSearch = ["Soggetti_Nome1", "Soggetti_Nome2"];
+
+  const onChangeInput = () => {};
   return (
     <>
       <Frame label="TESTATA" type="form_t" stato={statoGriglia}>
@@ -116,7 +114,7 @@ const Project = ({ request }) => {
           btn_insert={true}
         />
       </Frame>
-
+      <FormButton onAnnulla={onLoadRow} id_submit="form_t" />
       {focusForm === "form_t" && (
         <Form
           id="form_t"
@@ -127,7 +125,6 @@ const Project = ({ request }) => {
           folders={itemFolders}
           afterSubmit={onLoadRow}
           onAnnulla={onLoadRow}
-          isChanged={isChanged}
         >
           <FrameContainer id="frame_1">
             <Frame label="DATI DI PROVA 1">
