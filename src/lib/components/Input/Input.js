@@ -41,7 +41,11 @@ const Input = ({ value, label, icon, className, id, val, onChange }) => {
   ];
 
   const onChangeInput = (evt) => {
+    onChange();
     InputChange(evt);
+  };
+  const onBlurInput = (evt) => {
+    InputBlur(evt);
   };
 
   useEffect(() => {
@@ -64,7 +68,7 @@ const Input = ({ value, label, icon, className, id, val, onChange }) => {
           type="text"
           tipo={sTipo}
           onChange={onChangeInput}
-          onBlur={InputBlur}
+          onBlur={onBlurInput}
           onFocus={InputFocus}
           value={InputValue}
         />
