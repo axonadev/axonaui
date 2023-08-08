@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import InputCheckBox from "./InputCheckBox";
+import classes from "../style/Input.module.css";
 
 const InputCheckList = ({
   url,
@@ -88,7 +89,7 @@ const InputCheckList = ({
   }, [list]);
 
   return (
-    <>
+    <div className={classes.inputchecklist_content}>
       {list &&
         list.map((item) => {
           return (
@@ -101,8 +102,14 @@ const InputCheckList = ({
           );
         })}
 
-      <input type="text" id={field_target} value={jsonDriver} tipo="text" />
-    </>
+      <input
+        type="text"
+        id={field_target}
+        value={jsonDriver}
+        tipo="text"
+        className={classes.checkboxlistjson}
+      />
+    </div>
   );
 };
 export default InputCheckList;

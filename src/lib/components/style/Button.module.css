@@ -1,8 +1,8 @@
 .button{
     border-radius: 7px;
-    border:1px solid  var(--axn-primary-color);;
-    background-color: var(--axn-primary-color);
-    color:var(--axn-primary-text-color) ;
+    border:1px solid  var(--axn-button-color);
+    background-color: var(--axn-button-background-color);
+    color:var(--axn-button-color) ;
     overflow: hidden;
     padding: 10px;
     margin:0px;
@@ -11,8 +11,8 @@
     
 }
 .button:hover{
-    background-color: var(--axn-background-color-hover);
-    color: var(--axn-color-hover);
+    background-color: var(--axn-button-background-color-hover);
+    color: var(--axn-button-color-hover);
     cursor: pointer;
 }
 
@@ -37,7 +37,7 @@
 	position: fixed;
 	bottom: 1vh;
 	border-radius: 50%;
-	right: 10vh;
+    right: calc(50% - 32.5px);
 }
 .button_type_submit img {
 	width: 40px;

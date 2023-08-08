@@ -58,7 +58,7 @@ const InputCheckBox = ({
   const classContent = [
     classes.input,
     classes["input_" + pers],
-    classes["cont_" + type],
+    classes["cont_checkbox"],
   ];
   const classLabel = [classes.input_label, classFocus, className];
   const classDivInput = [

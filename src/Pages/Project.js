@@ -151,7 +151,7 @@ const Project = ({ request }) => {
                   onChange={onChangeInput}
                 />
               </FrameInRow>
-              <FrameInRow width={[20, 25, 20, 20]}>
+              <FrameInRow width={[5, 25, 20, 10]}>
                 <InputCheckBox
                   label="checkbox"
                   val={formValue}

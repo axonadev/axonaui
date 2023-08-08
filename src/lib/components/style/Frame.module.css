@@ -23,7 +23,7 @@
    font-size: 18px;
 }
 .frame_inserimento{
-   border: 1px solid orange;
+   border: 1px solid var(--axn-frame-border-active);
 }
 
 .frameinrow{

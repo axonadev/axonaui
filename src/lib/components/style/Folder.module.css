@@ -10,10 +10,10 @@
 .folder_content .folderlabel{
     width: auto;
     padding: 5px;
-    background-color: #FFDEA0;/*var(--axn-primary-color);*/
-    color: black;/*var(--axn-primary-text-color);*/
+    background-color: var(--axn-folder-background-color);
+    color:var(--axn-folder-color);
     border-top-right-radius: 10px;
-    border: 1px solid #FF8306;
+    border: 1px solid var(--axn-folder-border-color);;
     cursor:pointer;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -26,23 +26,12 @@
 
 .folder_content .folder_active .folderlabel{
 
-    background-color: #FF8306;/*var(--axn-primary-color);*/
-    color: black;/*var(--axn-primary-text-color);*/
+    background-color: var(--axn-folder-background-color-active);
+    color: var(--axn-folder-color-active);
     font-weight: 600;
    
 
 }
-/*.contentfolder .active {
-    padding: 10px;
-    background-color: var(--axn-activate-background-color);
-    color: var(--axn-activate-color);
-    border-top-right-radius: 10px;
-    border: 1px solid var(--axn-border-color);
-    cursor:pointer;
-  
-
-}
-*/
 
 .folderlabel label{
     padding-left: 5px;

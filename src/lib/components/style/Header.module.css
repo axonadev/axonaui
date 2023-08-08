@@ -1,5 +1,5 @@
 .header_content{
-    background-color: var(--axn-top-color);
+    background-color: var(--axn-header-background-color);
     height: var(--axn-height-top);
     display: flex;
     justify-content: center;
@@ -21,7 +21,7 @@
 }
 .header_label{
     font-size: calc(30px + 1vh);
-    color: #FF8306;/*var(--axn-primary-text-color);*/
+    color: var(--axn-header-color);
     text-align: center;
     font-variant: small-caps;
     

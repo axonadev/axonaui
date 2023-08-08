@@ -1,5 +1,6 @@
 .input {
     width: 100%;
+
 }
 .input_label{
     font-size: 12px;
@@ -21,6 +22,10 @@
     border-radius: 3px;
     height: calc(var(--axn-input-font-size) + 5px);
 }
+.input_input input[type=date]{
+    height: calc(var(--axn-input-font-size) + 7px);
+}
+
 .input_input input:hover{
     border: var(--axn-input-border-color-hover) 1px solid;
     
@@ -52,6 +57,37 @@
 }
 .input_checklist div input{
     font-size: 25px;
+
+}
+.cont_checkbox{
+    display: flex;
+    flex-direction: column;
+}
+.cont_checkbox input{
+    width: 25px;
+    height:  calc(var(--axn-input-font-size) + 10px);
+    padding-top: 0px;
+    margin: 0px;
+}
+.inputchecklist_content .cont_checkbox{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.inputchecklist_content .cont_checkbox input{
+    height:  calc(var(--axn-input-font-size) );
+}
+.cont_checkbox .input_label{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+.inputchecklist_content{
+    max-height: 50px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.checkboxlistjson{
+    visibility: hidden;
 }
 
 .cont_text{
