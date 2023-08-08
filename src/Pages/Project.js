@@ -10,6 +10,7 @@ import {
   Grid,
   InputList,
   FrameContainer,
+  Citta,
 } from "../lib";
 import { useEnv } from "axonalib";
 import InputCheckList from "../lib/components/Input/InputCheckList";
@@ -18,7 +19,7 @@ import FormButton from "../lib/components/Form/FormButton";
 const Project = ({ request }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
 
-  const moduloForm = "ive";
+  const moduloForm = "soggetti";
   const nameView = "v_" + moduloForm;
   const nameTable = moduloForm;
   const cmd_getForm = "/" + moduloForm + "/" + moduloForm + "sel/getrow/";
@@ -201,6 +202,16 @@ const Project = ({ request }) => {
                   val={formValue}
                   pidobj={idobj_T}
                   onChange={onChangeInput}
+                />
+              </FrameInRow>
+              <FrameInRow width={[100]}>
+                <Citta
+                  nazione={{ label: "Nazione", id: "Soggetti_Nazione" }}
+                  citta={{ label: "Citta", id: "Soggetti_Citta" }}
+                  provincia={{ label: "Provincia", id: "Soggetti_Prov" }}
+                  cap={{ label: "CAP", id: "Soggetti_CAP" }}
+                  onChange={onChangeInput}
+                  val={formValue}
                 />
               </FrameInRow>
             </Frame>

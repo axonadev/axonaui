@@ -25,6 +25,7 @@ import ProjectMenu from "./components/ProjectMenu/ProjectMenu";
 import FormButton from "./components/Form/FormButton";
 import Form from "./components/Form/Form";
 import useForm from "./hooks/useForm";
+import Citta from "./components/UIFrame/Citta";
 
 export {
   Button,
@@ -54,4 +55,5 @@ export {
   FormButton,
   Form,
   useForm,
+  Citta,
 };
