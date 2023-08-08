@@ -6,7 +6,7 @@ import Input from "./components/Input/Input";
 import InputData from "./components/Input/InputData";
 import InputCheckBox from "./components/Input/InputCheckBox";
 import InputList from "./components/Input/InputList";
-import InputChecklist from "./components/Input/InputCheckList";
+import InputCheckList from "./components/Input/InputCheckList";
 import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 import CssStruct from "./components/CssStruct/CssStruct";
 import Header from "./components/Header/Header";
@@ -35,7 +35,7 @@ export {
   InputData,
   InputCheckBox,
   InputList,
-  InputChecklist,
+  InputCheckList,
   LoadingSpinner,
   CssStruct,
   Header,
