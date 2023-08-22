@@ -1,8 +1,18 @@
 import React, { useEffect } from "react";
 import useInput from "../../hooks/useInput";
 import classes from "../style/Input.module.css";
+import Img from "../Img/Img";
 
-const Input = ({ value, label, icon, className, id, val, onChange }) => {
+const Input = ({
+  value,
+  label,
+  icon,
+  className,
+  id,
+  val,
+  onChange,
+  onIconClick,
+}) => {
   const pers = localStorage.getItem("pers");
 
   let effVal = "";
@@ -38,6 +48,7 @@ const Input = ({ value, label, icon, className, id, val, onChange }) => {
     classes.input_input,
     classFocus,
     classes["validate_" + InputIsValid],
+    icon ? classes.input_icon_grid : "",
   ];
 
   const onChangeInput = (evt) => {
@@ -49,6 +60,12 @@ const Input = ({ value, label, icon, className, id, val, onChange }) => {
   };
   const onBlurInput = (evt) => {
     InputBlur(evt);
+  };
+
+  const onIconClickHandler = (evt) => {
+    try {
+      onIconClick(evt);
+    } catch (error) {}
   };
 
   useEffect(() => {
@@ -75,6 +92,11 @@ const Input = ({ value, label, icon, className, id, val, onChange }) => {
           onFocus={InputFocus}
           value={InputValue}
         />
+        {icon && (
+          <div className={classes.input_icon} onClick={onIconClickHandler}>
+            <Img type={icon} pathImg="getlocal" />
+          </div>
+        )}
       </div>
     </div>
   );

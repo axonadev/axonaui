@@ -14,18 +14,12 @@ const Filter = ({ id, itemSearch, onFilter }) => {
 
   return (
     <React.Fragment>
-      <Input className={classes.filter_search} id={idFilter}></Input>
-      <Button
-        onClick={clickSearchHandler}
-        className={classes.filter_button}
-        type="sm"
-      >
-        <Img
-          type="find"
-          className={classes.filter_search_img}
-          pathImg="getlocal"
-        ></Img>
-      </Button>
+      <Input
+        className={classes.filter_search}
+        id={idFilter}
+        icon="find"
+        onIconClick={clickSearchHandler}
+      ></Input>
     </React.Fragment>
   );
 };

@@ -44,15 +44,7 @@ const Citta = ({ nazione, citta, provincia, cap, val, onChange }) => {
   const itemsSearch = ["CAP", "Descrizione"];
   return (
     <>
-      <FrameInRow
-        width={[
-          "nopaddingleft 20",
-          "65 nopaddingright",
-          "1 flexend flexcolumn nopaddingleft",
-          5,
-          5,
-        ]}
-      >
+      <FrameInRow width={["nopaddingleft 20", "70 nopaddingright", 5, 5]}>
         <Input
           label={nazione.label}
           id={nazione.id}
@@ -64,10 +56,10 @@ const Citta = ({ nazione, citta, provincia, cap, val, onChange }) => {
           id={citta.id}
           val={getCitta}
           onChange={onChange}
+          icon="trepuntini"
+          onIconClick={cittaClickHandler}
         />
-        <Button onClick={cittaClickHandler} type="sm">
-          <Img type="trepuntini" pathImg="getlocal" />
-        </Button>
+
         <Input
           label={provincia.label}
           id={provincia.id}

@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "../style/Img.module.css";
-const Img = ({ className, id, src, alt, type, pathImg = "" }) => {
+const Img = ({ className, id, src, alt, type, pathImg = "", onClick }) => {
   const classn = [
     classes["img_" + type],
     classes.img,
@@ -42,12 +42,19 @@ const Img = ({ className, id, src, alt, type, pathImg = "" }) => {
       ".png"
     : "" + urlsite + "/" + type + ".png";
 
+  const onClickHandler = (evt) => {
+    try {
+      onClick(evt);
+    } catch (error) {}
+  };
+
   return (
     <img
       id={id}
       src={srcImage}
       alt={alt ? alt : ""}
       className={classn.join(" ")}
+      onClick={onClickHandler}
     />
   );
 };
