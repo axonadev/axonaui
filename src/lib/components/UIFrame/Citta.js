@@ -5,10 +5,13 @@ import Button from "../Button/Button";
 import FrameInRow from "../Frame/FrameInRow";
 import MessageModal from "../MessageModal/MessageModal";
 import { useEnv } from "axonalib";
+import Img from "../Img/Img";
 
 const Citta = ({ nazione, citta, provincia, cap, val, onChange }) => {
-  const [getCitta, setGetCitta] = useState([]);
+  console.log(val, "valore citta");
+  const [getCitta, setGetCitta] = useState(val);
   const [idobj, setIdobj] = useState(0);
+  const [selItem, setSelItem] = useState();
   const [formIsVisible, setFormIsVisible] = useState(false);
 
   const { REACT_APP_SERVERAPI } = useEnv();
@@ -18,8 +21,20 @@ const Citta = ({ nazione, citta, provincia, cap, val, onChange }) => {
   const cittaClickHandler = () => {
     setFormIsVisible(true);
   };
+
+  const selCitta = (id, items) => {
+    console.log(items);
+    setIdobj(id);
+    setSelItem(items);
+  };
+
   const onSelectCitta = () => {
-    alert(idobj);
+    setGetCitta(() => [
+      { id: citta.id, value: selItem.Descrizione },
+      { id: provincia.id, value: selItem.Provincia },
+      { id: cap.id, value: selItem.CAP },
+      { id: nazione.id, value: "Italia" },
+    ]);
     setFormIsVisible(false);
   };
   const onStophandler = () => {
@@ -29,27 +44,42 @@ const Citta = ({ nazione, citta, provincia, cap, val, onChange }) => {
   const itemsSearch = ["CAP", "Descrizione"];
   return (
     <>
-      <FrameInRow width={[20, 65, 5, 5, 5]}>
+      <FrameInRow
+        width={[
+          "nopaddingleft 20",
+          "65 nopaddingright",
+          "1 flexend flexcolumn nopaddingleft",
+          5,
+          5,
+        ]}
+      >
         <Input
           label={nazione.label}
           id={nazione.id}
-          val={val}
+          val={getCitta}
           onChange={onChange}
         />
         <Input
           label={citta.label}
           id={citta.id}
-          val={val}
+          val={getCitta}
           onChange={onChange}
         />
-        <Button onClick={cittaClickHandler}>Cliccami</Button>
+        <Button onClick={cittaClickHandler} type="sm">
+          <Img type="trepuntini" />
+        </Button>
         <Input
           label={provincia.label}
           id={provincia.id}
-          val={val}
+          val={getCitta}
           onChange={onChange}
         />
-        <Input label={cap.label} id={cap.id} val={val} onChange={onChange} />
+        <Input
+          label={cap.label}
+          id={cap.id}
+          val={getCitta}
+          onChange={onChange}
+        />
       </FrameInRow>
       {formIsVisible && (
         <MessageModal
@@ -81,8 +111,8 @@ const Citta = ({ nazione, citta, provincia, cap, val, onChange }) => {
               localStorage.getItem("axn_token") +
               cmd_getGrid
             }
-            onClickRow={() => {}}
-            onDoubleClickRow={onSelectCitta}
+            onClickRow={selCitta}
+            onDoubleClickRow={selCitta}
             onBtnInsert={() => {}}
             onBtnDelete={() => {}}
             nameView={"v_citta"}

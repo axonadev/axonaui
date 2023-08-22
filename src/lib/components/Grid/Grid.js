@@ -39,16 +39,16 @@ const Grid = ({
   const styles = [classes.grid_content, classes["grid_type_" + type]];
   const [page, setPage] = useState(1);
 
-  const onDoubleClickHandler = (IDOBJ) => {
-    onDoubleClickRow(IDOBJ);
+  const onDoubleClickHandler = (IDOBJ, items) => {
+    onDoubleClickRow(IDOBJ, items);
   };
 
-  const onClickRowHandler = (IDOBJ) => {
+  const onClickRowHandler = (IDOBJ, items) => {
     setRowSelected(() => {
       return IDOBJ;
     });
 
-    onClickRow(IDOBJ);
+    onClickRow(IDOBJ, items);
   };
 
   const insertHandler = () => {

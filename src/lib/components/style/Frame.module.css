@@ -31,194 +31,235 @@
     flex-direction: row;
    
 }
-.frameinrownowidth{
+.frameinrow_1{
    padding: 1px;
+   flex-basis: 1%;
    padding-left: 5px;
    padding-right: 5px;
 }
-.frameinrow5{
+.frameinrow_2{
+   padding: 1px;
+   flex-basis: 2%;
+   padding-left: 5px;
+   padding-right: 5px;
+}
+.frameinrow_3{
+   padding: 1px;
+   flex-basis: 3%;
+   padding-left: 5px;
+   padding-right: 5px;
+}
+.frameinrow_5{
    padding: 1px;
    flex-basis: 5%;
    padding-left: 5px;
    padding-right: 5px;
 }
-.frameinrow10{
+.frameinrow_10{
    padding: 1px;
     flex-basis: 10%;
     padding-left: 5px;
     padding-right: 5px;
 }
-.frameinrow15{
+.frameinrow_15{
    padding: 1px;
    flex-basis: 15%;
    padding-left: 5px;
    padding-right: 5px;
 }
-.frameinrow20{
+.frameinrow_20{
    padding: 1px;
     flex-basis: 20%;
     padding-left: 5px;
     padding-right: 5px;
 }
-.frameinrow25{
+.frameinrow_25{
    padding: 1px;
    flex-basis: 25%;
    padding-left: 5px;
    padding-right: 5px;
 }
-.frameinrow30{
+.frameinrow_30{
    padding: 1px;
    flex-basis: 30%;
    padding-left: 5px;
    padding-right: 5px;
 }
-.frameinrow35{
+.frameinrow_35{
    padding: 1px;
    flex-basis: 35%;
    padding-left: 5px;
    padding-right: 5px;
 }
-.frameinrow40{
+.frameinrow_40{
    padding: 1px;
     flex-basis: 40%;
     padding-left: 5px;
     padding-right: 5px;
  }
- .frameinrow45{
+ .frameinrow_45{
    padding: 1px;
    flex-basis: 45%;
    padding-left: 5px;
    padding-right: 5px;
 }
- .frameinrow50{
+ .frameinrow_50{
    padding: 1px;
     flex-basis: 50%;
     padding-left: 5px;
     padding-right: 5px;
  }
- .frameinrow55{
+ .frameinrow_55{
    padding: 1px;
    flex-basis: 55%;
    padding-left: 5px;
    padding-right: 5px;
 }
- .frameinrow60{
+ .frameinrow_60{
    padding: 1px;
     flex-basis: 60%;
     padding-left: 5px;
     padding-right: 5px;
  }
- .frameinrow65{
+ .frameinrow_65{
    padding: 1px;
    flex-basis: 65%;
    padding-left: 5px;
    padding-right: 5px;
 }
- .frameinrow70{
+ .frameinrow_70{
    padding: 1px;
     flex-basis: 70%;
     padding-left: 5px;
     padding-right: 5px;
  }
- .frameinrow75{
+ .frameinrow_75{
    padding: 1px;
    flex-basis: 75%;
    padding-left: 5px;
    padding-right: 5px;
 }
-.frameinrow80{
+.frameinrow_80{
    padding: 1px;
     flex-basis: 80%;
     padding-left: 5px;
     padding-right: 5px;
 }
-.frameinrow85{
+.frameinrow_85{
    padding: 1px;
    flex-basis: 85%;
    padding-left: 5px;
    padding-right: 5px;
 }
-.frameinrow90{
+.frameinrow_90{
    padding: 1px;
     flex-basis: 90%;
     padding-left: 5px;
     padding-right: 5px;
  }
- .frameinrow95{
+ .frameinrow_95{
    padding: 1px;
    flex-basis: 95%;
    padding-left: 5px;
    padding-right: 5px;
 }
- .frameinrow100{
+ .frameinrow_100{
    padding: 1px;
     flex-basis: 100%;
     padding-left: 5px;
     padding-right: 5px;
  }
-
+ .frameinrow_nowidth{
+   padding: 1px;
+   padding-left: 5px;
+   padding-right: 5px;
+}
+.frameinrow_nopaddingleft{
+   
+   padding-left: 0px;
+   }
+.frameinrow_nopaddingright{
+   
+   padding-right: 0px;
+}
+.frameinrow_flexcolumn{
+   display: flex;
+   flex-direction: column;
+}
+.frameinrow_flexend{
+   justify-content: end;
+}
  @media (max-width: 767px) {
    .frameinrow{
       flex-direction: column;
    }
-   .frameinrow5{
+   .frameinrow_1{
+      flex-basis: 50%;
+   }
+   .frameinrow_2{
+      flex-basis: 50%;
+   }
+   .frameinrow_3{
+      flex-basis: 50%;
+   }
+   .frameinrow_5{
       flex-basis: 50%;
   }
-    .frameinrow10{
+    .frameinrow_10{
         flex-basis: 50%;
     }
-    .frameinrow15{
+    .frameinrow_15{
       flex-basis: 50%;
   }
-    .frameinrow20{
+    .frameinrow_20{
         flex-basis: 50%;
     }
-    .frameinrow25{
+    .frameinrow_25{
       flex-basis: 50%;
   }
-    .frameinrow30{
+    .frameinrow_30{
        flex-basis: 50%;
     }
-    .frameinrow35{
+    .frameinrow_35{
       flex-basis: 50%;
   }
-    .frameinrow40{
+    .frameinrow_40{
         flex-basis: 50%;
      }
-     .frameinrow45{
+     .frameinrow_45{
       flex-basis: 50%;
   }
-     .frameinrow50{
+     .frameinrow_50{
         flex-basis: 100%;
      }
-     .frameinrow55{
+     .frameinrow_55{
       flex-basis: 100%;
   }
-     .frameinrow60{
+     .frameinrow_60{
         flex-basis: 100%;
      }
-     .frameinrow65{
+     .frameinrow_65{
       flex-basis: 100%;
    }
-     .frameinrow70{
+     .frameinrow_70{
         flex-basis: 100%;
      }
-     .frameinrow75{
+     .frameinrow_75{
       flex-basis: 100%;
    }
-    .frameinrow80{
+    .frameinrow_80{
         flex-basis: 100%;
     }
-    .frameinrow85{
+    .frameinrow_85{
       flex-basis: 100%;
    }
-    .frameinrow90{
+    .frameinrow_90{
         flex-basis: 100%;
      }
-     .frameinrow95{
+     .frameinrow_95{
       flex-basis: 100%;
    }
-     .frameinrow100{
+     .frameinrow_100{
         flex-basis: 100%;
      }
   }

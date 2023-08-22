@@ -20,10 +20,10 @@ const Row = ({
   ];
 
   const onDoubleClickHandler = () => {
-    onDoubleClick(IDOBJ);
+    onDoubleClick(IDOBJ, items);
   };
   const onClickHandler = () => {
-    onClick(IDOBJ);
+    onClick(IDOBJ, items);
   };
 
   let hRow = 0;
