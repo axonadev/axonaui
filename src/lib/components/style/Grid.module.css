@@ -46,7 +46,12 @@
 .grid_pagecontrols{
     float: right;
     display: grid;
-    grid-template-columns: 36px 36px 36px;
+    grid-template-columns: 75px;
+    margin-right: 7px;
+}
+.grid_pagecontrols input{
+    text-align: center;
+    text-indent: 0px;
 }
 .grid_button{
     background-color:  var(--axn-grid-header-button-background-color);

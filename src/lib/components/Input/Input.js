@@ -6,11 +6,13 @@ import Img from "../Img/Img";
 const Input = ({
   value,
   label,
+  preIcon,
   icon,
   className,
   id,
   val,
   onChange,
+  onPreIconClick,
   onIconClick,
 }) => {
   const pers = localStorage.getItem("pers");
@@ -48,7 +50,11 @@ const Input = ({
     classes.input_input,
     classFocus,
     classes["validate_" + InputIsValid],
-    icon ? classes.input_icon_grid : "",
+    icon && preIcon
+      ? classes.input_preposticon_grid
+      : preIcon
+      ? classes.input_preicon_grid
+      : classes.input_posticon_grid,
   ];
 
   const onChangeInput = (evt) => {
@@ -67,6 +73,11 @@ const Input = ({
       onIconClick(evt);
     } catch (error) {}
   };
+  const onPreIconClickHandler = (evt) => {
+    try {
+      onPreIconClick(evt);
+    } catch (error) {}
+  };
 
   useEffect(() => {
     setInputValue(effVal);
@@ -83,6 +94,14 @@ const Input = ({
         </label>
       </div>
       <div className={classDivInput.join(" ")}>
+        {preIcon && (
+          <div
+            className={classes.input_preicon}
+            onClick={onPreIconClickHandler}
+          >
+            <Img type={preIcon} pathImg="getlocal" />
+          </div>
+        )}
         <input
           id={id}
           type="text"

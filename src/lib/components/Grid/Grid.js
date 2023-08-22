@@ -98,8 +98,6 @@ const Grid = ({
     }
   };
 
-  console.log(page, "page");
-
   useEffect(() => {
     loadGridint(requestGrid);
   }, [reload, page, filteredValue]);
@@ -138,13 +136,6 @@ const Grid = ({
             </div>
             <div className={classes.grid_filtergridright}>
               <div className={classes.grid_pagecontrols}>
-                <Button
-                  onClick={pageBeforeHandler}
-                  className={classes.grid_button}
-                  type="sm"
-                >
-                  <Img type="left" pathImg="getlocal" />
-                </Button>
                 <Input
                   label=""
                   id="Grid_Pagination"
@@ -152,15 +143,11 @@ const Grid = ({
                   nameList="v_pagina"
                   value={page}
                   onChange={onChangePage}
+                  icon="right"
+                  onIconClick={pageAfterHandler}
+                  preIcon="left"
+                  onPreIconClick={pageBeforeHandler}
                 />
-
-                <Button
-                  onClick={pageAfterHandler}
-                  className={classes.grid_button}
-                  type="sm"
-                >
-                  <Img type="right" pathImg="getlocal" />
-                </Button>
               </div>
 
               {itemSearch && (
