@@ -13,7 +13,17 @@
 }
 .grid_filtergrid{
     display: flex;
-    
+    width: 100%;
+}
+.grid_filtergridleft{
+    width: 50%;
+    float: left;
+}
+.grid_filtergridright{
+    width: 50%;
+    float: left;
+    display: flex;
+
 }
 .grid_type_t .grid_filtergrid{
     background-color:var(--axn-grid-top-header-t-background-color) !important;
@@ -22,7 +32,7 @@
     background-color:var(--axn-grid-top-header-d-background-color) !important;
 }
 .grid_filtergrid input{
-    width: 20% !important;
+    width: 100% !important;
     margin:0px !important;
     float: right;
     
@@ -32,6 +42,11 @@
     display: grid;
     grid-template-columns: 32px 32px;
     
+}
+.grid_pagecontrols{
+    float: right;
+    display: grid;
+    grid-template-columns: 36px 36px 36px;
 }
 .grid_button{
     background-color:  var(--axn-grid-header-button-background-color);

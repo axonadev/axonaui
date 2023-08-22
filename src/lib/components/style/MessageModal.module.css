@@ -87,7 +87,9 @@
       top: 20vh;
       left: 30%;
       width: 40%;
-      height: 30vh;
+      min-height: 30vh;
+      height: 50vh;
+      max-height: 365px;
     }
     .messagemodal_content {
       padding: 1rem;

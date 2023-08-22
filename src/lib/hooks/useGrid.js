@@ -17,9 +17,16 @@ const useGrid = () => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch(requestURL.url, {
-        method: "GET",
-      });
+      const response = await fetch(
+        requestURL.url +
+          "/" +
+          (requestURL.filteredValue === "" ? "-" : requestURL.filteredValue) +
+          "_f_" +
+          requestURL.page,
+        {
+          method: "GET",
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Request failed!");
@@ -74,7 +81,7 @@ const useGrid = () => {
   };
 
   const filterGrid = (valueItem, nameItem) => {
-    let rr = [];
+    /* let rr = [];
     try {
       rr = listItems.filter((item) => {
         for (var key in nameItem) {
@@ -89,6 +96,8 @@ const useGrid = () => {
       });
     } catch (error) {}
     setFilteredListItem(rr);
+     */
+    //setFilteredValue(valueItem.toLowerCase());
   };
 
   return {

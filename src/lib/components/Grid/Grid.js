@@ -7,6 +7,7 @@ import useGrid from "../../hooks/useGrid";
 import Filter from "../Filter/Filter";
 import Button from "../Button/Button";
 import Img from "../Img/Img";
+import Input from "../Input/Input";
 
 const Grid = ({
   id,
@@ -24,6 +25,7 @@ const Grid = ({
   reload = 0,
 }) => {
   const [rowSelected, setRowSelected] = useState(0);
+  const [filteredValue, setFilteredValue] = useState("");
   const {
     filterGrid,
     initList,
@@ -35,6 +37,7 @@ const Grid = ({
   } = useGrid();
 
   const styles = [classes.grid_content, classes["grid_type_" + type]];
+  const [page, setPage] = useState(1);
 
   const onDoubleClickHandler = (IDOBJ) => {
     onDoubleClickRow(IDOBJ);
@@ -65,11 +68,41 @@ const Grid = ({
   const requestGrid = {
     url: loadGrid,
     dt_filter: nameView,
+    page: page,
+    filteredValue: filteredValue,
   };
+
+  const clickFilterGrid = (valueItem, nameItem) => {
+    setPage(1);
+    console.log(valueItem, "valueitem");
+    setFilteredValue(valueItem);
+  };
+
+  const pageBeforeHandler = () => {
+    setPage((prev) => {
+      return prev === 1 ? 1 : parseInt(prev) - 1;
+    });
+  };
+  const pageAfterHandler = () => {
+    setPage((prev) => {
+      return parseInt(prev) + 1;
+    });
+  };
+  const onChangePage = (evt) => {
+    if (!isNaN(evt.target.value)) {
+      if (evt.target.value === "") {
+        setPage(1);
+      } else {
+        setPage(evt.target.value);
+      }
+    }
+  };
+
+  console.log(page, "page");
 
   useEffect(() => {
     loadGridint(requestGrid);
-  }, [reload]);
+  }, [reload, page, filteredValue]);
 
   /* useEffect(() => {
     try {
@@ -83,36 +116,65 @@ const Grid = ({
       <div className={styles.join(" ")}>
         {contentDiv && (
           <div className={classes.grid_filtergrid}>
-            {btn_insert && (
-              <div className={classes.grid_buttonoperation}>
+            <div className={classes.grid_filtergridleft}>
+              {btn_insert && (
+                <div className={classes.grid_buttonoperation}>
+                  <Button
+                    onClick={insertHandler}
+                    className={classes.grid_button}
+                    type="sm"
+                  >
+                    <Img type="add" pathImg="getlocal" />
+                  </Button>
+                  <Button
+                    onClick={deleteHandler}
+                    className={classes.grid_button}
+                    type="sm"
+                  >
+                    <Img type="delete" pathImg="getlocal" />
+                  </Button>
+                </div>
+              )}
+            </div>
+            <div className={classes.grid_filtergridright}>
+              <div className={classes.grid_pagecontrols}>
                 <Button
-                  onClick={insertHandler}
+                  onClick={pageBeforeHandler}
                   className={classes.grid_button}
                   type="sm"
                 >
-                  <Img type="add" pathImg="getlocal" />
+                  <Img type="left" pathImg="getlocal" />
                 </Button>
+                <Input
+                  label=""
+                  id="Grid_Pagination"
+                  className={classes.grid_inputpage}
+                  nameList="v_pagina"
+                  value={page}
+                  onChange={onChangePage}
+                />
+
                 <Button
-                  onClick={deleteHandler}
+                  onClick={pageAfterHandler}
                   className={classes.grid_button}
                   type="sm"
                 >
-                  <Img type="delete" pathImg="getlocal" />
+                  <Img type="right" pathImg="getlocal" />
                 </Button>
               </div>
-            )}
 
-            {itemSearch && (
-              <Filter
-                onFilter={filterGrid}
-                itemSearch={
-                  itemSearch === null || itemSearch === undefined
-                    ? itemsearchint
-                    : itemSearch
-                }
-                id={idFilter}
-              />
-            )}
+              {itemSearch && (
+                <Filter
+                  onFilter={clickFilterGrid}
+                  itemSearch={
+                    itemSearch === null || itemSearch === undefined
+                      ? itemsearchint
+                      : itemSearch
+                  }
+                  id={idFilter}
+                />
+              )}
+            </div>
           </div>
         )}
         <div className={classes.grid_table_content}>

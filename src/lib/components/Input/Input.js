@@ -41,7 +41,10 @@ const Input = ({ value, label, icon, className, id, val, onChange }) => {
   ];
 
   const onChangeInput = (evt) => {
-    onChange();
+    try {
+      onChange(evt);
+    } catch (error) {}
+
     InputChange(evt);
   };
   const onBlurInput = (evt) => {
