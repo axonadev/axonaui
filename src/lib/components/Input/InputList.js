@@ -38,7 +38,7 @@ const InputList = ({
   } = useInput();
 
   const [list, setList] = useState(defList);
-  const [list_value, setListValue] = useState(0);
+  const [list_value, setListValue] = useState(effVal);
 
   const classFocus = InputIsFocussed ? classes["input_focused"] : "";
   const classContent = [classes.input, classes["cont_" + type]];
@@ -58,7 +58,7 @@ const InputList = ({
 
         return val.join(" ") === evt.target.value;
       });
-
+      console.log("itemsel");
       if (rr.length > 0) {
         setListValue(rr[0][field_id]);
       } else {
@@ -69,9 +69,10 @@ const InputList = ({
   };
 
   const getValore = (lista) => {
+    console.log(effVal, "getvalue " + id);
     if (lista) {
       let rr = lista.filter(function (x) {
-        return x.IDOBJ === effVal;
+        return x.IDOBJ === list_value;
       });
       const valList = field_description.map((columnselect) => {
         return rr[0][columnselect];
@@ -82,6 +83,7 @@ const InputList = ({
   };
 
   const keydownHandler = (evt) => {
+    console.log(evt.keyCode, "itemsel");
     if (evt.keyCode === 46) {
       setInputValue("");
       setListValue(0);
@@ -97,7 +99,7 @@ const InputList = ({
         })
         .then((data) => {
           setList(data.Itemset[nameList]);
-          //getValore(data.Itemset[nameList]);
+          getValore(data.Itemset[nameList]);
         })
         .catch((err) => {
           console.log(err);
@@ -109,7 +111,7 @@ const InputList = ({
         loadList();
       }
       if (InputContaCaratteri === 0) {
-        loadList(effVal);
+        loadList(list_value);
       }
     }
   }, [InputCaratteriAvanti]);
@@ -132,7 +134,7 @@ const InputList = ({
     if (defList) {
     } else {
       if (InputContaCaratteri === 0) {
-        loadList(effVal);
+        loadList(list_value);
       }
     }
   }, []);
