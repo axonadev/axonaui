@@ -38,6 +38,7 @@
         box-shadow:none;
         width:100%;
         max-width: none;
+        text-align:left;
 }
 .card_form_t{
         text-align: left;
