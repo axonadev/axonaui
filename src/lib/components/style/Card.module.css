@@ -32,6 +32,12 @@
         text-align: left;
         max-width: calc(100% - 42px);
 }
+.card_noborder{
+        padding: 0px;
+        margin: 0px;
+        box-shadow:none;
+        width:100%;
+}
 .card_form_t{
         text-align: left;
         max-width: calc(100% - 42px);
