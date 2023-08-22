@@ -66,7 +66,7 @@ const Citta = ({ nazione, citta, provincia, cap, val, onChange }) => {
           onChange={onChange}
         />
         <Button onClick={cittaClickHandler} type="sm">
-          <Img type="trepuntini" />
+          <Img type="trepuntini" pathImg="getlocal" />
         </Button>
         <Input
           label={provincia.label}
