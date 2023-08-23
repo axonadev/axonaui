@@ -19,11 +19,11 @@ const Form = ({
   serverApi,
   folders,
 }) => {
-  const idFolder1 = folders.filter((item) => item.key === 1);
+  const idFolder1 = folders ? folders.filter((item) => item.key === 1) : 0;
   const [mex, setMex] = useState(null);
   const [isSnackBar, setSnackBar] = useState(null);
   const [frameIdSelezionato, setFrameIdSelezionato] = useState(
-    idFolder1[0].target
+    idFolder1[0] ? idFolder1[0].target : 0
   );
   const id_submit = "b_submit_" + id;
 
