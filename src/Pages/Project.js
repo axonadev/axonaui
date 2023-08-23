@@ -24,6 +24,10 @@ const Project = ({ request }) => {
   const nameTable = moduloForm;
   const cmd_getForm = "/" + moduloForm + "/" + moduloForm + "sel/getrow/";
   const cmd_getGrid = "/" + moduloForm + "/" + moduloForm + "sel/leggi";
+  const cmd_getDomiciliGrid =
+    "/" + moduloForm + "/" + moduloForm + "sel/leggiDomicili";
+
+  const [domiciliReloadGriglia, setDomiciliReloadGriglia] = useState(0);
 
   const listaanni = [
     { IDOBJ: 2020, Anni_Descrizione: "duemilaventi" },
@@ -35,8 +39,14 @@ const Project = ({ request }) => {
   const [statoGriglia, setStatoGriglia] = useState("");
   const [reloadGriglia, setReloadGriglia] = useState(0);
   const [idobj_T, setIdobj_T] = useState(0);
+  const [idobj_Domicili, setIdobj_Domicili] = useState(0);
 
   const { onChangeSelected, onReset, formValue } = useForm();
+
+  const domiciliItemsSearch = [
+    "SoggettiDomicili_Nome1",
+    "SoggettiDomicili_Nome2",
+  ];
 
   const insertClickHandler = (idGriglia) => {
     const idform = "form_" + idGriglia.split("_")[1];
@@ -76,6 +86,9 @@ const Project = ({ request }) => {
       nameTable
     );
   };
+  const domiciliChangeRow = (idobj) => {
+    setIdobj_Domicili(idobj);
+  };
 
   useEffect(() => {
     const loadRequest = () => {};
@@ -92,6 +105,10 @@ const Project = ({ request }) => {
   const itemsSearch = ["Soggetti_Nome1", "Soggetti_Nome2"];
 
   const onChangeInput = () => {};
+  const domiciliInsertClickHandler = (idGriglia) => {};
+  const domiciliDeleteClickHandler = (idGriglia) => {
+    console.log(idGriglia);
+  };
   return (
     <>
       <Frame label="TESTATA" type="form_t" stato={statoGriglia}>
@@ -217,7 +234,26 @@ const Project = ({ request }) => {
             </Frame>
           </FrameContainer>
           <FrameContainer id="frame_4">
-            <label>seconfo</label>
+            <Grid
+              id="grid_domicili"
+              loadGrid={
+                REACT_APP_SERVERAPI +
+                "api/axo_sel/" +
+                localStorage.getItem("axn_token") +
+                cmd_getDomiciliGrid
+              }
+              onClickRow={(IDOBJ) => {
+                domiciliChangeRow(IDOBJ);
+              }}
+              pidobj={idobj_T}
+              onDoubleClickRow={() => {}}
+              onBtnInsert={domiciliInsertClickHandler}
+              onBtnDelete={domiciliDeleteClickHandler}
+              btn_insert={true}
+              nameView={"v_soggettidomicili"}
+              reload={domiciliReloadGriglia}
+              itemSearch={domiciliItemsSearch}
+            />
           </FrameContainer>
         </Form>
       )}

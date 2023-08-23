@@ -22,7 +22,8 @@ const useGrid = () => {
           "/" +
           (requestURL.filteredValue === "" ? "-" : requestURL.filteredValue) +
           "_f_" +
-          requestURL.page,
+          requestURL.page +
+          (requestURL.pidobj != 0 ? "_f_" + requestURL.pidobj : ""),
         {
           method: "GET",
         }

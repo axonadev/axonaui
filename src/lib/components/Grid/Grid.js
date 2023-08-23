@@ -23,6 +23,7 @@ const Grid = ({
   nameView = "",
   loadGrid = "",
   reload = 0,
+  pidobj = 0,
 }) => {
   const [rowSelected, setRowSelected] = useState(0);
   const [filteredValue, setFilteredValue] = useState("");
@@ -70,6 +71,7 @@ const Grid = ({
     dt_filter: nameView,
     page: page,
     filteredValue: filteredValue,
+    pidobj: pidobj ? pidobj : 0,
   };
 
   const clickFilterGrid = (valueItem, nameItem) => {
@@ -100,7 +102,7 @@ const Grid = ({
 
   useEffect(() => {
     loadGridint(requestGrid);
-  }, [reload, page, filteredValue]);
+  }, [reload, page, filteredValue, pidobj]);
 
   /* useEffect(() => {
     try {
