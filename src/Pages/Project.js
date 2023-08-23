@@ -15,6 +15,7 @@ import {
 import { useEnv } from "axonalib";
 import InputCheckList from "../lib/components/Input/InputCheckList";
 import FormButton from "../lib/components/Form/FormButton";
+import GridForm from "../lib/components/Grid/GridForm";
 
 const Project = ({ request }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
@@ -40,6 +41,7 @@ const Project = ({ request }) => {
   const [reloadGriglia, setReloadGriglia] = useState(0);
   const [idobj_T, setIdobj_T] = useState(0);
   const [idobj_Domicili, setIdobj_Domicili] = useState(0);
+  const [showDomicili, setShowDomicili] = useState(false);
 
   const { onChangeSelected, onReset, formValue } = useForm();
 
@@ -105,9 +107,23 @@ const Project = ({ request }) => {
   const itemsSearch = ["Soggetti_Nome1", "Soggetti_Nome2"];
 
   const onChangeInput = () => {};
-  const domiciliInsertClickHandler = (idGriglia) => {};
+  const domiciliInsertClickHandler = (idGriglia) => {
+    setIdobj_Domicili(0);
+    setShowDomicili(true);
+  };
+  const domiciliModClickHandler = (idGriglia) => {
+    setShowDomicili(true);
+  };
   const domiciliDeleteClickHandler = (idGriglia) => {
-    console.log(idGriglia);
+    setShowDomicili(false);
+  };
+  const domiciliSaveClickHandler = () => {
+    console.log("sroooooo");
+    setShowDomicili(false);
+  };
+  const domiciliStopClickHandler = () => {
+    setShowDomicili(false);
+    console.log("sroooooo");
   };
   return (
     <>
@@ -246,7 +262,7 @@ const Project = ({ request }) => {
                 domiciliChangeRow(IDOBJ);
               }}
               pidobj={idobj_T}
-              onDoubleClickRow={() => {}}
+              onDoubleClickRow={domiciliModClickHandler}
               onBtnInsert={domiciliInsertClickHandler}
               onBtnDelete={domiciliDeleteClickHandler}
               btn_insert={true}
@@ -255,7 +271,43 @@ const Project = ({ request }) => {
               itemSearch={domiciliItemsSearch}
             />
           </FrameContainer>
+          <FrameContainer id="frame_5"></FrameContainer>
         </Form>
+      )}
+      {showDomicili && (
+        <GridForm
+          onSave={domiciliSaveClickHandler}
+          onStop={domiciliStopClickHandler}
+          pidobj={idobj_T}
+          idobj={idobj_Domicili}
+          id="form_domicili"
+          modulo="soggetti"
+          db="soggettivarianti"
+        >
+          <FrameContainer>
+            <FrameInRow width={[50, 50]}>
+              <Input label="IDOBJ" id="IDOBJ" val={formValue} />
+              <Input label="PIDOBJ" id="PIDOBJ" val={formValue} />
+            </FrameInRow>
+            <FrameInRow width={[50, 50]}>
+              <Input label="Nome" id="SoggettiVarianti_Nome1" val={formValue} />
+              <Input
+                label="Cognome"
+                id="SoggettiVarianti_Nome2"
+                val={formValue}
+              />
+            </FrameInRow>
+            <FrameInRow width={[100]}>
+              <Citta
+                nazione={{ label: "Nazione", id: "SoggettiVarianti_Nazione" }}
+                citta={{ label: "Citta", id: "SoggettiVarianti_Citta" }}
+                provincia={{ label: "Provincia", id: "SoggettiVarianti_Prov" }}
+                cap={{ label: "CAP", id: "SoggettiVarianti_CAP" }}
+                val={formValue}
+              />
+            </FrameInRow>
+          </FrameContainer>
+        </GridForm>
       )}
     </>
   );

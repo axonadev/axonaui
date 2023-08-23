@@ -58,7 +58,7 @@ const InputList = ({
 
         return val.join(" ") === evt.target.value;
       });
-      console.log("itemsel");
+
       if (rr.length > 0) {
         setListValue(rr[0][field_id]);
       } else {
@@ -69,7 +69,6 @@ const InputList = ({
   };
 
   const getValore = (lista) => {
-    console.log(effVal, "getvalue " + id);
     if (lista) {
       let rr = lista.filter(function (x) {
         return x.IDOBJ === list_value;
@@ -83,7 +82,6 @@ const InputList = ({
   };
 
   const keydownHandler = (evt) => {
-    console.log(evt.keyCode, "itemsel");
     if (evt.keyCode === 46) {
       setInputValue("");
       setListValue(0);
@@ -102,7 +100,7 @@ const InputList = ({
           getValore(data.Itemset[nameList]);
         })
         .catch((err) => {
-          console.log(err);
+          //console.log(err);
         });
     };
     if (defList) {
@@ -128,7 +126,7 @@ const InputList = ({
           getValore(data.Itemset[nameList]);
         })
         .catch((err) => {
-          console.log(err);
+          //console.log(err);
         });
     };
     if (defList) {

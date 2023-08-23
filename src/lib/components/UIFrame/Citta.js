@@ -43,7 +43,7 @@ const Citta = ({ nazione, citta, provincia, cap, val, onChange }) => {
   const itemsSearch = ["CAP", "Descrizione"];
   return (
     <>
-      <FrameInRow width={["nopaddingleft 20", "70 nopaddingright", 5, 5]}>
+      <FrameInRow width={["nopaddingleft 20", "65 nopaddingright", 5, 10]}>
         <InputList
           label={nazione.label}
           id={nazione.id}

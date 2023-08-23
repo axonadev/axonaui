@@ -19,7 +19,9 @@ const Form = ({
   serverApi,
   folders,
 }) => {
-  const idFolder1 = folders ? folders.filter((item) => item.key === 1) : 0;
+  const idFolder1 = folders
+    ? folders.filter((item) => item.key === 1)
+    : [{ key: 1, target: "info" }];
   const [mex, setMex] = useState(null);
   const [isSnackBar, setSnackBar] = useState(null);
   const [frameIdSelezionato, setFrameIdSelezionato] = useState(() => {
