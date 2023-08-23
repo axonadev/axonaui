@@ -48,7 +48,10 @@ const InputCheckBox = ({
   } = useInput();
 
   const InputChangeHandler = (evt) => {
-    onChange(evt);
+    try {
+      onChange(evt);
+    } catch (error) {}
+
     setIsChecked((prev) => {
       return !prev;
     });
