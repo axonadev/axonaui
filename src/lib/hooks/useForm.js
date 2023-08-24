@@ -41,6 +41,17 @@ const useForm = () => {
     }
   };
 
+  const onChangeForm = (id, value) => {
+    if (datarow) {
+      let jsonMod = datarow;
+      try {
+        jsonMod[0][id] = value;
+        setDataRow(jsonMod);
+        localStorage.setItem("axn_recordselezionato", JSON.stringify(jsonMod));
+      } catch (error) {}
+    }
+  };
+
   useEffect(() => {
     const writeform = () => {
       if (datarow) {
@@ -76,6 +87,7 @@ const useForm = () => {
         } catch (error) {} */
 
         try {
+          localStorage.removeItem("axn_recordselezionato");
           const idfield = Object.keys(datarow[0]);
 
           const arr = idfield.map((item) => {
@@ -85,10 +97,16 @@ const useForm = () => {
               } else {
                 return { id: item, value: datarow[0][item] };
               }
-            } catch (error) {}
+            } catch (error) {
+              return { id: item, value: datarow[0][item] };
+            }
           });
 
           setFormValue(arr);
+          localStorage.setItem(
+            "axn_recordselezionato",
+            JSON.stringify(datarow)
+          );
         } catch (error) {}
       }
     };
@@ -101,6 +119,7 @@ const useForm = () => {
     error,
     onChangeSelected,
     onReset,
+    onChangeForm,
     formValue,
     isChanged,
     setIsChanged,

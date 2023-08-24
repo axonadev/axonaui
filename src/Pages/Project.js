@@ -43,7 +43,7 @@ const Project = ({ request }) => {
   const [idobj_Domicili, setIdobj_Domicili] = useState(0);
   const [showDomicili, setShowDomicili] = useState(false);
 
-  const { onChangeSelected, onReset, formValue } = useForm();
+  const { onChangeSelected, onReset, onChangeForm, formValue } = useForm();
 
   const domiciliItemsSearch = [
     "SoggettiDomicili_Nome1",
@@ -165,29 +165,23 @@ const Project = ({ request }) => {
               <FrameInRow width={[80, 10, 10]}>
                 <Input
                   label="prova"
-                  id="Ive_Descrizione"
-                  val={formValue}
+                  id="Soggetti_Nome1"
                   onChange={onChangeInput}
+                  onChangeValue={onChangeForm}
                 ></Input>
                 <Input
                   label="prova"
                   id="Ive_Valore"
-                  val={formValue}
                   onChange={onChangeInput}
                 ></Input>
                 <InputData
                   label="Scadenza"
                   id="Soggetti_ScadenzaOBJ"
-                  val={formValue}
                   onChange={onChangeInput}
                 />
               </FrameInRow>
               <FrameInRow width={[5, 25, 20, 10]}>
-                <InputCheckBox
-                  label="checkbox"
-                  val={formValue}
-                  onChange={onChangeInput}
-                />
+                <InputCheckBox label="checkbox" onChange={onChangeInput} />
                 <InputList
                   label="Natura iva"
                   id="Ive_Natura"
@@ -271,7 +265,208 @@ const Project = ({ request }) => {
               itemSearch={domiciliItemsSearch}
             />
           </FrameContainer>
-          <FrameContainer id="frame_5"></FrameContainer>
+          <FrameContainer id="frame_5">
+            {" "}
+            <Frame label="Condizioni">
+              <FrameInRow width={[30, 20]}>
+                <InputList
+                  label={"Pagamento"}
+                  id={"Soggetti_Pagamento"}
+                  val={formValue}
+                  onChange={() => {}}
+                  field_id="IDOBJ"
+                  field_description={["Pagamenti_Descrizione"]}
+                  url={
+                    REACT_APP_SERVERAPI +
+                    "api/axo_sel/" +
+                    localStorage.getItem("axn_token") +
+                    "/pagamenti/pagamentisel/leggicombo"
+                  }
+                  nameList="v_pagamenti"
+                />
+                <InputList
+                  label={"Divisa"}
+                  id={"Soggetti_Divisa"}
+                  val={formValue}
+                  onChange={() => {}}
+                  field_id="IDOBJ"
+                  field_description={["Divise_Descrizione"]}
+                  url={
+                    REACT_APP_SERVERAPI +
+                    "api/axo_sel/" +
+                    localStorage.getItem("axn_token") +
+                    "/divise/divisesel/leggicombo"
+                  }
+                  nameList="v_divise"
+                />
+              </FrameInRow>
+              <FrameInRow width={[10, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]}>
+                <Input label="Margine" id="Soggetti_Margine" val={formValue} />
+                <Input
+                  label="Sc. Testata 1"
+                  id="Soggetti_ScontoT1"
+                  val={formValue}
+                />
+                <Input
+                  label="2"
+                  id="Soggetti_ScontoT2"
+                  val={formValue}
+                  onChangeValue={onChangeForm}
+                />
+                <Input label="3" id="Soggetti_ScontoT3" val={formValue} />
+                <Input label="4" id="Soggetti_ScontoT4" val={formValue} />
+                <Input label="5" id="Soggetti_ScontoT5" val={formValue} />
+                <Input
+                  label="Sc. Dettaglio 1"
+                  id="Soggetti_ScontoD1"
+                  val={formValue}
+                />
+                <Input label="2" id="Soggetti_ScontoD2" val={formValue} />
+                <Input label="3" id="Soggetti_ScontoD3" val={formValue} />
+                <Input label="4" id="Soggetti_ScontoD4" val={formValue} />
+                <Input label="5" id="Soggetti_ScontoD5" val={formValue} />
+              </FrameInRow>
+              <FrameInRow width={[20, 60, 20]}>
+                <InputList
+                  label={"Iva"}
+                  id={"Soggetti_Iva"}
+                  val={formValue}
+                  onChange={() => {}}
+                  field_id="IDOBJ"
+                  field_description={["Ive_Descrizione"]}
+                  url={
+                    REACT_APP_SERVERAPI +
+                    "api/axo_sel/" +
+                    localStorage.getItem("axn_token") +
+                    "/ive/ivesel/leggicombo"
+                  }
+                  nameList="v_ive"
+                />
+                <Input
+                  label="Lettera di Intento"
+                  id="Soggetti_LetteraIntento"
+                  val={formValue}
+                />
+
+                <InputList
+                  label="Esigibilità iva"
+                  id="Soggetti_IVAEsigibilita"
+                  nameList="v_esigibilitaiva"
+                  field_id="IDOBJ"
+                  field_description={["IVAEsigibilita_Descrizione"]}
+                  defList={[
+                    {
+                      IDOBJ: 1,
+                      IVAEsigibilita_Descrizione:
+                        "IVA ad esigibilità immediata",
+                    },
+                    {
+                      IDOBJ: 2,
+                      IVAEsigibilita_Descrizione:
+                        "IVA ad esigibilità differita",
+                    },
+                    {
+                      IDOBJ: 3,
+                      IVAEsigibilita_Descrizione: "Scissione dei pagamenti",
+                    },
+                  ]}
+                  val={formValue}
+                  onChange={onChangeInput}
+                />
+              </FrameInRow>
+              <FrameInRow width={[20, 20, 20, 20]}>
+                <InputList
+                  label="Tipo Trasporto"
+                  id="Soggetti_TipoTrasporto"
+                  nameList="v_tipotrasporto"
+                  field_id="IDOBJ"
+                  field_description={["TipoTrasporto_Descrizione"]}
+                  defList={[
+                    {
+                      IDOBJ: 1,
+                      TipoTrasporto_Descrizione: "Mittente",
+                    },
+                    {
+                      IDOBJ: 2,
+                      TipoTrasporto_Descrizione: "Destinatario",
+                    },
+                    {
+                      IDOBJ: 3,
+                      TipoTrasporto_Descrizione: "Vettore",
+                    },
+                  ]}
+                  val={formValue}
+                  onChange={onChangeInput}
+                />
+                <InputList
+                  label="Porto"
+                  id="Soggetti_Porto"
+                  nameList="v_porto"
+                  field_id="IDOBJ"
+                  field_description={["Porto_Descrizione"]}
+                  defList={[
+                    {
+                      IDOBJ: 1,
+                      Porto_Descrizione: "Franco",
+                    },
+                    {
+                      IDOBJ: 2,
+                      Porto_Descrizione: "Assegnato",
+                    },
+                  ]}
+                  val={formValue}
+                  onChange={onChangeInput}
+                />
+                <InputList
+                  label={"Vettore"}
+                  id={"Soggetti_Vettore"}
+                  val={formValue}
+                  onChange={() => {}}
+                  field_id="IDOBJ"
+                  field_description={["Nome", "Cognome"]}
+                  url={
+                    REACT_APP_SERVERAPI +
+                    "api/axo_sel/" +
+                    localStorage.getItem("axn_token") +
+                    "/soggetti/soggettisel/leggivettori"
+                  }
+                  nameList="v_soggetti"
+                />
+              </FrameInRow>
+            </Frame>
+            <Frame label="Banca per ricevute bancarie">
+              <FrameInRow width={[20, 20, 20]}>
+                <Input label="IBAN" id="Soggetti_IBAN" val={formValue} />
+                <Input label="Swift" id="Soggetti_Swift" val={formValue} />
+                <Input label="Banca Azienda" />
+              </FrameInRow>
+              <FrameInRow width={[20, 20, 20]}>
+                <Input label="ABI" id="Soggetti_ABI" val={formValue} />
+                <Input label="CAB" id="Soggetti_CAB" val={formValue} />
+              </FrameInRow>
+            </Frame>
+            <Frame label="Coordinate fiscali">
+              <FrameInRow width={[20, 2, 10, 20]}>
+                <Input
+                  label="Cod. Fiscale"
+                  id="Soggetti_CodFisc"
+                  val={formValue}
+                />
+                <Input label="PIVA" id="Soggetti_PIVANaz" val={formValue} />
+                <Input label="-" id="Soggetti_PIVA" val={formValue} />
+                <Input
+                  label="Cod. Destinazione SDI"
+                  id="Soggetti_CodiceSDI"
+                  val={formValue}
+                />
+                <Input
+                  label="Cod. C.C.I.A.A."
+                  id="Soggetti_CCIAA"
+                  val={formValue}
+                />
+              </FrameInRow>
+            </Frame>
+          </FrameContainer>
         </Form>
       )}
       {showDomicili && (

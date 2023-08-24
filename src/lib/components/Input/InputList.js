@@ -23,6 +23,13 @@ const InputList = ({
 
   const effVal = valList[0] ? valList[0].value : value;
 
+  const valincache = JSON.parse(localStorage.getItem("axn_recordselezionato"));
+
+  try {
+    console.log(valincache[0][id], "valincache");
+    effVal = valincache[0][id];
+  } catch (error) {}
+
   const {
     value: InputValue,
     contaCaratteri: InputContaCaratteri,

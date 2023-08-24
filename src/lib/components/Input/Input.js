@@ -12,6 +12,7 @@ const Input = ({
   id,
   val,
   onChange,
+  onChangeValue,
   onPreIconClick,
   onIconClick,
 }) => {
@@ -24,6 +25,13 @@ const Input = ({
     : "";
 
   effVal = valList[0] ? valList[0].value : value;
+
+  const valincache = JSON.parse(localStorage.getItem("axn_recordselezionato"));
+
+  try {
+    console.log(valincache[0][id], "valincache");
+    effVal = valincache[0][id];
+  } catch (error) {}
 
   const objLabel = label;
   let sTipo = "text";
@@ -62,7 +70,13 @@ const Input = ({
       onChange(evt);
     } catch (error) {}
 
+    onChangeValuehandler(evt);
     InputChange(evt);
+  };
+  const onChangeValuehandler = (evt) => {
+    try {
+      onChangeValue(id, evt.target.value);
+    } catch (error) {}
   };
   const onBlurInput = (evt) => {
     InputBlur(evt);

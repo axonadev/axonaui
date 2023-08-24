@@ -19,6 +19,12 @@ const InputData = ({ value, label, icons, className, id, val }) => {
     effVal = formatDate(effVal);
   }
 
+  const valincache = JSON.parse(localStorage.getItem("axn_recordselezionato"));
+
+  try {
+    effVal = formatDate(valincache[0][id]);
+  } catch (error) {}
+
   const objLabel = label;
   let sTipo = "text";
 

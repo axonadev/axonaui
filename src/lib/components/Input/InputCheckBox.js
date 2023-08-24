@@ -30,6 +30,20 @@ const InputCheckBox = ({
     ? true
     : false;
 
+  const valincache = JSON.parse(localStorage.getItem("axn_recordselezionato"));
+
+  try {
+    effVal = valincache[0][id]
+      ? valincache[0][id]
+      : valincache[0][id] === "True"
+      ? true
+      : valincache[0][id] === "true"
+      ? true
+      : valincache[0][id] === true
+      ? true
+      : false;
+  } catch (error) {}
+
   const [isChecked, setIsChecked] = useState(effVal);
 
   const objLabel = label;
