@@ -119,7 +119,10 @@ const InputList = ({
 
   useEffect(() => {
     const loadList = (val_idobj = 0) => {
-      let goUrl = val_idobj === 0 ? url : url + "/" + val_idobj;
+      let goUrl =
+        val_idobj === 0 || val_idobj === undefined || val_idobj === null
+          ? url
+          : url + "/" + val_idobj;
       fetch(goUrl)
         .then((response) => {
           return response.json();
