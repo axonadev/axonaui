@@ -22,7 +22,9 @@ const InputData = ({ value, label, icons, className, id, val }) => {
   const valincache = JSON.parse(localStorage.getItem("axn_recordselezionato"));
 
   try {
-    effVal = formatDate(valincache[0][id]);
+    if (valincache[0][id] !== undefined) {
+      effVal = formatDate(valincache[0][id]);
+    }
   } catch (error) {}
 
   const objLabel = label;

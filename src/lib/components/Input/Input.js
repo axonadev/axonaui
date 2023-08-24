@@ -29,8 +29,9 @@ const Input = ({
   const valincache = JSON.parse(localStorage.getItem("axn_recordselezionato"));
 
   try {
-    console.log(valincache[0][id], "valincache");
-    effVal = valincache[0][id];
+    if (valincache[0][id] !== undefined) {
+      effVal = valincache[0][id];
+    }
   } catch (error) {}
 
   const objLabel = label;

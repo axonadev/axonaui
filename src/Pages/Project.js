@@ -226,7 +226,6 @@ const Project = ({ request }) => {
                   field_description="TipiSoggetto_Descrizione"
                   field_value="valore"
                   field_target="SoggettiTipi_Tipo"
-                  val={formValue}
                   pidobj={idobj_T}
                   onChange={onChangeInput}
                 />
@@ -330,7 +329,7 @@ const Project = ({ request }) => {
                 <InputList
                   label={"Iva"}
                   id={"Soggetti_Iva"}
-                  val={formValue}
+                  onChangeValue={onChangeForm}
                   onChange={() => {}}
                   field_id="IDOBJ"
                   field_description={["Ive_Descrizione"]}

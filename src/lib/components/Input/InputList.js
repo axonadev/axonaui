@@ -21,13 +21,14 @@ const InputList = ({
     ? val.filter((item) => item !== undefined).filter((item) => item.id === id)
     : "";
 
-  const effVal = valList[0] ? valList[0].value : value;
+  let effVal = valList[0] ? valList[0].value : value;
 
   const valincache = JSON.parse(localStorage.getItem("axn_recordselezionato"));
 
   try {
-    console.log(valincache[0][id], "valincache");
-    effVal = valincache[0][id];
+    if (valincache[0][id] !== undefined) {
+      effVal = valincache[0][id];
+    }
   } catch (error) {}
 
   const {
