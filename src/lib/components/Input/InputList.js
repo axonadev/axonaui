@@ -91,7 +91,7 @@ const InputList = ({
   useEffect(() => {
     const loadList = (val_idobj = 0) => {
       let goUrl =
-        val_idobj === 0 || val_idobj === undefined
+        val_idobj === 0 || val_idobj === undefined || val_idobj === null
           ? url
           : url + "/" + val_idobj;
       fetch(goUrl)
