@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "../style/Frame.module.css";
 import Card from "../Card/Card";
-const Frame = ({ label, children, type = "form", id, stato = "" }) => {
+const Frame = ({ label, children, form_id, type = "form", id, stato = "" }) => {
   const classStyle = ["frame_label", classes.frame_label];
   const classStyleStato = ["frame_label", classes.frame_stato];
   return (
@@ -14,7 +14,14 @@ const Frame = ({ label, children, type = "form", id, stato = "" }) => {
         {label && <div className={classStyle.join(" ")}>{label}</div>}
         {stato && <div className={classStyleStato.join(" ")}>{stato}</div>}
       </div>
-      <div className={classes.framecontent}>{children}</div>
+      <div className={classes.framecontent}>
+        {children.length > 1 &&
+          children.map((item) => {
+            return React.cloneElement(item, { form_id: form_id });
+          })}
+        {children.length === undefined &&
+          React.cloneElement(children, { form_id: form_id })}
+      </div>
     </Card>
   );
 };

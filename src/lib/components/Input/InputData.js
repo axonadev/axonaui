@@ -3,23 +3,19 @@ import useInput from "../../hooks/useInput";
 import classes from "../style/Input.module.css";
 import { formatDate } from "axonalib";
 
-const InputData = ({ value, label, icons, className, id, val }) => {
+const InputData = ({ value, label, icons, className, id, form_id }) => {
   const pers = localStorage.getItem("pers");
 
   let effVal = "";
 
-  const valList = val
-    ? val.filter((item) => item !== undefined).filter((item) => item.id === id)
-    : "";
-
-  effVal = valList[0] ? valList[0].value : value;
+  effVal = value;
 
   if (value === undefined) {
   } else {
     effVal = formatDate(effVal);
   }
 
-  const valincache = JSON.parse(localStorage.getItem("axn_recordselezionato"));
+  const valincache = JSON.parse(localStorage.getItem("axn_record_" + form_id));
 
   try {
     if (valincache[0][id] !== undefined) {

@@ -9,6 +9,7 @@ const InputCheckList = ({
   field_description,
   field_value,
   field_target,
+  db_target,
   pidobj,
 }) => {
   const [list, setList] = useState(null);
@@ -106,7 +107,8 @@ const InputCheckList = ({
         type="text"
         id={field_target}
         value={jsonDriver}
-        tipo="text"
+        tipo="driverchecklist"
+        db_target={db_target}
         className={classes.checkboxlistjson}
       />
     </div>

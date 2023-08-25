@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "../style/Frame.module.css";
-const FrameInRow = ({ width, children }) => {
+const FrameInRow = ({ width, children, form_id }) => {
   const isList = Array.isArray(children);
 
   const classsplit = String(width[0]).split(" ");
@@ -26,13 +26,18 @@ const FrameInRow = ({ width, children }) => {
                 key={count + "_" + Math.random()}
                 className={classesname.join(" ")}
               >
-                {item}
+                {React.cloneElement(item, { form_id: form_id })}
               </div>
             );
           })}
         {width && !isList && (
           <div key={0 + "_" + Math.random()} className={classesname.join(" ")}>
-            {children}
+            {children.length > 1 &&
+              children.map((item) => {
+                return React.cloneElement(item, { form_id: form_id });
+              })}
+            {children.length === undefined &&
+              React.cloneElement(children, { form_id: form_id })}
           </div>
         )}
         {!width && (
@@ -40,7 +45,12 @@ const FrameInRow = ({ width, children }) => {
             key={0 + "_" + Math.random()}
             className={classes["frameinrownowidth"]}
           >
-            {children}
+            {children.length > 1 &&
+              children.map((item) => {
+                return React.cloneElement(item, { form_id: form_id });
+              })}
+            {children.length === undefined &&
+              React.cloneElement(children, { form_id: form_id })}
           </div>
         )}
       </div>

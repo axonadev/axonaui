@@ -43,7 +43,8 @@ const Project = ({ request }) => {
   const [idobj_Domicili, setIdobj_Domicili] = useState(0);
   const [showDomicili, setShowDomicili] = useState(false);
 
-  const { onChangeSelected, onReset, onChangeForm, formValue } = useForm();
+  const { onChangeSelected, onReset, onChangeForm, formValue } =
+    useForm("form_t");
 
   const domiciliItemsSearch = [
     "SoggettiDomicili_Nome1",
@@ -226,6 +227,7 @@ const Project = ({ request }) => {
                   field_description="TipiSoggetto_Descrizione"
                   field_value="valore"
                   field_target="SoggettiTipi_Tipo"
+                  db_target="SoggettiTipi"
                   pidobj={idobj_T}
                   onChange={onChangeInput}
                 />
@@ -238,6 +240,7 @@ const Project = ({ request }) => {
                   cap={{ label: "CAP", id: "Soggetti_CAP" }}
                   onChange={onChangeInput}
                   val={formValue}
+                  onChangeValue={onChangeForm}
                 />
               </FrameInRow>
             </Frame>
@@ -265,7 +268,6 @@ const Project = ({ request }) => {
             />
           </FrameContainer>
           <FrameContainer id="frame_5">
-            {" "}
             <Frame label="Condizioni">
               <FrameInRow width={[30, 20]}>
                 <InputList
@@ -286,7 +288,7 @@ const Project = ({ request }) => {
                 <InputList
                   label={"Divisa"}
                   id={"Soggetti_Divisa"}
-                  val={formValue}
+                  onChangeValue={onChangeForm}
                   onChange={() => {}}
                   field_id="IDOBJ"
                   field_description={["Divise_Descrizione"]}
@@ -305,6 +307,9 @@ const Project = ({ request }) => {
                   label="Sc. Testata 1"
                   id="Soggetti_ScontoT1"
                   val={formValue}
+                  type="number"
+                  max="100"
+                  decimali="3"
                 />
                 <Input
                   label="2"
@@ -394,7 +399,7 @@ const Project = ({ request }) => {
                       TipoTrasporto_Descrizione: "Vettore",
                     },
                   ]}
-                  val={formValue}
+                  onChangeValue={onChangeForm}
                   onChange={onChangeInput}
                 />
                 <InputList
@@ -498,6 +503,7 @@ const Project = ({ request }) => {
                 provincia={{ label: "Provincia", id: "SoggettiVarianti_Prov" }}
                 cap={{ label: "CAP", id: "SoggettiVarianti_CAP" }}
                 val={formValue}
+                onChangeValue={onChangeForm}
               />
             </FrameInRow>
           </FrameContainer>

@@ -11,6 +11,7 @@ const InputCheckBox = ({
   list,
   val,
   onChange,
+  form_id,
 }) => {
   const pers = localStorage.getItem("pers");
 
@@ -30,7 +31,7 @@ const InputCheckBox = ({
     ? true
     : false;
 
-  const valincache = JSON.parse(localStorage.getItem("axn_recordselezionato"));
+  const valincache = JSON.parse(localStorage.getItem("axn_record_" + form_id));
 
   try {
     if (valincache[0][id] !== undefined) {

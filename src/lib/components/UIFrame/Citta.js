@@ -6,9 +6,15 @@ import FrameInRow from "../Frame/FrameInRow";
 import MessageModal from "../MessageModal/MessageModal";
 import { useEnv } from "axonalib";
 
-const Citta = ({ nazione, citta, provincia, cap, val, onChange }) => {
-  console.log(val, "valore citta");
-  const [getCitta, setGetCitta] = useState(val);
+const Citta = ({
+  nazione,
+  citta,
+  provincia,
+  cap,
+  form_id,
+  onChange,
+  onChangeValue,
+}) => {
   const [idobj, setIdobj] = useState(0);
   const [selItem, setSelItem] = useState();
   const [formIsVisible, setFormIsVisible] = useState(false);
@@ -22,18 +28,16 @@ const Citta = ({ nazione, citta, provincia, cap, val, onChange }) => {
   };
 
   const selCitta = (id, items) => {
-    console.log(items);
     setIdobj(id);
     setSelItem(items);
   };
 
   const onSelectCitta = () => {
-    setGetCitta(() => [
-      { id: citta.id, value: selItem.Descrizione },
-      { id: provincia.id, value: selItem.Provincia },
-      { id: cap.id, value: selItem.CAP },
-      { id: nazione.id, value: 118 },
-    ]);
+    onChangeValue(citta.id, selItem.Descrizione);
+    onChangeValue(provincia.id, selItem.Provincia);
+    onChangeValue(cap.id, selItem.CAP);
+    onChangeValue(nazione.id, 118);
+
     setFormIsVisible(false);
   };
   const onStophandler = () => {
@@ -43,12 +47,15 @@ const Citta = ({ nazione, citta, provincia, cap, val, onChange }) => {
   const itemsSearch = ["CAP", "Descrizione"];
   return (
     <>
-      <FrameInRow width={["nopaddingleft 20", "65 nopaddingright", 5, 10]}>
+      <FrameInRow
+        width={["nopaddingleft 20", "65 nopaddingright", 5, 10]}
+        form_id={form_id}
+      >
         <InputList
           label={nazione.label}
           id={nazione.id}
-          val={getCitta}
           onChange={onChange}
+          onChangeValue={onChangeValue}
           field_id="IDOBJ"
           field_description={["Nazioni_Descrizione"]}
           url={
@@ -62,7 +69,7 @@ const Citta = ({ nazione, citta, provincia, cap, val, onChange }) => {
         <Input
           label={citta.label}
           id={citta.id}
-          val={getCitta}
+          onChangeValue={onChangeValue}
           onChange={onChange}
           icon="trepuntini"
           onIconClick={cittaClickHandler}
@@ -71,13 +78,13 @@ const Citta = ({ nazione, citta, provincia, cap, val, onChange }) => {
         <Input
           label={provincia.label}
           id={provincia.id}
-          val={getCitta}
+          onChangeValue={onChangeValue}
           onChange={onChange}
         />
         <Input
           label={cap.label}
           id={cap.id}
-          val={getCitta}
+          onChangeValue={onChangeValue}
           onChange={onChange}
         />
       </FrameInRow>

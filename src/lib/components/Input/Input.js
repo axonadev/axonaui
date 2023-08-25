@@ -10,29 +10,34 @@ const Input = ({
   icon,
   className,
   id,
-  val,
   onChange,
   onChangeValue,
   onPreIconClick,
   onIconClick,
+  type = "text",
+  min,
+  max,
+  decimali,
+  form_id,
 }) => {
   const pers = localStorage.getItem("pers");
 
   let effVal = "";
+  console.log(form_id, id + " valore citta input");
 
-  const valList = val
-    ? val.filter((item) => item !== undefined).filter((item) => item.id === id)
-    : "";
+  effVal = value;
 
-  effVal = valList[0] ? valList[0].value : value;
-
-  const valincache = JSON.parse(localStorage.getItem("axn_recordselezionato"));
+  const valincache = JSON.parse(localStorage.getItem("axn_record_" + form_id));
 
   try {
     if (valincache[0][id] !== undefined) {
       effVal = valincache[0][id];
     }
   } catch (error) {}
+
+  if (decimali !== undefined) {
+    effVal = parseFloat(effVal).toFixed(parseInt(decimali));
+  }
 
   const objLabel = label;
   let sTipo = "text";
@@ -80,6 +85,20 @@ const Input = ({
     } catch (error) {}
   };
   const onBlurInput = (evt) => {
+    if (decimali !== undefined && type === "number") {
+      setInputValue(parseFloat(evt.target.value).toFixed(parseInt(decimali)));
+    }
+    if (max !== undefined && type === "number") {
+      if (evt.target.value > parseFloat(max)) {
+        setInputValue(parseFloat(max).toFixed(parseInt(decimali)));
+      }
+    }
+    if (min !== undefined && type === "number") {
+      if (evt.target.value < parseFloat(min)) {
+        setInputValue(parseFloat(min).toFixed(parseInt(decimali)));
+      }
+    }
+
     InputBlur(evt);
   };
 
@@ -119,12 +138,14 @@ const Input = ({
         )}
         <input
           id={id}
-          type="text"
+          type={type}
           tipo={sTipo}
           onChange={onChangeInput}
           onBlur={onBlurInput}
           onFocus={InputFocus}
           value={InputValue}
+          min={min}
+          max={max}
         />
         {icon && (
           <div className={classes.input_icon} onClick={onIconClickHandler}>

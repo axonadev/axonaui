@@ -35,6 +35,7 @@ const Form = ({
 
   const onConfirmhandler = () => {
     let obj = JSON.parse(mex.obj);
+    console.log(obj);
 
     let data = {
       Token: token === "" ? localStorage.getItem("axn_token") : token,
@@ -72,12 +73,6 @@ const Form = ({
     evt.preventDefault();
     let obj = "";
 
-    if (pidobj) {
-      obj = obj + ',"PIDOBJ":"' + pidobj + '"';
-    }
-    if (idobj) {
-      obj = obj + ',"IDOBJ":"' + idobj + '"';
-    }
     for (const item of evt.target.elements) {
       try {
         if (item.id === "") {
@@ -86,19 +81,19 @@ const Form = ({
             if (item.attributes.tipo === undefined) {
             } else {
               if (item.attributes.tipo.value === "list") {
-                obj =
+                /* obj =
                   obj +
                   ',"' +
                   item.id +
                   '":"' +
                   item.attributes.list_value.value +
-                  '"';
+                  '"'; */
               } else if (item.attributes.tipo.value === "cbox") {
-                if (item.checked) {
+                /* if (item.checked) {
                   obj = obj + ',"' + item.id + '":"true"';
                 } else {
                   obj = obj + ',"' + item.id + '":"false"';
-                }
+                } */
               } else if (item.attributes.tipo.value === "listbox") {
                 obj =
                   obj +
@@ -109,15 +104,37 @@ const Form = ({
                   "]";
               } else if (item.attributes.tipo.value === "cboxi") {
                 //non devono andare nel form
+              } else if (item.attributes.tipo.value === "driverchecklist") {
+                obj =
+                  obj +
+                  ',"' +
+                  item.attributes.db_target.value +
+                  '":"' +
+                  item.value +
+                  '"';
               } else {
-                obj = obj + ',"' + item.id + '":"' + item.value + '"';
+                // obj = obj + ',"' + item.id + '":"' + item.value + '"';
               }
             }
           } catch (error) {}
         }
       } catch (error) {}
     }
-    obj = "[{" + obj.substring(1) + "}]";
+    try {
+      obj = obj.substring(1);
+    } catch (error) {}
+
+    if (obj !== "") {
+      obj =
+        localStorage
+          .getItem("axn_record_" + id)
+          .substring(0, localStorage.getItem("axn_record_" + id).length - 2) +
+        "," +
+        obj +
+        "}]";
+    } else {
+      obj = localStorage.getItem("axn_record_" + id);
+    }
 
     setMex({
       title: idobj === 0 ? "Inserimento" : "Aggiornamento",
@@ -149,9 +166,14 @@ const Form = ({
         <div className={classes.form_body}>
           {children.length > 1 &&
             children.map((item) => {
-              return item.props.id === frameIdSelezionato ? item : <></>;
+              return item.props.id === frameIdSelezionato ? (
+                React.cloneElement(item, { form_id: id })
+              ) : (
+                <></>
+              );
             })}
-          {children.length === undefined && children}
+          {children.length === undefined &&
+            React.cloneElement(children, { form_id: id })}
         </div>
 
         <Button

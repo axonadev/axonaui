@@ -13,17 +13,14 @@ const InputList = ({
   validate,
   className,
   type,
-  val,
+  onChangeValue,
   defList,
+  form_id,
   numerocaratteri = 0,
 }) => {
-  const valList = val
-    ? val.filter((item) => item !== undefined).filter((item) => item.id === id)
-    : "";
+  let effVal = value;
 
-  let effVal = valList[0] ? valList[0].value : value;
-
-  const valincache = JSON.parse(localStorage.getItem("axn_recordselezionato"));
+  const valincache = JSON.parse(localStorage.getItem("axn_record_" + form_id));
 
   try {
     if (valincache[0][id] !== undefined) {
@@ -69,13 +66,22 @@ const InputList = ({
 
       if (rr.length > 0) {
         setListValue(rr[0][field_id]);
+        onChangeValuehandler(rr[0][field_id]);
       } else {
         setListValue(0);
+        onChangeValuehandler(0);
       }
+    } else {
+      onChangeValuehandler(0);
     }
+
     InputChange(evt);
   };
-
+  const onChangeValuehandler = (lvalue) => {
+    try {
+      onChangeValue(id, lvalue);
+    } catch (error) {}
+  };
   const getValore = (lista) => {
     if (lista) {
       let rr = lista.filter(function (x) {

@@ -2,12 +2,13 @@ import React, { useEffect } from "react";
 import { useState, useCallback } from "react";
 import { formatDate } from "axonalib";
 
-const useForm = () => {
+const useForm = (id) => {
   const [isloading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [datarow, setDataRow] = useState(null);
   const [formValue, setFormValue] = useState();
   const [isChanged, setIsChanged] = useState(false);
+  const [form_Id, setFormId] = useState(id);
 
   const onChangeSelected = useCallback(async (url, nameView) => {
     setIsLoading(true);
@@ -47,7 +48,7 @@ const useForm = () => {
       try {
         jsonMod[0][id] = value;
         setDataRow(jsonMod);
-        localStorage.setItem("axn_recordselezionato", JSON.stringify(jsonMod));
+        localStorage.setItem("axn_record_" + form_Id, JSON.stringify(jsonMod));
       } catch (error) {}
     }
   };
@@ -87,7 +88,7 @@ const useForm = () => {
         } catch (error) {} */
 
         try {
-          localStorage.removeItem("axn_recordselezionato");
+          localStorage.removeItem("axn_record_" + form_Id);
           const idfield = Object.keys(datarow[0]);
 
           const arr = idfield.map((item) => {
@@ -104,7 +105,7 @@ const useForm = () => {
 
           setFormValue(arr);
           localStorage.setItem(
-            "axn_recordselezionato",
+            "axn_record_" + form_Id,
             JSON.stringify(datarow)
           );
         } catch (error) {}
@@ -123,6 +124,7 @@ const useForm = () => {
     formValue,
     isChanged,
     setIsChanged,
+    setFormId,
   };
 };
 export default useForm;
