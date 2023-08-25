@@ -2,18 +2,21 @@ import React, { useEffect } from "react";
 import { useState, useCallback } from "react";
 import { formatDate } from "axonalib";
 
-const useForm = (id) => {
+const useForm = (id, url, nameView) => {
   const [isloading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [datarow, setDataRow] = useState(null);
   const [formValue, setFormValue] = useState();
   const [isChanged, setIsChanged] = useState(false);
   const [form_Id, setFormId] = useState(id);
+  const [form_Url, setFormUrl] = useState(url);
+  const [form_nameView, setFormNameView] = useState(nameView);
 
-  const onChangeSelected = useCallback(async (url, nameView) => {
+  const onChangeSelected = useCallback(async (id) => {
     setIsLoading(true);
+
     try {
-      const response = await fetch(url, {
+      const response = await fetch(form_Url + id, {
         method: "GET",
       });
 
@@ -22,25 +25,29 @@ const useForm = (id) => {
       }
 
       const data = await response.json();
-      setDataRow(data.Itemset[nameView]);
+      setDataRow(data.Itemset[form_nameView]);
     } catch (err) {
       setError(err.message || "Something went wrong!");
     }
     setIsLoading(false);
   }, []);
 
-  const onReset = () => {
-    if (datarow) {
-      try {
-        const idfield = Object.keys(datarow[0]);
-        idfield.map((item) => {
-          try {
-            document.getElementById(item).value = "";
-          } catch (error) {}
-        });
-      } catch (error) {}
+  const onReset = useCallback(async () => {
+    try {
+      const response = await fetch(form_Url + "-1", {
+        method: "GET",
+      });
+
+      if (!response.ok) {
+        throw new Error("Request failed!");
+      }
+
+      const data = await response.json();
+      setDataRow(data.Itemset[form_nameView]);
+    } catch (err) {
+      setError(err.message || "Something went wrong!");
     }
-  };
+  });
 
   const onChangeForm = (id, value) => {
     if (datarow) {
@@ -56,37 +63,6 @@ const useForm = (id) => {
   useEffect(() => {
     const writeform = () => {
       if (datarow) {
-        /* try {
-          const idfield = Object.keys(datarow[0]);
-          idfield.map((item) => {
-            try {
-              if (document.getElementById(item).type === "date") {
-                document.getElementById(item).value = formatDate(
-                  datarow[0][item]
-                );
-              } else if (document.getElementById(item).type === "checkbox") {
-                document.getElementById(item).checked = datarow[0][item];
-              } else if (
-                document.getElementById(item).getAttribute("tipo") === "list"
-              ) {
-                inputRef[0].current.value = "aaaa";
-                let rr = document
-                  .getElementById("list_" + item)
-                  .filter(function (x) {
-                    return x.getAttribute("idobj") === datarow[0][item];
-                  });
-
-                document.getElementById(item).value = rr.getAttribute("value");
-                document
-                  .getElementById(item)
-                  .setAttribute("list_value", rr.getAttribute("idobj"));
-              } else {
-                document.getElementById(item).value = datarow[0][item];
-              }
-            } catch (error) {}
-          });
-        } catch (error) {} */
-
         try {
           localStorage.removeItem("axn_record_" + form_Id);
           const idfield = Object.keys(datarow[0]);

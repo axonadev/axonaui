@@ -43,8 +43,14 @@ const Project = ({ request }) => {
   const [idobj_Domicili, setIdobj_Domicili] = useState(0);
   const [showDomicili, setShowDomicili] = useState(false);
 
-  const { onChangeSelected, onReset, onChangeForm, formValue } =
-    useForm("form_t");
+  const { onChangeSelected, onReset, onChangeForm } = useForm(
+    "form_t",
+    REACT_APP_SERVERAPI +
+      "api/axo_sel/" +
+      localStorage.getItem("axn_token") +
+      cmd_getForm,
+    nameTable
+  );
 
   const domiciliItemsSearch = [
     "SoggettiDomicili_Nome1",
@@ -67,27 +73,13 @@ const Project = ({ request }) => {
     });
 
     setStatoGriglia("");
-    onChangeSelected(
-      REACT_APP_SERVERAPI +
-        "api/axo_sel/" +
-        localStorage.getItem("axn_token") +
-        cmd_getForm +
-        idobj_T,
-      nameTable
-    );
+    onChangeSelected(idobj_T);
   };
   const onChangeRow = (idobj) => {
     setIdobj_T(idobj);
     setFocusForm("form_t");
     setStatoGriglia("");
-    onChangeSelected(
-      REACT_APP_SERVERAPI +
-        "api/axo_sel/" +
-        localStorage.getItem("axn_token") +
-        cmd_getForm +
-        idobj,
-      nameTable
-    );
+    onChangeSelected(idobj);
   };
   const domiciliChangeRow = (idobj) => {
     setIdobj_Domicili(idobj);
@@ -198,7 +190,7 @@ const Project = ({ request }) => {
                     "NaturaIVA_Codice",
                     "NaturaIVA_Descrizione",
                   ]}
-                  val={formValue}
+                  onChangeValue={onChangeForm}
                   onChange={onChangeInput}
                   numerocaratteri={3}
                 />
@@ -209,7 +201,7 @@ const Project = ({ request }) => {
                   field_id="IDOBJ"
                   field_description={["Anni_Descrizione"]}
                   defList={listaanni}
-                  val={formValue}
+                  onChangeValue={onChangeForm}
                   onChange={onChangeInput}
                 />
                 <InputCheckList
@@ -239,7 +231,6 @@ const Project = ({ request }) => {
                   provincia={{ label: "Provincia", id: "Soggetti_Prov" }}
                   cap={{ label: "CAP", id: "Soggetti_CAP" }}
                   onChange={onChangeInput}
-                  val={formValue}
                   onChangeValue={onChangeForm}
                 />
               </FrameInRow>
@@ -273,7 +264,7 @@ const Project = ({ request }) => {
                 <InputList
                   label={"Pagamento"}
                   id={"Soggetti_Pagamento"}
-                  val={formValue}
+                  onChangeValue={onChangeForm}
                   onChange={() => {}}
                   field_id="IDOBJ"
                   field_description={["Pagamenti_Descrizione"]}
@@ -302,11 +293,15 @@ const Project = ({ request }) => {
                 />
               </FrameInRow>
               <FrameInRow width={[10, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]}>
-                <Input label="Margine" id="Soggetti_Margine" val={formValue} />
+                <Input
+                  label="Margine"
+                  id="Soggetti_Margine"
+                  onChangeValue={onChangeForm}
+                />
                 <Input
                   label="Sc. Testata 1"
                   id="Soggetti_ScontoT1"
-                  val={formValue}
+                  onChangeValue={onChangeForm}
                   type="number"
                   max="100"
                   decimali="3"
@@ -314,21 +309,48 @@ const Project = ({ request }) => {
                 <Input
                   label="2"
                   id="Soggetti_ScontoT2"
-                  val={formValue}
                   onChangeValue={onChangeForm}
                 />
-                <Input label="3" id="Soggetti_ScontoT3" val={formValue} />
-                <Input label="4" id="Soggetti_ScontoT4" val={formValue} />
-                <Input label="5" id="Soggetti_ScontoT5" val={formValue} />
+                <Input
+                  label="3"
+                  id="Soggetti_ScontoT3"
+                  onChangeValue={onChangeForm}
+                />
+                <Input
+                  label="4"
+                  id="Soggetti_ScontoT4"
+                  onChangeValue={onChangeForm}
+                />
+                <Input
+                  label="5"
+                  id="Soggetti_ScontoT5"
+                  onChangeValue={onChangeForm}
+                />
                 <Input
                   label="Sc. Dettaglio 1"
                   id="Soggetti_ScontoD1"
-                  val={formValue}
+                  onChangeValue={onChangeForm}
                 />
-                <Input label="2" id="Soggetti_ScontoD2" val={formValue} />
-                <Input label="3" id="Soggetti_ScontoD3" val={formValue} />
-                <Input label="4" id="Soggetti_ScontoD4" val={formValue} />
-                <Input label="5" id="Soggetti_ScontoD5" val={formValue} />
+                <Input
+                  label="2"
+                  id="Soggetti_ScontoD2"
+                  onChangeValue={onChangeForm}
+                />
+                <Input
+                  label="3"
+                  id="Soggetti_ScontoD3"
+                  onChangeValue={onChangeForm}
+                />
+                <Input
+                  label="4"
+                  id="Soggetti_ScontoD4"
+                  onChangeValue={onChangeForm}
+                />
+                <Input
+                  label="5"
+                  id="Soggetti_ScontoD5"
+                  onChangeValue={onChangeForm}
+                />
               </FrameInRow>
               <FrameInRow width={[20, 60, 20]}>
                 <InputList
@@ -349,7 +371,7 @@ const Project = ({ request }) => {
                 <Input
                   label="Lettera di Intento"
                   id="Soggetti_LetteraIntento"
-                  val={formValue}
+                  onChangeValue={onChangeForm}
                 />
 
                 <InputList
@@ -374,7 +396,7 @@ const Project = ({ request }) => {
                       IVAEsigibilita_Descrizione: "Scissione dei pagamenti",
                     },
                   ]}
-                  val={formValue}
+                  onChangeValue={onChangeForm}
                   onChange={onChangeInput}
                 />
               </FrameInRow>
@@ -418,13 +440,13 @@ const Project = ({ request }) => {
                       Porto_Descrizione: "Assegnato",
                     },
                   ]}
-                  val={formValue}
+                  onChangeValue={onChangeForm}
                   onChange={onChangeInput}
                 />
                 <InputList
                   label={"Vettore"}
                   id={"Soggetti_Vettore"}
-                  val={formValue}
+                  onChangeValue={onChangeForm}
                   onChange={() => {}}
                   field_id="IDOBJ"
                   field_description={["Nome", "Cognome"]}
@@ -440,13 +462,29 @@ const Project = ({ request }) => {
             </Frame>
             <Frame label="Banca per ricevute bancarie">
               <FrameInRow width={[20, 20, 20]}>
-                <Input label="IBAN" id="Soggetti_IBAN" val={formValue} />
-                <Input label="Swift" id="Soggetti_Swift" val={formValue} />
+                <Input
+                  label="IBAN"
+                  id="Soggetti_IBAN"
+                  onChangeValue={onChangeForm}
+                />
+                <Input
+                  label="Swift"
+                  id="Soggetti_Swift"
+                  onChangeValue={onChangeForm}
+                />
                 <Input label="Banca Azienda" />
               </FrameInRow>
               <FrameInRow width={[20, 20, 20]}>
-                <Input label="ABI" id="Soggetti_ABI" val={formValue} />
-                <Input label="CAB" id="Soggetti_CAB" val={formValue} />
+                <Input
+                  label="ABI"
+                  id="Soggetti_ABI"
+                  onChangeValue={onChangeForm}
+                />
+                <Input
+                  label="CAB"
+                  id="Soggetti_CAB"
+                  onChangeValue={onChangeForm}
+                />
               </FrameInRow>
             </Frame>
             <Frame label="Coordinate fiscali">
@@ -454,19 +492,27 @@ const Project = ({ request }) => {
                 <Input
                   label="Cod. Fiscale"
                   id="Soggetti_CodFisc"
-                  val={formValue}
+                  onChangeValue={onChangeForm}
                 />
-                <Input label="PIVA" id="Soggetti_PIVANaz" val={formValue} />
-                <Input label="-" id="Soggetti_PIVA" val={formValue} />
+                <Input
+                  label="PIVA"
+                  id="Soggetti_PIVANaz"
+                  onChangeValue={onChangeForm}
+                />
+                <Input
+                  label="-"
+                  id="Soggetti_PIVA"
+                  onChangeValue={onChangeForm}
+                />
                 <Input
                   label="Cod. Destinazione SDI"
                   id="Soggetti_CodiceSDI"
-                  val={formValue}
+                  onChangeValue={onChangeForm}
                 />
                 <Input
                   label="Cod. C.C.I.A.A."
                   id="Soggetti_CCIAA"
-                  val={formValue}
+                  onChangeValue={onChangeForm}
                 />
               </FrameInRow>
             </Frame>
@@ -485,16 +531,12 @@ const Project = ({ request }) => {
         >
           <FrameContainer>
             <FrameInRow width={[50, 50]}>
-              <Input label="IDOBJ" id="IDOBJ" val={formValue} />
-              <Input label="PIDOBJ" id="PIDOBJ" val={formValue} />
+              <Input label="IDOBJ" id="IDOBJ" />
+              <Input label="PIDOBJ" id="PIDOBJ" />
             </FrameInRow>
             <FrameInRow width={[50, 50]}>
-              <Input label="Nome" id="SoggettiVarianti_Nome1" val={formValue} />
-              <Input
-                label="Cognome"
-                id="SoggettiVarianti_Nome2"
-                val={formValue}
-              />
+              <Input label="Nome" id="SoggettiVarianti_Nome1" />
+              <Input label="Cognome" id="SoggettiVarianti_Nome2" />
             </FrameInRow>
             <FrameInRow width={[100]}>
               <Citta
@@ -502,7 +544,6 @@ const Project = ({ request }) => {
                 citta={{ label: "Citta", id: "SoggettiVarianti_Citta" }}
                 provincia={{ label: "Provincia", id: "SoggettiVarianti_Prov" }}
                 cap={{ label: "CAP", id: "SoggettiVarianti_CAP" }}
-                val={formValue}
                 onChangeValue={onChangeForm}
               />
             </FrameInRow>
