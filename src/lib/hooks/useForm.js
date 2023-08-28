@@ -43,6 +43,12 @@ const useForm = (id, url, nameView) => {
       }
 
       const data = await response.json();
+
+      localStorage.setItem(
+        "axn_record_" + form_Id,
+        JSON.stringify(data.Itemset[form_nameView])
+      );
+
       setDataRow(data.Itemset[form_nameView]);
     } catch (err) {
       setError(err.message || "Something went wrong!");
