@@ -162,6 +162,26 @@ const Project = ({ request }) => {
                   onChange={onChangeInput}
                   onChangeValue={onChangeForm}
                 ></Input>
+                <InputList
+                  label="Tipo"
+                  id="Soggetti_Tipo"
+                  nameList="v_soggettitipo"
+                  field_id="IDOBJ"
+                  field_description={["SoggettiTipo_Descrizione"]}
+                  defList={[
+                    { IDOBJ: 1, SoggettiTipo_Descrizione: "Privato" },
+                    { IDOBJ: 2, SoggettiTipo_Descrizione: "Società" },
+                    { IDOBJ: 3, SoggettiTipo_Descrizione: "Ente" },
+                  ]}
+                  onChangeValue={onChangeForm}
+                  onChange={onChangeInput}
+                />
+                <InputCheckBox
+                  label="Raggruppa bolle"
+                  id="Soggetti_RaggruppaBolle"
+                  onChangeValue={onChangeForm}
+                  onChange={onChangeInput}
+                />
                 <Input
                   label="prova"
                   id="Ive_Valore"
@@ -195,16 +215,7 @@ const Project = ({ request }) => {
                   onChange={onChangeInput}
                   numerocaratteri={3}
                 />
-                <InputList
-                  label="Anni"
-                  id="Ive_Anni"
-                  nameList="v_anni"
-                  field_id="IDOBJ"
-                  field_description={["Anni_Descrizione"]}
-                  defList={listaanni}
-                  onChangeValue={onChangeForm}
-                  onChange={onChangeInput}
-                />
+
                 <InputCheckList
                   label="tipisoggetto"
                   id="tipisoggetto"

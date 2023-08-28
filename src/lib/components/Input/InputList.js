@@ -150,6 +150,7 @@ const InputList = ({
         });
     };
     if (defList) {
+      getValore(defList);
     } else {
       if (InputContaCaratteri === 0) {
         loadList(list_value);
@@ -159,6 +160,7 @@ const InputList = ({
 
   useEffect(() => {
     if (defList) {
+      getValore(defList);
     } else {
       getValore(list);
 

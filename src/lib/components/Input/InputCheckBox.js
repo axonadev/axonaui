@@ -9,27 +9,13 @@ const InputCheckBox = ({
   id,
   type,
   list,
-  val,
   onChange,
   form_id,
+  onChangeValue,
 }) => {
   const pers = localStorage.getItem("pers");
 
   let effVal = "";
-
-  const valList = val
-    ? val.filter((item) => item !== undefined).filter((item) => item.id === id)
-    : "";
-
-  effVal = valList[0]
-    ? valList[0].value
-    : value === "True"
-    ? true
-    : value === "true"
-    ? true
-    : value === true
-    ? true
-    : false;
 
   const valincache = JSON.parse(localStorage.getItem("axn_record_" + form_id));
 
@@ -70,6 +56,7 @@ const InputCheckBox = ({
     } catch (error) {}
 
     setIsChecked((prev) => {
+      onChangeValue(id, !prev);
       return !prev;
     });
   };
