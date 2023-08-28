@@ -31,7 +31,16 @@ const InputCheckBox = ({
         ? true
         : false;
     }
-  } catch (error) {}
+  } catch (error) {
+    effVal =
+      value === "True"
+        ? true
+        : value === "true"
+        ? true
+        : value === true
+        ? true
+        : false;
+  }
 
   const [isChecked, setIsChecked] = useState(effVal);
 
@@ -56,7 +65,10 @@ const InputCheckBox = ({
     } catch (error) {}
 
     setIsChecked((prev) => {
-      onChangeValue(id, !prev);
+      try {
+        onChangeValue(id, !prev);
+      } catch (error) {}
+
       return !prev;
     });
   };

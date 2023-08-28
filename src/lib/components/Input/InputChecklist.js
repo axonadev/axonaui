@@ -99,7 +99,6 @@ const InputCheckList = ({
               value={item[field_value]}
               id={field_description + "_" + item[field_id]}
               onChange={changeSelection}
-              onChangeValue={() => {}}
             />
           );
         })}
