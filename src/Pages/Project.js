@@ -171,6 +171,7 @@ const Project = ({ request }) => {
                   label="Scadenza"
                   id="Soggetti_ScadenzaOBJ"
                   onChange={onChangeInput}
+                  onChangeValue={onChangeForm}
                 />
               </FrameInRow>
               <FrameInRow width={[5, 25, 20, 10]}>

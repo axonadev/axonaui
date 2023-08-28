@@ -15,7 +15,7 @@ const InputCheckList = ({
   const [list, setList] = useState(null);
   const [jsonDriver, setJsonDriver] = useState("");
 
-  const changeSeleztion = (evt) => {
+  const changeSelection = (evt) => {
     if (list) {
       let comm = "";
 
@@ -98,7 +98,7 @@ const InputCheckList = ({
               label={item[field_description]}
               value={item[field_value]}
               id={field_description + "_" + item[field_id]}
-              onChange={changeSeleztion}
+              onChange={changeSelection}
             />
           );
         })}

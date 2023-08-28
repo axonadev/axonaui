@@ -3,7 +3,16 @@ import useInput from "../../hooks/useInput";
 import classes from "../style/Input.module.css";
 import { formatDate } from "axonalib";
 
-const InputData = ({ value, label, icons, className, id, form_id }) => {
+const InputData = ({
+  value,
+  label,
+  icons,
+  className,
+  id,
+  form_id,
+  onChange,
+  onChangeValue,
+}) => {
   const pers = localStorage.getItem("pers");
 
   let effVal = "";
@@ -71,6 +80,20 @@ const InputData = ({ value, label, icons, className, id, form_id }) => {
     setInputValue(effVal);
   }, [effVal]);
 
+  const onChangeInput = (evt) => {
+    try {
+      onChange(evt);
+    } catch (error) {}
+
+    onChangeValuehandler(evt);
+    InputChange(evt);
+  };
+  const onChangeValuehandler = (evt) => {
+    try {
+      onChangeValue(id, evt.target.value);
+    } catch (error) {}
+  };
+
   return (
     <div id={"cont_" + id} className={classContent.join(" ")}>
       <div className={classLabel.join(" ")}>
@@ -86,7 +109,7 @@ const InputData = ({ value, label, icons, className, id, form_id }) => {
           id={id}
           type="date"
           tipo={sTipo}
-          onChange={InputChange}
+          onChange={onChangeInput}
           onBlur={InputBlur}
           onFocus={InputFocus}
           value={InputValue}
