@@ -80,6 +80,12 @@ const Citta = ({
           id={provincia.id}
           onChangeValue={onChangeValue}
           onChange={onChange}
+          validate={[
+            {
+              type: "maxlenght",
+              value: 2,
+            },
+          ]}
         />
         <Input
           label={cap.label}

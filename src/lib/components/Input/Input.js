@@ -26,8 +26,6 @@ const Input = ({
   let effVal = "";
   console.log(form_id, id + " valore citta input");
 
-  effVal = value;
-
   const valincache = JSON.parse(localStorage.getItem("axn_record_" + form_id));
 
   try {
@@ -38,6 +36,10 @@ const Input = ({
 
   if (decimali !== undefined) {
     effVal = parseFloat(effVal).toFixed(parseInt(decimali));
+  }
+
+  if (value) {
+    effVal = value;
   }
 
   const objLabel = label;

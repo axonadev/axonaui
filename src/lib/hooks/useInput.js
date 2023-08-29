@@ -48,8 +48,17 @@ const useInput = () => {
         if (item.type === "obb") {
           if (enteredValue.trim() === "") {
             setIsValid(false);
+            setMessageError(item.message ? item.message : "Campo obbligatorio");
+          }
+        } else if (item.type === "maxlenght") {
+          if (enteredValue.trim().length > item.value) {
+            setIsValid(false);
             setMessageError(
-              item.message !== "" ? item.message : "Campo obbligatorio"
+              item.message
+                ? item.message
+                : "Superato il massimo dei caratteri consentiti (" +
+                    item.value +
+                    ")"
             );
           }
         }
