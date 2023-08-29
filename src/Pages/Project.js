@@ -177,6 +177,31 @@ const Project = ({ request }) => {
                   onChangeValue={onChangeForm}
                   onChange={onChangeInput}
                 />
+                <InputList
+                  label="Esigibilità iva"
+                  id="Soggetti_IVAEsigibilita"
+                  nameList="ivaesigibilita"
+                  field_id="IDOBJ"
+                  field_description={["IVAEsigibilita_Descrizione"]}
+                  defList={[
+                    {
+                      IDOBJ: 1,
+                      IVAEsigibilita_Descrizione:
+                        "IVA ad esigibilità immediata",
+                    },
+                    {
+                      IDOBJ: 2,
+                      IVAEsigibilita_Descrizione:
+                        "IVA ad esigibilità differita",
+                    },
+                    {
+                      IDOBJ: 3,
+                      IVAEsigibilita_Descrizione: "Scissione dei pagamenti",
+                    },
+                  ]}
+                  onChangeValue={onChangeForm}
+                  onChange={onChangeInput}
+                />
                 <InputCheckBox
                   label="Raggruppa bolle"
                   id="Soggetti_RaggruppaBolle"

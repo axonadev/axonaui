@@ -87,8 +87,11 @@ const InputList = ({
       let rr = lista.filter(function (x) {
         return x.IDOBJ === list_value;
       });
+
       const valList = field_description.map((columnselect) => {
-        return rr[0][columnselect];
+        try {
+          return rr[0][columnselect];
+        } catch (error) {}
       });
 
       setInputValue(valList ? valList.join(" ") : value);
