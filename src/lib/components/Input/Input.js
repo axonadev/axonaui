@@ -40,6 +40,7 @@ const Input = ({
 
   if (value) {
     effVal = value;
+    onChangeValue(id, value);
   }
 
   const objLabel = label;
