@@ -38,11 +38,6 @@ const Input = ({
     effVal = parseFloat(effVal).toFixed(parseInt(decimali));
   }
 
-  if (value) {
-    effVal = value;
-    onChangeValue(id, value);
-  }
-
   const objLabel = label;
   let sTipo = "text";
 
@@ -121,8 +116,16 @@ const Input = ({
   useEffect(() => {
     setInputValue(effVal);
   }, [effVal]);
+
   useEffect(() => {
     setInputValidate(validate);
+
+    if (value) {
+      effVal = value;
+      try {
+        onChangeValue(id, value);
+      } catch (error) {}
+    }
   }, []);
 
   return (
