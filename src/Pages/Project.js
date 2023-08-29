@@ -161,6 +161,7 @@ const Project = ({ request }) => {
                   id="Soggetti_Nome1"
                   onChange={onChangeInput}
                   onChangeValue={onChangeForm}
+                  validate={[{ type: "obb", message: "Soggetto obbligatorio" }]}
                 ></Input>
                 <InputList
                   label="Tipo"

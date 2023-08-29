@@ -41,18 +41,20 @@ const useInput = () => {
     setIsFocussed(false);
 
     let rvalidate = { validate: true, message: "" };
-
-    if (validate) {
-      if (validate.type) {
-        rvalidate = validateInput(
-          enteredValue,
-          validate.type,
-          validate.label ? validate.label : ""
-        );
-      }
-    }
     setIsValid(rvalidate.validate);
     setMessageError(rvalidate.message);
+    if (validate) {
+      validate.map((item) => {
+        if (item.type === "obb") {
+          if (enteredValue.trim() === "") {
+            setIsValid(false);
+            setMessageError(
+              item.message !== "" ? item.message : "Campo obbligatorio"
+            );
+          }
+        }
+      });
+    }
   };
 
   const inputFocusHandler = (evt) => {

@@ -19,6 +19,7 @@ const Input = ({
   max,
   decimali,
   form_id,
+  validate,
 }) => {
   const pers = localStorage.getItem("pers");
 
@@ -51,6 +52,7 @@ const Input = ({
     inputBlurHandler: InputBlur,
     inputFocusHandler: InputFocus,
     setValue: setInputValue,
+    setValidate: setInputValidate,
   } = useInput();
 
   const classFocus = InputIsFocussed ? classes["input_focused"] : "";
@@ -116,6 +118,9 @@ const Input = ({
   useEffect(() => {
     setInputValue(effVal);
   }, [effVal]);
+  useEffect(() => {
+    setInputValidate(validate);
+  }, []);
 
   return (
     <div id={"cont_" + id} className={classContent.join(" ")}>
