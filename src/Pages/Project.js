@@ -211,6 +211,7 @@ const Project = ({ request }) => {
                 <Input
                   label="prova"
                   id="Ive_Valore"
+                  type="textarea"
                   onChange={onChangeInput}
                 ></Input>
                 <InputData

@@ -147,17 +147,31 @@ const Input = ({
             <Img type={preIcon} pathImg="getlocal" />
           </div>
         )}
-        <input
-          id={id}
-          type={type}
-          tipo={sTipo}
-          onChange={onChangeInput}
-          onBlur={onBlurInput}
-          onFocus={InputFocus}
-          value={InputValue}
-          min={min}
-          max={max}
-        />
+        {type === "textarea" && (
+          <textarea
+            id={id}
+            type={type}
+            tipo={sTipo}
+            onChange={onChangeInput}
+            onBlur={onBlurInput}
+            onFocus={InputFocus}
+            value={InputValue}
+          ></textarea>
+        )}
+
+        {type !== "textarea" && (
+          <input
+            id={id}
+            type={type}
+            tipo={sTipo}
+            onChange={onChangeInput}
+            onBlur={onBlurInput}
+            onFocus={InputFocus}
+            value={InputValue}
+            min={min}
+            max={max}
+          />
+        )}
         {icon && (
           <div className={classes.input_icon} onClick={onIconClickHandler}>
             <Img type={icon} pathImg="getlocal" />
