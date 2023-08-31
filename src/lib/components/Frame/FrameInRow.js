@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "../style/Frame.module.css";
-const FrameInRow = ({ width, children, form_id }) => {
+const FrameInRow = ({ width, children, form_id, onChangeValue }) => {
   const isList = Array.isArray(children);
 
   const classsplit = String(width[0]).split(" ");
@@ -26,7 +26,10 @@ const FrameInRow = ({ width, children, form_id }) => {
                 key={count + "_" + Math.random()}
                 className={classesname.join(" ")}
               >
-                {React.cloneElement(item, { form_id: form_id })}
+                {React.cloneElement(item, {
+                  form_id: form_id,
+                  onChangeValue: onChangeValue,
+                })}
               </div>
             );
           })}
@@ -34,10 +37,16 @@ const FrameInRow = ({ width, children, form_id }) => {
           <div key={0 + "_" + Math.random()} className={classesname.join(" ")}>
             {children.length > 1 &&
               children.map((item) => {
-                return React.cloneElement(item, { form_id: form_id });
+                return React.cloneElement(item, {
+                  form_id: form_id,
+                  onChangeValue: onChangeValue,
+                });
               })}
             {children.length === undefined &&
-              React.cloneElement(children, { form_id: form_id })}
+              React.cloneElement(children, {
+                form_id: form_id,
+                onChangeValue: onChangeValue,
+              })}
           </div>
         )}
         {!width && (
@@ -47,10 +56,16 @@ const FrameInRow = ({ width, children, form_id }) => {
           >
             {children.length > 1 &&
               children.map((item) => {
-                return React.cloneElement(item, { form_id: form_id });
+                return React.cloneElement(item, {
+                  form_id: form_id,
+                  onChangeValue: onChangeValue,
+                });
               })}
             {children.length === undefined &&
-              React.cloneElement(children, { form_id: form_id })}
+              React.cloneElement(children, {
+                form_id: form_id,
+                onChangeValue: onChangeValue,
+              })}
           </div>
         )}
       </div>

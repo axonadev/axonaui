@@ -82,7 +82,9 @@ const Input = ({
   const onChangeValuehandler = (evt) => {
     try {
       onChangeValue(id, evt.target.value);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error, "errore changevalue");
+    }
   };
   const onBlurInput = (evt) => {
     if (decimali !== undefined && type === "number") {

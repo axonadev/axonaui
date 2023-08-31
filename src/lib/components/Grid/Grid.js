@@ -3,11 +3,18 @@ import classes from "../style/Grid.module.css";
 import Row from "./Row.prv";
 
 import useGrid from "../../hooks/useGrid";
-
+import useForm from "../../hooks/useForm";
 import Filter from "../Filter/Filter";
 import Button from "../Button/Button";
 import Img from "../Img/Img";
 import Input from "../Input/Input";
+import MessageModal from "../MessageModal/MessageModal";
+import Form from "../Form/Form";
+import FrameContainer from "../Frame/FrameContainer";
+import FrameInRow from "../Frame/FrameInRow";
+import Citta from "../UIFrame/Citta";
+
+import { useEnv } from "axonalib";
 
 const Grid = ({
   id,
@@ -24,9 +31,27 @@ const Grid = ({
   loadGrid = "",
   reload = 0,
   pidobj = 0,
+  formTitle = "",
+  dbForm = "",
+  children,
 }) => {
+  const { REACT_APP_SERVERAPI } = useEnv();
+  const { onChangeSelected, onReset, onChangeForm } = useForm(
+    "form_" + id,
+    REACT_APP_SERVERAPI +
+      "api/axo_sel/" +
+      localStorage.getItem("axn_token") +
+      "/general/general/leggirow/" +
+      dbForm +
+      "_f_",
+    dbForm
+  );
+
   const [rowSelected, setRowSelected] = useState(0);
   const [filteredValue, setFilteredValue] = useState("");
+  const isFormInsert = children ? true : false;
+  const [isOpenInsert, setIsOpenInsert] = useState(false);
+
   const {
     filterGrid,
     initList,
@@ -41,21 +66,43 @@ const Grid = ({
   const [page, setPage] = useState(1);
 
   const onDoubleClickHandler = (IDOBJ, items) => {
-    onDoubleClickRow(IDOBJ, items);
+    console.log("asdlasdl");
+    try {
+      modificaHandler(IDOBJ);
+    } catch (error) {}
+
+    try {
+      onDoubleClickRow(IDOBJ, items);
+    } catch (error) {}
+    onChangeSelected(IDOBJ);
   };
 
   const onClickRowHandler = (IDOBJ, items) => {
     setRowSelected(() => {
       return IDOBJ;
     });
-
+    onChangeSelected(IDOBJ);
     onClickRow(IDOBJ, items);
   };
 
   const insertHandler = () => {
     localStorage.setItem("axn_form_change", "1");
-    onBtnInsert(id);
+    if (isFormInsert) {
+      setRowSelected(0);
+      onChangeSelected(-1);
+      setIsOpenInsert(true);
+    } else {
+      onBtnInsert(id);
+    }
   };
+
+  const modificaHandler = (IDOBJ) => {
+    if (isFormInsert) {
+      onChangeSelected(IDOBJ);
+      setIsOpenInsert(true);
+    }
+  };
+
   const deleteHandler = () => {
     onBtnDelete(id);
   };
@@ -99,17 +146,21 @@ const Grid = ({
       }
     }
   };
-
+  const onSavehandler = () => {
+    document.getElementById("b_submit_form_" + id).click();
+  };
+  const onStophandler = () => {
+    setIsOpenInsert(false);
+  };
+  const onSaveformhandler = () => {
+    setIsOpenInsert(false);
+  };
+  const onStopformhandler = () => {
+    setIsOpenInsert(false);
+  };
   useEffect(() => {
     loadGridint(requestGrid);
   }, [reload, page, filteredValue, pidobj]);
-
-  /* useEffect(() => {
-    try {
-      if(id==="main_t")
-      onClickRow(filteredListItem[0].IDOBJ);
-    } catch (error) {}
-  }, [filteredListItem]); */
 
   return (
     <>
@@ -197,6 +248,68 @@ const Grid = ({
           </table>
         </div>
       </div>
+      {isOpenInsert && (
+        <MessageModal
+          onOut={onStophandler}
+          title={formTitle}
+          message=""
+          buttons={[
+            {
+              key: 1,
+              label: "Annulla",
+              type: "stop",
+              onClick: onStophandler,
+            },
+            {
+              key: 2,
+              label: "Salva",
+              type: "run",
+              onClick: onSavehandler,
+            },
+          ]}
+        >
+          <Form
+            id={"form_" + id}
+            idobj={rowSelected}
+            modulo="general"
+            db={dbForm}
+            serverApi={REACT_APP_SERVERAPI}
+            afterSubmit={onSaveformhandler}
+            onAnnulla={onStopformhandler}
+          >
+            <FrameContainer>
+              <FrameInRow width={["20 hidden", "20 hidden", "20 hidden"]}>
+                <Input
+                  label="IDOBJ"
+                  id="IDOBJ"
+                  value={rowSelected}
+                  onChangeValue={onChangeForm}
+                />
+                <Input
+                  label="PIDOBJ"
+                  id="PIDOBJ"
+                  value={pidobj}
+                  onChangeValue={onChangeForm}
+                />
+              </FrameInRow>
+              <>
+                {children.length > 1 &&
+                  children.map((item) => {
+                    return React.cloneElement(item, {
+                      form_id: "form_" + id,
+                      onChangeValue: onChangeForm,
+                    });
+                  })}
+                {children.length === undefined &&
+                  React.cloneElement(children, {
+                    form_id: "form_" + id,
+                    onChangeValue: onChangeForm,
+                  })}
+              </>
+            </FrameContainer>
+          </Form>
+        </MessageModal>
+      )}
     </>
   );
 };

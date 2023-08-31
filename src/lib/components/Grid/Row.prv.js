@@ -20,7 +20,9 @@ const Row = ({
   ];
 
   const onDoubleClickHandler = () => {
-    onDoubleClick(IDOBJ, items);
+    try {
+      onDoubleClick(IDOBJ, items);
+    } catch (error) {}
   };
   const onClickHandler = () => {
     onClick(IDOBJ, items);

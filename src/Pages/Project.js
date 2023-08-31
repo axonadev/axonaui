@@ -26,7 +26,7 @@ const Project = ({ request }) => {
   const cmd_getForm = "/" + moduloForm + "/" + moduloForm + "sel/getrow/";
   const cmd_getGrid = "/" + moduloForm + "/" + moduloForm + "sel/leggi";
   const cmd_getDomiciliGrid =
-    "/" + moduloForm + "/" + moduloForm + "sel/leggiDomicili";
+    "/soggettivarianti/soggettivariantisel/leggidomicili";
 
   const [domiciliReloadGriglia, setDomiciliReloadGriglia] = useState(0);
 
@@ -287,15 +287,35 @@ const Project = ({ request }) => {
               onClickRow={(IDOBJ) => {
                 domiciliChangeRow(IDOBJ);
               }}
+              onDoubleClickRow={(IDOBJ, item) => {}}
               pidobj={idobj_T}
-              onDoubleClickRow={domiciliModClickHandler}
-              onBtnInsert={domiciliInsertClickHandler}
               onBtnDelete={domiciliDeleteClickHandler}
               btn_insert={true}
               nameView={"v_soggettidomicili"}
               reload={domiciliReloadGriglia}
               itemSearch={domiciliItemsSearch}
-            />
+              formTitle="Inserisci"
+              dbForm="soggettivarianti"
+            >
+              <FrameInRow width={[50, 50]}>
+                <Input label="Nome" id="SoggettiVarianti_Nome1" />
+                <Input label="Cognome" id="SoggettiVarianti_Nome2" />
+              </FrameInRow>
+              <FrameInRow width={[100]}>
+                <Input label="Indirizzo" id="SoggettiVarianti_Indirizzo" />
+              </FrameInRow>
+              <FrameInRow width={[100]}>
+                <Citta
+                  nazione={{ label: "Nazione", id: "SoggettiVarianti_Nazione" }}
+                  citta={{ label: "Citta", id: "SoggettiVarianti_Citta" }}
+                  provincia={{
+                    label: "Provincia",
+                    id: "SoggettiVarianti_Prov",
+                  }}
+                  cap={{ label: "CAP", id: "SoggettiVarianti_CAP" }}
+                />
+              </FrameInRow>
+            </Grid>
           </FrameContainer>
           <FrameContainer id="frame_5">
             <Frame label="Condizioni">
@@ -557,37 +577,6 @@ const Project = ({ request }) => {
             </Frame>
           </FrameContainer>
         </Form>
-      )}
-      {showDomicili && (
-        <GridForm
-          onSave={domiciliSaveClickHandler}
-          onStop={domiciliStopClickHandler}
-          pidobj={idobj_T}
-          idobj={idobj_Domicili}
-          id="form_domicili"
-          modulo="soggetti"
-          db="soggettivarianti"
-        >
-          <FrameContainer>
-            <FrameInRow width={[50, 50]}>
-              <Input label="IDOBJ" id="IDOBJ" />
-              <Input label="PIDOBJ" id="PIDOBJ" />
-            </FrameInRow>
-            <FrameInRow width={[50, 50]}>
-              <Input label="Nome" id="SoggettiVarianti_Nome1" />
-              <Input label="Cognome" id="SoggettiVarianti_Nome2" />
-            </FrameInRow>
-            <FrameInRow width={[100]}>
-              <Citta
-                nazione={{ label: "Nazione", id: "SoggettiVarianti_Nazione" }}
-                citta={{ label: "Citta", id: "SoggettiVarianti_Citta" }}
-                provincia={{ label: "Provincia", id: "SoggettiVarianti_Prov" }}
-                cap={{ label: "CAP", id: "SoggettiVarianti_CAP" }}
-                onChangeValue={onChangeForm}
-              />
-            </FrameInRow>
-          </FrameContainer>
-        </GridForm>
       )}
     </>
   );
