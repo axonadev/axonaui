@@ -6,6 +6,7 @@ import Button from "../Button/Button";
 import Img from "../Img/Img";
 import SnackBar from "../SnackBar/SnackBar";
 import Folder from "../Folder/Folder";
+import { useEffect } from "react";
 
 const Form = ({
   id,
@@ -18,6 +19,9 @@ const Form = ({
   token = "",
   serverApi,
   folders,
+  onChangeValue,
+  isFormSubmit,
+  deleteid,
 }) => {
   const idFolder1 = folders
     ? folders.filter((item) => item.key === 1)
@@ -32,6 +36,19 @@ const Form = ({
     }
   });
   const id_submit = "b_submit_" + id;
+
+  let argpost;
+
+  if (onChangeValue !== undefined) {
+    argpost = {
+      form_id: id,
+      onChangeValue: onChangeValue,
+    };
+  } else {
+    argpost = {
+      form_id: id,
+    };
+  }
 
   const onConfirmhandler = () => {
     let obj = JSON.parse(mex.obj);
@@ -80,21 +97,7 @@ const Form = ({
           try {
             if (item.attributes.tipo === undefined) {
             } else {
-              if (item.attributes.tipo.value === "list") {
-                /* obj =
-                  obj +
-                  ',"' +
-                  item.id +
-                  '":"' +
-                  item.attributes.list_value.value +
-                  '"'; */
-              } else if (item.attributes.tipo.value === "cbox") {
-                /* if (item.checked) {
-                  obj = obj + ',"' + item.id + '":"true"';
-                } else {
-                  obj = obj + ',"' + item.id + '":"false"';
-                } */
-              } else if (item.attributes.tipo.value === "listbox") {
+              if (item.attributes.tipo.value === "listbox") {
                 obj =
                   obj +
                   ',"' +
@@ -102,8 +105,6 @@ const Form = ({
                   '":[' +
                   item.value +
                   "]";
-              } else if (item.attributes.tipo.value === "cboxi") {
-                //non devono andare nel form
               } else if (item.attributes.tipo.value === "driverchecklist") {
                 obj =
                   obj +
@@ -112,8 +113,6 @@ const Form = ({
                   '":"' +
                   item.value +
                   '"';
-              } else {
-                // obj = obj + ',"' + item.id + '":"' + item.value + '"';
               }
             }
           } catch (error) {}
@@ -148,7 +147,38 @@ const Form = ({
     setFrameIdSelezionato(idFrameSelezionato);
   };
 
-  console.log(children.length, "children");
+  useEffect(() => {
+    if (isFormSubmit > 0) {
+      let obj = "";
+      obj = localStorage.getItem("axn_record_" + id);
+
+      setMex({
+        title: idobj === 0 ? "Inserimento" : "Aggiornamento",
+        label: "Salvare il record selezionato?",
+        icon: "",
+        obj: obj,
+      });
+    }
+  }, [isFormSubmit]);
+
+  useEffect(() => {
+    if (deleteid > 0) {
+      let objJs;
+      objJs = JSON.parse(localStorage.getItem("axn_record_" + id));
+
+      objJs[0][db + "_ScadenzaOBJ"] = Date.now - 1;
+
+      let obj = JSON.stringify(objJs);
+
+      setMex({
+        title: "Elimina",
+        label: "Eliminare il record selezionato?",
+        icon: "",
+        obj: obj,
+      });
+    }
+  }, [deleteid]);
+
   return (
     <React.Fragment>
       <form
@@ -167,13 +197,13 @@ const Form = ({
           {children.length > 1 &&
             children.map((item) => {
               return item.props.id === frameIdSelezionato ? (
-                React.cloneElement(item, { form_id: id })
+                React.cloneElement(item, argpost)
               ) : (
                 <></>
               );
             })}
           {children.length === undefined &&
-            React.cloneElement(children, { form_id: id })}
+            React.cloneElement(children, argpost)}
         </div>
 
         <Button

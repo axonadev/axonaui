@@ -12,7 +12,6 @@ import MessageModal from "../MessageModal/MessageModal";
 import Form from "../Form/Form";
 import FrameContainer from "../Frame/FrameContainer";
 import FrameInRow from "../Frame/FrameInRow";
-import Citta from "../UIFrame/Citta";
 
 import { useEnv } from "axonalib";
 
@@ -51,6 +50,9 @@ const Grid = ({
   const [filteredValue, setFilteredValue] = useState("");
   const isFormInsert = children ? true : false;
   const [isOpenInsert, setIsOpenInsert] = useState(false);
+  const [isFormSubmit, setIsFormSubmit] = useState(0);
+  const [isReloaded, setIsReloaded] = useState(0);
+  const [isDelete, setIsDelete] = useState(0);
 
   const {
     filterGrid,
@@ -66,7 +68,6 @@ const Grid = ({
   const [page, setPage] = useState(1);
 
   const onDoubleClickHandler = (IDOBJ, items) => {
-    console.log("asdlasdl");
     try {
       modificaHandler(IDOBJ);
     } catch (error) {}
@@ -81,7 +82,6 @@ const Grid = ({
     setRowSelected(() => {
       return IDOBJ;
     });
-    onChangeSelected(IDOBJ);
     onClickRow(IDOBJ, items);
   };
 
@@ -104,7 +104,11 @@ const Grid = ({
   };
 
   const deleteHandler = () => {
-    onBtnDelete(id);
+    if (isFormInsert) {
+      setIsDelete(id);
+    } else {
+      onBtnDelete(id);
+    }
   };
 
   const contentDiv = itemSearch || btn_insert ? true : false;
@@ -147,12 +151,19 @@ const Grid = ({
     }
   };
   const onSavehandler = () => {
-    document.getElementById("b_submit_form_" + id).click();
+    //document.getElementById("b_submit_form_" + id).click();
+    // document.getElementById("form_" + id).submit();
+    setIsFormSubmit((prev) => {
+      return prev + 1;
+    });
   };
   const onStophandler = () => {
     setIsOpenInsert(false);
   };
   const onSaveformhandler = () => {
+    setIsReloaded((prev) => {
+      return prev + 1;
+    });
     setIsOpenInsert(false);
   };
   const onStopformhandler = () => {
@@ -160,7 +171,7 @@ const Grid = ({
   };
   useEffect(() => {
     loadGridint(requestGrid);
-  }, [reload, page, filteredValue, pidobj]);
+  }, [reload, page, filteredValue, pidobj, isReloaded]);
 
   return (
     <>
@@ -276,6 +287,8 @@ const Grid = ({
             serverApi={REACT_APP_SERVERAPI}
             afterSubmit={onSaveformhandler}
             onAnnulla={onStopformhandler}
+            deleteid={isDelete}
+            isFormSubmit={isFormSubmit}
           >
             <FrameContainer>
               <FrameInRow width={["20 hidden", "20 hidden", "20 hidden"]}>

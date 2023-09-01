@@ -152,6 +152,7 @@ const Project = ({ request }) => {
           folders={itemFolders}
           afterSubmit={onLoadRow}
           onAnnulla={onLoadRow}
+          onChangeValue={onChangeForm}
         >
           <FrameContainer id="frame_1">
             <Frame label="DATI DI PROVA 1">
@@ -160,7 +161,6 @@ const Project = ({ request }) => {
                   label="prova"
                   id="Soggetti_Nome1"
                   onChange={onChangeInput}
-                  onChangeValue={onChangeForm}
                   validate={[{ type: "obb", message: "Soggetto obbligatorio" }]}
                 ></Input>
                 <InputList

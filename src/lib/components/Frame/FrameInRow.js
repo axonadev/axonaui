@@ -9,6 +9,19 @@ const FrameInRow = ({ width, children, form_id, onChangeValue }) => {
     classesname.push(classes["frameinrow_" + element]);
   });
 
+  let argpost;
+
+  if (onChangeValue !== undefined) {
+    argpost = {
+      form_id: form_id,
+      onChangeValue: onChangeValue,
+    };
+  } else {
+    argpost = {
+      form_id: form_id,
+    };
+  }
+
   return (
     <React.Fragment>
       <div className={classes.frameinrow}>
@@ -26,10 +39,7 @@ const FrameInRow = ({ width, children, form_id, onChangeValue }) => {
                 key={count + "_" + Math.random()}
                 className={classesname.join(" ")}
               >
-                {React.cloneElement(item, {
-                  form_id: form_id,
-                  onChangeValue: onChangeValue,
-                })}
+                {React.cloneElement(item, argpost)}
               </div>
             );
           })}
@@ -37,10 +47,7 @@ const FrameInRow = ({ width, children, form_id, onChangeValue }) => {
           <div key={0 + "_" + Math.random()} className={classesname.join(" ")}>
             {children.length > 1 &&
               children.map((item) => {
-                return React.cloneElement(item, {
-                  form_id: form_id,
-                  onChangeValue: onChangeValue,
-                });
+                return React.cloneElement(item, argpost);
               })}
             {children.length === undefined &&
               React.cloneElement(children, {
