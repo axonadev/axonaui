@@ -10,7 +10,10 @@ module.exports = {
         {
           name: "Installation",
           content: "docs/installation.md",
-          description: "The description for the installation section",
+        },
+        {
+          name: "Git",
+          content: "docs/git.md",
         },
         {
           name: "Configuration",
@@ -18,7 +21,16 @@ module.exports = {
         },
         {
           name: "API",
-          content: "docs/api.md",
+          sections: [
+            {
+              name: "Intro",
+              content: "docs/api.md",
+            },
+            {
+              name: "Soggetti",
+              content: "docs/soggetti.md",
+            },
+          ],
         },
       ],
     },
