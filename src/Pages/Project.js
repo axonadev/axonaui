@@ -15,7 +15,6 @@ import {
 import { useEnv } from "axonalib";
 import InputCheckList from "../lib/components/Input/InputCheckList";
 import FormButton from "../lib/components/Form/FormButton";
-import GridForm from "../lib/components/Grid/GridForm";
 
 const Project = ({ request }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
@@ -100,24 +99,7 @@ const Project = ({ request }) => {
   const itemsSearch = ["Soggetti_Nome1", "Soggetti_Nome2"];
 
   const onChangeInput = () => {};
-  const domiciliInsertClickHandler = (idGriglia) => {
-    setIdobj_Domicili(0);
-    setShowDomicili(true);
-  };
-  const domiciliModClickHandler = (idGriglia) => {
-    setShowDomicili(true);
-  };
-  const domiciliDeleteClickHandler = (idGriglia) => {
-    setShowDomicili(false);
-  };
-  const domiciliSaveClickHandler = () => {
-    console.log("sroooooo");
-    setShowDomicili(false);
-  };
-  const domiciliStopClickHandler = () => {
-    setShowDomicili(false);
-    console.log("sroooooo");
-  };
+
   return (
     <>
       <Frame label="TESTATA" type="form_t" stato={statoGriglia}>

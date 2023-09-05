@@ -1,6 +1,6 @@
 Button example:
 
-```js
+```js { "props": { "test": "checks" } }
 <Button
   onClick={() => {
     console.log("button", "click");
