@@ -30,6 +30,14 @@ module.exports = {
               name: "Soggetti",
               content: "docs/soggetti.md",
             },
+            {
+              name: "Ive",
+              content: "docs/ive.md",
+            },
+            {
+              name: "Pagamenti",
+              content: "docs/pagamenti.md",
+            },
           ],
         },
       ],
