@@ -1,7 +1,8 @@
 Button example:
 
-```js { "props": { "test": "checks" } }
+```js
 <Button
+  type="doc"
   onClick={() => {
     console.log("button", "click");
   }}
