@@ -1,6 +1,5 @@
 import React from "react";
 import classes from "../style/ContentForm.module.css";
-import Form from "../Form/Form";
 
 const ContentForm = ({ children, sidemenuopen }) => {
   const stylecontent = [

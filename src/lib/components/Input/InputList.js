@@ -5,8 +5,8 @@ import classes from "../style/Input.module.css";
 const InputList = ({
   url,
   nameList,
-  field_id,
-  field_description,
+  field_id = "IDOBJ",
+  field_description = ["Descrizione"],
   value,
   id,
   label,

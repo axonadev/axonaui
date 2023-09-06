@@ -1,6 +1,6 @@
 {
   "name": "axonaui",
-  "version": "0.1.126",
+  "version": "0.1.127",
   "private": false,
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
@@ -21,7 +21,7 @@
     "build": "babel src/lib -d dist && xcopy \"src/lib/components/style\" \"dist/components/style\" /h /e /y /i ",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "doc": "styleguidist server",
+    "doc": "styleguidist server --port 6061",
     "docbuild": "styleguidist build && xcopy \"styleguide\" \"T:\\doc\\axonaui\" /h /e /y /i "
   },
   "eslintConfig": {

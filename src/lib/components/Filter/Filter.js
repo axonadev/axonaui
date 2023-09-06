@@ -1,7 +1,5 @@
 import React from "react";
-import Img from "../Img/Img";
 import Input from "../Input/Input";
-import Button from "../Button/Button";
 import classes from "../style/Filter.module.css";
 
 const Filter = ({ id, itemSearch, onFilter }) => {

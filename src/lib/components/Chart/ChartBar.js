@@ -1,5 +1,4 @@
 import React from "react";
-import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 import Card from "../Card/Card";
 
@@ -22,7 +21,7 @@ const ChartBar = ({
       pippo3: 53,
       pippo4: 53,
     },
-    {
+    { 
       label: "grafaaa",
       gennaio1: 112,
       febbraio: 123,

@@ -11,6 +11,7 @@ import {
   InputList,
   FrameContainer,
   Citta,
+  Img,
 } from "../lib";
 import { useEnv } from "axonalib";
 import InputCheckList from "../lib/components/Input/InputCheckList";
@@ -103,6 +104,7 @@ const Project = ({ request }) => {
   return (
     <>
       <Frame label="TESTATA" type="form_t" stato={statoGriglia}>
+        <Img type="anagrafica"></Img>
         <Grid
           id="maint_t"
           loadGrid={

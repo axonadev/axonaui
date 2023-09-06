@@ -1,5 +1,27 @@
 Grid esempio
 
+```jsx
+<Grid
+  id="maint_t"
+  loadGrid={
+    REACT_APP_SERVERAPI +
+    "api/axo_sel/" +
+    localStorage.getItem("axn_token") +
+    cmd_getGrid
+  }
+  onClickRow={(IDOBJ) => {
+    onChangeRow(IDOBJ);
+  }}
+  onDoubleClickRow={() => {}}
+  onBtnInsert={insertClickHandler}
+  onBtnDelete={deleteClickHandler}
+  nameView={nameView}
+  reload={reloadGriglia}
+  itemSearch={itemsSearch}
+  btn_insert={true}
+/>
+```
+
 la configurazione delle colonne deve essere con questi item
 
 ```js

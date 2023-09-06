@@ -38,6 +38,10 @@ module.exports = {
               name: "Ive",
               content: "docs/ive.md",
             },
+            {
+              name: "PianoConti",
+              content: "docs/pianoconti.md",
+            },
           ],
         },
       ],
