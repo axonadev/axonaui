@@ -165,6 +165,7 @@ const Grid = ({
       return prev + 1;
     });
     setIsOpenInsert(false);
+    setIsFormSubmit(0);
   };
   const onStopformhandler = () => {
     setIsOpenInsert(false);

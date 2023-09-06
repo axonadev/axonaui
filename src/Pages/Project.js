@@ -271,7 +271,7 @@ const Project = ({ request }) => {
               }}
               onDoubleClickRow={(IDOBJ, item) => {}}
               pidobj={idobj_T}
-              onBtnDelete={domiciliDeleteClickHandler}
+              onBtnDelete={() => {}}
               btn_insert={true}
               nameView={"v_soggettidomicili"}
               reload={domiciliReloadGriglia}
