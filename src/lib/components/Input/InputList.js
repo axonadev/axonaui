@@ -105,89 +105,87 @@ const InputList = ({
     }
   };
 
-  useEffect(() => {
-    const loadList = (val_idobj = 0) => {
-      let goUrl =
-        val_idobj === 0 || val_idobj === undefined || val_idobj === null
-          ? url
-          : url + "/" + val_idobj;
+  /*   useEffect(() => {
+    return () => {
+      const loadList = (val_idobj = 0) => {
+        let goUrl =
+          val_idobj === 0 || val_idobj === undefined || val_idobj === null
+            ? url
+            : url + "/" + val_idobj;
 
-      if (localStorage.getItem("axn_list_" + id)) {
-        setList(JSON.parse(localStorage.getItem("axn_list_" + id)));
-        getValore(JSON.parse(localStorage.getItem("axn_list_" + id)));
-      } else {
         fetch(goUrl)
           .then((response) => {
             return response.json();
           })
           .then((data) => {
-            localStorage.setItem(
-              "axn_list_" + id,
-              JSON.stringify(data.Itemset[nameList])
-            );
+            console.log("list " + id, "useeffect chr");
             setList(data.Itemset[nameList]);
             getValore(data.Itemset[nameList]);
           })
           .catch((err) => {
             //console.log(err);
           });
+      };
+
+      if (defList) {
+      } else {
+        if (numerocaratteri <= InputContaCaratteri) {
+          loadList();
+        }
+        if (InputContaCaratteri === 0) {
+          loadList(list_value);
+        }
       }
     };
-    if (defList) {
-    } else {
-      if (numerocaratteri <= InputContaCaratteri) {
-        loadList();
-      }
-      if (InputContaCaratteri === 0) {
-        loadList(list_value);
-      }
-    }
-  }, [InputCaratteriAvanti]);
+  }, [InputCaratteriAvanti]); */
 
-  useEffect(() => {
+  /*  useEffect(() => {
     const loadList = (val_idobj = 0) => {
       let goUrl =
         val_idobj === 0 || val_idobj === undefined || val_idobj === null
           ? url
           : url + "/" + val_idobj;
-      if (localStorage.getItem("axn_list_" + id)) {
-        setList(JSON.parse(localStorage.getItem("axn_list_" + id)));
-        getValore(JSON.parse(localStorage.getItem("axn_list_" + id)));
-      } else {
-        fetch(goUrl)
-          .then((response) => {
-            return response.json();
-          })
-          .then((data) => {
-            localStorage.setItem(
-              "axn_list_" + id,
-              JSON.stringify(data.Itemset[nameList])
-            );
-            setList(data.Itemset[nameList]);
-            getValore(data.Itemset[nameList]);
-          })
-          .catch((err) => {
-            //console.log(err);
-          });
-      }
+
+      fetch(goUrl)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          console.log("list " + id, "useeffect chr");
+          setList(data.Itemset[nameList]);
+          getValore(data.Itemset[nameList]);
+        })
+        .catch((err) => {
+          //console.log(err);
+        });
     };
+
     if (defList) {
       getValore(defList);
     } else {
       if (InputContaCaratteri === 0) {
         loadList(list_value);
       }
+    }
+  }, []); */
+
+  useEffect(() => {
+    if (defList) {
+      getValore(defList);
+    } else {
     }
   }, []);
 
   useEffect(() => {
-    if (defList) {
-      getValore(defList);
-    } else {
-      getValore(list);
+    return () => {
+      if (defList) {
+        getValore(defList);
+      } else {
+        getValore(list);
 
-      setInputValidate(validate ? validate : "");
-    }
+        setInputValidate(validate ? validate : "");
+      }
+    };
   }, [value, validate]);
 
   return (

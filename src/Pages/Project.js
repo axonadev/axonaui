@@ -10,13 +10,13 @@ import {
   Grid,
   InputList,
   FrameContainer,
-  Citta,
-  Img,
+  Button,
 } from "../lib";
 import { useEnv } from "axonalib";
+import useList from "../lib/hooks/useList";
 import FormButton from "../lib/components/Form/FormButton";
 
-const Project = ({ request }) => {
+const Project = ({ request, list }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
 
   const moduloForm = "articoli";
@@ -47,6 +47,11 @@ const Project = ({ request }) => {
       cmd_getForm,
     nameTable
   );
+
+  const listTipiArticolo = list.filter(
+    (item) => item.nameView === "v_tipiarticolo"
+  );
+  const readStored = () => {};
 
   const insertClickHandler = (idGriglia) => {
     const idform = "form_" + idGriglia.split("_")[1];
@@ -104,6 +109,7 @@ const Project = ({ request }) => {
         />
       </Frame>
       <FormButton onAnnulla={onLoadRow} id_submit="form_t" />
+      <Button onClick={readStored}>leggi</Button>
       {focusForm === "form_t" && (
         <Form
           id="form_t"
@@ -127,12 +133,7 @@ const Project = ({ request }) => {
                   onChange={() => {}}
                   field_id="IDOBJ"
                   field_description={["TipiArticolo_Descrizione"]}
-                  url={
-                    REACT_APP_SERVERAPI +
-                    "api/axo_sel/" +
-                    localStorage.getItem("axn_token") +
-                    "/articoli/articolisel/leggicombotipi"
-                  }
+                  defList={listTipiArticolo[0].data}
                   nameList="v_tipiarticolo"
                   numerocaratteri={3}
                 />

@@ -3,13 +3,25 @@ import { Header, SideMenu, ContentForm, ProjectMenu } from "../lib/index";
 import { useEnv } from "axonalib";
 import Project from "../Pages/Project";
 import useProjectMenu from "../hooks/useProjectMenu";
+import useList from "../lib/hooks/useList";
 
 const Layout = () => {
-  const { REACT_APP_IMGFOLDER } = useEnv();
+  const { REACT_APP_IMGFOLDER, REACT_APP_SERVERAPI } = useEnv();
   const [styleMenu, setStyleMenu] = useState(
     localStorage.getItem("axn_sidemenuswitch") === "true" ? true : false
   );
   const [formPj, setFormPj] = useState(null);
+
+  const { list } = useList(
+    [
+      {
+        command: "articoli/articolisel/leggicombotipi",
+        nameView: "v_tipiarticolo",
+      },
+    ],
+    localStorage.getItem("axn_token"),
+    REACT_APP_SERVERAPI
+  );
 
   const {
     items: pjItems,
@@ -55,7 +67,7 @@ const Layout = () => {
         pathImg={REACT_APP_IMGFOLDER}
       />
       <ContentForm sidemenuopen={styleMenu}>
-        <Project request={answerReq} />
+        <Project request={answerReq} list={list} />
       </ContentForm>
       <ProjectMenu
         items={pjItems}
