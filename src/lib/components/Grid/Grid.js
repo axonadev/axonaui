@@ -13,7 +13,7 @@ import Form from "../Form/Form";
 import FrameContainer from "../Frame/FrameContainer";
 import FrameInRow from "../Frame/FrameInRow";
 
-import { useEnv } from "axonalib";
+import { useEnv, formatDate } from "axonalib";
 
 const Grid = ({
   id,
@@ -52,7 +52,7 @@ const Grid = ({
   const [isOpenInsert, setIsOpenInsert] = useState(false);
   const [isFormSubmit, setIsFormSubmit] = useState(0);
   const [isReloaded, setIsReloaded] = useState(0);
-  const [isDelete, setIsDelete] = useState(0);
+  const [isDelete, setIsDelete] = useState(false);
 
   const {
     filterGrid,
@@ -105,9 +105,9 @@ const Grid = ({
 
   const deleteHandler = () => {
     if (isFormInsert) {
-      setIsDelete(id);
+      setIsDelete(true);
     } else {
-      onBtnDelete(id);
+      onBtnDelete(rowSelected);
     }
   };
 
@@ -159,6 +159,14 @@ const Grid = ({
   };
   const onStophandler = () => {
     setIsOpenInsert(false);
+  };
+  const onStopDeletehandler = () => {
+    setIsDelete(false);
+  };
+  const onDeletehandler = () => {
+    setIsFormSubmit((prev) => {
+      return prev + 1;
+    });
   };
   const onSaveformhandler = () => {
     setIsReloaded((prev) => {
@@ -260,6 +268,55 @@ const Grid = ({
           </table>
         </div>
       </div>
+      {isDelete && (
+        <MessageModal
+          onOut={onStopDeletehandler}
+          title={"Eliminare il record selezionato?"}
+          message=""
+          buttons={[
+            {
+              key: 1,
+              label: "Annulla",
+              type: "stop",
+              onClick: onStopDeletehandler,
+            },
+            {
+              key: 2,
+              label: "Elimina",
+              type: "run",
+              onClick: onDeletehandler,
+            },
+          ]}
+        >
+          <Form
+            id={"form_" + id}
+            idobj={rowSelected}
+            modulo="general"
+            db={dbForm}
+            serverApi={REACT_APP_SERVERAPI}
+            afterSubmit={onSaveformhandler}
+            onAnnulla={onStopformhandler}
+            isFormSubmit={isFormSubmit}
+          >
+            <FrameContainer>
+              <FrameInRow width={["20 hidden", "20 hidden", "20 hidden"]}>
+                <Input
+                  label="IDOBJ"
+                  id="IDOBJ"
+                  value={rowSelected}
+                  onChangeValue={onChangeForm}
+                />
+                <Input
+                  label="Scadenza"
+                  id={dbForm + "_ScadenzaOBJ"}
+                  value={formatDate(Date.now())}
+                  onChangeValue={onChangeForm}
+                />
+              </FrameInRow>
+            </FrameContainer>
+          </Form>
+        </MessageModal>
+      )}
       {isOpenInsert && (
         <MessageModal
           onOut={onStophandler}
@@ -288,7 +345,6 @@ const Grid = ({
             serverApi={REACT_APP_SERVERAPI}
             afterSubmit={onSaveformhandler}
             onAnnulla={onStopformhandler}
-            deleteid={isDelete}
             isFormSubmit={isFormSubmit}
           >
             <FrameContainer>

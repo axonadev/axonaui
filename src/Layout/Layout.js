@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Header, SideMenu, ContentForm, ProjectMenu } from "../lib/index";
 import { useEnv } from "axonalib";
 import Project from "../Pages/Project";
@@ -28,6 +28,17 @@ const Layout = () => {
   const projectMenuRequestSubmitHandler = (evt) => {
     processRequest(evt);
   };
+
+  useEffect(() => {
+    var key;
+    for (var i = 0; i < localStorage.length; i++) {
+      key = localStorage.key(i);
+      if (key.indexOf("axn_list_") > -1 || key.indexOf("axn_record_") > -1) {
+        localStorage.removeItem(key);
+      }
+    }
+  }, []);
+
   return (
     <>
       <Header

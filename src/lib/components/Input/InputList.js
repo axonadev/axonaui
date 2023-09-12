@@ -111,17 +111,27 @@ const InputList = ({
         val_idobj === 0 || val_idobj === undefined || val_idobj === null
           ? url
           : url + "/" + val_idobj;
-      fetch(goUrl)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          setList(data.Itemset[nameList]);
-          getValore(data.Itemset[nameList]);
-        })
-        .catch((err) => {
-          //console.log(err);
-        });
+
+      if (localStorage.getItem("axn_list_" + id)) {
+        setList(JSON.parse(localStorage.getItem("axn_list_" + id)));
+        getValore(JSON.parse(localStorage.getItem("axn_list_" + id)));
+      } else {
+        fetch(goUrl)
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            localStorage.setItem(
+              "axn_list_" + id,
+              JSON.stringify(data.Itemset[nameList])
+            );
+            setList(data.Itemset[nameList]);
+            getValore(data.Itemset[nameList]);
+          })
+          .catch((err) => {
+            //console.log(err);
+          });
+      }
     };
     if (defList) {
     } else {
@@ -140,17 +150,26 @@ const InputList = ({
         val_idobj === 0 || val_idobj === undefined || val_idobj === null
           ? url
           : url + "/" + val_idobj;
-      fetch(goUrl)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          setList(data.Itemset[nameList]);
-          getValore(data.Itemset[nameList]);
-        })
-        .catch((err) => {
-          //console.log(err);
-        });
+      if (localStorage.getItem("axn_list_" + id)) {
+        setList(JSON.parse(localStorage.getItem("axn_list_" + id)));
+        getValore(JSON.parse(localStorage.getItem("axn_list_" + id)));
+      } else {
+        fetch(goUrl)
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            localStorage.setItem(
+              "axn_list_" + id,
+              JSON.stringify(data.Itemset[nameList])
+            );
+            setList(data.Itemset[nameList]);
+            getValore(data.Itemset[nameList]);
+          })
+          .catch((err) => {
+            //console.log(err);
+          });
+      }
     };
     if (defList) {
       getValore(defList);
