@@ -106,10 +106,11 @@ const Project = ({ request, list }) => {
           nameView={nameView}
           reload={reloadGriglia}
           itemSearch={itemsSearch}
+          dbForm="articoli"
         />
       </Frame>
       <FormButton onAnnulla={onLoadRow} id_submit="form_t" />
-      <Button onClick={readStored}>leggi</Button>
+
       {focusForm === "form_t" && (
         <Form
           id="form_t"

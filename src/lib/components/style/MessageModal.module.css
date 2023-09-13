@@ -22,8 +22,8 @@
     width: 80%;
     z-index: 100;
     overflow: hidden;
-    min-height: 275px;
-    height: 30vh;
+    /* min-height: 275px;
+    height: 30vh; */
   }
 
   
@@ -87,14 +87,13 @@
       top: 20vh;
       left: 30%;
       width: 40%;
-      min-height: 30vh;
-      height: 50vh;
+      
       max-height: 365px;
     }
     .messagemodal_content {
       padding: 1rem;
       overflow-y: auto;
-      max-height: 75vh;
+   /*    max-height: 75vh; */
       text-align: center;
   
     }

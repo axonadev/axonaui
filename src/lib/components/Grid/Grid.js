@@ -14,6 +14,7 @@ import FrameContainer from "../Frame/FrameContainer";
 import FrameInRow from "../Frame/FrameInRow";
 
 import { useEnv, formatDate } from "axonalib";
+import InputData from "../Input/InputData";
 
 const Grid = ({
   id,
@@ -53,6 +54,7 @@ const Grid = ({
   const [isFormSubmit, setIsFormSubmit] = useState(0);
   const [isReloaded, setIsReloaded] = useState(0);
   const [isDelete, setIsDelete] = useState(false);
+  const [isScaduto, setIsScaduto] = useState(false);
 
   const {
     filterGrid,
@@ -104,11 +106,7 @@ const Grid = ({
   };
 
   const deleteHandler = () => {
-    if (isFormInsert) {
-      setIsDelete(true);
-    } else {
-      onBtnDelete(rowSelected);
-    }
+    setIsDelete(true);
   };
 
   const contentDiv = itemSearch || btn_insert ? true : false;
@@ -162,11 +160,13 @@ const Grid = ({
   };
   const onStopDeletehandler = () => {
     setIsDelete(false);
+    setIsScaduto(false);
   };
   const onDeletehandler = () => {
     setIsFormSubmit((prev) => {
       return prev + 1;
     });
+    setIsScaduto(true);
   };
   const onSaveformhandler = () => {
     setIsReloaded((prev) => {
@@ -174,9 +174,13 @@ const Grid = ({
     });
     setIsOpenInsert(false);
     setIsFormSubmit(0);
+    setIsScaduto(false);
+    setIsDelete(false);
   };
   const onStopformhandler = () => {
     setIsOpenInsert(false);
+    setIsScaduto(false);
+    setIsDelete(false);
   };
   useEffect(() => {
     loadGridint(requestGrid);
@@ -297,20 +301,15 @@ const Grid = ({
             afterSubmit={onSaveformhandler}
             onAnnulla={onStopformhandler}
             isFormSubmit={isFormSubmit}
+            isScaduto={isScaduto}
           >
             <FrameContainer>
               <FrameInRow width={["20 hidden", "20 hidden", "20 hidden"]}>
-                <Input
-                  label="IDOBJ"
-                  id="IDOBJ"
-                  value={rowSelected}
-                  onChangeValue={onChangeForm}
-                />
-                <Input
+                <Input label="IDOBJ" id="IDOBJ" value={rowSelected} />
+                <InputData
                   label="Scadenza"
                   id={dbForm + "_ScadenzaOBJ"}
                   value={formatDate(Date.now())}
-                  onChangeValue={onChangeForm}
                 />
               </FrameInRow>
             </FrameContainer>

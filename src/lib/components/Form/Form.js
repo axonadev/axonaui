@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import classes from "../style/Form.module.css";
-import { postData } from "axonalib";
+import { formatDate, postData } from "axonalib";
 import MessageModal from "../MessageModal/MessageModal";
 import Button from "../Button/Button";
 import Img from "../Img/Img";
@@ -22,6 +22,7 @@ const Form = ({
   onChangeValue,
   isFormSubmit,
   deleteid,
+  isScaduto = false,
 }) => {
   const idFolder1 = folders
     ? folders.filter((item) => item.key === 1)
@@ -50,6 +51,36 @@ const Form = ({
     };
   }
 
+  const onScadhandler = (obj) => {
+    let data = {
+      Token: token === "" ? localStorage.getItem("axn_token") : token,
+      Idobj: idobj,
+      Modulo: modulo,
+      DB: db,
+      Operazione: "",
+      Item: "[{" + db + ":" + JSON.stringify(obj) + "}]",
+    };
+    postData(serverApi + "api/axo_sel", data).then((data) => {
+      setMex(null);
+      if (data.Errore === "" || data.Errore === "\r\n") {
+        setSnackBar(() => {
+          return {
+            label: "Aggiornamento riuscito",
+            img: "",
+          };
+        });
+      } else {
+        setSnackBar(() => {
+          return {
+            label: "X " + data.Errore,
+            img: "",
+          };
+        });
+      }
+      afterSubmit();
+    });
+  };
+
   const onConfirmhandler = () => {
     let obj = JSON.parse(mex.obj);
     console.log(obj);
@@ -64,7 +95,7 @@ const Form = ({
     };
     postData(serverApi + "api/axo_sel", data).then((data) => {
       setMex(null);
-      if (data.Errore === "") {
+      if (data.Errore === "" || data.Errore === "\r\n") {
         setSnackBar(() => {
           return {
             label: "Aggiornamento riuscito",
@@ -148,16 +179,22 @@ const Form = ({
   };
 
   useEffect(() => {
-    if (isFormSubmit > 0) {
-      let obj = "";
-      obj = localStorage.getItem("axn_record_" + id);
+    let obj = "";
+    if (isScaduto) {
+      obj = [{ IDOBJ: idobj, [db + "_ScadenzaOBJ"]: formatDate(Date.now()) }];
 
-      setMex({
-        title: idobj === 0 ? "Inserimento" : "Aggiornamento",
-        label: "Salvare il record selezionato?",
-        icon: "",
-        obj: obj,
-      });
+      onScadhandler(obj);
+    } else {
+      if (isFormSubmit > 0) {
+        obj = localStorage.getItem("axn_record_" + id);
+
+        setMex({
+          title: idobj === 0 ? "Inserimento" : "Aggiornamento",
+          label: "Salvare il record selezionato?",
+          icon: "",
+          obj: obj,
+        });
+      }
     }
   }, [isFormSubmit]);
 
