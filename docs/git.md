@@ -1,6 +1,6 @@
 ### Gestire un ticket
 
-1 - Entrare nel progetto [Markdown](https://github.com/users/axonadev/projects/4/views/1) Ticket dev
+1 - Entrare nel progetto [Ticket dev](https://github.com/users/axonadev/projects/4/views/1)
 
 2 - Spostare il ticket nella colonna "In Progress"
 
@@ -15,9 +15,16 @@
 ### Comandi Git per l'invio
 
 ```text
-git add.    -> prepara i file per la consegna
+git add .   -> prepara i file per la consegna
 git commit -m "aggiungere il commento della branch"
                "fix(#numero ticket): commento" -> per la correzione di bug
                "feat(#numero ticket): commento" -> per lo sviluppo di nuove funzionalità
 git push    -> invia i file
+```
+
+### Altri comandi Git
+
+```text
+git status   .> controlla lo stato dei file se rossi sono modificati ma non aggiunti alla lista dei pushabili
+git pull     -> scarica i file aggiornati dal repository
 ```

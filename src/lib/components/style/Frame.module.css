@@ -31,6 +31,9 @@
     flex-direction: row;
    
 }
+.frame_selezionato_true{
+   border: 1px #27b92d solid;
+}
 .frameinrow_1{
    padding: 1px;
    flex-basis: 1%;

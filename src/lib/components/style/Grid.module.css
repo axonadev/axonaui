@@ -31,6 +31,20 @@
 .grid_type_d .grid_filtergrid{
     background-color:var(--axn-grid-top-header-d-background-color) !important;
 }
+.grid_selected_true{
+    transition: height 0.5s;
+
+}
+.grid_selected_false{
+    height: 20vh;
+    transition: height 0.5s ;
+
+}
+.grid_selected_false .grid_filtergrid{
+    visibility: hidden;
+    height: 0.1px;
+}
+
 .grid_filtergrid input{
     width: 100% !important;
     margin:0px !important;

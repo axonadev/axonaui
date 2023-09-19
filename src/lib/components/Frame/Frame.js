@@ -9,9 +9,15 @@ const Frame = ({
   id,
   stato = "",
   onChangeValue,
+  selezionato = false,
+  onActive,
 }) => {
   const classStyle = ["frame_label", classes.frame_label];
   const classStyleStato = ["frame_label", classes.frame_stato];
+  const classCard = [
+    classes["frame_" + stato.toLowerCase()],
+    classes["frame_selezionato_" + selezionato],
+  ];
 
   let argpost;
 
@@ -25,12 +31,17 @@ const Frame = ({
       form_id: form_id,
     };
   }
-
+  const clickHandler = () => {
+    try {
+      onActive();
+    } catch (error) {}
+  };
   return (
     <Card
       type={type}
       id={id}
-      className={classes["frame_" + stato.toLowerCase()]}
+      className={classCard.join(" ")}
+      onClick={clickHandler}
     >
       <div className={classes.frame_header}>
         {label && <div className={classStyle.join(" ")}>{label}</div>}

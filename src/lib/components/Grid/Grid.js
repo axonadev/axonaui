@@ -19,13 +19,12 @@ import InputData from "../Input/InputData";
 const Grid = ({
   id,
   columns,
-  items = null,
   itemSearch,
   btn_insert,
   onDoubleClickRow,
   onClickRow,
   onBtnInsert,
-  onBtnDelete,
+  onActive,
   type = "t",
   nameView = "",
   loadGrid = "",
@@ -34,6 +33,7 @@ const Grid = ({
   formTitle = "",
   dbForm = "",
   children,
+  selezionato = false,
 }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
   const { onChangeSelected, onReset, onChangeForm } = useForm(
@@ -66,10 +66,21 @@ const Grid = ({
     itemsearch: itemsearchint,
   } = useGrid();
 
-  const styles = [classes.grid_content, classes["grid_type_" + type]];
+  const styles = [
+    classes.grid_content,
+    classes["grid_type_" + type],
+    classes["grid_selected_" + selezionato],
+  ];
   const [page, setPage] = useState(1);
 
+  const onActiveHandler = () => {
+    onActive();
+  };
+
   const onDoubleClickHandler = (IDOBJ, items) => {
+    try {
+      onActiveHandler();
+    } catch (error) {}
     try {
       modificaHandler(IDOBJ);
     } catch (error) {}
@@ -81,6 +92,9 @@ const Grid = ({
   };
 
   const onClickRowHandler = (IDOBJ, items) => {
+    try {
+      onActiveHandler();
+    } catch (error) {}
     setRowSelected(() => {
       return IDOBJ;
     });
@@ -88,6 +102,9 @@ const Grid = ({
   };
 
   const insertHandler = () => {
+    try {
+      onActiveHandler();
+    } catch (error) {}
     localStorage.setItem("axn_form_change", "1");
     if (isFormInsert) {
       setRowSelected(0);
@@ -99,6 +116,9 @@ const Grid = ({
   };
 
   const modificaHandler = (IDOBJ) => {
+    try {
+      onActiveHandler();
+    } catch (error) {}
     if (isFormInsert) {
       onChangeSelected(IDOBJ);
       setIsOpenInsert(true);
@@ -106,6 +126,9 @@ const Grid = ({
   };
 
   const deleteHandler = () => {
+    try {
+      onActiveHandler();
+    } catch (error) {}
     setIsDelete(true);
   };
 
@@ -124,22 +147,34 @@ const Grid = ({
   };
 
   const clickFilterGrid = (valueItem, nameItem) => {
+    try {
+      onActiveHandler();
+    } catch (error) {}
     setPage(1);
     console.log(valueItem, "valueitem");
     setFilteredValue(valueItem);
   };
 
   const pageBeforeHandler = () => {
+    try {
+      onActiveHandler();
+    } catch (error) {}
     setPage((prev) => {
       return prev === 1 ? 1 : parseInt(prev) - 1;
     });
   };
   const pageAfterHandler = () => {
+    try {
+      onActiveHandler();
+    } catch (error) {}
     setPage((prev) => {
       return parseInt(prev) + 1;
     });
   };
   const onChangePage = (evt) => {
+    try {
+      onActiveHandler();
+    } catch (error) {}
     if (!isNaN(evt.target.value)) {
       if (evt.target.value === "") {
         setPage(1);

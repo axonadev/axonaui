@@ -13,12 +13,11 @@ import {
   Button,
 } from "../lib";
 import { useEnv } from "axonalib";
-import useList from "../lib/hooks/useList";
 import FormButton from "../lib/components/Form/FormButton";
 
 const Project = ({ request, list }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
-
+  const numberGrid = 2;
   const moduloForm = "articoli";
   const nameView = "v_" + moduloForm;
   const nameTable = moduloForm;
@@ -51,7 +50,6 @@ const Project = ({ request, list }) => {
   const listTipiArticolo = list.filter(
     (item) => item.nameView === "v_tipiarticolo"
   );
-  const readStored = () => {};
 
   const insertClickHandler = (idGriglia) => {
     const idform = "form_" + idGriglia.split("_")[1];
@@ -78,8 +76,6 @@ const Project = ({ request, list }) => {
     setStatoGriglia("");
     onChangeSelected(idobj);
   };
-  const onChangeInput = () => {};
-
   useEffect(() => {
     const loadRequest = () => {};
 
@@ -87,7 +83,15 @@ const Project = ({ request, list }) => {
   }, [request]);
   return (
     <>
-      <Frame label="TESTATA" type="form_t" stato={statoGriglia}>
+      <Frame
+        label="TESTATA"
+        type="form_t"
+        stato={statoGriglia}
+        selezionato={focusForm === "form_t" ? true : false}
+        onActive={() => {
+          setFocusForm("form_t");
+        }}
+      >
         <Grid
           id="maint_t"
           loadGrid={
@@ -99,6 +103,9 @@ const Project = ({ request, list }) => {
           onClickRow={(IDOBJ) => {
             onChangeRow(IDOBJ);
           }}
+          onActive={() => {
+            setFocusForm("form_t");
+          }}
           onDoubleClickRow={() => {}}
           onBtnInsert={insertClickHandler}
           onBtnDelete={deleteClickHandler}
@@ -107,9 +114,48 @@ const Project = ({ request, list }) => {
           reload={reloadGriglia}
           itemSearch={itemsSearch}
           dbForm="articoli"
+          selezionato={focusForm === "form_t" ? true : false}
         />
       </Frame>
-      <FormButton onAnnulla={onLoadRow} id_submit="form_t" />
+      <Frame
+        label="DETTAGLIO"
+        type="form_d"
+        stato={statoGriglia}
+        selezionato={focusForm === "form_d" ? true : false}
+        onActive={() => {
+          setFocusForm("form_d");
+        }}
+      >
+        <Grid
+          id="maint_d"
+          loadGrid={
+            REACT_APP_SERVERAPI +
+            "api/axo_sel/" +
+            localStorage.getItem("axn_token") +
+            cmd_getGrid
+          }
+          onActive={() => {
+            setFocusForm("form_d");
+          }}
+          onClickRow={(IDOBJ) => {
+            onChangeRow(IDOBJ);
+          }}
+          onDoubleClickRow={() => {}}
+          onBtnInsert={insertClickHandler}
+          onBtnDelete={deleteClickHandler}
+          btn_insert={true}
+          nameView={nameView}
+          reload={reloadGriglia}
+          itemSearch={itemsSearch}
+          dbForm="articoli"
+          selezionato={focusForm === "form_d" ? true : false}
+        />
+      </Frame>
+      <FormButton
+        onAnnulla={onLoadRow}
+        id_submit="form_t"
+        numberGrid={numberGrid}
+      />
 
       {focusForm === "form_t" && (
         <Form

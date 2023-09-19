@@ -3,9 +3,18 @@ import Button from "../Button/Button";
 import Img from "../Img/Img";
 import MessageModal from "../MessageModal/MessageModal";
 import classes from "../style/Form.module.css";
-const FormButton = ({ id_submit, onAnnulla }) => {
+const FormButton = ({ id_submit, onAnnulla, numberGrid }) => {
   const [mexAnnulla, setMexAnnulla] = useState(null);
   const [mex, setMex] = useState(null);
+
+  const classBSave = [
+    classes.form_save,
+    classes["form_btn_downgrid_" + numberGrid],
+  ];
+  const classBAnnulla = [
+    classes.form_annulla,
+    classes["form_btn_downgrid_" + numberGrid],
+  ];
   const clickAnnulla = () => {
     setMexAnnulla({
       title: "Annulla",
@@ -28,10 +37,10 @@ const FormButton = ({ id_submit, onAnnulla }) => {
   return (
     <>
       <>
-        <Button className={classes.form_save} onClick={formSubmit}>
+        <Button className={classBSave.join(" ")} onClick={formSubmit}>
           <Img type="save" pathImg="getlocal" />
         </Button>
-        <Button className={classes.form_annulla} onClick={clickAnnulla}>
+        <Button className={classBAnnulla.join(" ")} onClick={clickAnnulla}>
           <Img type="annulla" pathImg="getlocal" />
         </Button>
       </>
