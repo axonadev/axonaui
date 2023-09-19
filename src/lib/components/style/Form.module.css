@@ -10,6 +10,9 @@
     max-height: 600px;
 	overflow-y: auto;
 }
+.form_ngrid_2{
+	max-height: 37vh;
+}
 .form_folders{
     position: relative;
 

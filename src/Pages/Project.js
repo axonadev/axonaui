@@ -168,6 +168,7 @@ const Project = ({ request, list }) => {
           afterSubmit={onLoadRow}
           onAnnulla={onLoadRow}
           onChangeValue={onChangeForm}
+          numberGrid={numberGrid}
         >
           <FrameContainer id="info">
             <Frame label="Anagrafica">

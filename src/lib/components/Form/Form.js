@@ -23,6 +23,7 @@ const Form = ({
   isFormSubmit,
   deleteid,
   isScaduto = false,
+  numberGrid = 1,
 }) => {
   const idFolder1 = folders
     ? folders.filter((item) => item.key === 1)
@@ -50,6 +51,8 @@ const Form = ({
       form_id: id,
     };
   }
+
+  const classesBody = [classes.form_body, classes["form_ngrid_" + numberGrid]];
 
   const onScadhandler = (obj) => {
     let data = {
@@ -230,7 +233,7 @@ const Form = ({
             startSelect={idFolder1[0].target}
           ></Folder>
         </div>
-        <div className={classes.form_body}>
+        <div className={classesBody.join(" ")}>
           {children.length > 1 &&
             children.map((item) => {
               return item.props.id === frameIdSelezionato ? (
