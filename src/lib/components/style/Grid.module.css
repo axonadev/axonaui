@@ -40,6 +40,9 @@
     transition: height 0.5s ;
 
 }
+.grid_selected_false .grid_table_content{
+    height: 100%;
+}
 .grid_selected_false .grid_filtergrid{
     visibility: hidden;
     height: 0.1px;
