@@ -33,7 +33,7 @@ const Grid = ({
   formTitle = "",
   dbForm = "",
   children,
-  selezionato = false,
+  selezionato,
 }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
   const { onChangeSelected, onReset, onChangeForm } = useForm(
