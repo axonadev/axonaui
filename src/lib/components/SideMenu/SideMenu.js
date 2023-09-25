@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "../style/SideMenu.module.css";
 import Img from "../Img/Img";
 import SideMenuBottone from "./SideMenuBottone.prv";
@@ -13,6 +13,7 @@ const SideMenu = ({ onSideMenuChange }) => {
         : false
       : true
   );
+
   const [idAmbito, setIdAmbito] = useState(0);
 
   const listmoduli = JSON.parse(localStorage.getItem("axn_v_moduli"));
@@ -42,6 +43,7 @@ const SideMenu = ({ onSideMenuChange }) => {
 
   const selAmbito = (id) => {
     setIdAmbito((precid) => {
+      localStorage.setItem("axn_sidemenuchoose", precid === id ? 0 : id);
       return precid === id ? 0 : id;
     });
   };
@@ -62,6 +64,7 @@ const SideMenu = ({ onSideMenuChange }) => {
       return !prevonoff;
     });
   };
+
   return (
     <div className={stylecontent.join(" ")}>
       <div className={classes.sidemenu_top}>
