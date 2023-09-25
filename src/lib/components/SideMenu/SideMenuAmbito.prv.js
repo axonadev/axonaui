@@ -7,7 +7,6 @@ const SideMenuAmbito = ({
   src,
   onoff,
   list,
-  selezionato,
   idAmbito,
   onClick,
   onSelProgetto,
@@ -18,6 +17,9 @@ const SideMenuAmbito = ({
   const selProgetto = (path) => {
     onSelProgetto(path);
   };
+
+  const selezionato = parseInt(localStorage.getItem("axn_sidemenuchoose"));
+
   const stylelist = [
     classes.sidemenuambito_list,
     selezionato === idAmbito

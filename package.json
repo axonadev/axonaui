@@ -10,6 +10,7 @@
     "axonaform": "^0.1.22",
     "axonalib": "^0.1.18",
     "chart.js": "^4.3.0",
+    "core-js": "^3.32.2",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
@@ -17,11 +18,16 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "babel src/lib -d dist && xcopy \"src/lib/components/style\" \"dist/components/style\" /h /e /y /i ",
+    "start": "set NODE_ENV=development && react-scripts start",
+    "build": "set NODE_ENV=development && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "doc": "styleguidist server --port 6061",
+    "prod": "set NODE_ENV=development && react-scripts build && xcopy \"build\" \"Y:\\axonaui\" /h /e /y /i ",
+    "build:test": "set NODE_ENV=test && react-scripts build",
+    "build:prod": "set NODE_ENV=production && react-scripts build",
+    "upd": "npm i axonaui && npm i axonalib && npm i axonaform",
+    "reload": "npm rm -rf node_modules && npm install --save core-js && npm install",
+    "doc": "styleguidist server",
     "docbuild": "styleguidist build && xcopy \"styleguide\" \"T:\\doc\\axonaui\" /h /e /y /i "
   },
   "eslintConfig": {
