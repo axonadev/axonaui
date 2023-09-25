@@ -2,7 +2,7 @@ import React, { Children, useState } from "react";
 import ProjectMenuButton from "./ProjectMenuButton.prv";
 import classes from "../style/ProjectMenu.module.css";
 import Button from "../Button/Button";
-const ProjectMenu = ({ items, onClick, children, onRequestSubmit }) => {
+const ProjectMenu = ({ items, onClick, children, onRequestSubmit, versione }) => {
   const [openMenu, setOpenMenu] = useState(false);
 
   const onClickHandler = (idprogectitem) => {
@@ -25,6 +25,7 @@ const ProjectMenu = ({ items, onClick, children, onRequestSubmit }) => {
   ];
   return (
     <aside className={classes.projectmenu_content}>
+      <div>
       <div className={classes.projectmenu_items}>
         {items &&
           items.map((item) => {
@@ -61,8 +62,17 @@ const ProjectMenu = ({ items, onClick, children, onRequestSubmit }) => {
             </div>
           </form>
         </div>
+   
+      </div>
+      </div>
+    <div>
+    
+      <label>{versione}</label>
+      
       </div>
     </aside>
+
+
   );
 };
 

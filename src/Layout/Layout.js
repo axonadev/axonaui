@@ -6,7 +6,10 @@ import useProjectMenu from "../hooks/useProjectMenu";
 import useList from "../lib/hooks/useList";
 
 const Layout = () => {
+  const titolo ="titolo";
+  const versione="00.00.00";
   const { REACT_APP_IMGFOLDER, REACT_APP_SERVERAPI } = useEnv();
+
   const [styleMenu, setStyleMenu] = useState(
     localStorage.getItem("axn_sidemenuswitch") === "true" ? true : false
   );
@@ -54,7 +57,7 @@ const Layout = () => {
   return (
     <>
       <Header
-        titolo={"titolo"}
+        titolo={titolo}
         logo={
           REACT_APP_IMGFOLDER +
           "/" +
@@ -74,6 +77,7 @@ const Layout = () => {
         onClick={projectMenuClickHandler}
         pathImg={REACT_APP_IMGFOLDER}
         onRequestSubmit={projectMenuRequestSubmitHandler}
+        versione={versione}
       >
         {formPj}
       </ProjectMenu>
