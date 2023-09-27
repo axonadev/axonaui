@@ -145,3 +145,14 @@
 
     
 }
+
+.projectmenu_profilo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 13px;
+}
+
+.projectmenu_profilo img{
+    width: 20px;
+}
