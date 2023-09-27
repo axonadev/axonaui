@@ -1,0 +1,35 @@
+.profilo_content{
+    position: absolute;
+    min-width: 300px;
+    background-color: #EBEBEB;
+    right: 61px;
+    text-align: center;
+    border: solid 1px;
+    border-color: darkgray;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+
+    
+}
+
+.profilo_content img{
+    width: 50px;
+    padding-top: 10px;
+    
+    
+
+
+    
+}
+.profilo_content_img{
+    display:flex;
+    justify-content: center;
+}
+.profilo_immagine{
+    width: 75px;
+    border: 1px solid;
+    border-radius: 50px;
+    padding: 5px; 
+
+}

@@ -2,8 +2,12 @@ import React, { Children, useState } from "react";
 import ProjectMenuButton from "./ProjectMenuButton.prv";
 import classes from "../style/ProjectMenu.module.css";
 import Button from "../Button/Button";
+import Img from "../Img/Img";
+import Profilo from "../Profilo/Profilo";
 const ProjectMenu = ({ items, onClick, children, onRequestSubmit, versione }) => {
   const [openMenu, setOpenMenu] = useState(false);
+
+  const [openProfilo, setOpenProfilo] = useState(false);
 
   const onClickHandler = (idprogectitem) => {
     setOpenMenu(true);
@@ -23,9 +27,26 @@ const ProjectMenu = ({ items, onClick, children, onRequestSubmit, versione }) =>
       ? classes.projectmenu_sideoperation_open
       : classes.projectmenu_sideoperation_close,
   ];
+
+  const profiloClick = () => {
+    console.log("hai cliccato profilo");
+    setOpenProfilo((prec)=>{return !prec});
+  }
+
   return (
+    <>
+    {openProfilo && <Profilo />}
     <aside className={classes.projectmenu_content}>
-      <div>
+             <div>
+        <div className={classes.projectmenu_profilo}>
+          <Button onClick={profiloClick}>
+          <Img
+         
+          type="profilo"
+          pathImg="getlocal"
+          />
+        </Button>
+        </div>
       <div className={classes.projectmenu_items}>
         {items &&
           items.map((item) => {
@@ -43,7 +64,7 @@ const ProjectMenu = ({ items, onClick, children, onRequestSubmit, versione }) =>
       </div>
       <div className={styled.join(" ")}>
         <div className={classes.projectmenu_sideoperation_top}>
-          <label>Title</label>
+          <label>Titlee</label>
           <div
             className={classes.projectmenu_sideoperation_top_x}
             onClick={() => {
@@ -72,8 +93,9 @@ const ProjectMenu = ({ items, onClick, children, onRequestSubmit, versione }) =>
       </div>
     </aside>
 
-
+    </>
   );
+  
 };
 
 export default ProjectMenu;
