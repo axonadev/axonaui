@@ -1,14 +1,13 @@
 {
   "name": "axonaui",
-  "version": "0.1.140",
+  "version": "0.1.142",
   "private": false,
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "axonaform": "^0.1.22",
-    "axonalib": "^0.1.18",
+    "axonalib": "^0.1.19",
     "chart.js": "^4.3.0",
     "core-js": "^3.32.2",
     "react": "^18.2.0",
@@ -19,7 +18,7 @@
   },
   "scripts": {
     "start": "set NODE_ENV=development && react-scripts start",
-    "build": "set NODE_ENV=development && react-scripts build",
+    "build": "babel src/lib -d dist && xcopy \"src/lib/components/style\" \"dist/components/style\" /h /e /y /i ",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prod": "set NODE_ENV=development && react-scripts build && xcopy \"build\" \"Y:\\axonaui\" /h /e /y /i ",
