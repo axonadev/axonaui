@@ -87,6 +87,7 @@ const Project = ({ request, list }) => {
         label="TESTATA"
         type="form_t"
         stato={statoGriglia}
+        ridimensiona = {true}
         selezionato={focusForm === "form_t" ? true : false}
         onActive={() => {
           setFocusForm("form_t");
@@ -119,6 +120,7 @@ const Project = ({ request, list }) => {
       </Frame>
       <Frame
         label="DETTAGLIO"
+        ridimensiona = {true}
         type="form_d"
         stato={statoGriglia}
         selezionato={focusForm === "form_d" ? true : false}

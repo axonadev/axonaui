@@ -8,11 +8,44 @@
    width: 100%;
    display: grid;
    grid-template-columns: 30% 40% 30%;
+   justify-content: space-between;
 }
 .frame_stato{
    font-weight: 600;
    font-style: italic;
    text-align: center;
+}
+.frame_ridimensiona{
+   
+   display: flex;
+   justify-content: end;
+   
+   
+  
+}
+.ridimensionaico{
+   font-size: 10px;
+   padding: 5px;
+   margin-left: 1px;
+   background-color: transparent;
+
+}
+
+.frame_dimensione_1{
+   height: 23px;
+   overflow-y: hidden;
+   }
+
+   .frame_dimensione_3{
+      height: 90vh;
+      overflow-y: hidden;
+      position: absolute;
+      top:0px;
+      z-index: 9999;
+      }
+
+.frame_meno{
+   color: transparent;
 }
 .frame_label{
    text-align: left;
