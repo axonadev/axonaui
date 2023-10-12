@@ -15,6 +15,7 @@ import FrameInRow from "../Frame/FrameInRow";
 
 import { useEnv, formatDate } from "axonalib";
 import InputData from "../Input/InputData";
+import GridSetup from "./GridSetup";
 
 const Grid = ({
   id,
@@ -34,6 +35,8 @@ const Grid = ({
   dbForm = "",
   children,
   selezionato,
+  openSetup = false,
+  closeSetup,
 }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
   const { onChangeSelected, onReset, onChangeForm } = useForm(
@@ -223,6 +226,13 @@ const Grid = ({
 
   return (
     <>
+      {openSetup && (
+        <GridSetup
+          onClose={() => {
+            closeSetup();
+          }}
+        />
+      )}
       <div className={styles.join(" ")}>
         {contentDiv && (
           <div className={classes.grid_filtergrid}>

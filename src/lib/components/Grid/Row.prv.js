@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "../style/Grid.module.css";
 
 const Row = ({
@@ -11,6 +11,9 @@ const Row = ({
   onDoubleClick,
 }) => {
   const IDOBJ = items ? items.IDOBJ : null;
+
+  const [isRidimensiona, setIsRidimensiona] = useState(false);
+  const [colPosIni, setColPosIni] = useState(0);
 
   const classStyle = [
     classes.row_content,
@@ -26,6 +29,15 @@ const Row = ({
   };
   const onClickHandler = () => {
     onClick(IDOBJ, items);
+  };
+
+  const onMouseDownRidimensionamentoRow = (evt) => {
+    setIsRidimensiona(true);
+    setColPosIni(evt.clientX);
+  };
+  const onMouseUpRidimensionamentoRow = () => {
+    setIsRidimensiona(false);
+    setColPosIni(0);
   };
 
   let hRow = 0;
@@ -60,9 +72,31 @@ const Row = ({
             ) : (
               <th
                 key={"l_testata_" + Math.random()}
-                style={{ width: item.ConfigGriglie_Dimensione + "px" }}
+                style={{ width: item.ConfigGriglie_Dimensione - 2 + "px" }}
+                id={
+                  "l_testata_" + item.ConfigGriglie_Label.replaceAll("_", " ")
+                }
+                onMouseUp={onMouseUpRidimensionamentoRow}
               >
                 {item.ConfigGriglie_Label.replaceAll("_", " ")}
+                <div
+                  className={classes.grid_row_ridimensiona}
+                  onMouseDown={onMouseDownRidimensionamentoRow}
+                  onMouseMove={(evt) => {
+                    if (isRidimensiona) {
+                      let x = evt.clientX;
+                      let diff = colPosIni - x;
+                      let r = item.ConfigGriglie_Dimensione - diff;
+
+                      document.getElementById(
+                        "l_testata_" +
+                          item.ConfigGriglie_Label.replaceAll("_", " ")
+                      ).style.width = r + "px";
+                    }
+                  }}
+                >
+                  .
+                </div>
               </th>
             );
           })}

@@ -88,7 +88,7 @@
 .grid_table {
     border-collapse: collapse;
     width: max-content;
-    min-width: 100%;
+    
 
   }
   /* 
@@ -183,3 +183,10 @@ td{
     background:var(--axn-grid-header-d-row-background-color);
   }
   
+  .grid_row_ridimensiona{
+   
+    width: 20px;
+    color: transparent;
+    float: right;
+    cursor: col-resize;
+  }
