@@ -63,7 +63,7 @@ const Frame = ({
                 setDimFrame(1);
               }}
             >
-              -
+              ▂
             </Button>
             <Button
               className={classes.ridimensionaico}
@@ -71,7 +71,7 @@ const Frame = ({
                 setDimFrame(2);
               }}
             >
-              +
+              ▅
             </Button>
             <Button
               className={classes.ridimensionaico}
@@ -79,7 +79,7 @@ const Frame = ({
                 setDimFrame(3);
               }}
             >
-              *
+              ▇
             </Button>{" "}
           </div>
         )}
