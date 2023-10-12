@@ -54,10 +54,7 @@
 }
 
 
-.projectmenu_items{
-    margin-top:var(--axn-height-top) ;
-    
-}
+
 .projectmenubutton_item{
 
     width: 100%;
@@ -147,12 +144,16 @@
 }
 
 .projectmenu_profilo{
-    width: 100%;
     display: flex;
     justify-content: center;
-    padding-top: 13px;
+    padding-top: 7px;
+    width: 100%;
+    padding-bottom: 6px;
 }
 
 .projectmenu_profilo img{
     width: 20px;
+}
+.projectmenu_profilo button{
+    background-color: transparent;
 }
