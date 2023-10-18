@@ -37,6 +37,7 @@ const Grid = ({
   selezionato,
   openSetup = false,
   closeSetup,
+  testata = true,
 }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
   const { onChangeSelected, onReset, onChangeForm } = useForm(
@@ -231,6 +232,7 @@ const Grid = ({
           onClose={() => {
             closeSetup();
           }}
+          loadGrid={loadGrid}
         />
       )}
       <div className={styles.join(" ")}>
@@ -296,6 +298,7 @@ const Grid = ({
               type="testata"
               onClick={onClickHeaderHandler}
               onDoubleClick={() => {}}
+              labeltestata={testata}
             />
             {filteredListItem &&
               filteredListItem.map((item) => {

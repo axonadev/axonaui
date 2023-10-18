@@ -9,6 +9,7 @@ const Row = ({
   rowSelect,
   onClick,
   onDoubleClick,
+  labeltestata = true,
 }) => {
   const IDOBJ = items ? items.IDOBJ : null;
 
@@ -78,7 +79,7 @@ const Row = ({
                 }
                 onMouseUp={onMouseUpRidimensionamentoRow}
               >
-                {item.ConfigGriglie_Label.replaceAll("_", " ")}
+                {labeltestata && item.ConfigGriglie_Label.replaceAll("_", " ")}
                 <div
                   className={classes.grid_row_ridimensiona}
                   onMouseDown={onMouseDownRidimensionamentoRow}

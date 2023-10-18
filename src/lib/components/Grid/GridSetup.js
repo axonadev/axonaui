@@ -1,6 +1,8 @@
 import MessageModal from "../MessageModal/MessageModal";
+import GridSetupItem from "./GridSetupItem";
+import FrameContainer from "../Frame/FrameContainer";
 
-const GridSetup = ({ onClose }) => {
+const GridSetup = ({ onClose, loadGrid }) => {
   return (
     <>
       <MessageModal
@@ -19,7 +21,11 @@ const GridSetup = ({ onClose }) => {
             label: "Annulla",
           },
         ]}
-      ></MessageModal>
+      >
+        <FrameContainer>
+          <GridSetupItem loadGrid={loadGrid} />
+        </FrameContainer>
+      </MessageModal>
     </>
   );
 };
