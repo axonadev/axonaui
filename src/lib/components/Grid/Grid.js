@@ -38,6 +38,7 @@ const Grid = ({
   openSetup = false,
   closeSetup,
   testata = true,
+  modulosecondario = "",
 }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
   const { onChangeSelected, onReset, onChangeForm } = useForm(
@@ -48,7 +49,8 @@ const Grid = ({
       "/general/general/leggirow/" +
       dbForm +
       "_f_",
-    dbForm
+    dbForm,
+    modulosecondario
   );
 
   const [rowSelected, setRowSelected] = useState(0);
@@ -59,6 +61,7 @@ const Grid = ({
   const [isReloaded, setIsReloaded] = useState(0);
   const [isDelete, setIsDelete] = useState(false);
   const [isScaduto, setIsScaduto] = useState(false);
+  const [rowItem, setRowItem] = useState([]);
 
   const {
     filterGrid,
@@ -82,6 +85,10 @@ const Grid = ({
   };
 
   const onDoubleClickHandler = (IDOBJ, items) => {
+    try {
+      setRowItem(items);
+    } catch (error) {}
+
     try {
       onActiveHandler();
     } catch (error) {}
@@ -233,6 +240,8 @@ const Grid = ({
             closeSetup();
           }}
           loadGrid={loadGrid}
+          modulo={dbForm}
+          idGriglia={id}
         />
       )}
       <div className={styles.join(" ")}>
@@ -406,6 +415,12 @@ const Grid = ({
                   label="PIDOBJ"
                   id="PIDOBJ"
                   value={pidobj}
+                  onChangeValue={onChangeForm}
+                />
+                <Input
+                  label="ConfigGriglie_NomeCampo"
+                  id="ConfigGriglie_NomeCampo"
+                  value={rowItem["ConfigGriglie_NomeCampo"]}
                   onChangeValue={onChangeForm}
                 />
               </FrameInRow>

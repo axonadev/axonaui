@@ -2,7 +2,7 @@ import MessageModal from "../MessageModal/MessageModal";
 import GridSetupItem from "./GridSetupItem";
 import FrameContainer from "../Frame/FrameContainer";
 
-const GridSetup = ({ onClose, loadGrid }) => {
+const GridSetup = ({ onClose, loadGrid, modulo, idGriglia }) => {
   return (
     <>
       <MessageModal
@@ -10,20 +10,18 @@ const GridSetup = ({ onClose, loadGrid }) => {
         buttons={[
           {
             key: 1,
-            onClick: "onSave",
-            type: "success",
-            label: "Salva",
-          },
-          {
-            key: 2,
             onClick: onClose,
             type: "stop",
-            label: "Annulla",
+            label: "Esci",
           },
         ]}
       >
         <FrameContainer>
-          <GridSetupItem loadGrid={loadGrid} />
+          <GridSetupItem
+            loadGrid={loadGrid}
+            modulo={modulo}
+            idGriglia={idGriglia}
+          />
         </FrameContainer>
       </MessageModal>
     </>

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useState, useCallback } from "react";
 import { formatDate } from "axonalib";
 
-const useForm = (id, url, nameView) => {
+const useForm = (id, url, nameView, parametriaggiuntivi = "") => {
   const [isloading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [datarow, setDataRow] = useState(null);
@@ -16,7 +16,11 @@ const useForm = (id, url, nameView) => {
     setIsLoading(true);
 
     try {
-      const response = await fetch(form_Url + id, {
+      const comm =
+        form_Url +
+        id +
+        (parametriaggiuntivi === "" ? "" : "_f_" + parametriaggiuntivi);
+      const response = await fetch(comm, {
         method: "GET",
       });
 

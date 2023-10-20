@@ -2,6 +2,9 @@
     width: 100%;
 
 }
+input::-webkit-calendar-picker-indicator {
+    opacity: 100;
+ }
 .input_label{
     font-size: 12px;
 }

@@ -3,7 +3,7 @@ import Grid from "./Grid";
 import FrameInRow from "../Frame/FrameInRow";
 import Input from "../Input/Input";
 
-const GridSetupItem = ({ loadGrid }) => {
+const GridSetupItem = ({ loadGrid, modulo, idGriglia }) => {
   const pathmodulo =
     loadGrid.substring(
       0,
@@ -20,9 +20,14 @@ const GridSetupItem = ({ loadGrid }) => {
         btn_insert={false}
         formTitle="Modifica Griglia"
         nameView={"v_gridsetup"}
-        dbForm="confgriglie"
+        dbForm="configgriglie"
         testata={false}
+        modulosecondario={modulo + "_f_" + idGriglia}
       >
+        <FrameInRow width={[30, 30, 30]}>
+          <Input label="Modulo" id="ConfigGriglie_Modulo" />
+          <Input label="idGriglia" id="ConfigGriglie_IdGriglia" />
+        </FrameInRow>
         <FrameInRow width={[50, 50]}>
           <Input label="label" id="ConfigGriglie_Label" />
           <Input label="dimensione" id="ConfigGriglie_Dimensione" />
