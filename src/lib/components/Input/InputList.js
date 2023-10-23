@@ -45,6 +45,8 @@ const InputList = ({
   const [list, setList] = useState(defList);
   const [list_value, setListValue] = useState(effVal);
 
+  console.log(defList, "combolist");
+
   const classFocus = InputIsFocussed ? classes["input_focused"] : "";
   const classContent = [classes.input, classes["cont_" + type]];
   const classLabel = [classes.input_label, classFocus, className];
@@ -56,7 +58,7 @@ const InputList = ({
 
   const inputChangeHandler = (evt) => {
     if (list) {
-      let rr = list.filter(function (x) {
+      let rr = list[0].data.filter(function (x) {
         const val = field_description.map((columnselect) => {
           return x[columnselect];
         });
@@ -105,70 +107,6 @@ const InputList = ({
     }
   };
 
-  /*   useEffect(() => {
-    return () => {
-      const loadList = (val_idobj = 0) => {
-        let goUrl =
-          val_idobj === 0 || val_idobj === undefined || val_idobj === null
-            ? url
-            : url + "/" + val_idobj;
-
-        fetch(goUrl)
-          .then((response) => {
-            return response.json();
-          })
-          .then((data) => {
-            console.log("list " + id, "useeffect chr");
-            setList(data.Itemset[nameList]);
-            getValore(data.Itemset[nameList]);
-          })
-          .catch((err) => {
-            //console.log(err);
-          });
-      };
-
-      if (defList) {
-      } else {
-        if (numerocaratteri <= InputContaCaratteri) {
-          loadList();
-        }
-        if (InputContaCaratteri === 0) {
-          loadList(list_value);
-        }
-      }
-    };
-  }, [InputCaratteriAvanti]); */
-
-  /*  useEffect(() => {
-    const loadList = (val_idobj = 0) => {
-      let goUrl =
-        val_idobj === 0 || val_idobj === undefined || val_idobj === null
-          ? url
-          : url + "/" + val_idobj;
-
-      fetch(goUrl)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          console.log("list " + id, "useeffect chr");
-          setList(data.Itemset[nameList]);
-          getValore(data.Itemset[nameList]);
-        })
-        .catch((err) => {
-          //console.log(err);
-        });
-    };
-
-    if (defList) {
-      getValore(defList);
-    } else {
-      if (InputContaCaratteri === 0) {
-        loadList(list_value);
-      }
-    }
-  }, []); */
-
   useEffect(() => {
     if (defList) {
       getValore(defList);
@@ -179,9 +117,9 @@ const InputList = ({
   useEffect(() => {
     return () => {
       if (defList) {
-        getValore(defList);
+        getValore(defList[0].data);
       } else {
-        getValore(list);
+        getValore(list[0].data);
 
         setInputValidate(validate ? validate : "");
       }
@@ -215,7 +153,7 @@ const InputList = ({
       </div>
       <datalist id={"list_" + id}>
         {list &&
-          list.map((item) => {
+          list[0].data.map((item) => {
             const valList = field_description.map((columnselect) => {
               return item[columnselect];
             });
