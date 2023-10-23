@@ -173,23 +173,16 @@ const InputList = ({
         />
       </div>
       <datalist id={"list_" + id}>
-        {() => {
-          if (list === undefined) {
-          } else {
-            list.map((item) => {
-              const valList = field_description.map((columnselect) => {
-                return item[columnselect];
-              });
-
-              return (
-                <option
-                  value={valList.join(" ")}
-                  idobj={item[field_id]}
-                ></option>
-              );
+        {list &&
+          list.map((item) => {
+            const valList = field_description.map((columnselect) => {
+              return item[columnselect];
             });
-          }
-        }}
+
+            return (
+              <option value={valList.join(" ")} idobj={item[field_id]}></option>
+            );
+          })}
       </datalist>
     </div>
   );
