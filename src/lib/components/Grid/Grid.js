@@ -71,6 +71,7 @@ const Grid = ({
     IsLoading,
     columns: columnsint,
     itemsearch: itemsearchint,
+    stat: statGrid,
   } = useGrid();
 
   const styles = [
@@ -194,6 +195,7 @@ const Grid = ({
       }
     }
   };
+
   const onSavehandler = () => {
     //document.getElementById("b_submit_form_" + id).click();
     // document.getElementById("form_" + id).submit();
@@ -231,6 +233,24 @@ const Grid = ({
   useEffect(() => {
     loadGridint(requestGrid);
   }, [reload, page, filteredValue, pidobj, isReloaded]);
+
+  useEffect(() => {
+    const goFirstRow = () => {
+      if (id === "maint_t") {
+        if (statGrid === undefined) {
+        } else {
+          try {
+            onClickRow(parseFloat(statGrid[0]["primoId"]));
+          } catch (error) {}
+          try {
+            setRowSelected(parseFloat(statGrid[0]["primoId"]));
+          } catch (error) {}
+        }
+      }
+    };
+
+    goFirstRow();
+  }, [statGrid]);
 
   return (
     <>

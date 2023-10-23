@@ -9,7 +9,7 @@
     border-left: 1px solid rgba(0, 0, 0, 0.1);
     background-color:var(--axn-sidemenu-background-color);
     transform: translateX(0);
-    transition: .3s;
+    transition: 0.2s;
     z-index: 120;
     display: flex;
     justify-content: space-between;
@@ -30,13 +30,13 @@
 .projectmenu_sideoperation_open{
     transform: translateX(-1px);
     box-shadow: -3px 2px 5px 0 rgba(0,0,0,.16);
-    transition: .3s;
+    transition: 0.2s;
 
 }
 .projectmenu_sideoperation_close{
     right: 100%;
     transform: translateX(120%);
-    transition: .3s;
+    transition: 0.2s;
     z-index: -1;
 }
 .projectmenu_sideoperation_top{

@@ -9,6 +9,7 @@ const useGrid = () => {
   const [rootModule, setRootModule] = useState("");
   const [filteredListItem, setFilteredListItem] = useState([]);
   const [selectedRow, setSelectedRow] = useState(0);
+  const [stat, setStat] = useState([]);
   const [isVarIns, setVarIns] = useState(false);
   const [idVarIns, setIdVarIns] = useState(null);
   const [isReload, setReload] = useState(false);
@@ -34,15 +35,18 @@ const useGrid = () => {
       }
 
       const data = await response.json();
-      setListItem(data.Itemset[requestURL.dt_filter]);
-      setFilteredListItem(data.Itemset[requestURL.dt_filter]);
+      try {
+        setListItem(data.Itemset[requestURL.dt_filter]);
+        setFilteredListItem(data.Itemset[requestURL.dt_filter]);
 
-      setColumns(data.Itemset["conf_griglia"]);
+        setColumns(data.Itemset["conf_griglia"]);
+        setStat(data.Itemset["stat_" + requestURL.dt_filter]);
 
-      if (afterLoad === undefined) {
-      } else {
-        afterLoad(data.Itemset[requestURL.dt_filter]);
-      }
+        if (afterLoad === undefined) {
+        } else {
+          afterLoad(data.Itemset[requestURL.dt_filter]);
+        }
+      } catch (error) {}
     } catch (err) {
       setError(err.message || "Something went wrong!");
     }
@@ -111,6 +115,7 @@ const useGrid = () => {
     idVarIns,
     isReload,
     columns,
+    stat,
     loadGrid,
     selectRow,
     clickRow,
