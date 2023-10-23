@@ -152,7 +152,7 @@ const InputList = ({
         />
       </div>
       <datalist id={"list_" + id}>
-        {list &&
+        {list[0].data &&
           list[0].data.map((item) => {
             const valList = field_description.map((columnselect) => {
               return item[columnselect];
