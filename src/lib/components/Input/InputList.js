@@ -117,7 +117,9 @@ const InputList = ({
 
       if (defList === undefined) {
       } else {
-        setList(defList[0].data);
+        if (defList.length > 0) {
+          setList(defList[0].data);
+        }
       }
     };
 
