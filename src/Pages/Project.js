@@ -184,7 +184,7 @@ const Project = ({ request, list }) => {
                   onChange={() => {}}
                   field_id="IDOBJ"
                   field_description={["TipiArticolo_Descrizione"]}
-                  defList={listTipiArticolo[0].data}
+                  defList={listTipiArticolo}
                   nameList="v_tipiarticolo"
                   numerocaratteri={3}
                 />

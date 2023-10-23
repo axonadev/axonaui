@@ -42,10 +42,12 @@ const InputList = ({
     setValidate: setInputValidate,
   } = useInput();
 
-  const [list, setList] = useState(defList);
-  const [list_value, setListValue] = useState(effVal);
+  /* const [list, setList] = useState(
+    defList === undefined ? [] : defList[0].data
+  ); */
 
-  console.log(defList, "combolist");
+  const [list, setList] = useState();
+  const [list_value, setListValue] = useState(effVal);
 
   const classFocus = InputIsFocussed ? classes["input_focused"] : "";
   const classContent = [classes.input, classes["cont_" + type]];
@@ -58,7 +60,7 @@ const InputList = ({
 
   const inputChangeHandler = (evt) => {
     if (list) {
-      let rr = list[0].data.filter(function (x) {
+      let rr = list.filter(function (x) {
         const val = field_description.map((columnselect) => {
           return x[columnselect];
         });
@@ -108,8 +110,25 @@ const InputList = ({
   };
 
   useEffect(() => {
+    const goList = () => {
+      try {
+        console.log(defList[0].data, "aaaassss" + id);
+      } catch (error) {}
+
+      if (defList === undefined) {
+      } else {
+        setList(defList[0].data);
+      }
+    };
+
+    goList();
+  }, [defList]);
+
+  useEffect(() => {
     if (defList) {
-      getValore(defList);
+      try {
+        getValore(defList[0].data);
+      } catch (error) {}
     } else {
     }
   }, []);
@@ -117,9 +136,11 @@ const InputList = ({
   useEffect(() => {
     return () => {
       if (defList) {
-        getValore(defList[0].data);
+        try {
+          getValore(defList[0].data);
+        } catch (error) {}
       } else {
-        getValore(list[0].data);
+        getValore(list);
 
         setInputValidate(validate ? validate : "");
       }
@@ -152,16 +173,23 @@ const InputList = ({
         />
       </div>
       <datalist id={"list_" + id}>
-        {list[0].data &&
-          list[0].data.map((item) => {
-            const valList = field_description.map((columnselect) => {
-              return item[columnselect];
-            });
+        {() => {
+          if (list === undefined) {
+          } else {
+            list.map((item) => {
+              const valList = field_description.map((columnselect) => {
+                return item[columnselect];
+              });
 
-            return (
-              <option value={valList.join(" ")} idobj={item[field_id]}></option>
-            );
-          })}
+              return (
+                <option
+                  value={valList.join(" ")}
+                  idobj={item[field_id]}
+                ></option>
+              );
+            });
+          }
+        }}
       </datalist>
     </div>
   );
