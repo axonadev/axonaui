@@ -154,11 +154,13 @@ const Project = ({ request, list }) => {
           selezionato={focusForm === "form_d" ? true : false}
         />
       </Frame>
+      <div className="salvachiudi">
       <FormButton
         onAnnulla={onLoadRow}
         id_submit="form_t"
         numberGrid={numberGrid}
       />
+      </div>
 
       {focusForm === "form_t" && (
         <Form

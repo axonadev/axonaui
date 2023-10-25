@@ -19,13 +19,25 @@
 
 }
 .form_save {
-	z-index: 10;
+	z-index: 99;
 	height: 35px;
 	width: 65px !important;
 	position: fixed;
-	bottom: 63.5vh;
+	bottom: 5px;
 	border-radius: 7px;
 	right: 74px;
+	
+
+
+}
+.form_annulla {
+	z-index: 99;
+	height: 35px;
+	width: 65px !important;
+	position: fixed;
+	bottom: 5px;
+	border-radius: 7px;
+	right: 150px;
 
 }
 .form_save_hidden{
@@ -37,26 +49,16 @@
 	padding: 0;
 	left: -10px;
 }
-.form_annulla {
-	z-index: 80;
-	height: 35px;
-	width: 65px !important;
-	position: fixed;
-	bottom: 63.5vh;
-	border-radius: 7px;
-	right: 150px;
 
-}
 .form_annulla img {
 	width: 15px;
 	margin: 0;
 	padding: 0;
 	left: -10px;
+	
 }
 
-.form_btn_downgrid_2{
-	bottom:38vh;
-}
+
 
 
 
