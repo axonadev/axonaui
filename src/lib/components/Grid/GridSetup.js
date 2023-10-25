@@ -1,3 +1,4 @@
+import React from "react";
 import MessageModal from "../MessageModal/MessageModal";
 import GridSetupItem from "./GridSetupItem";
 import FrameContainer from "../Frame/FrameContainer";
