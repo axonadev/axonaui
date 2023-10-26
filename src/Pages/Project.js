@@ -122,6 +122,7 @@ const Project = ({ request, list }) => {
       <Frame
         label="DETTAGLIO"
         ridimensiona={true}
+        setup={true}
         type="form_d"
         stato={statoGriglia}
         selezionato={focusForm === "form_d" ? true : false}
