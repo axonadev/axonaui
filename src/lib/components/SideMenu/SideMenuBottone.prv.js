@@ -19,6 +19,8 @@ const SideMenuBottone = ({
     onoff
       ? classes.sidemenubottone_contentopen
       : classes.sidemenubottone_contentclose,
+
+      localStorage.getItem ("axn_sidemenubottonesel")===label? classes.sidemenubottonesel: "",
   ];
 
   const stylelabel = [
@@ -28,6 +30,7 @@ const SideMenuBottone = ({
   ];
 
   const btnhandler = () => {
+    localStorage.setItem("axn_sidemenubottonesel", label);
     onClick(path);
   };
 
@@ -40,6 +43,7 @@ const SideMenuBottone = ({
       <div className={stylelabel.join(" ")}>
         <label>{label}</label>
       </div>
+
 
       {ambito && (
         <div>
