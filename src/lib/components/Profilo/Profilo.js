@@ -6,7 +6,7 @@ import Button from "../Button/Button";
 const Profilo = ({}) => {
   const logoutHandler = () => {
     localStorage.clear();
-  
+    window.location.reload();
   };
 
   return (
