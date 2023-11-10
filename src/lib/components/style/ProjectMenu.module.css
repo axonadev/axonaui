@@ -10,7 +10,7 @@
     background-color:var(--axn-sidemenu-background-color);
     transform: translateX(0);
     transition: 0.2s;
-    z-index: 120;
+    z-index: 90;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
