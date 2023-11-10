@@ -1,0 +1,45 @@
+.pagination_content{
+    display: grid;
+    grid-template-columns: 3% 90% 3%;
+}
+.pagination_lefticon{
+    position: relative;
+    width: 15px;
+    top: 2px;
+    left: 10px;
+    cursor: pointer;
+    height: 15px;
+}
+.pagination_lefticon img{
+    max-width: 100%;
+    max-height: 100%;
+}
+.pagination_righticon{
+    position: relative;
+    width: 15px;
+    top: 2px;
+    right: 20px;
+    cursor: pointer;
+    height: 15px;
+}
+.pagination_righticon img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.pagination_lefticon_grid{
+    display: grid;
+    grid-template-columns: 1% 99%;
+    text-indent: 24px;
+}
+.input_posticon_grid{
+    display: grid;
+    grid-template-columns: 99% 1%;
+}
+.input_preposticon_grid{
+    display: grid;
+    grid-template-columns: 1% 99% 1%;
+}
+.input_preposticon_grid input{
+    text-indent: 24px;
+}

@@ -16,6 +16,7 @@ import FrameInRow from "../Frame/FrameInRow";
 import { useEnv, formatDate } from "axonalib";
 import InputData from "../Input/InputData";
 import GridSetup from "./GridSetup";
+import Pagination from "../Pagination/Pagination";
 
 const Grid = ({
   id,
@@ -289,7 +290,16 @@ const Grid = ({
             </div>
             <div className={classes.grid_filtergridright}>
               <div className={classes.grid_pagecontrols}>
-                <Input
+                <Pagination
+                  id="Grid_Pagination"
+                  page={String(page)}
+                  onChange={onChangePage}
+                  rightIcon="right"
+                  onRightIconClick={pageAfterHandler}
+                  leftIcon="left"
+                  onLeftIconClick={pageBeforeHandler}
+                />
+                {/* <Input
                   label=""
                   id="Grid_Pagination"
                   className={classes.grid_inputpage}
@@ -300,7 +310,7 @@ const Grid = ({
                   onIconClick={pageAfterHandler}
                   preIcon="left"
                   onPreIconClick={pageBeforeHandler}
-                />
+                /> */}
               </div>
 
               {itemSearch && (
