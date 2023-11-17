@@ -17,6 +17,8 @@ const InputList = ({
   defList,
   form_id,
   numerocaratteri = 0,
+  help,
+  helpMessage
 }) => {
   let effVal = value;
 
@@ -158,6 +160,8 @@ const InputList = ({
             <span className={classes.errorText}>{InputMessageError}</span>
           )}
         </label>
+        {help && <div className={classes.helpmessage_content}><span className={classes.helpmessage}>{helpMessage}</span></div>
+        }
       </div>
 
       <div className={classDivInput.join(" ")}>

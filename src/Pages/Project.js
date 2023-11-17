@@ -15,7 +15,7 @@ import {
 import { useEnv } from "axonalib";
 import FormButton from "../lib/components/Form/FormButton";
 
-const Project = ({ request, list }) => {
+const Project = ({ request, list, help }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
   const numberGrid = 2;
   const moduloForm = "articoli";
@@ -25,6 +25,7 @@ const Project = ({ request, list }) => {
   const cmd_getGrid = "/" + moduloForm + "/" + moduloForm + "sel/leggi";
   const cmd_getArticoliVariantiGrid =
     "/articolivarianti/articolivariantisel/leggi";
+    console.log(help,"help project");
 
   const itemFolders = [
     { key: 1, label: "info", img: "info", target: "info" },
@@ -163,6 +164,8 @@ const Project = ({ request, list }) => {
       />
       </div>
 
+
+
       {focusForm === "form_t" && (
         <Form
           id="form_t"
@@ -176,11 +179,17 @@ const Project = ({ request, list }) => {
           onChangeValue={onChangeForm}
           numberGrid={numberGrid}
         >
-          <FrameContainer id="info">
-            <Frame label="Anagrafica">
+           
+
+          <FrameContainer id="info" help={help}>
+
+          
+            <Frame label="Anagrafica" >
               <FrameInRow width={[10, 10, 10, 10, 10]}>
-                <Input label="Codice" id="Articoli_Codice"></Input>
+              <Input label="Codice" id="Articoli_Codice" helpMessage="CODICE: questo è il codice del codice"></Input>
+
                 <InputList
+                  helpMessage="TIPO: Questo è il tipo dell'articolo"
                   label={"Tipo"}
                   id={"Articoli_Tipo"}
                   onChangeValue={() => {}}
@@ -190,10 +199,12 @@ const Project = ({ request, list }) => {
                   defList={listTipiArticolo}
                   nameList="v_tipiarticolo"
                   numerocaratteri={3}
+                  
                 />
               </FrameInRow>
               <FrameInRow width={[100]}>
-                <Input label="Descrizione" id="Articoli_Descrizione"></Input>
+             
+              <Input label="Descrizioner" id="Articoli_Descrizione" helpMessage="DESCRIZIONE: Questa è la descrizione degli articoli" />
               </FrameInRow>
             </Frame>
             <Frame label="Classificazione">
@@ -213,8 +224,9 @@ const Project = ({ request, list }) => {
                   }
                   nameList="v_marche"
                   numerocaratteri={3}
+               
                 />
-                <Input label="Modello" id="Articoli_Modello"></Input>
+                <Input label="Modello" id="Articoli_Modello" helpMessage="aaaa"></Input>
               </FrameInRow>
               <FrameInRow width={[20, 20]}>
                 <InputList
@@ -382,7 +394,7 @@ const Project = ({ request, list }) => {
               </FrameInRow>
             </Frame>
           </FrameContainer>
-          <FrameContainer id="alternativi">
+          <FrameContainer id="alternativi" help={help}>
             <Frame label="Alternativi">
               <Grid
                 id="grid_articolivarianti"
@@ -438,7 +450,7 @@ const Project = ({ request, list }) => {
               </Grid>
             </Frame>
           </FrameContainer>
-          <FrameContainer id="opzioni">
+          <FrameContainer id="opzioni" help={help}>
             <Frame label="Opzioni">
               <FrameInRow width={[20, 20, 20, 20]}>
                 <InputCheckBox label="Non calcolare nella ritenuta d'acconto" />

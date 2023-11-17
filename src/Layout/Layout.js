@@ -26,6 +26,8 @@ const Layout = () => {
     REACT_APP_SERVERAPI
   );
 
+  const [isHelp, setIsHelp] = useState(false);
+
   const {
     items: pjItems,
     getFormMenuPj,
@@ -54,6 +56,11 @@ const Layout = () => {
     }
   }, []);
 
+  const onHelpstato=(valore)=>{
+console.log(valore,"stato help");
+setIsHelp(valore);
+  }
+
   return (
     <>
       <Header
@@ -70,7 +77,7 @@ const Layout = () => {
         pathImg={REACT_APP_IMGFOLDER}
       />
       <ContentForm sidemenuopen={styleMenu}>
-        <Project request={answerReq} list={list} />
+        <Project request={answerReq} list={list} help={isHelp}/>
       </ContentForm>
       <ProjectMenu
         items={pjItems}
@@ -78,6 +85,7 @@ const Layout = () => {
         pathImg={REACT_APP_IMGFOLDER}
         onRequestSubmit={projectMenuRequestSubmitHandler}
         versione={versione}
+        onHelp={onHelpstato}
       >
         {formPj}
       </ProjectMenu>

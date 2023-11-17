@@ -12,6 +12,8 @@ const InputCheckBox = ({
   onChange,
   form_id,
   onChangeValue,
+  help,
+  helpMessage
 }) => {
   const pers = localStorage.getItem("pers");
 
@@ -107,6 +109,7 @@ const InputCheckBox = ({
             <span className={classes.errorText}>{InputMessageError}</span>
           )}
         </label>
+       
       </div>
 
       <div className={classDivInput.join(" ")}>

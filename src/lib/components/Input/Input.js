@@ -20,6 +20,8 @@ const Input = ({
   decimali,
   form_id,
   validate,
+  help,
+  helpMessage
 }) => {
   const pers = localStorage.getItem("pers");
 
@@ -130,6 +132,8 @@ const Input = ({
     }
   }, []);
 
+  console.log(help,"help input");
+
   return (
     <div id={"cont_" + id} className={classContent.join(" ")}>
       <div className={classLabel.join(" ")}>
@@ -139,6 +143,9 @@ const Input = ({
             <span className={classes.errorText}>{InputMessageError}</span>
           )}
         </label>
+        {help && <div className={classes.helpmessage_content}><span className={classes.helpmessage}>{helpMessage}</span></div>
+        }
+      
       </div>
       <div className={classDivInput.join(" ")}>
         {preIcon && (

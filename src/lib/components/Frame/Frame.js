@@ -16,6 +16,7 @@ const Frame = ({
   selezionato = false,
   onActive,
   setup = false,
+  help = false,
 }) => {
   const [dimFrame, setDimFrame] = useState(2);
   const [isSetup, setIsSetup] = useState(false);
@@ -43,14 +44,18 @@ const Frame = ({
       onChangeValue: onChangeValue,
       openSetup: openSetup,
       closeSetup: closeSetup,
+      help: help,
     };
   } else {
     argpost = {
       form_id: form_id,
       openSetup: openSetup,
       closeSetup: closeSetup,
+      help: help,
     };
   }
+
+  console.log(argpost,"label"+label)
   const clickHandler = () => {
     try {
       onActive();

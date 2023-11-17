@@ -157,3 +157,13 @@
 .projectmenu_profilo button{
     background-color: transparent;
 }
+
+.projectmenu_help{
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    font-weight:700 ;
+}
+.projectmenu_help label{
+    cursor: pointer;
+}
