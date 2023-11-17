@@ -4,10 +4,11 @@ import classes from "../style/ProjectMenu.module.css";
 import Button from "../Button/Button";
 import Img from "../Img/Img";
 import Profilo from "../Profilo/Profilo";
-const ProjectMenu = ({ items, onClick, children, onRequestSubmit, versione }) => {
+const ProjectMenu = ({ items, onClick, children, onRequestSubmit, versione, onHelp }) => {
   const [openMenu, setOpenMenu] = useState(false);
 
   const [openProfilo, setOpenProfilo] = useState(false);
+  const [isHelp, setIsHelp] = useState(true);
 
   const onClickHandler = (idprogectitem) => {
     setOpenMenu(true);
@@ -33,6 +34,14 @@ const ProjectMenu = ({ items, onClick, children, onRequestSubmit, versione }) =>
     setOpenProfilo((prec)=>{return !prec});
   }
 
+  const onHelpHandler =()=>{
+    setIsHelp((prec)=>{
+      onHelp(!prec);
+      return !prec;
+    });
+   
+  }
+
   return (
     <>
     {openProfilo && <Profilo />}
@@ -40,6 +49,7 @@ const ProjectMenu = ({ items, onClick, children, onRequestSubmit, versione }) =>
              <div>
         <div className={classes.projectmenu_profilo}>
           <Button onClick={profiloClick}>
+         
           <Img
          
           type="profilo"
@@ -88,6 +98,9 @@ const ProjectMenu = ({ items, onClick, children, onRequestSubmit, versione }) =>
       </div>
     <div>
     
+    <div className={classes.projectmenu_help} >
+      <Button onClick={onHelpHandler}>?</Button>
+    </div>
       <label>{versione}</label>
       
       </div>

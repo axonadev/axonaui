@@ -1,16 +1,18 @@
 import React from "react";
 import classes from "../style/Frame.module.css";
-const FrameContainer = ({ children, id, form_id, onChangeValue }) => {
+const FrameContainer = ({ children, id, form_id, onChangeValue, help }) => {
   let argpost;
 
   if (onChangeValue !== undefined) {
     argpost = {
       form_id: form_id,
       onChangeValue: onChangeValue,
+      help: help,
     };
   } else {
     argpost = {
       form_id: form_id,
+      help: help,
     };
   }
 
