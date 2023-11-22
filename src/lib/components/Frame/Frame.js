@@ -55,7 +55,7 @@ const Frame = ({
     };
   }
 
-  console.log(argpost,"label"+label)
+  console.log(argpost, "label" + label);
   const clickHandler = () => {
     try {
       onActive();

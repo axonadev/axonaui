@@ -1,6 +1,12 @@
 import React from "react";
 import classes from "../style/Frame.module.css";
-const FrameInRow = ({ width, children, form_id, onChangeValue, help=false }) => {
+const FrameInRow = ({
+  width,
+  children,
+  form_id,
+  onChangeValue,
+  help = false,
+}) => {
   const isList = Array.isArray(children);
 
   const classsplit = String(width[0]).split(" ");
@@ -54,7 +60,8 @@ const FrameInRow = ({ width, children, form_id, onChangeValue, help=false }) => 
             {children.length === undefined &&
               React.cloneElement(children, {
                 form_id: form_id,
-                onChangeValue: onChangeValue, help:help
+                onChangeValue: onChangeValue,
+                help: help,
               })}
           </div>
         )}
@@ -67,13 +74,15 @@ const FrameInRow = ({ width, children, form_id, onChangeValue, help=false }) => 
               children.map((item) => {
                 return React.cloneElement(item, {
                   form_id: form_id,
-                  onChangeValue: onChangeValue, help:help
+                  onChangeValue: onChangeValue,
+                  help: help,
                 });
               })}
             {children.length === undefined &&
               React.cloneElement(children, {
                 form_id: form_id,
-                onChangeValue: onChangeValue, help:help
+                onChangeValue: onChangeValue,
+                help: help,
               })}
           </div>
         )}
