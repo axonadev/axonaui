@@ -54,7 +54,7 @@ const FrameInRow = ({ width, children, form_id, onChangeValue, help=false }) => 
             {children.length === undefined &&
               React.cloneElement(children, {
                 form_id: form_id,
-                onChangeValue: onChangeValue,
+                onChangeValue: onChangeValue, help:help
               })}
           </div>
         )}
@@ -67,13 +67,13 @@ const FrameInRow = ({ width, children, form_id, onChangeValue, help=false }) => 
               children.map((item) => {
                 return React.cloneElement(item, {
                   form_id: form_id,
-                  onChangeValue: onChangeValue,
+                  onChangeValue: onChangeValue, help:help
                 });
               })}
             {children.length === undefined &&
               React.cloneElement(children, {
                 form_id: form_id,
-                onChangeValue: onChangeValue,
+                onChangeValue: onChangeValue, help:help
               })}
           </div>
         )}
