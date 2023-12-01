@@ -28,6 +28,7 @@ import useForm from "./hooks/useForm";
 import Citta from "./components/UIFrame/Citta";
 import useList from "./hooks/useList";
 import Pagination from "./components/Pagination/Pagination";
+import HelpMessage from "./components/HelpMessage/HelpMessage";
 
 export {
   Button,
@@ -60,4 +61,5 @@ export {
   Citta,
   useList,
   Pagination,
+  HelpMessage,
 };

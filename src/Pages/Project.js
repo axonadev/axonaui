@@ -186,10 +186,10 @@ const Project = ({ request, list, help }) => {
           
             <Frame label="Anagrafica" >
               <FrameInRow width={[10, 10, 10, 10, 10]}>
-              <Input label="Codice" id="Articoli_Codice" helpMessage="CODICE: questo è il codice del codice"></Input>
+              <Input label="Codice" id="Articoli_Codice" helpMessage="sss"></Input>
 
                 <InputList
-                  helpMessage="TIPO: Questo è il tipo dell'articolo"
+                  helpMessage="TIPO"
                   label={"Tipo"}
                   id={"Articoli_Tipo"}
                   onChangeValue={() => {}}
@@ -204,7 +204,7 @@ const Project = ({ request, list, help }) => {
               </FrameInRow>
               <FrameInRow width={[100]}>
              
-              <Input label="Descrizioner" id="Articoli_Descrizione" helpMessage="DESCRIZIONE: Questa è la descrizione degli articoli" />
+              <Input label="Descrizione" id="Articoli_Descrizione" helpMessage="DESCRIZIONE: Questa è la descrizione degli articoli" />
               </FrameInRow>
             </Frame>
             <Frame label="Classificazione">

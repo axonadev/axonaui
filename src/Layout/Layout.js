@@ -6,7 +6,7 @@ import useProjectMenu from "../hooks/useProjectMenu";
 import useList from "../lib/hooks/useList";
 
 const Layout = () => {
-  const titolo ="titolo";
+  const titolo ="axonaui";
   const versione="00.00.00";
   const { REACT_APP_IMGFOLDER, REACT_APP_SERVERAPI } = useEnv();
 

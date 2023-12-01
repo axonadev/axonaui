@@ -8,7 +8,7 @@ const ProjectMenu = ({ items, onClick, children, onRequestSubmit, versione, onHe
   const [openMenu, setOpenMenu] = useState(false);
 
   const [openProfilo, setOpenProfilo] = useState(false);
-  const [isHelp, setIsHelp] = useState(true);
+  const [isHelp, setIsHelp] = useState(false);
 
   const onClickHandler = (idprogectitem) => {
     setOpenMenu(true);

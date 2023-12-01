@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import useInput from "../../hooks/useInput";
 import classes from "../style/Input.module.css";
 import Img from "../Img/Img";
+import HelpMessage from "../HelpMessage/HelpMessage";
 
 const Input = ({
   value,
@@ -143,8 +144,8 @@ const Input = ({
             <span className={classes.errorText}>{InputMessageError}</span>
           )}
         </label>
-        {help && <div className={classes.helpmessage_content}><span className={classes.helpmessage}>{helpMessage}</span></div>
-        }
+
+        <HelpMessage helpMessage={helpMessage} help={help}/>
       
       </div>
       <div className={classDivInput.join(" ")}>
