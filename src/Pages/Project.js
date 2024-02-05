@@ -14,6 +14,8 @@ import {
 } from "../lib";
 import { useEnv } from "axonalib";
 import FormButton from "../lib/components/Form/FormButton";
+import TextEditor from "../lib/components/TextEditor/TextEditor";
+import { Card } from "axonaui";
 
 const Project = ({ request, list, help }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
@@ -25,7 +27,7 @@ const Project = ({ request, list, help }) => {
   const cmd_getGrid = "/" + moduloForm + "/" + moduloForm + "sel/leggi";
   const cmd_getArticoliVariantiGrid =
     "/articolivarianti/articolivariantisel/leggi";
-    console.log(help,"help project");
+  console.log(help, "help project");
 
   const itemFolders = [
     { key: 1, label: "info", img: "info", target: "info" },
@@ -82,8 +84,20 @@ const Project = ({ request, list, help }) => {
 
     loadRequest();
   }, [request]);
+
+  const textEditorHandlerChange = (value) => {
+    console.log(value, "testo text editor");
+  };
+
   return (
     <>
+      <Frame>
+        <TextEditor
+          onChange={textEditorHandlerChange}
+          toolbarOnFocus={true}
+        ></TextEditor>
+      </Frame>
+
       <Frame
         label="TESTATA"
         type="form_t"
@@ -157,14 +171,12 @@ const Project = ({ request, list, help }) => {
         />
       </Frame>
       <div className="salvachiudi">
-      <FormButton
-        onAnnulla={onLoadRow}
-        id_submit="form_t"
-        numberGrid={numberGrid}
-      />
+        <FormButton
+          onAnnulla={onLoadRow}
+          id_submit="form_t"
+          numberGrid={numberGrid}
+        />
       </div>
-
-
 
       {focusForm === "form_t" && (
         <Form
@@ -179,14 +191,14 @@ const Project = ({ request, list, help }) => {
           onChangeValue={onChangeForm}
           numberGrid={numberGrid}
         >
-           
-
           <FrameContainer id="info" help={help}>
-
-          
-            <Frame label="Anagrafica" >
+            <Frame label="Anagrafica">
               <FrameInRow width={[10, 10, 10, 10, 10]}>
-              <Input label="Codice" id="Articoli_Codice" helpMessage="CODICE: questo è il codice del codice"></Input>
+                <Input
+                  label="Codice"
+                  id="Articoli_Codice"
+                  helpMessage="CODICE: questo è il codice del codice"
+                ></Input>
 
                 <InputList
                   helpMessage="TIPO: Questo è il tipo dell'articolo"
@@ -199,12 +211,14 @@ const Project = ({ request, list, help }) => {
                   defList={listTipiArticolo}
                   nameList="v_tipiarticolo"
                   numerocaratteri={3}
-                  
                 />
               </FrameInRow>
               <FrameInRow width={[100]}>
-             
-              <Input label="Descrizioner" id="Articoli_Descrizione" helpMessage="DESCRIZIONE: Questa è la descrizione degli articoli" />
+                <Input
+                  label="Descrizioner"
+                  id="Articoli_Descrizione"
+                  helpMessage="DESCRIZIONE: Questa è la descrizione degli articoli"
+                />
               </FrameInRow>
             </Frame>
             <Frame label="Classificazione">
@@ -224,9 +238,12 @@ const Project = ({ request, list, help }) => {
                   }
                   nameList="v_marche"
                   numerocaratteri={3}
-               
                 />
-                <Input label="Modello" id="Articoli_Modello" helpMessage="aaaa"></Input>
+                <Input
+                  label="Modello"
+                  id="Articoli_Modello"
+                  helpMessage="aaaa"
+                ></Input>
               </FrameInRow>
               <FrameInRow width={[20, 20]}>
                 <InputList
