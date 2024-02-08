@@ -4,7 +4,6 @@
     position: absolute;
     top:  var(--axn-height-top);
     bottom: 50px;
-    z-index: -10;
     right: 0px;
     transition: 0.2s left;
     overflow-y: hidden;

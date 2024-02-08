@@ -16,6 +16,7 @@ import { useEnv } from "axonalib";
 import FormButton from "../lib/components/Form/FormButton";
 import TextEditor from "../lib/components/TextEditor/TextEditor";
 import { Card } from "axonaui";
+import ChartBar from "../lib/components/Chart/ChartBar";
 
 const Project = ({ request, list, help }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
@@ -91,13 +92,9 @@ const Project = ({ request, list, help }) => {
 
   return (
     <>
-      <Frame>
-        <TextEditor
-          onChange={textEditorHandlerChange}
-          toolbarOnFocus={true}
-        ></TextEditor>
-      </Frame>
-
+      <Card>
+        <ChartBar></ChartBar>
+      </Card>
       <Frame
         label="TESTATA"
         type="form_t"
