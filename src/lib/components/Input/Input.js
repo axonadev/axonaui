@@ -28,7 +28,6 @@ const Input = ({
   const pers = localStorage.getItem("pers");
 
   let effVal = "";
-  console.log(form_id, id + " valore citta input");
 
   const valincache = JSON.parse(localStorage.getItem("axn_record_" + form_id));
 
@@ -90,9 +89,7 @@ const Input = ({
   const onChangeValuehandler = (evt) => {
     try {
       onChangeValue(id, evt.target.value);
-    } catch (error) {
-      console.log(error, "errore changevalue");
-    }
+    } catch (error) {}
   };
   const onBlurInput = (evt) => {
     if (decimali !== undefined && type === "number") {
@@ -137,8 +134,6 @@ const Input = ({
       } catch (error) {}
     }
   }, []);
-
-  console.log(help, "help input");
 
   return (
     <div id={"cont_" + id} className={classContent.join(" ")}>

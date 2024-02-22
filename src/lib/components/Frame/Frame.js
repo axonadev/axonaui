@@ -55,7 +55,6 @@ const Frame = ({
     };
   }
 
-  console.log(argpost, "label" + label);
   const clickHandler = () => {
     try {
       onActive();
@@ -117,7 +116,7 @@ const Frame = ({
                   setOpenSetup(true);
                 }}
               >
-                <Img type="setup" pathImg="getlocal" />
+                <Img type='setup' pathImg='getlocal' />
               </Button>
             )}
           </div>

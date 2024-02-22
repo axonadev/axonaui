@@ -33,7 +33,7 @@ const useList = (obj, token, server) => {
         });
       })
       .catch((err) => {
-        //console.log(err);
+        console.log(err);
       });
   };
 

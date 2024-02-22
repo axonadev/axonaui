@@ -1,51 +1,55 @@
-.button{
+.button {
     border-radius: 7px;
-    border:1px solid  var(--axn-button-color);
+    border: 1px solid var(--axn-button-color);
     background-color: var(--axn-button-background-color);
-    color:var(--axn-button-color) ;
+    color: var(--axn-button-color);
     overflow: hidden;
     padding: 10px;
-    margin:0px;
+    margin: 0px;
     margin-bottom: 1px;
-    transition: 0.2s background-color,color;
-    
+    transition: 0.2s background-color, color;
+
 }
-.button:hover{
+
+.button:hover {
     background-color: var(--axn-button-background-color-hover);
     color: var(--axn-button-color-hover);
     cursor: pointer;
 }
 
-.button_type_sm{
+.button_type_sm {
     padding: 5px;
     width: 30px !important;
     height: 25px;
     border-radius: 6px;
-    
-}
-.button_type_sm img{
-    width: 15px !important;
-    max-height: 15px;
-    height: auto;    
-    
+
 }
 
-.button_type_submit{
-    z-index: 80;
-	height: 65px;
-	width: 65px !important;
-	position: fixed;
-	bottom: 1vh;
-	border-radius: 50%;
+.button_type_sm img {
+    width: 15px !important;
+    max-height: 15px;
+    height: auto;
+
+}
+
+.button_type_submit {
+    z-index: 30;
+    height: 65px;
+    width: 65px !important;
+    position: fixed;
+    bottom: 1vh;
+    border-radius: 50%;
     right: calc(50% - 32.5px);
 }
+
 .button_type_submit img {
-	width: 40px;
-	margin: 0;
-	padding: 0;
-	left: -10px;
+    width: 40px;
+    margin: 0;
+    padding: 0;
+    left: -10px;
 }
-.button_type_doc{
+
+.button_type_doc {
     background-color: lightgreen;
     color: green;
 }

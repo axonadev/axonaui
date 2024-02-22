@@ -9,15 +9,12 @@
     border-radius: 9px;
     display: flex;
     flex-direction: column;
-    z-index: 100;
-
-
+    z-index: 50;
 }
 
 .profilo_content img {
     width: 50px;
     padding-top: 10px;
-
 }
 
 .profilo_content_img {

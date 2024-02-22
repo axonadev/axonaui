@@ -1,112 +1,117 @@
 .messagemodal_backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 99;
-    background: rgba(0, 0, 0, 0.75);
-  }
-  
-  .messagemodal_modal {
-    padding: 0rem;
-    margin: 0rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 7px;
-    background-color: var(--axn-msgbox-background-color);
-    color: var(--axn-msgbox-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 90;
+  background: rgba(0, 0, 0, 0.75);
+}
 
-    position: fixed;
-    top: 20vh;
+.messagemodal_modal {
+  padding: 0rem;
+  margin: 0rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 7px;
+  background-color: var(--axn-msgbox-background-color);
+  color: var(--axn-msgbox-color);
+
+  position: fixed;
+  top: 20vh;
+  left: 10%;
+  width: 80%;
+  z-index: 100;
+  overflow: hidden;
+  /* min-height: 275px;
+    height: 30vh; */
+}
+
+
+
+.messagemodal_header {
+  background-color: var(--axn-msgbox-header-background-color);
+  padding: 1rem;
+  text-align: center;
+}
+
+.messagemodal_header h2 {
+  margin: 0;
+  color: var(--axn-msgbox-header-color);
+}
+
+.messagemodal_footer {
+  background-color: var(--axn-msgbox-footer-background-color);
+  /*border-top: var(--axn-msgbox-border-color) 1px solid;*/
+  bottom: 0px;
+  position: absolute;
+  width: 100%;
+}
+
+.messagemodal_content {
+  padding: 1rem;
+  overflow-y: auto;
+  max-height: 45vh;
+  text-align: center;
+
+
+}
+
+.messagemodal_actions {
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.messagemodal_minButton {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.centro_mrk {
+  background-color: darkblue;
+}
+
+@media (min-width: 768px) {
+  .messagemodal_modal {
+    left: calc(50% - 20rem);
+    width: 40rem;
+  }
+
+  .messagemodal_modal_form {
+    top: 5vh;
+    bottom: 5vh;
     left: 10%;
     width: 80%;
-    z-index: 100;
-    overflow: hidden;
-    /* min-height: 275px;
-    height: 30vh; */
   }
 
-  
-  
-  .messagemodal_header {
-    background-color: var(--axn-msgbox-header-background-color);
-    padding: 1rem;
-    text-align: center;
-  }
-  
-  .messagemodal_header h2 {
-    margin: 0;
-    color: var(--axn-msgbox-header-color);
+  .messagemodal_modal_msg {
+    top: 20vh;
+    left: 30%;
+    width: 40%;
+
+    max-height: 365px;
   }
 
-  .messagemodal_footer{
-    background-color: var(--axn-msgbox-footer-background-color);
-    /*border-top: var(--axn-msgbox-border-color) 1px solid;*/
-    bottom: 0px;
-    position: absolute;
-    width: 100%;
-  }
-  
   .messagemodal_content {
     padding: 1rem;
     overflow-y: auto;
-    max-height: 45vh;
+    /*    max-height: 75vh; */
     text-align: center;
-    
 
   }
-  
+
+  .messagemodal_minButton {
+    width: auto;
+    margin: 5px;
+
+  }
+
   .messagemodal_actions {
+    width: 100%;
     padding-bottom: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    background-color: var(--axn-msgbox-footer-background-color);
   }
-
-  .messagemodal_minButton{
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-  }
-
-  .centro_mrk{
-    background-color: darkblue;
-  }
-   
-  @media (min-width: 768px) {
-    .messagemodal_modal {
-      left: calc(50% - 20rem);
-      width: 40rem;
-    }
-    .messagemodal_modal_form{
-      top: 5vh;
-      bottom: 5vh;
-      left: 10%;
-      width: 80%;
-    }
-    .messagemodal_modal_msg{
-      top: 20vh;
-      left: 30%;
-      width: 40%;
-      
-      max-height: 365px;
-    }
-    .messagemodal_content {
-      padding: 1rem;
-      overflow-y: auto;
-   /*    max-height: 75vh; */
-      text-align: center;
-  
-    }
-    .messagemodal_minButton{
-      width: auto;
-      margin: 5px;
-      
-    }
-    .messagemodal_actions {
-      width: 100%;
-      padding-bottom: 10px;
-      display: flex;
-      justify-content:center;
-      background-color: var(--axn-msgbox-footer-background-color);
-    }
-  }
+}

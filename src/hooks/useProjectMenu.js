@@ -22,7 +22,6 @@ const useProjectMenu = () => {
   const processRequest = (evt) => {
     let arr = [];
     for (const item of evt.target.elements) {
-      console.log(item.id, "id item");
       arr = [...{ id: item.id, data: item.value }];
     }
 

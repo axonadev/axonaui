@@ -5,7 +5,7 @@ const useProjectMenu = () => {
   const [answerReq, setAnserReq] = useState([]);
 
   const calendario = () => {
-    console.log("funzione esterna");
+    // console.log("funzione esterna");
   };
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const useProjectMenu = () => {
         label: "Contabilizzazione",
         img: "print",
         function: () => {
-          console.log("click stampa");
+          // console.log("click stampa");
         },
       },
     ];
@@ -31,7 +31,7 @@ const useProjectMenu = () => {
     setItems(itemspj);
   }, []);
   const getFormMenuPj = (idItem) => {
-    return <input type="date" />;
+    return <input type='date' />;
   };
   const processRequest = (evt) => {
     setAnserReq([

@@ -86,7 +86,6 @@ const Form = ({
 
   const onConfirmhandler = () => {
     let obj = JSON.parse(mex.obj);
-    console.log(obj);
 
     let data = {
       Token: token === "" ? localStorage.getItem("axn_token") : token,
@@ -248,10 +247,10 @@ const Form = ({
 
         <Button
           className={classes.form_save_hidden}
-          type="submit"
+          type='submit'
           id={id_submit}
         >
-          <Img type="save" pathImg="getlocal" />
+          <Img type='save' pathImg='getlocal' />
         </Button>
       </form>
       {mex && (

@@ -104,10 +104,10 @@ const InputCheckList = ({
         })}
 
       <input
-        type="text"
+        type='text'
         id={field_target}
         value={jsonDriver}
-        tipo="driverchecklist"
+        tipo='driverchecklist'
         db_target={db_target}
         className={classes.checkboxlistjson}
       />

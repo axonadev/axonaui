@@ -27,7 +27,6 @@ const SideMenuAmbito = ({
       : classes.sidemenuambito_listclose,
   ];
 
-  console.log(src);
   return (
     <div className={classes.sidemenuambito_content}>
       <SideMenuBottone

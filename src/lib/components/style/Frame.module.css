@@ -44,7 +44,7 @@
    overflow-y: hidden;
    position: absolute;
    top: 0px;
-   z-index: 90;
+   z-index: 40;
 }
 
 .frame_meno {

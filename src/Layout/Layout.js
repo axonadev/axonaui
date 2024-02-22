@@ -6,8 +6,8 @@ import useProjectMenu from "../hooks/useProjectMenu";
 import useList from "../lib/hooks/useList";
 
 const Layout = () => {
-  const titolo ="titolo";
-  const versione="00.00.00";
+  const titolo = "titolo";
+  const versione = "00.00.00";
   const { REACT_APP_IMGFOLDER, REACT_APP_SERVERAPI } = useEnv();
 
   const [styleMenu, setStyleMenu] = useState(
@@ -56,10 +56,9 @@ const Layout = () => {
     }
   }, []);
 
-  const onHelpstato=(valore)=>{
-console.log(valore,"stato help");
-setIsHelp(valore);
-  }
+  const onHelpstato = (valore) => {
+    setIsHelp(valore);
+  };
 
   return (
     <>
@@ -77,7 +76,7 @@ setIsHelp(valore);
         pathImg={REACT_APP_IMGFOLDER}
       />
       <ContentForm sidemenuopen={styleMenu}>
-        <Project request={answerReq} list={list} help={isHelp}/>
+        <Project request={answerReq} list={list} help={isHelp} />
       </ContentForm>
       <ProjectMenu
         items={pjItems}

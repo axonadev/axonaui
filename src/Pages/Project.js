@@ -101,9 +101,7 @@ const Project = ({ request, list, help }) => {
     setStatoGriglia("INSERIMENTO");
     setIdobj_T(0);
   };
-  const deleteClickHandler = (idGriglia) => {
-    console.log(idGriglia);
-  };
+  const deleteClickHandler = (idGriglia) => {};
 
   const onLoadRow = () => {
     setReloadGriglia((item) => {
@@ -148,9 +146,7 @@ const Project = ({ request, list, help }) => {
           onClickRow={(IDOBJ) => {
             onChangeRow(IDOBJ);
           }}
-          onDoubleClickRow={() => {
-            console.log("click");
-          }}
+          onDoubleClickRow={() => {}}
           onBtnInsert={insertClickHandler}
           onBtnDelete={deleteClickHandler}
           btn_insert={true}

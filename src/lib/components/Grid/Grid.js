@@ -164,7 +164,6 @@ const Grid = ({
       onActiveHandler();
     } catch (error) {}
     setPage(1);
-    console.log(valueItem, "valueitem");
     setFilteredValue(valueItem);
   };
 

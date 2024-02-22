@@ -18,7 +18,7 @@ const InputList = ({
   form_id,
   numerocaratteri = 0,
   help,
-  helpMessage
+  helpMessage,
 }) => {
   let effVal = value;
 
@@ -114,7 +114,6 @@ const InputList = ({
   useEffect(() => {
     const goList = () => {
       try {
-        console.log(defList[0].data, "aaaassss" + id);
       } catch (error) {}
 
       if (defList === undefined) {
@@ -160,15 +159,18 @@ const InputList = ({
             <span className={classes.errorText}>{InputMessageError}</span>
           )}
         </label>
-        {help && <div className={classes.helpmessage_content}><span className={classes.helpmessage}>{helpMessage}</span></div>
-        }
+        {help && (
+          <div className={classes.helpmessage_content}>
+            <span className={classes.helpmessage}>{helpMessage}</span>
+          </div>
+        )}
       </div>
 
       <div className={classDivInput.join(" ")}>
         <input
           id={id}
-          type="text"
-          tipo="list"
+          type='text'
+          tipo='list'
           onChange={inputChangeHandler}
           onBlur={InputBlur}
           onFocus={InputFocus}

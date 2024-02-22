@@ -10,7 +10,6 @@ const TextEditor = ({ onChange, toolbarOnFocus = false }) => {
 
   const onChangeHandler = (newEditorState) => {
     setEditorState(newEditorState);
-    /*  console.log(draftToHtml(convertToRaw(editorState.getCurrentContent()))); */
     try {
       onChange(draftToHtml(convertToRaw(newEditorState.getCurrentContent())));
     } catch (error) {}
@@ -19,14 +18,14 @@ const TextEditor = ({ onChange, toolbarOnFocus = false }) => {
   return (
     <div>
       {/* Editor */}
-      <label htmlFor="text">
+      <label htmlFor='text'>
         <Editor
           toolbarOnFocus={toolbarOnFocus}
           editorState={editorState}
           wrapperClassName={classes.editorWrapper}
           editorClassName={classes.editor}
           onEditorStateChange={onChangeHandler}
-          placeholder="Inserisci il tuo testo..."
+          placeholder='Inserisci il tuo testo...'
         />
       </label>
     </div>
