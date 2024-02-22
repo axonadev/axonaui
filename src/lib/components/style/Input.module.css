@@ -1,43 +1,50 @@
 .input {
     width: 100%;
-
 }
+
 input::-webkit-calendar-picker-indicator {
     opacity: 100;
- }
-.input_label{
+}
+
+.input_label {
     font-size: 12px;
 }
-.input_label.input_focused{
+
+.input_label.input_focused {
     font-style: italic;
 }
-.input_label label{
+
+.input_label label {
     position: relative;
     display: block;
 }
-.input_input{
-    width: 100%;    
+
+.input_input {
+    width: 100%;
 }
-.input_input input{
+
+.input_input input {
     width: calc(100% - 6px);
-    font-size:  var(--axn-input-font-size);
+    font-size: var(--axn-input-font-size);
     border: var(--axn-input-border-color) 1px solid;
     border-radius: 3px;
     height: calc(var(--axn-input-font-size) + 5px);
 }
-.input_input input[type=date]{
+
+.input_input input[type=date] {
     height: calc(var(--axn-input-font-size) + 7px);
 }
 
-.input_input input:hover{
+.input_input input:hover {
     border: var(--axn-input-border-color-hover) 1px solid;
-    
+
 }
-.input_input input:focus{
-    border: var(--axn-input-active) 1px solid ;
-    
+
+.input_input input:focus {
+    border: var(--axn-input-active) 1px solid;
 }
-.input_preicon{
+
+.input_preicon {
     position: relative;
     width: 15px;
     top: 2px;
@@ -45,137 +52,163 @@ input::-webkit-calendar-picker-indicator {
     cursor: pointer;
     height: 15px;
 }
-.input_preicon img{
+
+.input_preicon img {
     max-width: 100%;
     max-height: 100%;
 }
-.input_icon{
+
+.input_icon {
     position: relative;
-    width: 15px;
+    width: 0px;
     top: 2px;
     right: 20px;
     cursor: pointer;
     height: 15px;
 }
-.input_icon img{
-    max-width: 100%;
-    max-height: 100%;
+
+.inputDateWidth input {
+    width: calc(100% - 3px);
 }
 
-.input_preicon_grid{
+.input_flex .input_input {
+    display: flex;
+}
+
+.input_icon img {
+    /* max-width: 100%;
+    max-height: 100%; */
+    width: 15px;
+    height: 15px;
+}
+
+/* .input_preicon {
     display: grid;
     grid-template-columns: 1% 99%;
     text-indent: 24px;
-}
-.input_posticon_grid{
-    display: grid;
-    grid-template-columns: 99% 1%;
-}
-.input_preposticon_grid{
+} */
+
+/* .input_posticon input {
+    padding-right: 25px;
+} */
+
+
+/* .input_preposticon {
     display: grid;
     grid-template-columns: 1% 99% 1%;
 }
-.input_preposticon_grid input{
+
+.input_preposticon input {
     text-indent: 24px;
-}
-.input_checklist{
+}  */
+
+.input_checklist {
     position: relative;
-    width: 100%; 
+    width: 100%;
     display: flex;
-    justify-content:flex-start;
+    justify-content: flex-start;
     flex-direction: column;
     height: 5vh;
     overflow-y: scroll;
     transition: height 0.5s;
 }
-.input_checklist:hover{
+
+.input_checklist:hover {
     height: 15vh;
-    border:1px solid;
+    border: 1px solid;
 }
 
-.input_checklist div{
-    padding: 5px;
+.input_checklist div {
+    /* padding: 5px; */
 }
-.input_checklist div input{
+
+.input_checklist div input {
     font-size: 25px;
 
 }
-.cont_checkbox{
+
+.cont_checkbox {
     display: flex;
     flex-direction: column;
 }
-.cont_checkbox input{
+
+.cont_checkbox input {
     width: 25px;
-    height:  calc(var(--axn-input-font-size) + 10px);
-    padding-top: 0px;
+    height: calc(var(--axn-input-font-size) + 10px);
+    /* padding-top: 0px; */
     margin: 0px;
 }
-.inputchecklist_content .cont_checkbox{
+
+/* .inputchecklist_content .cont_checkbox {
     display: grid;
     grid-template-columns: 50% 50%;
+} */
+
+.inputchecklist_content .cont_checkbox input {
+    height: calc(var(--axn-input-font-size));
 }
-.inputchecklist_content .cont_checkbox input{
-    height:  calc(var(--axn-input-font-size) );
-}
-.cont_checkbox .input_label{
+
+.cont_checkbox .input_label {
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
 }
-.inputchecklist_content{
+
+.inputchecklist_content {
     max-height: 600px;
     overflow: hidden;
     overflow-y: auto;
 }
-.checkboxlistjson{
+
+.checkboxlistjson {
     visibility: hidden;
 }
 
-.cont_text{
+.cont_text {
     display: inline;
 }
-.validate_false input{
+
+.validate_false input {
     background-color: red;
 }
-.errorText{
-    padding-left: 5px;
+
+.errorText {
+    /* padding-left: 5px; */
     color: red;
     text-align: right;
 }
 
 
 
-.helpmessage_content{
+.helpmessage_content {
     position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
-  z-index: 1000;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    z-index: 100;
 }
 
 .helpmessage {
-  
-  width: 120px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  bottom: 0px;
-  opacity: 1;
-  z-index: 1000;
-  
- }
 
- .helpmessage::after {
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    /* padding: 5px 0; */
+    position: absolute;
+    bottom: 0px;
+    opacity: 1;
+    z-index: 100;
+
+}
+
+.helpmessage::after {
     content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
- }
-
- 
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}

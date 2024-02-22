@@ -56,18 +56,20 @@ const InputData = ({
     classes.input,
     classes["input_" + pers],
     classes["cont_date"],
+    classes[className],
   ];
-  const classLabel = [classes.input_label, classFocus, className];
+  const classLabel = [classes.input_label, classFocus];
   const classDivInput = [
     classes.input_input,
+    classes.inputDateWidth,
     classFocus,
     classes["validate_" + InputIsValid],
   ];
-  const classDivCheckList = [
-    classes.input_checklist,
-    classFocus,
-    classes["validate_" + InputIsValid],
-  ];
+  // const classDivCheckList = [
+  //   classes.input_checklist,
+  //   classFocus,
+  //   classes["validate_" + InputIsValid],
+  // ];
 
   /*  useEffect(() => {
     if (effVal === "") {
@@ -107,7 +109,7 @@ const InputData = ({
       <div className={classDivInput.join(" ")}>
         <input
           id={id}
-          type="date"
+          type='date'
           tipo={sTipo}
           onChange={onChangeInput}
           onBlur={InputBlur}

@@ -1,5 +1,4 @@
-
-.folder_content{
+.folder_content {
     display: flex;
     justify-content: left;
 
@@ -7,14 +6,15 @@
     padding-left: 10px;
 }
 
-.folder_content .folderlabel{
+.folder_content .folderlabel {
     width: auto;
-    padding: 5px;
+    /* padding: 5px; */
     background-color: var(--axn-folder-background-color);
-    color:var(--axn-folder-color);
+    color: var(--axn-folder-color);
     border-top-right-radius: 10px;
-    border: 1px solid var(--axn-folder-border-color);;
-    cursor:pointer;
+    border: 1px solid var(--axn-folder-border-color);
+    ;
+    cursor: pointer;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     margin-right: 1px;
@@ -24,21 +24,21 @@
 
 }
 
-.folder_content .folder_active .folderlabel{
+.folder_content .folder_active .folderlabel {
 
     background-color: var(--axn-folder-background-color-active);
     color: var(--axn-folder-color-active);
     font-weight: 600;
-   
+
 
 }
 
-.folderlabel label{
+.folderlabel label {
     padding-left: 5px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
-.folderlabel img{
+.folderlabel img {
     width: 15px;
     height: 15px;
- }
+}

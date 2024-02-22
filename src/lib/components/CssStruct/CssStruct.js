@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
-const CssStruct = ({ children, url, piva }) => {
+const CssStruct = ({ children, url, piva, template = "default" }) => {
   const [defaultCss, setDefaultCss] = useState(null);
   const [personalCss, setPersonalCss] = useState(null);
   const versioncss = new Date().getTime();
 
   const getdefaultCss = async (url) => {
     let rr = false;
-    const response = await fetch(url + "/default.json?v=" + versioncss)
+    const response = await fetch(url + "/" + template + ".json?v=" + versioncss)
       .then((result) => result.json())
       .then((data) => {
         rr = data;

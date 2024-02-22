@@ -1,4 +1,4 @@
-.card{
+.card {
         border: 1px solid transparent;
         margin: 10px;
         width: calc(100% - 20px);
@@ -6,53 +6,49 @@
         border-radius: 6px;
         background-color: var(--axn-card-background-color);
         box-shadow: 0 1px 4px var(--axn-box-shadow);
-        padding: 1px;
-        padding-right: 1rem;
+        padding: 1rem;
         text-align: center;
         color: var(--axn-card-color);
-      
 }
-.card_sm{
+
+.card_sm {
         max-width: 25%;
-        
-      
 }
-.card_md{
 
+.card_md {
         max-width: 50%;
-      
 }
-.card_lg{
 
+.card_lg {
         max-width: calc(100% - 42px);
-        
-      
 }
-.card_form{
+
+.card_form {
         text-align: left;
         max-width: calc(100% - 42px);
 }
-.card_noborder{
+
+.card_noborder {
         padding: 0px;
         margin: 0px;
-        box-shadow:none;
-        width:100%;
+        box-shadow: none;
+        width: 100%;
         max-width: none;
-        text-align:left;
+        text-align: left;
 }
-.card_form_t{
+
+.card_form_t {
         text-align: left;
         max-width: calc(100% - 42px);
         background-color: var(--axn-card-form-t-background-color);
-
 }
-.card_form_d{
+
+.card_form_d {
         text-align: left;
         max-width: calc(100% - 42px);
         background-color: var(--axn-card-form-d-background-color);
-        
 }
-.card_form input{
-        
+
+.card_form input {
         background-color: var(--axn-card-form-input-background-color);
 }

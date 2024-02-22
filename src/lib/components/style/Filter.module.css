@@ -1,14 +1,16 @@
-.filter_search{
-    width: fit-content;
-}
-.filter_search_img{
-    width: 100%;
+.filter_search {
+    background-color: var(--axn-card-form-input-background-color);
 }
 
-.filter_button{
-   width: 5vw;
-   max-width: 40px;
-   max-height: 40px;
-   
+.iconContainer {
+    /* position: relative; */
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
+.icona {
+    right: 40px;
+    position: absolute;
+}

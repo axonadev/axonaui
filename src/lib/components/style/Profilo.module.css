@@ -1,4 +1,4 @@
-.profilo_content{
+.profilo_content {
     position: absolute;
     min-width: 300px;
     background-color: #EBEBEB;
@@ -9,24 +9,26 @@
     border-radius: 9px;
     display: flex;
     flex-direction: column;
-    z-index: 101;
+    z-index: 100;
 
-    
+
 }
 
-.profilo_content img{
+.profilo_content img {
     width: 50px;
     padding-top: 10px;
-    
+
 }
-.profilo_content_img{
-    display:flex;
+
+.profilo_content_img {
+    display: flex;
     justify-content: center;
 }
-.profilo_immagine{
+
+.profilo_immagine {
     width: 75px;
     border: 1px solid;
     border-radius: 50px;
-    padding: 5px; 
+    padding: 5px;
 
 }

@@ -37,7 +37,6 @@ const Citta = ({
     onChangeValue(provincia.id, selItem.Provincia);
     onChangeValue(cap.id, selItem.CAP);
     onChangeValue(nazione.id, 118);
-
     setFormIsVisible(false);
   };
   const onStophandler = () => {
@@ -48,7 +47,8 @@ const Citta = ({
   return (
     <>
       <FrameInRow
-        width={["nopaddingleft 20", "65 nopaddingright", 5, 10]}
+        width={["nowidth", "nowidth ciccio", "nowidth"]}
+        // width={["nopaddingleft 20", "65 nopaddingright", 5, 10]}
         form_id={form_id}
       >
         <InputList
@@ -56,7 +56,7 @@ const Citta = ({
           id={nazione.id}
           onChange={onChange}
           onChangeValue={onChangeValue}
-          field_id="IDOBJ"
+          field_id='IDOBJ'
           field_description={["Nazioni_Descrizione"]}
           url={
             REACT_APP_SERVERAPI +
@@ -64,16 +64,21 @@ const Citta = ({
             localStorage.getItem("axn_token") +
             "/citta/cittasel/legginazioni"
           }
-          nameList="v_nazioni"
+          nameList='v_nazioni'
         />
-        <Input
-          label={citta.label}
-          id={citta.id}
-          onChangeValue={onChangeValue}
-          onChange={onChange}
-          icon="trepuntini"
-          onIconClick={cittaClickHandler}
-        />
+
+        {/* QUI */}
+        <div style={{ width: "100%" }}>
+          <Input
+            className={"input_flex"}
+            label={citta.label}
+            id={citta.id}
+            onChangeValue={onChangeValue}
+            onChange={onChange}
+            icon='trepuntini'
+            onIconClick={cittaClickHandler}
+          />
+        </div>
 
         <Input
           label={provincia.label}
@@ -117,7 +122,7 @@ const Citta = ({
           ]}
         >
           <Grid
-            id="grid_citta"
+            id='grid_citta'
             loadGrid={
               REACT_APP_SERVERAPI +
               "api/axo_sel/" +

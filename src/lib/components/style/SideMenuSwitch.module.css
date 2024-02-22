@@ -11,19 +11,17 @@
   flex-direction: column;
   justify-content: center;
 }
+
 .sidemenuswitch_content label {
   cursor: pointer;
 }
 
-.sidemenuswitch_open {
-  left: 10px;
-}
-
+.sidemenuswitch_open,
 .sidemenuswitch_close {
   left: 10px;
 }
 
-.msasidetoggler{
+.msasidetoggler {
   padding: 0.25rem 0.75rem;
   font-size: 1.25rem;
   line-height: 1;
@@ -31,17 +29,9 @@
   border: 1px solid transparent;
   border-radius: 0.25rem;
   cursor: pointer;
-  
 }
 
-.msasidetoggler .mstogglerbar {
-  height: 2px;
-  width: 20px;
-  margin-bottom: 4px;
-  transition: .3s;
-  display: block;
-  background-color: var(--axn-primary-color);
-}
+.msasidetoggler .mstogglerbar,
 .msasidetoggler .mstogglerbarclose {
   height: 2px;
   width: 20px;
@@ -54,13 +44,12 @@
 .msasidetoggler .mstogglerbar:nth-child(2) {
   width: 15px;
 }
+
 .msasidetoggler .mstogglerbar:nth-child(3) {
   width: 10px;
 }
 
-.msasidetoggler .mstogglerbarclose:nth-child(2) {
-  width: 20px;
-}
+.msasidetoggler .mstogglerbarclose:nth-child(2),
 .msasidetoggler .mstogglerbarclose:nth-child(3) {
   width: 20px;
 }

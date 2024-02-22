@@ -1,4 +1,4 @@
-.header_content{
+.header_content {
     background-color: var(--axn-header-background-color);
     height: var(--axn-height-top);
     display: flex;
@@ -8,28 +8,32 @@
     top: 0;
     width: 100vw;
 }
-.header_contentorizontal{
+
+.header_contentorizontal {
     padding: 10px;
     display: grid;
     grid-template-columns: 100%;
- 
+
 }
-.header_contentvertical{
+
+.header_contentvertical {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.header_label{
+
+.header_label {
     font-size: calc(30px + 1vh);
     color: var(--axn-header-color);
     text-align: center;
     font-variant: small-caps;
-    
+
 
 
 }
-.header_doc{
-    position:relative !important;
+
+.header_doc {
+    position: relative !important;
     width: 100%;
- 
+
 }

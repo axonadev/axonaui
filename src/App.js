@@ -33,8 +33,9 @@ const App = () => {
     <CssStruct
       url={REACT_APP_CSSFOLDER}
       piva={localStorage.getItem("axn_piva")}
+      template={"template1"}
     >
-      <div className="App">
+      <div className='App'>
         {connesso === 0 && <LoadingSpinner />}
         {connesso === 1 && <Layout piva={localStorage.getItem("axn_piva")} />}
       </div>

@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import useInput from "../../hooks/useInput";
 import classes from "../style/Input.module.css";
 import Img from "../Img/Img";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 
 const Input = ({
   value,
@@ -21,7 +23,7 @@ const Input = ({
   form_id,
   validate,
   help,
-  helpMessage
+  helpMessage,
 }) => {
   const pers = localStorage.getItem("pers");
 
@@ -60,17 +62,21 @@ const Input = ({
     classes.input,
     classes["input_" + pers],
     classes["cont_text"],
+    classes[className],
+    className,
   ];
   const classLabel = [classes.input_label, classFocus, className];
+  // Classe div input
   const classDivInput = [
     classes.input_input,
     classFocus,
     classes["validate_" + InputIsValid],
-    icon && preIcon
-      ? classes.input_preposticon_grid
-      : preIcon
-      ? classes.input_preicon_grid
-      : classes.input_posticon_grid,
+    icon ? classes.input_posticon : "",
+    preIcon ? classes.input_preicon : "",
+    // icon && preIcon
+    //   ? classes.input_preposticon_grid
+    //   : preIcon? classes.input_preicon_grid
+    //   : classes.input_posticon_grid,
   ];
 
   const onChangeInput = (evt) => {
@@ -132,7 +138,7 @@ const Input = ({
     }
   }, []);
 
-  console.log(help,"help input");
+  console.log(help, "help input");
 
   return (
     <div id={"cont_" + id} className={classContent.join(" ")}>
@@ -143,9 +149,11 @@ const Input = ({
             <span className={classes.errorText}>{InputMessageError}</span>
           )}
         </label>
-        {help && <div className={classes.helpmessage_content}><span className={classes.helpmessage}>{helpMessage}</span></div>
-        }
-      
+        {help && (
+          <div className={classes.helpmessage_content}>
+            <span className={classes.helpmessage}>{helpMessage}</span>
+          </div>
+        )}
       </div>
       <div className={classDivInput.join(" ")}>
         {preIcon && (
@@ -153,7 +161,8 @@ const Input = ({
             className={classes.input_preicon}
             onClick={onPreIconClickHandler}
           >
-            <Img type={preIcon} pathImg="getlocal" />
+            <FontAwesomeIcon icon={faEllipsis} />
+            {/* <Img type={preIcon} pathImg='getlocal' /> */}
           </div>
         )}
         {type === "textarea" && (
@@ -182,8 +191,9 @@ const Input = ({
           />
         )}
         {icon && (
-          <div className={classes.input_icon} onClick={onIconClickHandler}>
-            <Img type={icon} pathImg="getlocal" />
+          <div className={classes.input_icon}>
+            {/* <Img type={icon} pathImg='getlocal' onClick={onIconClickHandler} /> */}
+            <FontAwesomeIcon icon={faEllipsis} onClick={onIconClickHandler} />
           </div>
         )}
       </div>

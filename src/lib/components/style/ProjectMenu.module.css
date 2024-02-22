@@ -1,13 +1,13 @@
-.projectmenu_content{
+.projectmenu_content {
     position: fixed;
-    height:100vh;
+    height: 100vh;
     left: auto;
     top: 0;
     right: 0;
     width: 60px;
     max-width: 60px;
     border-left: 1px solid rgba(0, 0, 0, 0.1);
-    background-color:var(--axn-sidemenu-background-color);
+    background-color: var(--axn-sidemenu-background-color);
     transform: translateX(0);
     transition: 0.2s;
     z-index: 90;
@@ -17,7 +17,7 @@
 
 }
 
-.projectmenu_sideoperation{
+.projectmenu_sideoperation {
     position: absolute;
     top: 0;
     right: 60px;
@@ -27,66 +27,70 @@
     z-index: 20;
     border-left: 1px solid rgba(0, 0, 0, 0.1);
 }
-.projectmenu_sideoperation_open{
+
+.projectmenu_sideoperation_open {
     transform: translateX(-1px);
-    box-shadow: -3px 2px 5px 0 rgba(0,0,0,.16);
+    box-shadow: -3px 2px 5px 0 rgba(0, 0, 0, .16);
     transition: 0.2s;
 
 }
-.projectmenu_sideoperation_close{
+
+.projectmenu_sideoperation_close {
     right: 100%;
     transform: translateX(120%);
     transition: 0.2s;
     z-index: -1;
 }
-.projectmenu_sideoperation_top{
+
+.projectmenu_sideoperation_top {
     height: calc(var(--axn-height-top) - 2rem);
     padding: 1rem;
-    border-bottom: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
     line-height: 1;
     font-size: 1.5rem;
-    font-family: "Roboto",sans-serif;
+    font-family: "Roboto", sans-serif;
     display: grid;
     grid-template-columns: 90% 10%;
 }
-.projectmenu_sideoperation_top_x{
+
+.projectmenu_sideoperation_top_x {
     cursor: pointer;
 }
 
 
 
-.projectmenubutton_item{
+.projectmenubutton_item {
 
     width: 100%;
     height: 50px;
     float: left;
-    
+
     background-color: var(--axn-sidemenu-btn-background-color);
     cursor: pointer;
     min-width: 40px;
-    
-    
-    }
-
-    .projectmenubutton_item_div{
-       float: left;
-       height: 100%;
-       display:flex;
-       justify-content: center;
-       flex-direction: column;
-       display: flex ;
-       justify-content: center ;
-       flex-direction: column ;
-       width: 60px;
-    }
 
 
+}
+
+.projectmenubutton_item_div {
+    float: left;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 60px;
+}
 
 
 
 
 
-.projectmenubutton_item{
+
+
+.projectmenubutton_item {
     width: 100%;
     display: flex;
     grid-template-columns: none;
@@ -95,23 +99,22 @@
     grid-template-columns: 1px 59px;
 }
 
-.projectmenubutton_item .projectmenubutton_item_label:nth-child(1) {
+.projectmenubutton_item .projectmenubutton_item_label:nth-child(1) {}
+
+.projectmenubutton_item_img {
+    width: auto;
+    display: flex;
+    justify-content: center;
 
 }
 
-.projectmenubutton_item_img{
-    width:auto;
-    display:flex;
-    justify-content:center;
-    
-}
-
-.projectmenubutton_item_img img{
+.projectmenubutton_item_img img {
     max-width: 25px;
-    width: 40px;  
+    width: 40px;
 
 }
-.projectmenubutton_item_label{
+
+.projectmenubutton_item_label {
     /* display: none !important;  */
     width: 0px;
     visibility: hidden;
@@ -119,7 +122,7 @@
 
 
     display: block !important;
-    
+
 
 
 }
@@ -128,7 +131,7 @@
     display: block !important;
     visibility: visible;
     background-color: var(--axn-sidemenu-btn-closed-background-color);
-    color:  var(--axn-sidemenu-btn-closed-color);
+    color: var(--axn-sidemenu-btn-closed-color);
     position: relative;
     width: 100px;
     padding: 7px;
@@ -140,10 +143,10 @@
     text-align: center;
     overflow: hidden;
 
-    
+
 }
 
-.projectmenu_profilo{
+.projectmenu_profilo {
     display: flex;
     justify-content: center;
     padding-top: 7px;
@@ -151,19 +154,21 @@
     padding-bottom: 6px;
 }
 
-.projectmenu_profilo img{
+.projectmenu_profilo img {
     width: 20px;
 }
-.projectmenu_profilo button{
+
+.projectmenu_profilo button {
     background-color: transparent;
 }
 
-.projectmenu_help{
+.projectmenu_help {
     width: 100%;
     text-align: center;
     cursor: pointer;
-    font-weight:700 ;
+    font-weight: 700;
 }
-.projectmenu_help label{
+
+.projectmenu_help label {
     cursor: pointer;
 }
