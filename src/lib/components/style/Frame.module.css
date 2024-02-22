@@ -1,14 +1,12 @@
 .framecontent {
-   /* padding: 5px;
-   padding-top: 0px; */
    display: flex;
    flex-direction: column;
 }
 
 .frame_header {
    width: 100%;
-   display: grid;
-   grid-template-columns: 30% 40% 30%;
+   display: flex;
+   justify-content: space-between;
 }
 
 .frame_stato {
@@ -24,12 +22,10 @@
 
 .frame_ridimensiona img {
    width: 13px;
-   /* padding: 0px; */
 }
 
 .ridimensionaico {
    font-size: 10px;
-   /* padding: 5px; */
    margin-left: 1px;
    background-color: transparent;
 }
@@ -55,7 +51,6 @@
    text-align: left;
    border-bottom: none;
    font-weight: 600;
-   /* padding-left: 15px; */
    font-size: 18px;
 }
 
@@ -97,10 +92,7 @@
 .frameinrow_95,
 .frameinrow_100,
 .frameinrow_nowidth {
-   /* padding: 1px; */
-   /* padding-left: 5px; */
    padding-right: 5px;
-   /* margin-right: 5px; */
 }
 
 .frameinrow_2 {

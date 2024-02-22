@@ -13,7 +13,8 @@ const InputCheckBox = ({
   form_id,
   onChangeValue,
   help,
-  helpMessage
+  helpMessage,
+  labelAlign = "top",
 }) => {
   const pers = localStorage.getItem("pers");
 
@@ -102,26 +103,35 @@ const InputCheckBox = ({
 
   return (
     <div id={"cont_" + id} className={classContent.join(" ")}>
-      <div className={classLabel.join(" ")}>
-        <label>
-          {objLabel}
-          {!InputIsValid && (
-            <span className={classes.errorText}>{InputMessageError}</span>
-          )}
-        </label>
-       
-      </div>
+      {labelAlign === "top" && (
+        <div className={classLabel.join(" ")}>
+          <label>
+            {objLabel}
+            {!InputIsValid && (
+              <span className={classes.errorText}>{InputMessageError}</span>
+            )}
+          </label>
+        </div>
+      )}
 
       <div className={classDivInput.join(" ")}>
         <input
           id={id}
-          type="checkbox"
+          type='checkbox'
           tipo={sTipo}
           onChange={InputChangeHandler}
           onBlur={InputBlur}
           onFocus={InputFocus}
           checked={isChecked}
         />
+        {labelAlign === "right" && (
+          <label>
+            {objLabel}
+            {!InputIsValid && (
+              <span className={classes.errorText}>{InputMessageError}</span>
+            )}
+          </label>
+        )}
       </div>
     </div>
   );

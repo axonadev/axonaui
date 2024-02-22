@@ -37,7 +37,6 @@ input::-webkit-calendar-picker-indicator {
 
 .input_input input:hover {
     border: var(--axn-input-border-color-hover) 1px solid;
-
 }
 
 .input_input input:focus {
@@ -76,31 +75,9 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .input_icon img {
-    /* max-width: 100%;
-    max-height: 100%; */
     width: 15px;
     height: 15px;
 }
-
-/* .input_preicon {
-    display: grid;
-    grid-template-columns: 1% 99%;
-    text-indent: 24px;
-} */
-
-/* .input_posticon input {
-    padding-right: 25px;
-} */
-
-
-/* .input_preposticon {
-    display: grid;
-    grid-template-columns: 1% 99% 1%;
-}
-
-.input_preposticon input {
-    text-indent: 24px;
-}  */
 
 .input_checklist {
     position: relative;
@@ -118,13 +95,8 @@ input::-webkit-calendar-picker-indicator {
     border: 1px solid;
 }
 
-.input_checklist div {
-    /* padding: 5px; */
-}
-
 .input_checklist div input {
     font-size: 25px;
-
 }
 
 .cont_checkbox {
@@ -135,14 +107,8 @@ input::-webkit-calendar-picker-indicator {
 .cont_checkbox input {
     width: 25px;
     height: calc(var(--axn-input-font-size) + 10px);
-    /* padding-top: 0px; */
     margin: 0px;
 }
-
-/* .inputchecklist_content .cont_checkbox {
-    display: grid;
-    grid-template-columns: 50% 50%;
-} */
 
 .inputchecklist_content .cont_checkbox input {
     height: calc(var(--axn-input-font-size));
@@ -173,12 +139,9 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .errorText {
-    /* padding-left: 5px; */
     color: red;
     text-align: right;
 }
-
-
 
 .helpmessage_content {
     position: relative;
@@ -188,18 +151,15 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .helpmessage {
-
     width: 120px;
     background-color: #555;
     color: #fff;
     text-align: center;
     border-radius: 6px;
-    /* padding: 5px 0; */
     position: absolute;
     bottom: 0px;
     opacity: 1;
     z-index: 50;
-
 }
 
 .helpmessage::after {

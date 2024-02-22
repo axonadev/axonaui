@@ -11,11 +11,11 @@ const Header = ({ id, titolo, pathimg, className }) => {
           <label className={classes.header_label}>{titolo}</label>
         </div>
         <div className={classes.header_contentvertical}>
-          <span>
+          {/* <span>
             <Img src={pathimg + "/message.png"} type={"button"} />
             <Img src={pathimg + "/notification.png"} type={"button"} />
             <Img src={pathimg + "/settings.png"} type={"button"} />
-          </span>
+          </span> */}
         </div>
       </div>
     </header>
