@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FolderLabel from "./FolderLabel.prv";
+import Card from "../Card/Card";
 import classes from "../style/Folder.module.css";
 
 const Folder = ({ items, onSelect, startSelect }) => {
@@ -11,7 +12,7 @@ const Folder = ({ items, onSelect, startSelect }) => {
   };
 
   return (
-    <React.Fragment>
+    <Card type='lg'>
       <div className={classes.folder_content}>
         {items &&
           items.map((item) => {
@@ -31,7 +32,7 @@ const Folder = ({ items, onSelect, startSelect }) => {
             );
           })}
       </div>
-    </React.Fragment>
+    </Card>
   );
 };
 export default Folder;

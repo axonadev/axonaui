@@ -8,37 +8,48 @@
 
 .folder_content .folderlabel {
     width: auto;
-    /* padding: 5px; */
     background-color: var(--axn-folder-background-color);
     color: var(--axn-folder-color);
     border-top-right-radius: 10px;
     border: 1px solid var(--axn-folder-border-color);
-    ;
     cursor: pointer;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     margin-right: 1px;
     text-decoration: none;
 
-
-
+    /* #qui */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
 }
 
 .folder_content .folder_active .folderlabel {
-
     background-color: var(--axn-folder-background-color-active);
     color: var(--axn-folder-color-active);
     font-weight: 600;
-
-
 }
 
 .folderlabel label {
-    padding-left: 5px;
+    padding: 5px;
     cursor: pointer;
 }
 
 .folderlabel img {
     width: 15px;
     height: 15px;
+}
+
+@media (max-width: 950px) {
+
+    .folderlabel label {
+        display: none;
+    }
+
+    .folderlabel img {
+        width: 30px;
+        height: 30px;
+    }
 }

@@ -48,24 +48,29 @@ const Project = ({ request, list, help }) => {
     "/soggettialtridatigestionali/soggettialtridatigestionalisel/leggi";
 
   const itemFolders = [
-    { key: 1, label: "Anagrafica", img: "anagrafica", target: "anagrafica" },
-    { key: 2, label: "Domicili", img: "home", target: "domicili" },
-    { key: 3, label: "Contabilità", img: "contabilita", target: "contabilita" },
-    { key: 4, label: "CRM", img: "crm", target: "crm" },
+    { key: 1, label: "Anagrafica", img: "faUsers", target: "anagrafica" },
+    { key: 2, label: "Domicili", img: "faHouseUser", target: "domicili" },
+    {
+      key: 3,
+      label: "Contabilità",
+      img: "faFileInvoice",
+      target: "contabilita",
+    },
+    { key: 4, label: "CRM", img: "faUsersGear", target: "crm" },
     {
       key: 5,
       label: "Fatture Automatiche",
-      img: "fattura",
+      img: "faFileSignature",
       target: "fattureautomatiche",
     },
-    { key: 6, label: "Dotazioni", img: "list", target: "dotazioni" },
-    { key: 7, label: "Note", img: "note", target: "note" },
-    { key: 8, label: "GDPR", img: "gdpr", target: "gdpr" },
-    { key: 9, label: "Storico", img: "pergamena", target: "pergamenta" },
+    { key: 6, label: "Dotazioni", img: "faListUl", target: "dotazioni" },
+    { key: 7, label: "Note", img: "faFilePen", target: "note" },
+    { key: 8, label: "GDPR", img: "faFileShield", target: "gdpr" },
+    { key: 9, label: "Storico", img: "faScroll", target: "pergamenta" },
     {
       key: 10,
       label: "Altri dati gestionali",
-      img: "anagrafica",
+      img: "faDatabase",
       target: "altridati",
     },
   ];

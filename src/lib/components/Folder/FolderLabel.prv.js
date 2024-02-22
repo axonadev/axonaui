@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "../style/Folder.module.css";
-import Img from "../Img/Img";
+import ImgFont from "../Img/ImgFont";
 const FolderLabel = ({ target, children, onClick, img }) => {
   const onClickHandler = () => {
     onClick(target);
@@ -8,7 +8,7 @@ const FolderLabel = ({ target, children, onClick, img }) => {
   return (
     <React.Fragment>
       <div className={classes.folderlabel} onClick={onClickHandler}>
-        <Img type={img} pathImg="getlocal" />
+        <ImgFont icon={img} pathImg='getlocal' />
         <label>{children}</label>
       </div>
     </React.Fragment>
