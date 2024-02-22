@@ -1,10 +1,11 @@
 import React from "react";
 import classes from "../style/SideMenuBottone.module.css";
-import Img from "../Img/Img";
+import ImgFont from "../Img/ImgFont";
 
 const SideMenuBottone = ({
   path,
   src,
+  icon,
   label,
   onoff,
   className,
@@ -20,7 +21,9 @@ const SideMenuBottone = ({
       ? classes.sidemenubottone_contentopen
       : classes.sidemenubottone_contentclose,
 
-      localStorage.getItem ("axn_sidemenubottonesel")===label? classes.sidemenubottonesel: "",
+    localStorage.getItem("axn_sidemenubottonesel") === label
+      ? classes.sidemenubottonesel
+      : "",
   ];
 
   const stylelabel = [
@@ -37,19 +40,17 @@ const SideMenuBottone = ({
   return (
     <div className={stylecontent.join(" ")} onClick={btnhandler}>
       <div>
-        <Img type={src} pathImg="getlocal" />
+        <ImgFont icon={src} />
       </div>
 
       <div className={stylelabel.join(" ")}>
         <label>{label}</label>
       </div>
-
-
-      {ambito && (
+      {/* {ambito && (
         <div>
           <label>{selezionato ? "-" : "+"}</label>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

@@ -5,6 +5,7 @@ import classes from "../style/SideMenuAmbito.module.css";
 const SideMenuAmbito = ({
   label,
   src,
+  icon,
   onoff,
   list,
   idAmbito,

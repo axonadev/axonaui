@@ -2,10 +2,7 @@ import React from "react";
 import classes from "../style/Pagination.module.css";
 import Img from "../Img/Img";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSquareCaretRight,
-  faSquareCaretLeft,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCaretRight, faCaretLeft } from "@fortawesome/free-solid-svg-icons";
 const Pagination = ({
   id,
   page,
@@ -30,7 +27,7 @@ const Pagination = ({
       <FontAwesomeIcon
         className={classes.pagination_lefticon}
         onClick={onLeftIconClickHandler}
-        icon={faSquareCaretLeft}
+        icon={faCaretLeft}
       />
       {/* <Img type={leftIcon} pathImg='getlocal' /> */}
       <input
@@ -40,7 +37,7 @@ const Pagination = ({
         onChange={onChangeHandler}
       />
       <FontAwesomeIcon
-        icon={faSquareCaretRight}
+        icon={faCaretRight}
         className={classes.pagination_righticon}
         onClick={onRightIconClickHandler}
       />
