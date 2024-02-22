@@ -122,20 +122,20 @@
 
 
 
-.sw_testata {
+/* .sw_testata {
     position: sticky;
     top: 51.5px;
-}
+} */
 
 .row_rowselected {
     background-color: var(--axn-grid-row-selected-background-color);
 
 }
 
-th {
+/* th {
     position: sticky;
     top: 0px;
-}
+} */
 
 td {
     border-bottom: solid 1px;
