@@ -117,7 +117,8 @@
 
 .grid_table {
     border-collapse: collapse;
-    width: max-content;
+    /* width: max-content; */
+    width: 100%;
 }
 
 .grid_labelstato {
