@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "../Button/Button";
 import Img from "../Img/Img";
+import ImgFont from "../Img/ImgFont";
 import MessageModal from "../MessageModal/MessageModal";
 import classes from "../style/Form.module.css";
 const FormButton = ({ id_submit, onAnnulla, numberGrid }) => {
@@ -38,10 +39,12 @@ const FormButton = ({ id_submit, onAnnulla, numberGrid }) => {
     <>
       <>
         <Button className={classBSave.join(" ")} onClick={formSubmit}>
-          <Img type="save" pathImg="getlocal" />
+          {/* <Img type="save" pathImg="getlocal" /> */}
+          <ImgFont icon='faFloppyDisk' />
         </Button>
         <Button className={classBAnnulla.join(" ")} onClick={clickAnnulla}>
-          <Img type="annulla" pathImg="getlocal" />
+          {/* <Img type="annulla" pathImg="getlocal" /> */}
+          <ImgFont icon='faXmark' />
         </Button>
       </>
 

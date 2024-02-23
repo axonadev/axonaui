@@ -4,6 +4,7 @@ import { formatDate, postData } from "axonalib";
 import MessageModal from "../MessageModal/MessageModal";
 import Button from "../Button/Button";
 import Img from "../Img/Img";
+import ImgFont from "../Img/ImgFont";
 import SnackBar from "../SnackBar/SnackBar";
 import Folder from "../Folder/Folder";
 import { useEffect } from "react";
@@ -250,7 +251,8 @@ const Form = ({
           type='submit'
           id={id_submit}
         >
-          <Img type='save' pathImg='getlocal' />
+          <ImgFont icon='faFloppyDisk' />
+          {/* <Img type='save' pathImg='getlocal' /> */}
         </Button>
       </form>
       {mex && (

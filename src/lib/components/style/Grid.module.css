@@ -82,23 +82,27 @@
 
 /* Buttons Delete/ADD */
 .grid_buttonDelete {
-    color: crimson;
+    color: white;
+    background-color: crimson !important;
     border: 1px solid crimson;
 }
 
 .grid_buttonDelete:hover {
-    color: white;
-    background-color: crimson !important;
+    color: red;
+    background-color: red !important;
+    border: 1px solid red;
 }
 
 .grid_buttonAdd {
-    color: g;
+    color: white;
+    background-color: #77DD77 !important;
     border: 1px solid #77DD77;
 }
 
 .grid_buttonAdd:hover {
-    color: white;
-    background-color: #77DD77 !important;
+    color: greenyellow;
+    background-color: greenyellow !important;
+    border: 1px solid greenyellow;
 }
 
 .grid_button:hover {
