@@ -32,6 +32,10 @@
     color: white;
 }
 
+.sidemenubottone_content:hover label {
+    color: var(--axn-header-color);
+}
+
 .sidemenubottone_content:hover {
     color: var(--axn-header-color);
     background-color: white;

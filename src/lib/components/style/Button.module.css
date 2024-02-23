@@ -8,12 +8,11 @@
     margin: 0px;
     margin-bottom: 1px;
     transition: 0.2s background-color, color;
-
 }
 
 .button:hover {
-    background-color: var(--axn-button-background-color-hover);
-    color: var(--axn-button-color-hover);
+    background-color: var(--axn-header-color);
+    color: white;
     cursor: pointer;
 }
 
