@@ -1,7 +1,6 @@
 .grid_content {
     width: 100%;
     height: 20vh;
-    /* margin: 1vh; */
     margin-top: 0px;
 }
 
@@ -56,22 +55,12 @@
     height: 0.1px;
 }
 
-.grid_filtergrid input {
-    /* width: 100% !important;
-    margin: 0px !important;
-    float: right; */
-}
-
 .grid_buttonoperation {
-    width: auto;
-    /* display: grid;
-    grid-template-columns: 32px 32px; */
+    /* width: auto; */
+    display: flex;
 }
 
 .grid_pagecontrols {
-    /* float: right;
-    display: grid;
-    grid-template-columns: 75px; */
     margin-right: 7px;
 }
 
@@ -81,14 +70,40 @@
 }
 
 .grid_button {
-    background-color: var(--axn-grid-header-button-background-color);
-    color: var(--axn-grid-header-button-color);
-    width: 10vw;
+    margin-right: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: var(--axn-header-color);
+    height: 30px;
+    width: 30px;
+}
+
+/* Buttons Delete/ADD */
+.grid_buttonDelete {
+    color: crimson;
+    border: 1px solid crimson;
+}
+
+.grid_buttonDelete:hover {
+    color: white;
+    background-color: crimson !important;
+}
+
+.grid_buttonAdd {
+    color: g;
+    border: 1px solid #77DD77;
+}
+
+.grid_buttonAdd:hover {
+    color: white;
+    background-color: #77DD77 !important;
 }
 
 .grid_button:hover {
-    background-color: var(--axn-grid-header-button-background-color-hover);
-    color: var(--axn-grid-header-button-color-hover);
+    background-color: var(--axn-header-color);
+    color: white;
 }
 
 .grid_button img {
@@ -96,64 +111,28 @@
     height: 20px;
 }
 
-
 .grid_table {
     border-collapse: collapse;
     width: max-content;
-
-
 }
 
-/* 
-  .grid_table td, .grid_table th {
-    border: 1px solid #ddd;
-    
-  }
-   */
-
 .grid_labelstato {
-
     padding: 10px;
     font-weight: 600;
     font-style: italic;
-
-
 }
-
-
-
-/* .sw_testata {
-    position: sticky;
-    top: 51.5px;
-} */
 
 .row_rowselected {
     background-color: var(--axn-grid-row-selected-background-color);
-
-}
-
-/* th {
-    position: sticky;
-    top: 0px;
-} */
-
-td {
-    border-bottom: solid 1px;
 }
 
 .grid_table_content .grid_type_t {
     background-color: var(--axn-grid-top-header-t-row-background-color);
-
 }
 
 .grid_table_content .grid_type_d {
     background-color: var(--axn-grid-top-header-d-row-background-color);
-
-
 }
-
-/* .grid_type_t tr:nth-child(even){background-color: var(--axn-grid-2row-t-background-color)}
-.grid_type_d tr:nth-child(even){background-color: var(--axn-grid-2row-d-background-color)} */
 
 .grid_type_t tr:hover {
     background-color: #ddd;
@@ -183,22 +162,17 @@ td {
     background: var(--axn-grid-header-row-background-color);
     border-radius: 10px;
     width: 50px;
-
-
-
 }
 
 /* Handle on hover */
 .grid_type_t .grid_table_content::-webkit-scrollbar-thumb:hover {
     background: var(--axn-grid-header-row-background-color);
-
 }
 
 /* Handle */
 .grid_type_d .grid_table_content::-webkit-scrollbar-thumb {
     background: var(--axn-grid-header-d-row-background-color);
     border-radius: 10px;
-
 }
 
 /* Handle on hover */
@@ -207,7 +181,6 @@ td {
 }
 
 .grid_row_ridimensiona {
-
     width: 20px;
     color: transparent;
     float: right;

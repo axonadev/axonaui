@@ -11,11 +11,12 @@ import {
   InputList,
   FrameContainer,
   Button,
+  Card,
 } from "../lib";
 import { useEnv } from "axonalib";
 import FormButton from "../lib/components/Form/FormButton";
 import TextEditor from "../lib/components/TextEditor/TextEditor";
-import { Card } from "axonaui";
+// import { Card } from "axonaui";
 import ChartBar from "../lib/components/Chart/ChartBar";
 import Citta from "../lib/components/UIFrame/Citta";
 import InputCheckList from "../lib/components/Input/InputCheckList";

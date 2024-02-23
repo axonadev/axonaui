@@ -1,12 +1,10 @@
-.button {
+.button,
+.button_type_sm {
     border-radius: 7px;
     border: 1px solid var(--axn-button-color);
     background-color: var(--axn-button-background-color);
     color: var(--axn-button-color);
-    overflow: hidden;
     padding: 10px;
-    margin: 0px;
-    margin-bottom: 1px;
     transition: 0.2s background-color, color;
 }
 
@@ -17,18 +15,20 @@
 }
 
 .button_type_sm {
-    padding: 5px;
-    width: 30px !important;
-    height: 25px;
-    border-radius: 6px;
-
+    font-size: 1rem;
+    margin-left: 1px;
+    color: var(--axn-header-color);
+    background-color: white;
+    border: 1px solid var(--axn-header-color);
+    height: 30px;
+    width: 30px;
+    padding: 10px;
 }
 
 .button_type_sm img {
     width: 15px !important;
     max-height: 15px;
     height: auto;
-
 }
 
 .button_type_submit {
@@ -49,6 +49,6 @@
 }
 
 .button_type_doc {
-    background-color: lightgreen;
-    color: green;
+    background-color: white;
+    color: var(--axn-header-color);
 }

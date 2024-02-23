@@ -26,7 +26,7 @@
 
 .ridimensionaico {
    font-size: 1rem;
-   margin-left: 1px;
+   margin-right: 2px;
    color: var(--axn-header-color);
    background-color: white;
    border: 1px solid var(--axn-header-color);
@@ -60,7 +60,8 @@
    text-align: left;
    border-bottom: none;
    font-weight: 600;
-   font-size: 18px;
+   font-size: 1.4rem;
+   color: var(--axn-header-color);
 }
 
 .frame_inserimento {

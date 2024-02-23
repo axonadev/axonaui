@@ -8,6 +8,7 @@ const ImgFont = ({ className, id, icon, onClick }) => {
     classes["img_" + icon],
     classes.img,
     className ? " " + className : "",
+    classes[className],
   ];
 
   const onClickHandler = (evt) => {

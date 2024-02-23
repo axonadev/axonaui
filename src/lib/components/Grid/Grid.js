@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from "../style/Grid.module.css";
 import Row from "./Row.prv";
-
+import ImgFont from "../Img/ImgFont";
 import useGrid from "../../hooks/useGrid";
 import useForm from "../../hooks/useForm";
 import Filter from "../Filter/Filter";
@@ -272,17 +272,19 @@ const Grid = ({
                 <div className={classes.grid_buttonoperation}>
                   <Button
                     onClick={insertHandler}
-                    className={classes.grid_button}
+                    className={`${classes.grid_button} ${classes.grid_buttonAdd}`}
                     type='sm'
                   >
-                    <Img type='add' pathImg='getlocal' />
+                    <ImgFont icon='faPlus' />
+                    {/* <Img type='add' pathImg='getlocal' /> */}
                   </Button>
                   <Button
                     onClick={deleteHandler}
-                    className={classes.grid_button}
+                    className={`${classes.grid_button} ${classes.grid_buttonDelete}`}
                     type='sm'
                   >
-                    <Img type='delete' pathImg='getlocal' />
+                    <ImgFont icon='faTrashCan' className='deleteBtn' />
+                    {/* <Img type='delete' pathImg='getlocal' /> */}
                   </Button>
                 </div>
               )}
