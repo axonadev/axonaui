@@ -83,26 +83,27 @@
 /* Buttons Delete/ADD */
 .grid_buttonDelete {
     color: white;
-    background-color: crimson !important;
-    border: 1px solid crimson;
+    background-color: var(--axn-danger-color) !important;
+    border: 1px solid var(--axn-danger-color);
 }
 
 .grid_buttonDelete:hover {
-    color: red;
-    background-color: red !important;
-    border: 1px solid red;
+    color: var(--axn-dark-danger-color);
+    background-color: var(--axn-dark-danger-color) !important;
+    border: 1px solid var(--axn-dark-danger-color);
+    ;
 }
 
 .grid_buttonAdd {
     color: white;
-    background-color: #77DD77 !important;
-    border: 1px solid #77DD77;
+    background-color: var(--axn-success-color) !important;
+    border: 1px solid var(--axn-success-color);
 }
 
 .grid_buttonAdd:hover {
-    color: greenyellow;
-    background-color: greenyellow !important;
-    border: 1px solid greenyellow;
+    color: var(--axn-dark-success-color);
+    background-color: var(--axn-dark-success-color) !important;
+    border: 1px solid var(--axn-dark-success-color);
 }
 
 .grid_button:hover {
