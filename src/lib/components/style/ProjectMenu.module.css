@@ -136,7 +136,7 @@
     width: 100px;
     padding: 7px;
     height: 25px;
-    border-radius: 7px;
+    border-radius: var(--axn-border-radius);
     font-size: calc(4px + 1vh);
     margin-top: 8px;
     right: 110px;

@@ -2,7 +2,7 @@
         border: 1px solid transparent;
         margin: 0.3rem;
         max-width: 25rem;
-        border-radius: 6px;
+        border-radius: var(--axn-border-radius);
         background-color: var(--axn-card-background-color);
         box-shadow: 0 1px 4px var(--axn-box-shadow);
         padding: 0.5rem;

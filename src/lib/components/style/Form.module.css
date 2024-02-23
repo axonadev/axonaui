@@ -3,11 +3,9 @@
 	margin-bottom: 50px;
 	height: fit-content;
 	overflow-x: hidden;
-
 }
 
 .form_body {
-
 	max-height: 600px;
 	overflow-y: auto;
 }
@@ -18,29 +16,28 @@
 
 .form_folders {
 	position: relative;
+}
 
-
+.form_save,
+.form_annulla {
+	height: 40px;
+	width: 40px;
 }
 
 .form_save {
 	z-index: 50;
-	height: 35px;
-	width: 65px !important;
 	position: fixed;
 	bottom: 5px;
-	border-radius: 7px;
-	right: 74px;
+	border-radius: var(--axn-border-radius);
+	right: 86px;
 }
 
 .form_annulla {
 	z-index: 50;
-	height: 35px;
-	width: 65px !important;
 	position: fixed;
 	bottom: 5px;
-	border-radius: 7px;
-	right: 150px;
-
+	border-radius: var(--axn-border-radius);
+	right: 131px;
 }
 
 .form_save_hidden {
@@ -59,5 +56,4 @@
 	margin: 0;
 	padding: 0;
 	left: -10px;
-
 }

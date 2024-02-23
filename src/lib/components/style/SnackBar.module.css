@@ -5,9 +5,10 @@
   right: 10px;
   width: 300px;
   height: 40px;
-  border-radius: 5px;
+  border-radius: var(--axn-border-radius);
   color: #aaec8a;
 }
+
 .snackbar_body {
   display: flex;
   flex-direction: row;
@@ -30,12 +31,14 @@
   border-radius: inherit;
   animation: progress 2.5s 0.3s linear;
 }
+
 @keyframes fade-in {
   5% {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
   }
+
   95% {
     opacity: 1;
     transform: translateY(0);

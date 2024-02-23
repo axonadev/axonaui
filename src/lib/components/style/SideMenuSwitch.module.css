@@ -27,7 +27,7 @@
   line-height: 1;
   background-color: transparent;
   border: 1px solid transparent;
-  border-radius: 0.25rem;
+  border-radius: var(--axn-border-radius);
   cursor: pointer;
 }
 

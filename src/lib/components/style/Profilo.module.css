@@ -6,7 +6,7 @@
     text-align: center;
     border: solid 1px;
     border-color: darkgray;
-    border-radius: 9px;
+    border-radius: var(--axn-border-radius);
     display: flex;
     flex-direction: column;
     z-index: 50;
