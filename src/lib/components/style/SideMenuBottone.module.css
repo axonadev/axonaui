@@ -1,7 +1,6 @@
 .sidemenubottone_content {
     width: 100%;
     height: 50px;
-    background-color: var(--axn-sidemenu-btn-background-color);
     cursor: pointer;
     min-width: 40px;
     color: white;
@@ -17,9 +16,6 @@
 }
 
 .sidemenubottone_content div {
-    /* display: flex;
-    align-items: center;
-    justify-content: flex-start; */
     margin-right: 5px;
 }
 
