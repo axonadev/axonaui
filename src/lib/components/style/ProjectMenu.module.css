@@ -84,12 +84,6 @@
     width: 60px;
 }
 
-
-
-
-
-
-
 .projectmenubutton_item {
     width: 100%;
     display: flex;
@@ -97,9 +91,8 @@
     justify-content: center;
     display: grid;
     grid-template-columns: 1px 59px;
+    background-color: transparent;
 }
-
-.projectmenubutton_item .projectmenubutton_item_label:nth-child(1) {}
 
 .projectmenubutton_item_img {
     width: auto;

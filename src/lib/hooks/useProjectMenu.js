@@ -21,7 +21,7 @@ const useProjectMenu = () => {
       {
         id: "conta",
         label: "Contabilizzazione",
-        img: "print",
+        img: "faPrint",
         function: () => {
           // console.log("click stampa");
         },

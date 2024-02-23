@@ -17,9 +17,10 @@
 }
 
 .sidemenubottone_content div {
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-start; */
+    margin-right: 5px;
 }
 
 .sidemenu_close .sidemenubottone_content div {
@@ -44,7 +45,9 @@
 .sidemenubottone_contentopen {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding-left: 20px;
 }
 
 .sidemenubottone_contentclose {
