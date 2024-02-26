@@ -1,12 +1,6 @@
 import React from "react";
 import classes from "../style/Frame.module.css";
-const FrameInRow = ({
-  width,
-  children,
-  form_id,
-  onChangeValue,
-  help = false,
-}) => {
+const FrameInRow = ({ width, children, form_id, onChangeValue, help = "" }) => {
   const isList = Array.isArray(children);
 
   const classsplit = String(width[0]).split(" ");

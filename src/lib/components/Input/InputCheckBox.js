@@ -102,7 +102,7 @@ const InputCheckBox = ({
   }, [effVal, effList]);
 
   return (
-    <div id={"cont_" + id} className={classContent.join(" ")}>
+    <div key={id} id={"cont_" + id} className={classContent.join(" ")}>
       {labelAlign === "top" && (
         <div className={classLabel.join(" ")}>
           <label>

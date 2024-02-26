@@ -38,7 +38,6 @@ const ProjectMenu = ({
   ];
 
   const profiloClick = () => {
-    // console.log("hai cliccato profilo");
     setOpenProfilo((prec) => {
       return !prec;
     });
@@ -69,6 +68,7 @@ const ProjectMenu = ({
                     key={item.id}
                     id={item.id}
                     img={item.img}
+                    icon={item.img}
                     label={item.label}
                     gofunction={item.function}
                     onClick={onClickHandler}

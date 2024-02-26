@@ -22,8 +22,8 @@ const Input = ({
   decimali,
   form_id = "",
   validate,
-  help = false,
-  helpMessage = "",
+  help,
+  helpMessage,
 }) => {
   const pers = localStorage.getItem("pers");
 

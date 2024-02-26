@@ -109,6 +109,8 @@ const InputCheckList = ({
         type='text'
         id={field_target}
         value={jsonDriver}
+        // Aggiunto onChacnge per evitare warning
+        onChange={(e) => setJsonDriver(e.target.value)}
         tipo='driverchecklist'
         db_target={db_target}
         className={classes.checkboxlistjson}
