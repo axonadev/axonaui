@@ -18,6 +18,12 @@
     border-radius: var(--axn-border-radius);
 }
 
+.pagination_righticon:active,
+.pagination_lefticon:active {
+    background-color: white;
+    color: var(--axn-input-border-color);
+}
+
 .paginationInput {
     padding: 3px;
     width: 15px !important;
