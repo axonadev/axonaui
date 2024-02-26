@@ -276,7 +276,6 @@ const Grid = ({
                     type='sm'
                   >
                     <ImgFont icon='faPlus' />
-                    {/* <Img type='add' pathImg='getlocal' /> */}
                   </Button>
                   <Button
                     onClick={deleteHandler}
@@ -284,11 +283,21 @@ const Grid = ({
                     type='sm'
                   >
                     <ImgFont icon='faTrashCan' className='deleteBtn' />
-                    {/* <Img type='delete' pathImg='getlocal' /> */}
                   </Button>
                 </div>
               )}
             </div>
+            {itemSearch && (
+              <Filter
+                onFilter={clickFilterGrid}
+                itemSearch={
+                  itemSearch === null || itemSearch === undefined
+                    ? itemsearchint
+                    : itemSearch
+                }
+                id={idFilter}
+              />
+            )}
             <div className={classes.grid_filtergridright}>
               <div className={classes.grid_pagecontrols}>
                 <Pagination
@@ -300,30 +309,7 @@ const Grid = ({
                   leftIcon='left'
                   onLeftIconClick={pageBeforeHandler}
                 />
-                {/* <Input
-                  label=""
-                  id="Grid_Pagination"
-                  className={classes.grid_inputpage}
-                  nameList="v_pagina"
-                  value={String(page)}
-                  onChange={onChangePage}
-                  icon="right"
-                  onIconClick={pageAfterHandler}
-                  preIcon="left"
-                  onPreIconClick={pageBeforeHandler}
-                /> */}
               </div>
-              {itemSearch && (
-                <Filter
-                  onFilter={clickFilterGrid}
-                  itemSearch={
-                    itemSearch === null || itemSearch === undefined
-                      ? itemsearchint
-                      : itemSearch
-                  }
-                  id={idFilter}
-                />
-              )}
             </div>
           </div>
         )}
