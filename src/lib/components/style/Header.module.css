@@ -3,17 +3,16 @@
     height: var(--axn-height-top);
     display: flex;
     justify-content: center;
-    flex-direction: column;
     position: fixed;
     top: 0;
-    width: 100vw;
+    right: 0;
+    left: 0;
 }
 
 .header_contentorizontal {
     padding: 10px;
     display: grid;
     grid-template-columns: 100%;
-
 }
 
 .header_contentvertical {
@@ -23,17 +22,14 @@
 }
 
 .header_label {
-    font-size: calc(30px + 1vh);
+    font-size: 2.5rem;
     color: var(--axn-header-color);
-    text-align: center;
     font-variant: small-caps;
-
-
-
+    display: flex;
+    align-items: baseline;
 }
 
 .header_doc {
     position: relative !important;
     width: 100%;
-
 }

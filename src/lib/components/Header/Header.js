@@ -16,14 +16,17 @@ const Header = ({ id, titolo, pathimg, className }) => {
 
   return (
     <header id={id} className={clsName.join(" ")}>
+      <label className={classes.header_label}>{titolo}</label>
+
+      {/* VECCHIO HEADER */}
       {/* <div id={id} className={classes.header_contentorizontal}>
         <div className={classes.header_contentvertical}>
           <label className={classes.header_label}>{titolo}</label>
         </div>
         <div className={classes.header_contentvertical}>
         </div>
-      </div> */}
-      {/* <span>
+      </div>
+       <span>
         <Img src={pathimg + "/message.png"} type={"button"} />
         <Img src={pathimg + "/notification.png"} type={"button"} />
         <Img src={pathimg + "/settings.png"} type={"button"} />
