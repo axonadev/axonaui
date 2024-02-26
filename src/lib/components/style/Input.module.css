@@ -27,7 +27,7 @@ input::-webkit-calendar-picker-indicator {
     width: calc(100% - 6px);
     font-size: var(--axn-input-font-size);
     border: var(--axn-input-border-color) 1px solid;
-    border-radius: 3px;
+    border-radius: var(--axn-border-radius);
     height: calc(var(--axn-input-font-size) + 5px);
 }
 
@@ -155,7 +155,7 @@ input::-webkit-calendar-picker-indicator {
     background-color: #555;
     color: #fff;
     text-align: center;
-    border-radius: 6px;
+    border-radius: var(--axn-border-radius);
     position: absolute;
     bottom: 0px;
     opacity: 1;

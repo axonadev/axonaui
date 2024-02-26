@@ -3,7 +3,6 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     width: 100%;
-    padding-left: 10px;
 }
 
 .folder_content .folderlabel {
@@ -14,7 +13,7 @@
     border-top-right-radius: 10px;
     border: 1px solid var(--axn-grid-header-row-background-color);
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: var(--axn-border-radius);
     text-decoration: none;
     display: flex;
     flex-direction: column;
@@ -52,7 +51,7 @@
     z-index: 50;
     top: -15px;
     background-color: var(--axn-button-background-color-hover);
-    border-radius: 5px;
+    border-radius: var(--axn-border-radius);
     padding: 5px;
     text-align: center;
 }

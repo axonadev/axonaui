@@ -1,15 +1,18 @@
 .profilo_content {
     position: absolute;
     min-width: 300px;
-    background-color: #EBEBEB;
-    right: 61px;
+    background-color: white;
+    right: 65px;
+    top: 5px;
     text-align: center;
     border: solid 1px;
     border-color: darkgray;
-    border-radius: 9px;
+    border-radius: var(--axn-border-radius);
     display: flex;
     flex-direction: column;
     z-index: 50;
+    box-shadow: 0 1px 4px var(--axn-box-shadow);
+    padding: 10px 0px;
 }
 
 .profilo_content img {

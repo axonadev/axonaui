@@ -18,8 +18,15 @@ const ImgFont = ({ className, id, icon, onClick }) => {
   };
 
   return (
+    // <FontAwesomeIcon
+    //   icon={Icons[[icon]]}
+    //   id={id}
+    //   className={classn.join(" ")}
+    //   onClick={onClickHandler}
+    // />
+
     <FontAwesomeIcon
-      icon={Icons[[icon]]}
+      icon={Icons[icon === "print" ? "faPrint" : icon]}
       id={id}
       className={classn.join(" ")}
       onClick={onClickHandler}

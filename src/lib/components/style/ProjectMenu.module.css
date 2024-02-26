@@ -84,12 +84,6 @@
     width: 60px;
 }
 
-
-
-
-
-
-
 .projectmenubutton_item {
     width: 100%;
     display: flex;
@@ -97,9 +91,8 @@
     justify-content: center;
     display: grid;
     grid-template-columns: 1px 59px;
+    background-color: transparent;
 }
-
-.projectmenubutton_item .projectmenubutton_item_label:nth-child(1) {}
 
 .projectmenubutton_item_img {
     width: auto;
@@ -136,7 +129,7 @@
     width: 100px;
     padding: 7px;
     height: 25px;
-    border-radius: 7px;
+    border-radius: var(--axn-border-radius);
     font-size: calc(4px + 1vh);
     margin-top: 8px;
     right: 110px;
@@ -167,6 +160,7 @@
     text-align: center;
     cursor: pointer;
     font-weight: 700;
+    margin-bottom: 5px;
 }
 
 .projectmenu_help label {

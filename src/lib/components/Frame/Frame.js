@@ -79,49 +79,52 @@ const Frame = ({
       onClick={clickHandler}
       onKeyUp={keyUpHandler}
     >
-      <div className={classes.frame_header}>
-        {label && <div className={classStyle.join(" ")}>{label}</div>}
-        {stato && <div className={classStyleStato.join(" ")}>{stato}</div>}
-        {!stato && <div className={classStyleMeno.join(" ")}>-</div>}
-        {ridimensiona && (
-          <div className={classStyleRidimensiona.join(" ")}>
-            <Button
-              className={classes.ridimensionaico}
-              onClick={() => {
-                setDimFrame(1);
-              }}
-            >
-              ▂
-            </Button>
-            <Button
-              className={classes.ridimensionaico}
-              onClick={() => {
-                setDimFrame(2);
-              }}
-            >
-              ▅
-            </Button>
-            <Button
-              className={classes.ridimensionaico}
-              onClick={() => {
-                setDimFrame(3);
-              }}
-            >
-              ▇
-            </Button>
-            {isSetup && (
+      {label && (
+        <div className={classes.frame_header}>
+          {label && <div className={classStyle.join(" ")}>{label}</div>}
+          {stato && <div className={classStyleStato.join(" ")}>{stato}</div>}
+          {!stato && <div className={classStyleMeno.join(" ")}>-</div>}
+          {ridimensiona && (
+            <div className={classStyleRidimensiona.join(" ")}>
               <Button
                 className={classes.ridimensionaico}
                 onClick={() => {
-                  setOpenSetup(true);
+                  setDimFrame(1);
                 }}
               >
-                <Img type='setup' pathImg='getlocal' />
+                ▂
               </Button>
-            )}
-          </div>
-        )}
-      </div>
+              <Button
+                className={classes.ridimensionaico}
+                onClick={() => {
+                  setDimFrame(2);
+                }}
+              >
+                ▅
+              </Button>
+              <Button
+                className={classes.ridimensionaico}
+                onClick={() => {
+                  setDimFrame(3);
+                }}
+              >
+                ▇
+              </Button>
+              {isSetup && (
+                <Button
+                  className={classes.ridimensionaico}
+                  onClick={() => {
+                    setOpenSetup(true);
+                  }}
+                >
+                  <Img type='setup' pathImg='getlocal' />
+                </Button>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+
       <div className={classes.framecontent}>
         {children.length > 1 &&
           children.map((item) => {

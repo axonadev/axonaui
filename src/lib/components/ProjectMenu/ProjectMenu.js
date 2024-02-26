@@ -3,6 +3,7 @@ import ProjectMenuButton from "./ProjectMenuButton.prv";
 import classes from "../style/ProjectMenu.module.css";
 import Button from "../Button/Button";
 import Img from "../Img/Img";
+import ImgFont from "../Img/ImgFont";
 import Profilo from "../Profilo/Profilo";
 const ProjectMenu = ({
   items,
@@ -57,7 +58,8 @@ const ProjectMenu = ({
         <div>
           <div className={classes.projectmenu_profilo}>
             <Button onClick={profiloClick}>
-              <Img type='profilo' pathImg='getlocal' />
+              <ImgFont icon='faUser' />
+              {/* <Img type='profilo' pathImg='getlocal' /> */}
             </Button>
           </div>
           <div className={classes.projectmenu_items}>
@@ -100,9 +102,11 @@ const ProjectMenu = ({
         </div>
         <div>
           <div className={classes.projectmenu_help}>
-            <Button onClick={onHelpHandler}>?</Button>
+            <Button onClick={onHelpHandler}>
+              <ImgFont icon='faQuestion' />
+            </Button>
           </div>
-          <label>{versione}</label>
+          {/* <label>{versione}</label> */}
         </div>
       </aside>
     </>

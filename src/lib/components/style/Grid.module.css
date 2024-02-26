@@ -82,23 +82,27 @@
 
 /* Buttons Delete/ADD */
 .grid_buttonDelete {
-    color: crimson;
-    border: 1px solid crimson;
+    color: white;
+    background-color: var(--axn-danger-color) !important;
+    border: 1px solid var(--axn-danger-color);
 }
 
 .grid_buttonDelete:hover {
-    color: white;
-    background-color: crimson !important;
+    color: var(--axn-dark-danger-color);
+    background-color: var(--axn-dark-danger-color) !important;
+    border: 1px solid var(--axn-dark-danger-color);
 }
 
 .grid_buttonAdd {
-    color: g;
-    border: 1px solid #77DD77;
+    color: white;
+    background-color: var(--axn-success-color) !important;
+    border: 1px solid var(--axn-success-color);
 }
 
 .grid_buttonAdd:hover {
-    color: white;
-    background-color: #77DD77 !important;
+    color: var(--axn-dark-success-color);
+    background-color: var(--axn-dark-success-color) !important;
+    border: 1px solid var(--axn-dark-success-color);
 }
 
 .grid_button:hover {
@@ -113,7 +117,8 @@
 
 .grid_table {
     border-collapse: collapse;
-    width: max-content;
+    /* width: max-content; */
+    width: 100%;
 }
 
 .grid_labelstato {
@@ -146,7 +151,6 @@
 
 .grid_type_t th {
     background-color: var(--axn-grid-header-row-background-color);
-    border: 1px var(--axn-grid-row-border-color) solid;
     color: var(--axn-grid-header-row-color);
 }
 
@@ -160,7 +164,7 @@
 /* Handle */
 .grid_type_t .grid_table_content::-webkit-scrollbar-thumb {
     background: var(--axn-grid-header-row-background-color);
-    border-radius: 10px;
+    border-radius: var(--axn-border-radius);
     width: 50px;
 }
 
@@ -172,7 +176,7 @@
 /* Handle */
 .grid_type_d .grid_table_content::-webkit-scrollbar-thumb {
     background: var(--axn-grid-header-d-row-background-color);
-    border-radius: 10px;
+    border-radius: var(--axn-border-radius);
 }
 
 /* Handle on hover */

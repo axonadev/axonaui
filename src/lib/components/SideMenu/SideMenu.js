@@ -90,7 +90,7 @@ const SideMenu = ({ onSideMenuChange }) => {
           idAmbito={1}
           onoff={onoff}
           label='Anagrafica'
-          src='faUsers'
+          src='faAddressCard'
           selezionato={idAmbito}
           list={datatextanagrafica}
           onClick={selAmbito}
