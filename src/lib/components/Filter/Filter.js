@@ -13,14 +13,13 @@ const Filter = ({ id, itemSearch, onFilter }) => {
 
   return (
     <React.Fragment>
+      <FontAwesomeIcon className={classes.icona} icon={faMagnifyingGlass} />
       <div className={classes.iconContainer}>
         <Input
           className={classes.filter_search}
           id={idFilter}
-          // icon='find'
           onIconClick={clickSearchHandler}
         ></Input>
-        <FontAwesomeIcon className={classes.icona} icon={faMagnifyingGlass} />
       </div>
     </React.Fragment>
   );

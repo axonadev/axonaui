@@ -70,6 +70,8 @@ const Input = ({
     classes.input_input,
     classFocus,
     classes["validate_" + InputIsValid],
+    classes[className],
+    className,
     icon ? classes.input_posticon : "",
     preIcon ? classes.input_preicon : "",
     // icon && preIcon
