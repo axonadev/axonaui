@@ -45,11 +45,13 @@ const Form = ({
   if (onChangeValue !== undefined) {
     argpost = {
       form_id: id,
+      key: id,
       onChangeValue: onChangeValue,
     };
   } else {
     argpost = {
       form_id: id,
+      key: id,
     };
   }
 
@@ -237,9 +239,7 @@ const Form = ({
           {children.length > 1 &&
             children.map((item) => {
               return item.props.id === frameIdSelezionato ? (
-                <React.Fragment key={item.props.id}>
-                  {React.cloneElement(item, argpost)}
-                </React.Fragment>
+                React.cloneElement(item, argpost)
               ) : (
                 <></>
               );

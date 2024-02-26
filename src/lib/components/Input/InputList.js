@@ -190,6 +190,7 @@ const InputList = ({
 
               return (
                 <option
+                  key={id + "_" + item[field_id]}
                   value={valList.join(" ")}
                   idobj={item[field_id]}
                 ></option>

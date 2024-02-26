@@ -8,11 +8,13 @@ const FrameContainer = ({ children, id, form_id, onChangeValue, help }) => {
       form_id: form_id,
       onChangeValue: onChangeValue,
       help: help,
+      key: id,
     };
   } else {
     argpost = {
       form_id: form_id,
       help: help,
+      key: id,
     };
   }
 

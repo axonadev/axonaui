@@ -315,33 +315,39 @@ const Grid = ({
         )}
         <div className={classes.grid_table_content}>
           <table className={classes.grid_table} id={id}>
-            <Row
-              key='INT'
-              columns={
-                columns === undefined || columns === null ? columnsint : columns
-              }
-              type='testata'
-              onClick={onClickHeaderHandler}
-              onDoubleClick={() => {}}
-              labeltestata={testata}
-            />
-            {filteredListItem &&
-              filteredListItem.map((item) => {
-                return (
-                  <Row
-                    items={item}
-                    key={item.IDOBJ}
-                    columns={
-                      columns === undefined || columns === null
-                        ? columnsint
-                        : columns
-                    }
-                    onClick={onClickRowHandler}
-                    onDoubleClick={onDoubleClickHandler}
-                    rowSelect={rowSelected === item.IDOBJ ? true : false}
-                  />
-                );
-              })}
+            <thead>
+              <Row
+                key='INT'
+                columns={
+                  columns === undefined || columns === null
+                    ? columnsint
+                    : columns
+                }
+                type='testata'
+                onClick={onClickHeaderHandler}
+                onDoubleClick={() => {}}
+                labeltestata={testata}
+              />
+            </thead>
+            <tbody>
+              {filteredListItem &&
+                filteredListItem.map((item) => {
+                  return (
+                    <Row
+                      items={item}
+                      key={item.IDOBJ}
+                      columns={
+                        columns === undefined || columns === null
+                          ? columnsint
+                          : columns
+                      }
+                      onClick={onClickRowHandler}
+                      onDoubleClick={onDoubleClickHandler}
+                      rowSelect={rowSelected === item.IDOBJ ? true : false}
+                    />
+                  );
+                })}
+            </tbody>
           </table>
         </div>
       </div>

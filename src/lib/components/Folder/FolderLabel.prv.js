@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import classes from "../style/Folder.module.css";
 import ImgFont from "../Img/ImgFont";
-const FolderLabel = ({ target, children, onClick, img }) => {
+const FolderLabel = ({ target, children, onClick, img, chiave }) => {
   const [isShown, setIsShown] = useState(false);
   const onClickHandler = () => {
     onClick(target);
   };
   return (
-    <React.Fragment>
+    <React.Fragment key={"fl_" + chiave}>
       {isShown && (
         <div className={classes.fumetto}>
           <div>{children}</div>

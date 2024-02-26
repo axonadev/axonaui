@@ -19,6 +19,7 @@ const FrameInRow = ({
 
   if (onChangeValue !== undefined) {
     argpost = {
+      key: form_id,
       form_id: form_id,
       onChangeValue: onChangeValue,
       help: help,
@@ -27,6 +28,7 @@ const FrameInRow = ({
     argpost = {
       form_id: form_id,
       help: help,
+      key: form_id,
     };
   }
 

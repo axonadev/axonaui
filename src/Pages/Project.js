@@ -175,146 +175,128 @@ const Project = ({ request, list, help }) => {
         >
           <FrameContainer id='anagrafica' help={help}>
             <Frame label='ANAGRAFICA'>
-              <FrameInRow width={[90, 10]}>
-                <Frame type='noborder'>
-                  <FrameInRow width={[10, 10, 10, 70]}>
-                    <Input label='Codice' id='Soggetti_Codice'></Input>
-                    <InputList
-                      label='Tipo'
-                      id='Soggetti_Tipo'
-                      nameList='soggettitipo'
-                      field_id='IDOBJ'
-                      field_description={["SoggettiTipo_Descrizione"]}
-                      defList={[
-                        { IDOBJ: 1, SoggettiTipo_Descrizione: "Privato" },
-                        { IDOBJ: 2, SoggettiTipo_Descrizione: "Società" },
-                        { IDOBJ: 3, SoggettiTipo_Descrizione: "Ente" },
-                      ]}
-                      onChange={onChangeInput}
-                    />
-                    <InputData
-                      label='Scadenza'
-                      id='Soggetti_ScadenzaOBJ'
-                      onChange={onChangeInput}
-                    />
-                    <Input
-                      label='Holding'
-                      id='Soggetti_Holding'
-                      onChange={onChangeInput}
-                    ></Input>
-                  </FrameInRow>
-                  <FrameInRow width={[100]}>
-                    <Input
-                      label='Nome'
-                      id='Soggetti_Nome1'
-                      validate={[
-                        { type: "obb" },
-                        { type: "maxlenght", value: 10 },
-                      ]}
-                    />
-                  </FrameInRow>
-                  <FrameInRow width={[100]}>
-                    <Input
-                      label='Cognome'
-                      id='Soggetti_Nome2'
-                      onChange={onChangeInput}
-                    />
-                  </FrameInRow>
-                  <FrameInRow width={[100]}>
-                    <Input
-                      label='Indirizzo'
-                      id='Soggetti_Indirizzo'
-                      onChange={onChangeInput}
-                    />
-                  </FrameInRow>
-                  <FrameInRow width={[70, 10, 20]}>
-                    <Citta
-                      nazione={{ label: "Nazione", id: "Soggetti_Nazione" }}
-                      citta={{ label: "Citta", id: "Soggetti_Citta" }}
-                      provincia={{ label: "Provincia", id: "Soggetti_Prov" }}
-                      cap={{ label: "CAP", id: "Soggetti_CAP" }}
-                      onChange={onChangeInput}
-                    />
-                    <Input
-                      label='Regione'
-                      id='Soggetti_Regione'
-                      onChange={onChangeInput}
-                    />
-                    <Input
-                      label='Zona'
-                      id='Soggetti_Zona'
-                      onChange={onChangeInput}
-                    />
-                  </FrameInRow>
-                  <FrameInRow width={[20, 20, 20]}>
-                    <Input
-                      label='Telefono'
-                      id='Soggetti_Tel'
-                      onChange={onChangeInput}
-                    />
-                    <Input
-                      label='Telefono'
-                      id='Soggetti_Tel'
-                      onChange={onChangeInput}
-                    />
-
-                    <Input
-                      label='Rif. amministrativo'
-                      id='Soggetti_Tel'
-                      onChange={onChangeInput}
-                    />
-                  </FrameInRow>
-                  <FrameInRow width={[20, 20, 20]}>
-                    <Input
-                      label='Fax'
-                      id='Soggetti_Tel'
-                      onChange={onChangeInput}
-                    />
-                    <Input
-                      label='PEC'
-                      id='Soggetti_Tel'
-                      onChange={onChangeInput}
-                    />
-                  </FrameInRow>
-                  <FrameInRow width={[20, 20, 20]}>
-                    <Input
-                      label='www'
-                      id='Soggetti_Tel'
-                      onChange={onChangeInput}
-                    />
-                    <Input
-                      label='email'
-                      id='Soggetti_Tel'
-                      onChange={onChangeInput}
-                    />
-                  </FrameInRow>
-                </Frame>
-                <Frame type='noborder'>
-                  <InputCheckList
-                    label='tipisoggetto'
-                    id='tipisoggetto'
-                    url={
-                      REACT_APP_SERVERAPI +
-                      "api/axo_sel/" +
-                      localStorage.getItem("axn_token") +
-                      "/" +
-                      moduloForm +
-                      "/" +
-                      moduloForm +
-                      "sel/leggitipisoggetto/" +
-                      idobj_T
-                    }
-                    nameList='v_tipisoggetto'
-                    field_id='IDOBJ'
-                    field_description='TipiSoggetto_Descrizione'
-                    field_value='valore'
-                    field_target='SoggettiTipi_Tipo'
-                    db_target='SoggettiTipi'
-                    pidobj={idobj_T}
-                    onChange={onChangeInput}
-                  />
-                </Frame>
+              <FrameInRow width={[10, 10, 10, 70]}>
+                <Input label='Codice' id='Soggetti_Codice'></Input>
+                <InputList
+                  label='Tipo'
+                  id='Soggetti_Tipo'
+                  nameList='soggettitipo'
+                  field_id='IDOBJ'
+                  field_description={["SoggettiTipo_Descrizione"]}
+                  defList={[
+                    { IDOBJ: 1, SoggettiTipo_Descrizione: "Privato" },
+                    { IDOBJ: 2, SoggettiTipo_Descrizione: "Società" },
+                    { IDOBJ: 3, SoggettiTipo_Descrizione: "Ente" },
+                  ]}
+                  onChange={onChangeInput}
+                />
+                <InputData
+                  label='Scadenza'
+                  id='Soggetti_ScadenzaOBJ'
+                  onChange={onChangeInput}
+                />
+                <Input
+                  label='Holding'
+                  id='Soggetti_Holding'
+                  onChange={onChangeInput}
+                ></Input>
               </FrameInRow>
+              <FrameInRow width={[100]}>
+                <Input
+                  label='Nome'
+                  id='Soggetti_Nome1'
+                  validate={[{ type: "obb" }, { type: "maxlenght", value: 10 }]}
+                />
+              </FrameInRow>
+              <FrameInRow width={[100]}>
+                <Input
+                  label='Cognome'
+                  id='Soggetti_Nome2'
+                  onChange={onChangeInput}
+                />
+              </FrameInRow>
+              <FrameInRow width={[100]}>
+                <Input
+                  label='Indirizzo'
+                  id='Soggetti_Indirizzo'
+                  onChange={onChangeInput}
+                />
+              </FrameInRow>
+              <FrameInRow width={[70, 10, 20]}>
+                <Citta
+                  nazione={{ label: "Nazione", id: "Soggetti_Nazione" }}
+                  citta={{ label: "Citta", id: "Soggetti_Citta" }}
+                  provincia={{ label: "Provincia", id: "Soggetti_Prov" }}
+                  cap={{ label: "CAP", id: "Soggetti_CAP" }}
+                  onChange={onChangeInput}
+                />
+                <Input
+                  label='Regione'
+                  id='Soggetti_Regione'
+                  onChange={onChangeInput}
+                />
+                <Input
+                  label='Zona'
+                  id='Soggetti_Zona'
+                  onChange={onChangeInput}
+                />
+              </FrameInRow>
+              <FrameInRow width={[20, 20, 20]}>
+                <Input
+                  label='Telefono'
+                  id='Soggetti_Tel'
+                  onChange={onChangeInput}
+                />
+                <Input
+                  label='Telefono'
+                  id='Soggetti_Tel'
+                  onChange={onChangeInput}
+                />
+
+                <Input
+                  label='Rif. amministrativo'
+                  id='Soggetti_Tel'
+                  onChange={onChangeInput}
+                />
+              </FrameInRow>
+              <FrameInRow width={[20, 20, 20]}>
+                <Input label='Fax' id='Soggetti_Tel' onChange={onChangeInput} />
+                <Input label='PEC' id='Soggetti_Tel' onChange={onChangeInput} />
+              </FrameInRow>
+              <FrameInRow width={[20, 20, 20]}>
+                <Input label='www' id='Soggetti_Tel' onChange={onChangeInput} />
+                <Input
+                  label='email'
+                  id='Soggetti_Tel'
+                  onChange={onChangeInput}
+                />
+              </FrameInRow>
+
+              <Frame type='noborder'>
+                <InputCheckList
+                  label='tipisoggetto'
+                  id='tipisoggetto'
+                  url={
+                    REACT_APP_SERVERAPI +
+                    "api/axo_sel/" +
+                    localStorage.getItem("axn_token") +
+                    "/" +
+                    moduloForm +
+                    "/" +
+                    moduloForm +
+                    "sel/leggitipisoggetto/" +
+                    idobj_T
+                  }
+                  nameList='v_tipisoggetto'
+                  field_id='IDOBJ'
+                  field_description='TipiSoggetto_Descrizione'
+                  field_value='valore'
+                  field_target='SoggettiTipi_Tipo'
+                  db_target='SoggettiTipi'
+                  pidobj={idobj_T}
+                  onChange={onChangeInput}
+                />
+              </Frame>
             </Frame>
             <Frame label='Condizioni'>
               <FrameInRow width={[15, 15, 15, 15, 15]}>

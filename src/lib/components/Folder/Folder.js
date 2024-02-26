@@ -18,10 +18,11 @@ const Folder = ({ items, onSelect, startSelect }) => {
           items.map((item) => {
             return (
               <div
+                key={item.key}
                 className={item.target === active ? classes.folder_active : ""}
               >
                 <FolderLabel
-                  key={item.key}
+                  chiave={item.key}
                   target={item.target}
                   onClick={onClickHendler}
                   img={item.img}

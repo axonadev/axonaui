@@ -6,12 +6,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 
 const Input = ({
-  value,
-  label,
-  preIcon,
-  icon,
-  className,
-  id,
+  value = "",
+  label = "",
+  preIcon = "",
+  icon = "",
+  className = "",
+  id = "",
   onChange,
   onChangeValue,
   onPreIconClick,
@@ -20,10 +20,10 @@ const Input = ({
   min,
   max,
   decimali,
-  form_id,
+  form_id = "",
   validate,
-  help,
-  helpMessage,
+  help = false,
+  helpMessage = "",
 }) => {
   const pers = localStorage.getItem("pers");
 

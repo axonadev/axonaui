@@ -45,6 +45,7 @@ const Frame = ({
       openSetup: openSetup,
       closeSetup: closeSetup,
       help: help,
+      key: id,
     };
   } else {
     argpost = {
@@ -52,6 +53,7 @@ const Frame = ({
       openSetup: openSetup,
       closeSetup: closeSetup,
       help: help,
+      key: id,
     };
   }
 
