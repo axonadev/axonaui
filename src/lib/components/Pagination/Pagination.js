@@ -24,24 +24,24 @@ const Pagination = ({
 
   return (
     <div id={id} className={classes.pagination_content}>
-      <FontAwesomeIcon
+      <div
         className={classes.pagination_lefticon}
         onClick={onLeftIconClickHandler}
-        icon={faCaretLeft}
-      />
-      {/* <Img type={leftIcon} pathImg='getlocal' /> */}
+      >
+        <FontAwesomeIcon icon={faCaretLeft} />
+      </div>
       <input
         className={classes.paginationInput}
         type='numeric'
         value={page}
         onChange={onChangeHandler}
       />
-      <FontAwesomeIcon
-        icon={faCaretRight}
+      <div
         className={classes.pagination_righticon}
         onClick={onRightIconClickHandler}
-      />
-      {/* <Img type={rightIcon} pathImg='getlocal' /> */}
+      >
+        <FontAwesomeIcon icon={faCaretRight} />
+      </div>
     </div>
   );
 };
