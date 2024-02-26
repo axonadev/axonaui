@@ -1,9 +1,9 @@
-.filter_search {
+.filter_search input {
     background-color: var(--axn-card-form-input-background-color);
+    border-radius: 0 var(--axn-border-radius) var(--axn-border-radius) 0;
 }
 
 .iconContainer {
-    /* position: relative; */
     width: 90%;
     display: flex;
     align-items: center;
@@ -11,6 +11,9 @@
 }
 
 .icona {
-    right: 40px;
-    position: absolute;
+    padding: 3px;
+    color: white;
+    border: 1px solid var(--axn-input-border-color);
+    border-radius: var(--axn-border-radius) 0 0 var(--axn-border-radius);
+    background-color: var(--axn-header-color);
 }

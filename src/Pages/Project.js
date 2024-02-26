@@ -49,7 +49,7 @@ const Project = ({ request, list, help }) => {
     "/soggettialtridatigestionali/soggettialtridatigestionalisel/leggi";
 
   const itemFolders = [
-    { key: 1, label: "Anagrafica", img: "faUsers", target: "anagrafica" },
+    { key: 1, label: "Anagrafica", img: "faAddressCard", target: "anagrafica" },
     { key: 2, label: "Domicili", img: "faHouseUser", target: "domicili" },
     {
       key: 3,
