@@ -19,8 +19,12 @@ const FrameContainer = ({ children, id, form_id, onChangeValue, help }) => {
   return (
     <div className={classes.framecontainer} id={id} form_id={form_id}>
       {children.length > 1 &&
-        children.map((item) => {
-          return React.cloneElement(item, argpost);
+        children.map((item, i) => {
+          return (
+            <React.Fragment key={i}>
+              {React.cloneElement(item, argpost)}
+            </React.Fragment>
+          );
         })}
       {children.length === undefined && React.cloneElement(children, argpost)}
     </div>

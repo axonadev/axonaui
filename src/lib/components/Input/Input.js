@@ -159,7 +159,6 @@ const Input = ({
             onClick={onPreIconClickHandler}
           >
             <FontAwesomeIcon icon={faEllipsis} />
-            {/* <Img type={preIcon} pathImg='getlocal' /> */}
           </div>
         )}
         {type === "textarea" && (
@@ -189,7 +188,6 @@ const Input = ({
         )}
         {icon && (
           <div className={classes.input_icon}>
-            {/* <Img type={icon} pathImg='getlocal' onClick={onIconClickHandler} /> */}
             <FontAwesomeIcon icon={faEllipsis} onClick={onIconClickHandler} />
           </div>
         )}

@@ -442,11 +442,15 @@ const Grid = ({
               </FrameInRow>
               <>
                 {children.length > 1 &&
-                  children.map((item) => {
-                    return React.cloneElement(item, {
-                      form_id: "form_" + id,
-                      onChangeValue: onChangeForm,
-                    });
+                  children.map((item, i) => {
+                    return (
+                      <React.Fragment key={i}>
+                        {React.cloneElement(item, {
+                          form_id: "form_" + id,
+                          onChangeValue: onChangeForm,
+                        })}
+                      </React.Fragment>
+                    );
                   })}
                 {children.length === undefined &&
                   React.cloneElement(children, {

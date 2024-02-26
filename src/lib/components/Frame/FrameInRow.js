@@ -54,8 +54,12 @@ const FrameInRow = ({
         {width && !isList && (
           <div key={0 + "_" + Math.random()} className={classesname.join(" ")}>
             {children.length > 1 &&
-              children.map((item) => {
-                return React.cloneElement(item, argpost);
+              children.map((item, i) => {
+                return (
+                  <React.Fragment key={i}>
+                    {React.cloneElement(item, argpost)}
+                  </React.Fragment>
+                );
               })}
             {children.length === undefined &&
               React.cloneElement(children, {
@@ -71,12 +75,16 @@ const FrameInRow = ({
             className={classes["frameinrownowidth"]}
           >
             {children.length > 1 &&
-              children.map((item) => {
-                return React.cloneElement(item, {
-                  form_id: form_id,
-                  onChangeValue: onChangeValue,
-                  help: help,
-                });
+              children.map((item, i) => {
+                return (
+                  <React.Fragment key={i}>
+                    {React.cloneElement(item, {
+                      form_id: form_id,
+                      onChangeValue: onChangeValue,
+                      help: help,
+                    })}
+                  </React.Fragment>
+                );
               })}
             {children.length === undefined &&
               React.cloneElement(children, {

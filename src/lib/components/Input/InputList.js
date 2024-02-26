@@ -111,19 +111,20 @@ const InputList = ({
     }
   };
 
-  useEffect(() => {
-    const goList = () => {
-      try {
-      } catch (error) {}
+  const goList = () => {
+    // try {
+    // } catch (error) {}
 
-      if (defList === undefined) {
-      } else {
-        if (defList.length > 0) {
-          setList(defList[0].data);
-        }
+    if (defList === undefined) {
+      console.log("defList undefined");
+    } else {
+      if (defList.length > 0) {
+        setList(defList);
       }
-    };
+    }
+  };
 
+  useEffect(() => {
     goList();
   }, [defList]);
 
@@ -179,19 +180,23 @@ const InputList = ({
           list={"list_" + id}
           onKeyDown={keydownHandler}
         />
-      </div>
-      <datalist id={"list_" + id}>
-        {list &&
-          list.map((item) => {
-            const valList = field_description.map((columnselect) => {
-              return item[columnselect];
-            });
 
-            return (
-              <option value={valList.join(" ")} idobj={item[field_id]}></option>
-            );
-          })}
-      </datalist>
+        <datalist id={"list_" + id}>
+          {list &&
+            list.map((item) => {
+              const valList = field_description.map((columnselect) => {
+                return item[columnselect];
+              });
+
+              return (
+                <option
+                  value={valList.join(" ")}
+                  idobj={item[field_id]}
+                ></option>
+              );
+            })}
+        </datalist>
+      </div>
     </div>
   );
 };

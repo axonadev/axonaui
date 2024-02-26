@@ -127,8 +127,12 @@ const Frame = ({
 
       <div className={classes.framecontent}>
         {children.length > 1 &&
-          children.map((item) => {
-            return React.cloneElement(item, argpost);
+          children.map((item, i) => {
+            return (
+              <React.Fragment key={i}>
+                {React.cloneElement(item, argpost)}
+              </React.Fragment>
+            );
           })}
         {children.length === undefined && React.cloneElement(children, argpost)}
       </div>

@@ -237,7 +237,9 @@ const Form = ({
           {children.length > 1 &&
             children.map((item) => {
               return item.props.id === frameIdSelezionato ? (
-                React.cloneElement(item, argpost)
+                <React.Fragment key={item.props.id}>
+                  {React.cloneElement(item, argpost)}
+                </React.Fragment>
               ) : (
                 <></>
               );
