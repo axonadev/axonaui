@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../Button/Button";
+import ImgFont from "../Img/ImgFont";
 import classes from "../style/MessageModal.module.css";
 
 const MessageModal = ({
@@ -24,32 +25,32 @@ const MessageModal = ({
           onClick: "onSave",
           type: "success",
           label: "Salva",
+          icon: "faFloppyDisk",
         },
         {
           key: 2,
           onClick: "onStop",
           type: "stop",
           label: "Annulla",
+          icon: "faBan",
         },
       ];
+
+  console.log(c_buttons);
 
   return (
     <div id={id}>
       <div className={classes.messagemodal_backdrop} onClick={onOut} />
       <div className={classContent.join(" ")}>
-        <header className={classes.messagemodal_header}>
+        <div className={classes.messagemodal_header}>
           <h2>{title}</h2>
-        </header>
-        <div className={classes.messagemodal_content}>
           {message && <p>{message}</p>}
           {children && children}
         </div>
-        <footer 
-          className={`${classes.messagemodal_actions} ${classes.messagemodal_footer}`}
-        >
+        <div className={classes.buttonContainer}>
           {c_buttons.map((item) => {
+            console.log(item);
             return (
-              
               <Button
                 key={item.key}
                 onClick={item.onClick}
@@ -57,14 +58,13 @@ const MessageModal = ({
                   classes[item.type]
                 }`}
               >
-                
+                <ImgFont icon={item.icon} />
                 {item.label}
-              
               </Button>
-              
             );
           })}
-        </footer>
+        </div>
+        ;
       </div>
     </div>
   );

@@ -252,7 +252,6 @@ const Form = ({
           id={id_submit}
         >
           <ImgFont icon='faFloppyDisk' />
-          {/* <Img type='save' pathImg='getlocal' /> */}
         </Button>
       </form>
       {mex && (
@@ -267,12 +266,14 @@ const Form = ({
               key: 1,
               label: "Annulla",
               type: "stop",
+              icon: "faBan",
               onClick: onStophandler,
             },
             {
               key: 2,
               label: "Salva",
               type: "run",
+              icon: "faFloppyDisk",
               onClick: onConfirmhandler,
             },
           ]}

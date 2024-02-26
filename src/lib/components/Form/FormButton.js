@@ -60,12 +60,14 @@ const FormButton = ({ id_submit, onAnnulla, numberGrid }) => {
               key: 1,
               label: "No",
               type: "stop",
+              icon: "faBan",
               onClick: onStophandler,
             },
             {
               key: 2,
               label: "Si",
               type: "run",
+              icon: "faFloppyDisk",
               onClick: onConfirmAnnulla,
             },
           ]}
