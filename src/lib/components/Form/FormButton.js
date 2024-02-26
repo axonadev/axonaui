@@ -39,11 +39,9 @@ const FormButton = ({ id_submit, onAnnulla, numberGrid }) => {
     <>
       <>
         <Button className={classBSave.join(" ")} onClick={formSubmit}>
-          {/* <Img type="save" pathImg="getlocal" /> */}
           <ImgFont icon='faFloppyDisk' />
         </Button>
         <Button className={classBAnnulla.join(" ")} onClick={clickAnnulla}>
-          {/* <Img type="annulla" pathImg="getlocal" /> */}
           <ImgFont icon='faXmark' />
         </Button>
       </>

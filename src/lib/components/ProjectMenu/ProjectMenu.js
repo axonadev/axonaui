@@ -59,7 +59,6 @@ const ProjectMenu = ({
           <div className={classes.projectmenu_profilo}>
             <Button onClick={profiloClick}>
               <ImgFont icon='faUser' />
-              {/* <Img type='profilo' pathImg='getlocal' /> */}
             </Button>
           </div>
           <div className={classes.projectmenu_items}>
@@ -106,7 +105,6 @@ const ProjectMenu = ({
               <ImgFont icon='faQuestion' />
             </Button>
           </div>
-          {/* <label>{versione}</label> */}
         </div>
       </aside>
     </>

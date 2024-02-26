@@ -46,8 +46,10 @@ const SideMenuAmbito = ({
         {selezionato === idAmbito &&
           list &&
           list.map((item) => {
+            console.log("ITEM", item);
             return (
               <SideMenuBottone
+                key={item.IDOBJ}
                 onoff={onoff}
                 label={item.Moduli_Nome}
                 src={item.Moduli_Icona}

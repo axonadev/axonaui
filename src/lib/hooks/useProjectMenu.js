@@ -13,7 +13,7 @@ const useProjectMenu = () => {
       {
         id: "anni",
         label: "Anni",
-        img: "calendar",
+        img: "faCalendarDays",
         function: () => {
           calendario();
         },
@@ -21,10 +21,8 @@ const useProjectMenu = () => {
       {
         id: "conta",
         label: "Contabilizzazione",
-        img: "faPrint",
-        function: () => {
-          // console.log("click stampa");
-        },
+        img: "faReceipt",
+        function: () => {},
       },
     ];
 

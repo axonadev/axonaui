@@ -20,7 +20,6 @@ const Profilo = ({}) => {
       <div className={classes.profilo_logout}>
         <Button onClick={logoutHandler}>
           <ImgFont icon='faRightFromBracket' />
-          {/* <Img type='logout' pathImg='getlocal' /> */}
         </Button>
       </div>
     </div>

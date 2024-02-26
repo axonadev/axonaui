@@ -95,7 +95,7 @@ const InputCheckList = ({
         list.map((item, i) => {
           return (
             <InputCheckBox
-              key={i}
+              key={i.IDOBJ}
               label={item[field_description]}
               value={item[field_value]}
               id={field_description + "_" + item[field_id]}

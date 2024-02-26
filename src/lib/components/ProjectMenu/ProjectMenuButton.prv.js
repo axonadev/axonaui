@@ -18,7 +18,6 @@ const ProjectMenuButton = ({ id, img, label, gofunction, onClick }) => {
       </div>
       <div className={classes.projectmenubutton_item_div}>
         <div className={classes.projectmenubutton_item_img}>
-          {/* <Img type={img} pathImg='getlocal' /> */}
           <ImgFont icon={img} />
         </div>
       </div>

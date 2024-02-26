@@ -49,7 +49,6 @@ const MessageModal = ({
         </div>
         <div className={classes.buttonContainer}>
           {c_buttons.map((item) => {
-            console.log(item);
             return (
               <Button
                 key={item.key}
