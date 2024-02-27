@@ -184,9 +184,13 @@ const Project = ({ request, list, help }) => {
                   field_id='IDOBJ'
                   field_description={["SoggettiTipo_Descrizione"]}
                   defList={[
-                    { IDOBJ: 1, SoggettiTipo_Descrizione: "Privato" },
-                    { IDOBJ: 2, SoggettiTipo_Descrizione: "Società" },
-                    { IDOBJ: 3, SoggettiTipo_Descrizione: "Ente" },
+                    {
+                      "data": [
+                        { IDOBJ: 1, SoggettiTipo_Descrizione: "Privato" },
+                        { IDOBJ: 2, SoggettiTipo_Descrizione: "Società" },
+                        { IDOBJ: 3, SoggettiTipo_Descrizione: "Ente" },
+                      ],
+                    },
                   ]}
                   onChange={onChangeInput}
                 />
@@ -425,18 +429,22 @@ const Project = ({ request, list, help }) => {
                   field_description={["IVAEsigibilita_Descrizione"]}
                   defList={[
                     {
-                      IDOBJ: 1,
-                      IVAEsigibilita_Descrizione:
-                        "IVA ad esigibilità immediata",
-                    },
-                    {
-                      IDOBJ: 2,
-                      IVAEsigibilita_Descrizione:
-                        "IVA ad esigibilità differita",
-                    },
-                    {
-                      IDOBJ: 3,
-                      IVAEsigibilita_Descrizione: "Scissione dei pagamenti",
+                      "data": [
+                        {
+                          IDOBJ: 1,
+                          IVAEsigibilita_Descrizione:
+                            "IVA ad esigibilità immediata",
+                        },
+                        {
+                          IDOBJ: 2,
+                          IVAEsigibilita_Descrizione:
+                            "IVA ad esigibilità differita",
+                        },
+                        {
+                          IDOBJ: 3,
+                          IVAEsigibilita_Descrizione: "Scissione dei pagamenti",
+                        },
+                      ],
                     },
                   ]}
                   onChange={onChangeInput}
@@ -451,16 +459,20 @@ const Project = ({ request, list, help }) => {
                   field_description={["TipoTrasporto_Descrizione"]}
                   defList={[
                     {
-                      IDOBJ: 1,
-                      TipoTrasporto_Descrizione: "Mittente",
-                    },
-                    {
-                      IDOBJ: 2,
-                      TipoTrasporto_Descrizione: "Destinatario",
-                    },
-                    {
-                      IDOBJ: 3,
-                      TipoTrasporto_Descrizione: "Vettore",
+                      "data": [
+                        ({
+                          IDOBJ: 1,
+                          TipoTrasporto_Descrizione: "Mittente",
+                        },
+                        {
+                          IDOBJ: 2,
+                          TipoTrasporto_Descrizione: "Destinatario",
+                        },
+                        {
+                          IDOBJ: 3,
+                          TipoTrasporto_Descrizione: "Vettore",
+                        }),
+                      ],
                     },
                   ]}
                   onChange={onChangeInput}
@@ -473,12 +485,16 @@ const Project = ({ request, list, help }) => {
                   field_description={["Porto_Descrizione"]}
                   defList={[
                     {
-                      IDOBJ: 1,
-                      Porto_Descrizione: "Franco",
-                    },
-                    {
-                      IDOBJ: 2,
-                      Porto_Descrizione: "Assegnato",
+                      "data": [
+                        {
+                          IDOBJ: 1,
+                          Porto_Descrizione: "Franco",
+                        },
+                        {
+                          IDOBJ: 2,
+                          Porto_Descrizione: "Assegnato",
+                        },
+                      ],
                     },
                   ]}
                   onChange={onChangeInput}
@@ -623,24 +639,28 @@ const Project = ({ request, list, help }) => {
                   field_description={["SoggettiTipoRelazione_Descrizione"]}
                   defList={[
                     {
-                      IDOBJ: 1,
-                      SoggettiTipoRelazione_Descrizione: "Censito",
-                    },
-                    {
-                      IDOBJ: 2,
-                      SoggettiTipoRelazione_Descrizione: "Potenziale",
-                    },
-                    {
-                      IDOBJ: 3,
-                      SoggettiTipoRelazione_Descrizione: "Effettivo",
-                    },
-                    {
-                      IDOBJ: 4,
-                      SoggettiTipoRelazione_Descrizione: "Lasciato",
-                    },
-                    {
-                      IDOBJ: 5,
-                      SoggettiTipoRelazione_Descrizione: "Perso",
+                      "data": [
+                        {
+                          IDOBJ: 1,
+                          SoggettiTipoRelazione_Descrizione: "Censito",
+                        },
+                        {
+                          IDOBJ: 2,
+                          SoggettiTipoRelazione_Descrizione: "Potenziale",
+                        },
+                        {
+                          IDOBJ: 3,
+                          SoggettiTipoRelazione_Descrizione: "Effettivo",
+                        },
+                        {
+                          IDOBJ: 4,
+                          SoggettiTipoRelazione_Descrizione: "Lasciato",
+                        },
+                        {
+                          IDOBJ: 5,
+                          SoggettiTipoRelazione_Descrizione: "Perso",
+                        },
+                      ],
                     },
                   ]}
                   onChange={onChangeInput}
@@ -750,28 +770,32 @@ const Project = ({ request, list, help }) => {
                     field_description={["SoggettiCRM_TipoDescrizione"]}
                     defList={[
                       {
-                        IDOBJ: 1,
-                        SoggettiCRM_TipoDescrizione: "Telefono",
-                      },
-                      {
-                        IDOBJ: 2,
-                        SoggettiCRM_TipoDescrizione: "Whatsapp",
-                      },
-                      {
-                        IDOBJ: 3,
-                        SoggettiCRM_TipoDescrizione: "Mail",
-                      },
-                      {
-                        IDOBJ: 4,
-                        SoggettiCRM_TipoDescrizione: "A faccia",
-                      },
-                      {
-                        IDOBJ: 5,
-                        SoggettiCRM_TipoDescrizione: "Interno",
-                      },
-                      {
-                        IDOBJ: 6,
-                        SoggettiCRM_TipoDescrizione: "Pgm Teleassistenza",
+                        "data": [
+                          {
+                            IDOBJ: 1,
+                            SoggettiCRM_TipoDescrizione: "Telefono",
+                          },
+                          {
+                            IDOBJ: 2,
+                            SoggettiCRM_TipoDescrizione: "Whatsapp",
+                          },
+                          {
+                            IDOBJ: 3,
+                            SoggettiCRM_TipoDescrizione: "Mail",
+                          },
+                          {
+                            IDOBJ: 4,
+                            SoggettiCRM_TipoDescrizione: "A faccia",
+                          },
+                          {
+                            IDOBJ: 5,
+                            SoggettiCRM_TipoDescrizione: "Interno",
+                          },
+                          {
+                            IDOBJ: 6,
+                            SoggettiCRM_TipoDescrizione: "Pgm Teleassistenza",
+                          },
+                        ],
                       },
                     ]}
                   />
@@ -853,20 +877,24 @@ const Project = ({ request, list, help }) => {
                     id='SoggettiFattureAutomatiche_TipoDocumento'
                     defList={[
                       {
-                        IDOBJ: 1,
-                        Descrizione: "Preventivo",
-                      },
-                      {
-                        IDOBJ: 2,
-                        Descrizione: "Ordine Cliente",
-                      },
-                      {
-                        IDOBJ: 3,
-                        Descrizione: "DDT",
-                      },
-                      {
-                        IDOBJ: 4,
-                        Descrizione: "Fattura",
+                        "data": [
+                          {
+                            IDOBJ: 1,
+                            Descrizione: "Preventivo",
+                          },
+                          {
+                            IDOBJ: 2,
+                            Descrizione: "Ordine Cliente",
+                          },
+                          {
+                            IDOBJ: 3,
+                            Descrizione: "DDT",
+                          },
+                          {
+                            IDOBJ: 4,
+                            Descrizione: "Fattura",
+                          },
+                        ],
                       },
                     ]}
                   />
@@ -950,20 +978,24 @@ const Project = ({ request, list, help }) => {
                     id='SoggettiNote_TipoDocumento'
                     defList={[
                       {
-                        IDOBJ: 1,
-                        Descrizione: "Preventivo",
-                      },
-                      {
-                        IDOBJ: 2,
-                        Descrizione: "Ordine Cliente",
-                      },
-                      {
-                        IDOBJ: 3,
-                        Descrizione: "DDT",
-                      },
-                      {
-                        IDOBJ: 4,
-                        Descrizione: "Fattura",
+                        "data": [
+                          {
+                            IDOBJ: 1,
+                            Descrizione: "Preventivo",
+                          },
+                          {
+                            IDOBJ: 2,
+                            Descrizione: "Ordine Cliente",
+                          },
+                          {
+                            IDOBJ: 3,
+                            Descrizione: "DDT",
+                          },
+                          {
+                            IDOBJ: 4,
+                            Descrizione: "Fattura",
+                          },
+                        ],
                       },
                     ]}
                   />
@@ -982,12 +1014,16 @@ const Project = ({ request, list, help }) => {
                   field_description={["SoggettiTipoGDPR_Descrizione"]}
                   defList={[
                     {
-                      IDOBJ: 1,
-                      SoggettiTipoGDPR_Descrizione: "Dati Personali",
-                    },
-                    {
-                      IDOBJ: 2,
-                      SoggettiTipoGDPR_Descrizione: "Dati Sensibili",
+                      "data": [
+                        {
+                          IDOBJ: 1,
+                          SoggettiTipoGDPR_Descrizione: "Dati Personali",
+                        },
+                        {
+                          IDOBJ: 2,
+                          SoggettiTipoGDPR_Descrizione: "Dati Sensibili",
+                        },
+                      ],
                     },
                   ]}
                   onChange={onChangeInput}
@@ -1011,13 +1047,20 @@ const Project = ({ request, list, help }) => {
                   field_id='IDOBJ'
                   field_description={["SoggettiTipo_Descrizione"]}
                   defList={[
-                    { IDOBJ: 1, SoggettiTipo_Descrizione: "Non Richiesto" },
                     {
-                      IDOBJ: 2,
-                      SoggettiTipo_Descrizione: "Richiesto Consenso",
+                      "data": [
+                        { IDOBJ: 1, SoggettiTipo_Descrizione: "Non Richiesto" },
+                        {
+                          IDOBJ: 2,
+                          SoggettiTipo_Descrizione: "Richiesto Consenso",
+                        },
+                        { IDOBJ: 3, SoggettiTipo_Descrizione: "Dato Consenso" },
+                        {
+                          IDOBJ: 4,
+                          SoggettiTipo_Descrizione: "Negato Consenso",
+                        },
+                      ],
                     },
-                    { IDOBJ: 3, SoggettiTipo_Descrizione: "Dato Consenso" },
-                    { IDOBJ: 4, SoggettiTipo_Descrizione: "Negato Consenso" },
                   ]}
                   onChange={onChangeInput}
                 />
