@@ -90,7 +90,7 @@ const InputList = ({
   };
   const getValore = (lista) => {
     if (lista) {
-      let rr = lista.filter(function (x) {
+      let rr = lista.filter((x) => {
         return x.IDOBJ === list_value;
       });
 
@@ -116,10 +116,10 @@ const InputList = ({
     // } catch (error) {}
 
     if (defList === undefined) {
-      console.log("defList undefined");
+      setList([]);
     } else {
       if (defList.length > 0) {
-        setList(defList);
+        setList(defList[0].data);
       }
     }
   };

@@ -21,6 +21,14 @@ const Layout = () => {
         command: "articoli/articolisel/leggicombotipi",
         nameView: "v_tipiarticolo",
       },
+      {
+        command: "pagamenti/pagamentisel/leggicombo",
+        nameView: "v_pagamenti",
+      },
+      {
+        command: "divise/divisesel/leggicombo",
+        nameView: "v_divise",
+      },
     ],
     localStorage.getItem("axn_token"),
     REACT_APP_SERVERAPI
