@@ -6,6 +6,7 @@
 .frame_header {
    width: 100%;
    display: flex;
+   align-items: center;
    justify-content: space-between;
 }
 
@@ -40,14 +41,23 @@
 }
 
 .frame_dimensione_1 {
-   height: 23px;
+   height: 30px;
+   background-color: var(--axn-header-color);
    overflow-y: hidden;
+   color: white;
+}
+
+.frame_dimensione_1 .frame_label {
+   color: white;
+}
+
+.frame_dimensione_1 .ridimensionaico {
+   border: 1px solid white;
 }
 
 .frame_dimensione_3 {
-   height: 90vh;
+   height: calc(100vh - 90px);
    overflow-y: hidden;
-   position: absolute;
    top: 0px;
    z-index: 40;
 }
