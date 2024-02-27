@@ -85,7 +85,7 @@ const Frame = ({
         <div className={classes.frame_header}>
           {label && <div className={classStyle.join(" ")}>{label}</div>}
           {stato && <div className={classStyleStato.join(" ")}>{stato}</div>}
-          {!stato && <div className={classStyleMeno.join(" ")}>-</div>}
+          {/* {!stato && <div className={classStyleMeno.join(" ")}>-</div>} */}
           {ridimensiona && (
             <div className={classStyleRidimensiona.join(" ")}>
               <Button
