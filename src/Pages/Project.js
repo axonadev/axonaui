@@ -14,6 +14,7 @@ import {
   Card,
 } from "../lib";
 import { useEnv } from "axonalib";
+import List from "../lib/components/List/List";
 import FormButton from "../lib/components/Form/FormButton";
 import TextEditor from "../lib/components/TextEditor/TextEditor";
 import ChartBar from "../lib/components/Chart/ChartBar";
@@ -74,18 +75,13 @@ const Project = ({ request, list, help }) => {
       target: "altridati",
     },
   ];
-
   const itemsSearch = ["Soggetti_Nome1", "Soggetti_Nome2"];
-
   const domiciliItemsSearch = ["Nome", "Cognome"];
-
   const [focusForm, setFocusForm] = useState("");
   const [statoGriglia, setStatoGriglia] = useState("");
   const [reloadGriglia, setReloadGriglia] = useState(0);
-
   const [idobj_T, setIdobj_T] = useState(0);
   const [idobj_Famiglie, setIdobj_Famiglie] = useState(0);
-
   const { onChangeSelected, onReset, onChangeForm } = useForm(
     "form_t",
     REACT_APP_SERVERAPI +
@@ -94,11 +90,8 @@ const Project = ({ request, list, help }) => {
       cmd_getForm,
     nameTable
   );
-
   const listPagamenti = list.filter((item) => item.nameView === "v_pagamenti");
-
   const listDivisa = list.filter((item) => item.nameView === "v_divise");
-
   const insertClickHandler = (idGriglia) => {
     const idform = "form_" + idGriglia.split("_")[1];
     onReset();
@@ -107,12 +100,10 @@ const Project = ({ request, list, help }) => {
     setIdobj_T(0);
   };
   const deleteClickHandler = (idGriglia) => {};
-
   const onLoadRow = () => {
     setReloadGriglia((item) => {
       return item + 1;
     });
-
     setStatoGriglia("");
     onChangeSelected(idobj_T);
   };
@@ -127,7 +118,6 @@ const Project = ({ request, list, help }) => {
 
   useEffect(() => {
     const loadRequest = () => {};
-
     loadRequest();
   }, [request]);
 
@@ -159,6 +149,9 @@ const Project = ({ request, list, help }) => {
           reload={reloadGriglia}
           itemSearch={itemsSearch}
         />
+
+        {/* QUI */}
+        <List items={itemFolders} title={"Bozze"} element={"label"} />
       </Frame>
       <FormButton onAnnulla={onLoadRow} id_submit='form_t' />
       {focusForm === "form_t" && (

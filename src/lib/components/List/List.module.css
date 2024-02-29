@@ -1,0 +1,41 @@
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.listItem {
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.listItem:hover {
+    background-color: #f0f0f0;
+}
+
+.listTitle {
+    color: var(--axn-header-color);
+    text-align: center;
+}
+
+.iconContainer {
+    height: 20px;
+    width: 20px;
+}
+
+.deleteIcon {
+    padding: 5px;
+    color: var(--axn-danger-color);
+    cursor: pointer;
+    border: 1px solid var(--axn-danger-color);
+    border-radius: var(--axn-border-radius);
+}
+
+.deleteIcon:hover {
+    color: white;
+    background-color: var(--axn-danger-color);
+}
