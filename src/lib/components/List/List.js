@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import classes from "./List.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
-const List = ({ items, title, element, onClick }) => {
-  console.log(items);
+const List = ({ items, title, element, onClick, onDelete }) => {
   const itemHandler = (item) => {
     try {
       onClick(item);
@@ -13,14 +12,14 @@ const List = ({ items, title, element, onClick }) => {
     }
   };
 
-  const onDelete = (id) => {
-    console.log("onDelete", id);
+  const deleteItemHandler = (item) => {
+    onDelete(item);
   };
 
   return (
-    <div>
+    <>
       <h1 className={classes.listTitle}>{title}</h1>
-      {items ? (
+      {items && items.length > 0 ? (
         <ul className={classes.list}>
           {items.map((item, i) => {
             return (
@@ -29,14 +28,14 @@ const List = ({ items, title, element, onClick }) => {
                 className={classes.listItem}
                 onClick={() => itemHandler(item)}
               >
-                {item[element]}
+                {element ? item[element] : item}
 
                 <FontAwesomeIcon
                   icon={faTrashCan}
                   className={classes.deleteIcon}
                   onClick={(e) => {
                     e.stopPropagation();
-                    onDelete(item);
+                    deleteItemHandler(item);
                   }}
                 />
               </li>
@@ -44,9 +43,9 @@ const List = ({ items, title, element, onClick }) => {
           })}
         </ul>
       ) : (
-        <p>Non ci sono elementi</p>
+        <li className={classes.singleElement}>Non ci sono elementi</li>
       )}
-    </div>
+    </>
   );
 };
 

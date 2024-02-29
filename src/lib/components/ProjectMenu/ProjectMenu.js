@@ -86,11 +86,11 @@ const ProjectMenu = ({
                       setOpenMenu(false);
                     }}
                   >
-                    <div
+                    {/* <div
                       className={classes.projectmenu_sideoperation_top_title}
                     >
                       {title}
-                    </div>
+                    </div> */}
                     <ImgFont icon='faXmark' />
                   </div>
                 </div>

@@ -149,9 +149,6 @@ const Project = ({ request, list, help }) => {
           reload={reloadGriglia}
           itemSearch={itemsSearch}
         />
-
-        {/* QUI */}
-        <List items={itemFolders} title={"Bozze"} element={"label"} />
       </Frame>
       <FormButton onAnnulla={onLoadRow} id_submit='form_t' />
       {focusForm === "form_t" && (
