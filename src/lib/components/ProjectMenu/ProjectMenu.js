@@ -2,7 +2,6 @@ import React, { Children, useState } from "react";
 import ProjectMenuButton from "./ProjectMenuButton.prv";
 import classes from "../style/ProjectMenu.module.css";
 import Button from "../Button/Button";
-import Img from "../Img/Img";
 import ImgFont from "../Img/ImgFont";
 import Profilo from "../Profilo/Profilo";
 const ProjectMenu = ({
@@ -77,20 +76,21 @@ const ProjectMenu = ({
               })}
           </div>
           <div className={styled.join(" ")}>
-            <div className={classes.projectmenu_sideoperation_top}>
-              <label>Titlee</label>
-              <div
-                className={classes.projectmenu_sideoperation_top_x}
-                onClick={() => {
-                  setOpenMenu(false);
-                }}
-              >
-                X
-              </div>
-            </div>
             <div className={classes.projectmenu_sideoperation_content}>
-              <form onSubmit={onClickFormHandler}>
-                {children}
+              <form className={classes.sideForm} onSubmit={onClickFormHandler}>
+                <div className={classes.projectmenu_sideoperation_top}>
+                  <div
+                    className={classes.projectmenu_sideoperation_top_x}
+                    onClick={() => {
+                      setOpenMenu(false);
+                    }}
+                  >
+                    <ImgFont icon='faXmark' />
+                  </div>
+                </div>
+                <div className={classes.projectmenu_children_content}>
+                  {children}
+                </div>
 
                 <div>
                   <Button type='submit'>Avanti</Button>

@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import useInput from "../../hooks/useInput";
 import classes from "../style/Input.module.css";
-import Img from "../Img/Img";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 
@@ -65,7 +64,6 @@ const Input = ({
     className,
   ];
   const classLabel = [classes.input_label, classFocus, className];
-  // Classe div input
   const classDivInput = [
     classes.input_input,
     classFocus,
