@@ -65,16 +65,12 @@
 }
 
 .projectmenubutton_item {
-
     width: 100%;
     height: 50px;
     float: left;
-
     background-color: var(--axn-sidemenu-btn-background-color);
     cursor: pointer;
     min-width: 40px;
-
-
 }
 
 .projectmenubutton_item_div {
@@ -103,26 +99,18 @@
     width: auto;
     display: flex;
     justify-content: center;
-
 }
 
 .projectmenubutton_item_img img {
     max-width: 25px;
     width: 40px;
-
 }
 
 .projectmenubutton_item_label {
-    /* display: none !important;  */
     width: 0px;
     visibility: hidden;
     z-index: 20;
-
-
     display: block !important;
-
-
-
 }
 
 .projectmenubutton_item:hover .projectmenubutton_item_label:nth-child(1) {
@@ -140,8 +128,6 @@
     right: 110px;
     text-align: center;
     overflow: hidden;
-
-
 }
 
 .projectmenu_profilo {

@@ -88,6 +88,7 @@ const Layout = () => {
       </ContentForm>
       <ProjectMenu
         items={pjItems}
+        title='Prova'
         onClick={projectMenuClickHandler}
         pathImg={REACT_APP_IMGFOLDER}
         onRequestSubmit={projectMenuRequestSubmitHandler}
