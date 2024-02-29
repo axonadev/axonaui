@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./List.module.css";
+import classes from "../style/List.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 

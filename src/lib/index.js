@@ -29,6 +29,7 @@ import Citta from "./components/UIFrame/Citta";
 import useList from "./hooks/useList";
 import Pagination from "./components/Pagination/Pagination";
 import TextEditor from "./components/TextEditor/TextEditor";
+import List from "./components/List/List";
 
 export {
   Button,
@@ -62,4 +63,5 @@ export {
   useList,
   Pagination,
   TextEditor,
+  List,
 };
