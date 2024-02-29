@@ -80,15 +80,17 @@ const ProjectMenu = ({
             <div className={classes.projectmenu_sideoperation_content}>
               <form className={classes.sideForm} onSubmit={onClickFormHandler}>
                 <div className={classes.projectmenu_sideoperation_top}>
-                  <div className={classes.projectmenu_sideoperation_top_title}>
-                    {title}
-                  </div>
                   <div
                     className={classes.projectmenu_sideoperation_top_x}
                     onClick={() => {
                       setOpenMenu(false);
                     }}
                   >
+                    <div
+                      className={classes.projectmenu_sideoperation_top_title}
+                    >
+                      {title}
+                    </div>
                     <ImgFont icon='faXmark' />
                   </div>
                 </div>
