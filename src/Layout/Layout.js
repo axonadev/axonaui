@@ -4,12 +4,13 @@ import { useEnv } from "axonalib";
 import Project from "../Pages/Project";
 import useProjectMenu from "../hooks/useProjectMenu";
 import useList from "../lib/hooks/useList";
-
 import List from "../lib/components/List/List";
 import ProjectMenuButton from "../lib/components/ProjectMenu/ProjectMenuButton.prv";
+import { useSelector, useDispatch } from "react-redux";
+import { changeID } from "../redux/SideMenuOpenSlice";
 
 const Layout = () => {
-  //# LISTA DICHIARATA SOLO PER PASSARE UNA LISTA AL COMPONENTE LIST
+  //* LISTA DICHIARATA SOLO PER PASSARE UNA LISTA AL COMPONENTE LIST
   const [itemFolders, setItemFolders] = useState([
     { key: 1, label: "Anagrafica", img: "faAddressCard", target: "anagrafica" },
     { key: 2, label: "Domicili", img: "faHouseUser", target: "domicili" },
@@ -37,7 +38,12 @@ const Layout = () => {
       target: "altridati",
     },
   ]);
-  //# ******************* FINE LISTA *******************************
+  //* ***********************
+
+  //* TEST REDUX
+  const idOpen = useSelector((state) => state.sideMenu.value);
+  const dispatch = useDispatch();
+  //* ***********************
 
   const titolo = "titolo";
   const versione = "00.00.00";
@@ -115,7 +121,12 @@ const Layout = () => {
         versione={versione}
         onHelp={onHelpstato}
       >
-        <ProjectMenuButton id={"lista"} icon='faBan' label={"ban"}>
+        <ProjectMenuButton
+          id={"lista"}
+          idOpen={idOpen}
+          icon='faBan'
+          label={"ban"}
+        >
           <List
             items={itemFolders}
             title={"Lista di prova"}
@@ -124,7 +135,12 @@ const Layout = () => {
             onDelete={deleteFromList}
           />
         </ProjectMenuButton>
-        <ProjectMenuButton id={"floppy"} icon='faFloppyDisk' label={"2ban"}>
+        <ProjectMenuButton
+          id={"floppy"}
+          idOpen={idOpen}
+          icon='faFloppyDisk'
+          label={"2ban"}
+        >
           <input type='color'></input>
         </ProjectMenuButton>
       </ProjectMenu>
