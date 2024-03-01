@@ -2,12 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Header, SideMenu, ContentForm, ProjectMenu } from "../lib/index";
 import { useEnv } from "axonalib";
 import Project from "../Pages/Project";
-import useProjectMenu from "../hooks/useProjectMenu";
 import useList from "../lib/hooks/useList";
 import List from "../lib/components/List/List";
 import ProjectMenuButton from "../lib/components/ProjectMenu/ProjectMenuButton.prv";
-import { useSelector, useDispatch } from "react-redux";
-import { changeID } from "../redux/SideMenuOpenSlice";
 
 const Layout = () => {
   //* LISTA DICHIARATA SOLO PER PASSARE UNA LISTA AL COMPONENTE LIST
@@ -40,10 +37,7 @@ const Layout = () => {
   ]);
   //* ***********************
 
-  //* TEST REDUX
-  const idOpen = useSelector((state) => state.sideMenu.value);
-  const dispatch = useDispatch();
-  //* ***********************
+  const [idOpen, setIdOpen] = useState("");
 
   const titolo = "titolo";
   const versione = "00.00.00";
@@ -126,6 +120,8 @@ const Layout = () => {
           idOpen={idOpen}
           icon='faBan'
           label={"ban"}
+          onOpen={(id) => setIdOpen(id)}
+          onClose={() => setIdOpen("")}
         >
           <List
             items={itemFolders}
@@ -135,13 +131,16 @@ const Layout = () => {
             onDelete={deleteFromList}
           />
         </ProjectMenuButton>
+
         <ProjectMenuButton
           id={"floppy"}
           idOpen={idOpen}
           icon='faFloppyDisk'
           label={"2ban"}
+          onOpen={(id) => setIdOpen(id)}
+          onClose={() => setIdOpen("")}
         >
-          <input type='color'></input>
+          <input type='color' />
         </ProjectMenuButton>
       </ProjectMenu>
     </>
