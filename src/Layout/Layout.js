@@ -6,6 +6,7 @@ import useProjectMenu from "../hooks/useProjectMenu";
 import useList from "../lib/hooks/useList";
 
 import List from "../lib/components/List/List";
+import ProjectMenuButton from "../lib/components/ProjectMenu/ProjectMenuButton.prv";
 
 const Layout = () => {
   //# LISTA DICHIARATA SOLO PER PASSARE UNA LISTA AL COMPONENTE LIST
@@ -45,7 +46,6 @@ const Layout = () => {
   const [styleMenu, setStyleMenu] = useState(
     localStorage.getItem("axn_sidemenuswitch") === "true" ? true : false
   );
-  const [formPj, setFormPj] = useState(null);
 
   const { list } = useList(
     [
@@ -68,22 +68,8 @@ const Layout = () => {
 
   const [isHelp, setIsHelp] = useState(false);
 
-  const {
-    items: pjItems,
-    getFormMenuPj,
-    processRequest,
-    answerReq,
-  } = useProjectMenu();
-
   const onSideMenuChangeHandler = (stmenu) => {
     setStyleMenu(stmenu);
-  };
-  const projectMenuClickHandler = (idProject) => {
-    setFormPj(getFormMenuPj(idProject));
-  };
-
-  const projectMenuRequestSubmitHandler = (evt) => {
-    processRequest(evt);
   };
 
   useEffect(() => {
@@ -120,26 +106,27 @@ const Layout = () => {
         pathImg={REACT_APP_IMGFOLDER}
       />
       <ContentForm sidemenuopen={styleMenu}>
-        <Project request={answerReq} list={list} help={isHelp} />
+        <Project list={list} help={isHelp} />
       </ContentForm>
+
       <ProjectMenu
-        items={pjItems}
         title='Prova'
-        onClick={projectMenuClickHandler}
         pathImg={REACT_APP_IMGFOLDER}
-        onRequestSubmit={projectMenuRequestSubmitHandler}
         versione={versione}
         onHelp={onHelpstato}
       >
-        {/* {formPj} */}
-
-        <List
-          items={itemFolders}
-          title={"Lista di prova"}
-          element={"label"}
-          onClick
-          onDelete={deleteFromList}
-        />
+        <ProjectMenuButton id={"lista"} icon='faBan' label={"ban"}>
+          <List
+            items={itemFolders}
+            title={"Lista di prova"}
+            element={"label"}
+            onClick
+            onDelete={deleteFromList}
+          />
+        </ProjectMenuButton>
+        <ProjectMenuButton id={"floppy"} icon='faFloppyDisk' label={"2ban"}>
+          <input type='color'></input>
+        </ProjectMenuButton>
       </ProjectMenu>
     </>
   );

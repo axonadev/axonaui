@@ -14,8 +14,7 @@ const useProjectMenu = () => {
   const getFormMenuPj = (idItem) => {
     return (
       <>
-        {" "}
-        <ProjectMenuForm idItem={idItem} />{" "}
+        <ProjectMenuForm idItem={idItem} />
       </>
     );
   };
