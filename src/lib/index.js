@@ -22,6 +22,8 @@ import Folder from "./components/Folder/Folder";
 import ChartLine from "./components/Chart/ChartLine";
 import ChartPie from "./components/Chart/ChartPie";
 import ProjectMenu from "./components/ProjectMenu/ProjectMenu";
+import ProjectMenuButton from "./components/ProjectMenu/ProjectMenuButton.prv";
+import RightSideForm from "./components/ProjectMenu/RightSideForm";
 import FormButton from "./components/Form/FormButton";
 import Form from "./components/Form/Form";
 import useForm from "./hooks/useForm";
@@ -64,4 +66,6 @@ export {
   Pagination,
   TextEditor,
   List,
+  ProjectMenuButton,
+  RightSideForm,
 };
