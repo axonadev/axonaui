@@ -16,6 +16,18 @@
    text-align: center;
 }
 
+.frame_danger {
+   background-color: #ff5c5c94;
+}
+
+.frame_warning {
+   background-color: #ffa75c94;
+}
+
+.frame_success {
+   background-color: #5cf75c94;
+}
+
 .frame_ridimensiona {
    display: flex;
    justify-content: end;

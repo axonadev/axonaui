@@ -90,8 +90,6 @@ const Frame = ({
               {icon && <ImgFont icon={icon} />} {label}
             </div>
           )}
-          {stato && <div className={classStyleStato.join(" ")}>{stato}</div>}
-          {/* {!stato && <div className={classStyleMeno.join(" ")}>-</div>} */}
           {ridimensiona && (
             <div className={classStyleRidimensiona.join(" ")}>
               <Button
