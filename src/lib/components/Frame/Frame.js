@@ -96,7 +96,6 @@ const Frame = ({
                 className={classes.ridimensionaico}
                 onClick={() => {
                   dimFrame === 1 ? setDimFrame(2) : setDimFrame(1);
-                  // setDimFrame(1);
                 }}
               >
                 {dimFrame === 1 ? (
@@ -120,7 +119,6 @@ const Frame = ({
                     setOpenSetup(true);
                   }}
                 >
-                  {/* <Img type='setup' pathImg='getlocal' /> */}
                   <ImgFont icon='faGears' />
                 </Button>
               )}
