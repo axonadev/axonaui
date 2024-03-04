@@ -95,6 +95,23 @@ input::-webkit-calendar-picker-indicator {
     border: 1px solid;
 }
 
+textarea {
+    margin: 10px 0;
+    font-size: var(--axn-input-font-size);
+    height: calc(var(--axn-input-font-size) + 5px);
+}
+
+textarea {
+    border-radius: var(--axn-border-radius);
+    border-color: #ccc;
+    height: 100px;
+}
+
+textarea,
+textarea::placeholder {
+    padding: 5px 10px;
+}
+
 .input_checklist div input {
     font-size: 25px;
 }
