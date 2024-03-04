@@ -63,7 +63,6 @@ const MessageModal = ({
             );
           })}
         </div>
-        ;
       </div>
     </div>
   );
