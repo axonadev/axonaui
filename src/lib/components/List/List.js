@@ -18,7 +18,8 @@ const List = ({ items, title, element, onClick, onDelete }) => {
 
   return (
     <>
-      <h1 className={classes.listTitle}>{title}</h1>
+      {/* TITOLO */}
+      {title && <h1 className={classes.listTitle}>{title}</h1>}
       {items && items.length > 0 ? (
         <ul className={classes.list}>
           {items.map((item, i) => {
@@ -28,8 +29,10 @@ const List = ({ items, title, element, onClick, onDelete }) => {
                 className={classes.listItem}
                 onClick={() => itemHandler(item)}
               >
+                {/* ELEMENTO */}
                 {element ? item[element] : item}
 
+                {/* ICONA */}
                 <FontAwesomeIcon
                   icon={faTrashCan}
                   className={classes.deleteIcon}
