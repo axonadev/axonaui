@@ -120,8 +120,8 @@
 .projectmenubutton_item:hover .projectmenubutton_item_label:nth-child(1) {
     display: block !important;
     visibility: visible;
-    background-color: var(--axn-sidemenu-btn-closed-background-color);
-    color: var(--axn-sidemenu-btn-closed-color);
+    background-color: var(--axn-sidemenu-background-color);
+    color: var(--axn-button-color);
     position: relative;
     width: 100px;
     padding: 7px;
@@ -132,6 +132,8 @@
     right: 110px;
     text-align: center;
     overflow: hidden;
+    transition: 0.2s;
+    box-shadow: 0 1px 4px var(--axn-box-shadow);
 }
 
 .projectmenu_profilo {
