@@ -129,6 +129,7 @@ const Project = ({ request, list, help }) => {
         stato={statoGriglia}
         ridimensiona={true}
         setup={true}
+        icon={"faAddressCard"}
       >
         <Grid
           id='maint_t'

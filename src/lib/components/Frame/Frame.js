@@ -3,6 +3,7 @@ import classes from "../style/Frame.module.css";
 import Card from "../Card/Card";
 import Button from "../Button/Button";
 import Img from "../Img/Img";
+import ImgFont from "../Img/ImgFont";
 
 const Frame = ({
   label,
@@ -17,6 +18,7 @@ const Frame = ({
   onActive,
   setup = false,
   help = false,
+  icon,
 }) => {
   const [dimFrame, setDimFrame] = useState(2);
   const [isSetup, setIsSetup] = useState(false);
@@ -83,7 +85,11 @@ const Frame = ({
     >
       {label && (
         <div className={classes.frame_header}>
-          {label && <div className={classStyle.join(" ")}>{label}</div>}
+          {label && (
+            <div className={classStyle.join(" ")}>
+              {icon && <ImgFont icon={icon} />} {label}
+            </div>
+          )}
           {stato && <div className={classStyleStato.join(" ")}>{stato}</div>}
           {/* {!stato && <div className={classStyleMeno.join(" ")}>-</div>} */}
           {ridimensiona && (
@@ -119,7 +125,8 @@ const Frame = ({
                     setOpenSetup(true);
                   }}
                 >
-                  <Img type='setup' pathImg='getlocal' />
+                  {/* <Img type='setup' pathImg='getlocal' /> */}
+                  <ImgFont icon='faGears' />
                 </Button>
               )}
             </div>
