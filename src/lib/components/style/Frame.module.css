@@ -84,10 +84,6 @@
    align-items: end;
 }
 
-.frame_selezionato_true {
-   border: 1px #27b92d solid;
-}
-
 .frameinrow_1,
 .frameinrow_2,
 .frameinrow_3,
@@ -202,11 +198,6 @@
 .frameinrow_100 {
    flex-basis: 100%;
 }
-
-/* .frameinrow_nopaddingleft,
-.frameinrow_nopaddingright {
-   padding-left: 0px;
-} */
 
 .frameinrow_flexcolumn {
    display: flex;

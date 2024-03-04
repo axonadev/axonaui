@@ -163,7 +163,6 @@
     color: var(--axn-grid-header-d-row-color);
 }
 
-
 /* Handle */
 .grid_type_t .grid_table_content::-webkit-scrollbar-thumb {
     background: var(--axn-grid-header-row-background-color);

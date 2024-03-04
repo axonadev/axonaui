@@ -20,7 +20,7 @@
     position: absolute;
     top: 0;
     right: 60px;
-    background-color: #fff;
+    background-color: var(--axn-button-color);
     height: 100%;
     min-width: 350px;
     z-index: 10;
@@ -102,6 +102,7 @@
     width: auto;
     display: flex;
     justify-content: center;
+    color: var(--axn-button-color);
 }
 
 .projectmenubutton_item_img img {
