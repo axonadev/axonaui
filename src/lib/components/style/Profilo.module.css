@@ -1,13 +1,14 @@
 .profilo_content {
     position: absolute;
     min-width: 300px;
-    background-color: white;
     right: 65px;
     top: 5px;
     text-align: center;
     border: solid 1px;
     border-color: darkgray;
     border-radius: var(--axn-border-radius);
+    color: var(--axn-button-color);
+    background-color: var(--axn-sidemenu-background-color);
     display: flex;
     flex-direction: column;
     z-index: 50;
