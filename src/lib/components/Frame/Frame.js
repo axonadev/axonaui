@@ -97,18 +97,15 @@ const Frame = ({
               <Button
                 className={classes.ridimensionaico}
                 onClick={() => {
-                  setDimFrame(1);
+                  dimFrame === 1 ? setDimFrame(2) : setDimFrame(1);
+                  // setDimFrame(1);
                 }}
               >
-                ▂
-              </Button>
-              <Button
-                className={classes.ridimensionaico}
-                onClick={() => {
-                  setDimFrame(2);
-                }}
-              >
-                ▅
+                {dimFrame === 1 ? (
+                  <ImgFont icon='faChevronDown' />
+                ) : (
+                  <ImgFont icon='faChevronUp' />
+                )}
               </Button>
               <Button
                 className={classes.ridimensionaico}
@@ -116,7 +113,7 @@ const Frame = ({
                   setDimFrame(3);
                 }}
               >
-                ▇
+                <ImgFont icon='faUpRightAndDownLeftFromCenter' />
               </Button>
               {isSetup && (
                 <Button
