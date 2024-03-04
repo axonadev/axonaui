@@ -1,6 +1,6 @@
 {
   "name": "axonaui",
-  "version": "0.1.176",
+  "version": "0.1.178",
   "private": false,
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
