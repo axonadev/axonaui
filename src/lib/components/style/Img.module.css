@@ -17,3 +17,16 @@
 .img_button .svg {
     filter: var(--anx-svg-color-bianco);
 }
+
+/* Esperimenti */
+.img_warning {
+    color: #ffa75c94;
+}
+
+.img_danger {
+    color: #ff5c5c94;
+}
+
+.img_success {
+    color: #5cf75c94;
+}
