@@ -56,6 +56,8 @@
     align-items: center;
     justify-content: flex-end;
     cursor: pointer;
+    font-size: 1.8rem;
+    padding: 10px;
 }
 
 .projectmenu_children_content {

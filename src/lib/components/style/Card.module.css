@@ -47,7 +47,3 @@
         max-width: calc(100% - 42px);
         background-color: var(--axn-card-form-d-background-color);
 }
-
-.card_form input {
-        background-color: var(--axn-card-form-input-background-color);
-}
