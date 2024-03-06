@@ -30,6 +30,7 @@
     transform: translateX(-1px);
     box-shadow: -3px 2px 5px 0 rgba(0, 0, 0, .16);
     transition: 0.2s;
+    overflow: scroll;
 }
 
 .projectmenu_sideoperation_close {
