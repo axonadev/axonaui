@@ -50,14 +50,17 @@
 
 .frame_danger {
    background-color: #ff5c5c94;
+   color: #08162A;
 }
 
 .frame_success {
    background-color: #5cf75c94;
+   color: #1B4A96;
 }
 
 .frame_warning {
    background-color: #ffa75c94;
+   color: #173C63;
 }
 
 .frame_dimensione_1 .frame_label {
