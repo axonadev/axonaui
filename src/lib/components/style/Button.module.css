@@ -33,13 +33,14 @@
 }
 
 .button_type_submit {
-    z-index: 30;
-    height: 65px;
-    width: 65px !important;
-    position: fixed;
-    bottom: 1vh;
-    border-radius: 50%;
-    right: calc(50% - 32.5px);
+    font-size: 1rem;
+    margin-left: 1px;
+    color: var(--axn-header-color);
+    background-color: white;
+    border: 1px solid var(--axn-header-color);
+    height: 30px;
+    width: 30px;
+    padding: 10px;
 }
 
 .button_type_submit img {
