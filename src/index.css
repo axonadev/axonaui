@@ -29,3 +29,14 @@ code {
   background: var(--axn-primary-color);
   ;
 }
+
+/** NASCONDE BARRA LATERALE CHROME*/
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* * NASCONDE BARRA LATERALE IE, EDGE E FIREFOX */
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

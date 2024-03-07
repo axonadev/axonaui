@@ -48,26 +48,17 @@ const FormButton = ({ id_submit, onAnnulla, numberGrid }) => {
 
       {mexAnnulla && (
         <MessageModal
-          onClickBtn1={onConfirmAnnulla}
-          onClickBtn2={onStophandler}
           onOut={onStophandler}
           title={mexAnnulla.title}
           message={mexAnnulla.label}
-          buttons={[
-            {
-              key: 1,
-              label: "No",
-              type: "stop",
-              onClick: onStophandler,
-            },
-            {
-              key: 2,
-              label: "Si",
-              type: "run",
-              onClick: onConfirmAnnulla,
-            },
-          ]}
-        />
+        >
+          <Button onClick={onConfirmAnnulla}>
+            <ImgFont icon='faCheck' />
+          </Button>
+          <Button onClick={onStophandler}>
+            <ImgFont icon='faXmark' />
+          </Button>
+        </MessageModal>
       )}
     </>
   );
