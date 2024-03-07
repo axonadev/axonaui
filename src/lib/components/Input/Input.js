@@ -169,6 +169,7 @@ const Input = ({
             onBlur={onBlurInput}
             onFocus={InputFocus}
             value={InputValue}
+            disabled={disabled}
           ></textarea>
         )}
 
