@@ -23,6 +23,7 @@ const Input = ({
   validate,
   help,
   helpMessage,
+  disabled = false,
 }) => {
   const pers = localStorage.getItem("pers");
 
@@ -182,6 +183,7 @@ const Input = ({
             value={InputValue}
             min={min}
             max={max}
+            disabled={disabled}
           />
         )}
         {icon && (
