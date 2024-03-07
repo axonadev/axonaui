@@ -19,7 +19,7 @@
 
 .frame_ridimensiona {
    display: flex;
-   justify-content: end;
+   justify-content: flex-end;
 }
 
 .frame_ridimensiona img {
@@ -94,7 +94,7 @@
 .frameinrow {
    display: flex;
    flex-direction: row;
-   align-items: end;
+   align-items: flex-end;
 }
 
 .frameinrow_1,
@@ -218,7 +218,7 @@
 }
 
 .frameinrow_flexend {
-   justify-content: end;
+   justify-content: flex-end;
 }
 
 .frameinrow_hidden {
