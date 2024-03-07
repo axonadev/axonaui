@@ -7,7 +7,7 @@ import Button from "../Button/Button";
 const Profilo = ({}) => {
   const logoutHandler = () => {
     localStorage.clear();
-    window.location.reload();
+    window.location.replace("/login");
   };
 
   return (
@@ -19,7 +19,7 @@ const Profilo = ({}) => {
       </div>
       <div className={classes.profilo_logout}>
         <Button onClick={logoutHandler}>
-          <ImgFont icon='faRightFromBracket' />
+          <ImgFont icon="faRightFromBracket" />
         </Button>
       </div>
     </div>
