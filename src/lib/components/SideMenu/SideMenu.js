@@ -7,11 +7,12 @@ import SideMenuSwitch from "./SideMenuSwitch.prv";
 
 const SideMenu = ({ onSideMenuChange }) => {
   const [onoff, setOnoff] = useState(
-    localStorage.getItem("axn_sidemenuswitch")
-      ? localStorage.getItem("axn_sidemenuswitch") === "true"
-        ? true
-        : false
-      : true
+    false
+    // localStorage.axn_sidemenuswitch
+    //   ? localStorage.axn_sidemenuswitch === "true"
+    //     ? true
+    //     : false
+    //   : true
   );
 
   const [idAmbito, setIdAmbito] = useState(0);
