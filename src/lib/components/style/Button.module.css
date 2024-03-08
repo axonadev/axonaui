@@ -1,16 +1,16 @@
 .button,
 .button_type_sm {
     border-radius: var(--axn-border-radius);
-    border: 1px solid var(--axn-button-color);
-    background-color: var(--axn-input-border-color-hover);
-    color: var(--axn-button-color);
+    border: 1px solid var(--axn-white-color);
+    background-color: var(--axn-accents-color);
+    color: var(--axn-white-color);
     transition: 0.2s background-color, color;
     height: 40px;
     width: 40px;
 }
 
 .button:hover {
-    background-color: var(--axn-header-color);
+    background-color: var(--axn-primary-color);
     color: white;
     cursor: pointer;
 }
@@ -18,9 +18,9 @@
 .button_type_sm {
     font-size: 1rem;
     margin-left: 1px;
-    color: var(--axn-header-color);
+    color: var(--axn-primary-color);
     background-color: white;
-    border: 1px solid var(--axn-header-color);
+    border: 1px solid var(--axn-primary-color);
     height: 30px;
     width: 30px;
     padding: 10px;
@@ -35,9 +35,9 @@
 .button_type_submit {
     font-size: 1rem;
     margin-left: 1px;
-    color: var(--axn-header-color);
+    color: var(--axn-primary-color);
     background-color: white;
-    border: 1px solid var(--axn-header-color);
+    border: 1px solid var(--axn-primary-color);
     height: 30px;
     width: 30px;
     padding: 10px;
@@ -52,5 +52,5 @@
 
 .button_type_doc {
     background-color: white;
-    color: var(--axn-header-color);
+    color: var(--axn-primary-color);
 }

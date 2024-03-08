@@ -29,9 +29,9 @@
 .ridimensionaico {
    font-size: 1rem;
    margin-right: 2px;
-   color: var(--axn-header-color);
+   color: var(--axn-primary-color);
    background-color: white;
-   border: 1px solid var(--axn-header-color);
+   border: 1px solid var(--axn-primary-color);
    height: 30px;
    width: 30px;
    display: flex;
@@ -43,7 +43,7 @@
 
 .frame_dimensione_1 {
    height: 30px;
-   background-color: var(--axn-header-color);
+   background-color: var(--axn-primary-color);
    overflow-y: hidden;
    color: white;
 }
@@ -87,11 +87,11 @@
    border-bottom: none;
    font-weight: 600;
    font-size: 1.4rem;
-   color: var(--axn-header-color);
+   color: var(--axn-primary-color);
 }
 
 .frame_inserimento {
-   border: 1px solid var(--axn-frame-border-active);
+   border: 1px solid var(--axn-accents-color);
 }
 
 .frameinrow {

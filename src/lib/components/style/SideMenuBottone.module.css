@@ -8,7 +8,7 @@
 }
 
 .sidemenubottone_contentambito {
-    background-color: var(--axn-header-color);
+    background-color: var(--axn-primary-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,11 +30,11 @@
 }
 
 .sidemenubottone_content:hover label {
-    color: var(--axn-header-color);
+    color: var(--axn-primary-color);
 }
 
 .sidemenubottone_content:hover {
-    color: var(--axn-header-color);
+    color: var(--axn-primary-color);
     background-color: white;
 }
 

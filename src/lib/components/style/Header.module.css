@@ -1,5 +1,5 @@
 .header_content {
-    background-color: var(--axn-header-background-color);
+    background-color: var(--axn-white-color);
     height: var(--axn-height-top);
     display: flex;
     justify-content: center;
@@ -23,7 +23,7 @@
 
 .header_label {
     font-size: 2.5rem;
-    color: var(--axn-header-color);
+    color: var(--axn-primary-color);
     font-variant: small-caps;
     display: flex;
     align-items: baseline;

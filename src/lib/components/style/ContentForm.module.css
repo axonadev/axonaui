@@ -1,6 +1,6 @@
 .content_body {
     height: calc(100vh - var(--axn-height-top));
-    background-color: var(--axn-contentform-background-color);
+    background-color: var(--axn-white-color);
     position: absolute;
     top: var(--axn-height-top);
     bottom: 50px;

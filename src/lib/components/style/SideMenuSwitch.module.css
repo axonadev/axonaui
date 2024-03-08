@@ -38,7 +38,7 @@
   margin-bottom: 4px;
   transition: .3s;
   display: block;
-  background-color: var(--axn-primary-color);
+  background-color: var(--axn-white-color);
 }
 
 .msasidetoggler .mstogglerbar:nth-child(2) {

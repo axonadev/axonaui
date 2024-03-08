@@ -1,5 +1,5 @@
 .filter_search input {
-    /* background-color: var(--axn-card-form-input-background-color); */
+    /* background-color: var(--axn-white-color); */
     border-radius: 0 var(--axn-border-radius) var(--axn-border-radius) 0;
 }
 
@@ -13,7 +13,7 @@
 .icona {
     padding: 3px;
     color: white;
-    border: 1px solid var(--axn-input-border-color);
+    border: 1px solid var(--axn-primary-color);
     border-radius: var(--axn-border-radius) 0 0 var(--axn-border-radius);
-    background-color: var(--axn-header-color);
+    background-color: var(--axn-primary-color);
 }

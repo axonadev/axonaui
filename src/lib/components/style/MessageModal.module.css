@@ -16,8 +16,8 @@
   margin: 0rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   border-radius: var(--axn-border-radius);
-  background-color: var(--axn-msgbox-background-color);
-  color: var(--axn-msgbox-color);
+  background-color: var(--axn-white-color);
+  color: var(--axn-black-color);
   position: fixed;
   top: 20vh;
   left: 10%;
@@ -29,18 +29,18 @@
 }
 
 .messagemodal_header {
-  background-color: var(--axn-msgbox-header-background-color);
+  background-color: var(--axn-white-color);
   padding: 1rem;
   text-align: center;
 }
 
 .messagemodal_header h2 {
   margin: 0;
-  color: var(--axn-msgbox-header-color);
+  color: var(--axn-black-color);
 }
 
 .messagemodal_footer {
-  background-color: var(--axn-msgbox-footer-background-color);
+  background-color: var(--axn-gray-color);
   bottom: 0px;
   position: absolute;
   width: 100%;
@@ -113,5 +113,5 @@
   padding-bottom: 10px;
   display: flex;
   justify-content: center;
-  background-color: var(--axn-msgbox-footer-background-color);
+  background-color: var(--axn-gray-color);
 }

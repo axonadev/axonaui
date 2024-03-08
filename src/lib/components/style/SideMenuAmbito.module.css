@@ -12,13 +12,12 @@
 }
 
 .sidemenuambito_label {
-  background-color: var(--axn-sidemenu-btn-background-color);
-}
-.sidemenuambito_listopen {
-  
+  background-color: var(--axn-white-color);
 }
 
+.sidemenuambito_listopen {}
+
 .sidemenuambito_listclose {
-   height: 0px !important;
-  
+  height: 0px !important;
+
 }
