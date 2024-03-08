@@ -38,12 +38,12 @@
 
 .card_form_t {
         text-align: left;
-        max-width: calc(100% - 28px);
+        max-width: calc(100% - 30px);
         background-color: var(--axn-white-color);
 }
 
 .card_form_d {
         text-align: left;
-        max-width: calc(100% - 42px);
+        max-width: calc(100% - 30px);
         background-color: var(--axn-white-color);
 }
