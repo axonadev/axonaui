@@ -126,7 +126,7 @@ const Project = ({ request, list, help }) => {
       <Frame
         label='TESTATA'
         type='form_t'
-        stato={"success"}
+        stato={""}
         ridimensiona={true}
         setup={true}
         icon={"faAddressCard"}
