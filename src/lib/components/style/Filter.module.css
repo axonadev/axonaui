@@ -1,5 +1,5 @@
 .filter_search input {
-    background-color: var(--axn-card-form-input-background-color);
+    /* background-color: var(--axn-card-form-input-background-color); */
     border-radius: 0 var(--axn-border-radius) var(--axn-border-radius) 0;
 }
 
