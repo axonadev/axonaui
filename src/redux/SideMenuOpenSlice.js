@@ -1,16 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const sideMenuOpenSlice = createSlice({
-  name: "idOpen",
+  name: "sideMenuOpen",
   initialState: {
-    value: "",
+    value: false,
   },
   reducers: {
-    changeID: (state) => {
-      state.value = state;
+    sideMenu: (state) => {
+      state.value = !state.value;
+      console.log(state.value);
     },
   },
 });
 
-export const { changeID } = sideMenuOpenSlice.actions;
+export const { sideMenu } = sideMenuOpenSlice.actions;
 export const sideMenuOpenReducer = sideMenuOpenSlice.reducer;

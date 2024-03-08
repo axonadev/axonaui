@@ -1,25 +1,33 @@
-.header_content {
+header {
     background-color: var(--axn-white-color);
     height: var(--axn-height-top);
     display: flex;
     justify-content: center;
     position: fixed;
     top: 0;
-    right: 0;
-    left: 0;
+    right: 60px;
+    transition: 0.2s left;
 }
 
-.header_contentorizontal {
+.header_left_250px {
+    left: 250px;
+}
+
+.header_left_60px {
+    left: 60px;
+}
+
+/* .header_contentorizontal {
     padding: 10px;
     display: grid;
     grid-template-columns: 100%;
-}
+} */
 
-.header_contentvertical {
+/* .header_contentvertical {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
+} */
 
 .header_label {
     font-size: 2.5rem;
