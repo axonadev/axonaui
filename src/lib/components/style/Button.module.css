@@ -11,7 +11,7 @@
 
 .button:hover {
     background-color: var(--axn-primary-color);
-    color: white;
+    color: var(--axn-white-color);
     cursor: pointer;
 }
 
@@ -19,7 +19,7 @@
     font-size: 1rem;
     margin-left: 1px;
     color: var(--axn-primary-color);
-    background-color: white;
+    background-color: var(--axn-white-color);
     border: 1px solid var(--axn-primary-color);
     height: 30px;
     width: 30px;
@@ -36,7 +36,7 @@
     font-size: 1rem;
     margin-left: 1px;
     color: var(--axn-primary-color);
-    background-color: white;
+    background-color: var(--axn-white-color);
     border: 1px solid var(--axn-primary-color);
     height: 30px;
     width: 30px;
@@ -51,6 +51,6 @@
 }
 
 .button_type_doc {
-    background-color: white;
+    background-color: var(--axn-white-color);
     color: var(--axn-primary-color);
 }

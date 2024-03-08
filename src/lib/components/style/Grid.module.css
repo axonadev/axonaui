@@ -77,7 +77,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: white;
+    background-color: var(--axn-white-color);
     color: var(--axn-primary-color);
     height: 30px;
     width: 30px;
@@ -85,32 +85,32 @@
 
 /* Buttons Delete/ADD */
 .grid_buttonDelete {
-    color: white;
-    background-color: var(--axn-danger-color) !important;
-    border: 1px solid var(--axn-danger-color);
+    color: var(--axn-white-color);
+    background-color: var(--axn-orange-color) !important;
+    border: 1px solid var(--axn-orange-color);
 }
 
 .grid_buttonDelete:hover {
-    color: var(--axn-danger-color) !important;
+    color: var(--axn-orange-color) !important;
     background-color: white !important;
-    border: 1px solid var(--axn-danger-color);
+    border: 1px solid var(--axn-orange-color);
 }
 
 .grid_buttonAdd {
-    color: white;
-    background-color: var(--axn-success-color) !important;
-    border: 1px solid var(--axn-success-color);
+    color: var(--axn-white-color);
+    background-color: var(--axn-green-color) !important;
+    border: 1px solid var(--axn-green-color);
 }
 
 .grid_buttonAdd:hover {
-    color: var(--axn-success-color) !important;
+    color: var(--axn-green-color) !important;
     background-color: white !important;
-    border: 1px solid var(--axn-success-color);
+    border: 1px solid var(--axn-green-color);
 }
 
 .grid_button:hover {
     background-color: var(--axn-primary-color);
-    color: white;
+    color: var(--axn-white-color);
 }
 
 .grid_button img {

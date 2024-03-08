@@ -105,7 +105,7 @@ textarea {
 
 textarea {
     border-radius: var(--axn-border-radius);
-    border-color: #ccc;
+    border-color: var(--axn-lightgray-color);
     height: 100px;
 }
 
@@ -165,14 +165,14 @@ textarea::placeholder {
 .helpmessage_content {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black;
+    border-bottom: 1px dotted var(--axn-primary-color);
     z-index: 50;
 }
 
 .helpmessage {
     width: 120px;
-    background-color: #555;
-    color: #fff;
+    background-color: var(--axn-darkgray-color);
+    color: var(--axn-white-color);
     text-align: center;
     border-radius: var(--axn-border-radius);
     position: absolute;
@@ -189,5 +189,5 @@ textarea::placeholder {
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: #555 transparent transparent transparent;
+    border-color: var(--axn-darkgray-color) transparent transparent transparent;
 }

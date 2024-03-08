@@ -42,7 +42,7 @@
 }
 
 .fumetto {
-    color: white;
+    color: var(--axn-white-color);
     position: absolute;
     z-index: 51;
     top: 50px;

@@ -3,7 +3,7 @@
     height: 50px;
     cursor: pointer;
     min-width: 40px;
-    color: white;
+    color: var(--axn-white-color);
     font-size: 1.4rem;
 }
 
@@ -26,7 +26,7 @@
 .sidemenubottone_content label {
     cursor: pointer;
     font-size: 1.2rem;
-    color: white;
+    color: var(--axn-white-color);
 }
 
 .sidemenubottone_content:hover label {
@@ -35,7 +35,7 @@
 
 .sidemenubottone_content:hover {
     color: var(--axn-primary-color);
-    background-color: white;
+    background-color: var(--axn-white-color);
 }
 
 .sidemenubottone_contentopen {

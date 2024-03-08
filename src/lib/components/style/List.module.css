@@ -6,7 +6,7 @@
 
 .listItem {
     padding: 10px;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--axn-lightgray-color);
     cursor: pointer;
     display: flex;
     justify-content: space-between;
@@ -14,7 +14,7 @@
 }
 
 .listItem:hover {
-    background-color: #f0f0f0;
+    background-color: var(--axn-white-color);
 }
 
 .listTitle {
@@ -29,15 +29,15 @@
 
 .deleteIcon {
     padding: 5px;
-    color: var(--axn-danger-color);
+    color: var(--axn-orange-color);
     cursor: pointer;
-    border: 1px solid var(--axn-danger-color);
+    border: 1px solid var(--axn-orange-color);
     border-radius: var(--axn-border-radius);
 }
 
 .deleteIcon:hover {
-    color: white;
-    background-color: var(--axn-danger-color);
+    color: var(--axn-white-color);
+    background-color: var(--axn-orange-color);
 }
 
 .singleElement {
@@ -45,5 +45,4 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-    /* border-bottom: 1px solid #e0e0e0; */
 }

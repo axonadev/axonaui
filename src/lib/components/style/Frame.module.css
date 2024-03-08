@@ -30,7 +30,7 @@
    font-size: 1rem;
    margin-right: 2px;
    color: var(--axn-primary-color);
-   background-color: white;
+   background-color: var(--axn-white-color);
    border: 1px solid var(--axn-primary-color);
    height: 30px;
    width: 30px;
@@ -45,30 +45,30 @@
    height: 30px;
    background-color: var(--axn-primary-color);
    overflow-y: hidden;
-   color: white;
+   color: var(--axn-white-color);
 }
 
 .frame_danger {
-   background-color: #ff5c5c94;
+   background-color: var(--axn-danger-color);
    color: #08162A;
 }
 
 .frame_success {
-   background-color: #5cf75c94;
+   background-color: var(--axn-success-color);
    color: #1B4A96;
 }
 
 .frame_warning {
-   background-color: #ffa75c94;
+   background-color: var(--axn-warning-color);
    color: #173C63;
 }
 
 .frame_dimensione_1 .frame_label {
-   color: white;
+   color: var(--axn-white-color);
 }
 
 .frame_dimensione_1 .ridimensionaico {
-   border: 1px solid white;
+   border: 1px solid var(--axn-white-color);
 }
 
 .frame_dimensione_3 {

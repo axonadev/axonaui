@@ -54,7 +54,7 @@ const Project = ({ request, list, help }) => {
     {
       key: 3,
       label: "Contabilità",
-      img: "faFileInvoice",
+      img: "faCalculator",
       target: "contabilita",
     },
     { key: 4, label: "CRM", img: "faUsersGear", target: "crm" },

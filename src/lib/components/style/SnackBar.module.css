@@ -1,12 +1,12 @@
 .snackbar_content {
-  background-color: darkgreen;
+  background-color: var(--axn-primary-color);
   position: fixed;
   bottom: 10px;
   right: 10px;
   width: 300px;
   height: 40px;
   border-radius: var(--axn-border-radius);
-  color: #aaec8a;
+  color: var(--axn-white-color);
 }
 
 .snackbar_body {

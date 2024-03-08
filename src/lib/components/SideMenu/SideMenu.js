@@ -127,7 +127,7 @@ const SideMenu = ({ onSideMenuChange }) => {
           idAmbito={4}
           onoff={onoff}
           label='Contabilità'
-          src='faFileInvoice'
+          src='faCalculator'
           selezionato={idAmbito}
           list={datatextconta}
           onClick={selAmbito}

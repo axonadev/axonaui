@@ -20,13 +20,13 @@
 
 /* Esperimenti */
 .img_warning {
-    color: #ffa75c94;
+    color: var(--axn-warning-color);
 }
 
 .img_danger {
-    color: #ff5c5c94;
+    color: var(--axn-danger-color);
 }
 
 .img_success {
-    color: #5cf75c94;
+    color: var(--axn-success-color);
 }

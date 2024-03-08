@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--axn-white-color);
     background-color: var(--axn-primary-color);
     border: var(--axn-primary-color) 1px solid;
     border-radius: var(--axn-border-radius);
@@ -20,7 +20,7 @@
 
 .pagination_righticon:active,
 .pagination_lefticon:active {
-    background-color: white;
+    background-color: var(--axn-white-color);
     color: var(--axn-primary-color);
 }
 
