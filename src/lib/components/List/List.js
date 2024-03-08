@@ -1,9 +1,9 @@
 import React from "react";
 import classes from "../style/List.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import * as Icons from "@fortawesome/free-solid-svg-icons";
 
-const List = ({ items, title, element, onClick, onDelete }) => {
+const List = ({ items, title, element, onClick, onDelete, icon = "" }) => {
   const itemHandler = (item) => {
     try {
       onClick(item);
@@ -34,7 +34,7 @@ const List = ({ items, title, element, onClick, onDelete }) => {
 
                 {/* ICONA */}
                 <FontAwesomeIcon
-                  icon={faTrashCan}
+                  icon={Icons[icon]}
                   className={classes.deleteIcon}
                   onClick={(e) => {
                     e.stopPropagation();
