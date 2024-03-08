@@ -43,7 +43,10 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: row;
-    padding-left: 20px;
+}
+
+.sidemenubottone_contentopen div {
+    padding-left: 15px;
 }
 
 .sidemenubottone_contentclose {
