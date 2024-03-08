@@ -19,12 +19,12 @@
 }
 
 .card_lg {
-        max-width: calc(100% - 42px);
+        max-width: calc(100% - 30px);
 }
 
 .card_form {
         text-align: left;
-        max-width: calc(100% - 42px);
+        max-width: calc(100% - 30px);
 }
 
 .card_noborder {
