@@ -27,7 +27,7 @@ esempio di css di default:
     "--axn-white-color": "lightblue",
     "--axn-white-color": "lightgreen",
     "--axn-white-color": "#ebebeb",
-    "--axn-sidemenu-background-color": "#ffffff",
+    "--axn-purple-color": "#ffffff",
     "--axn-black-color": "#000000",
     "--axn-black-color-hover": "rgb(1, 102, 0)",
     "--axn-sidemenu-border-color": "blue",
