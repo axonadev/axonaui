@@ -1,25 +1,30 @@
 import React from "react";
-import Img from "../Img/Img";
 import ImgFont from "../Img/ImgFont";
 import classes from "../style/Profilo.module.css";
 import Button from "../Button/Button";
 
 const Profilo = ({}) => {
+  
   const logoutHandler = () => {
     localStorage.clear();
     window.location.replace("/login");
   };
 
+  //* Imposta utenti 
+  const pIva = localStorage.axn_piva ? localStorage.axn_piva : "Nessuna Piva";
+  const utente = localStorage.axn_utente ? localStorage.axn_utente : "Utente Di Esempio";
+  const mail = localStorage.axn_mail ? localStorage.axn_mail : "mail.esempio.it";
+
   return (
     <div className={classes.profilo_content}>
       <div>
-        <h2>Nome Profilo</h2>
-        <p>P.iva</p>
-        <p>nomeprofilo@mail.com</p>
+        <h2>{utente}</h2>
+        <p>P.Iva: {pIva}</p>
+        <p>{mail}</p>
       </div>
       <div className={classes.profilo_logout}>
         <Button onClick={logoutHandler}>
-          <ImgFont icon="faRightFromBracket" />
+          <ImgFont icon='faRightFromBracket' />
         </Button>
       </div>
     </div>
