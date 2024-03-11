@@ -1,8 +1,6 @@
 import React from "react";
 import classes from "../style/List.module.css";
 import ImgFont from "../Img/ImgFont";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import * as Icons from "@fortawesome/free-solid-svg-icons";
 
 const List = ({ items, title, element, onClick, onDelete, icon = "" }) => {
   const itemHandler = (item) => {
