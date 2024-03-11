@@ -4,12 +4,16 @@ import Img from "../Img/Img";
 import SideMenuBottone from "./SideMenuBottone.prv";
 import SideMenuAmbito from "./SideMenuAmbito.prv";
 import SideMenuSwitch from "./SideMenuSwitch.prv";
-import { UseSelector, useDispatch, useSelector } from "react-redux";
-import { sideMenu } from "../../../redux/SideMenuOpenSlice";
 
 const SideMenu = ({ onSideMenuChange }) => {
-  const onoff = useSelector((state) => state.sideMenu.value);
-  const dispatch = useDispatch();
+  const [onoff, setOnoff] = useState(
+    false
+    // localStorage.axn_sidemenuswitch
+    //   ? localStorage.axn_sidemenuswitch === "true"
+    //     ? true
+    //     : false
+    //   : true
+  );
 
   const [idAmbito, setIdAmbito] = useState(0);
 
@@ -54,7 +58,13 @@ const SideMenu = ({ onSideMenuChange }) => {
     onoff ? classes.sidemenu_open : classes.sidemenu_close,
   ];
 
-  useEffect(() => {}, [onoff]);
+  const switchEvent = () => {
+    setOnoff((prevonoff) => {
+      localStorage.setItem("axn_sidemenuswitch", !prevonoff);
+      onSideMenuChange(!prevonoff);
+      return !prevonoff;
+    });
+  };
 
   return (
     <div className={stylecontent.join(" ")}>
@@ -64,10 +74,7 @@ const SideMenu = ({ onSideMenuChange }) => {
             <Img type='my_logo' pathImg='getlocal' />
           </div>
         </div>
-        <SideMenuSwitch
-          onoff={onoff}
-          onClick={() => dispatch(sideMenu(onoff))}
-        />
+        <SideMenuSwitch onoff={onoff} onClick={switchEvent} />
       </div>
       <div className={classes.sidemenu_buttoncontent}>
         <SideMenuBottone
