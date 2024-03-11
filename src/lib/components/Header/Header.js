@@ -1,36 +1,20 @@
-import React, { useState } from "react";
-import Img from "../Img/Img";
-import Button from "../Button/Button";
-import Profilo from "../Profilo/Profilo";
+import React, { useEffect, useState } from "react";
+import { UseSelector, useDispatch, useSelector } from "react-redux";
 import classes from "../style/Header.module.css";
-const Header = ({ id, titolo, pathimg, className }) => {
-  const [openProfilo, setOpenProfilo] = useState(false);
-  const profiloClick = () => {
-    // console.log("hai cliccato profilo");
-    setOpenProfilo((prec) => {
-      return !prec;
-    });
-  };
 
-  const clsName = [classes.header_content, classes[className]];
+const Header = ({ id, titolo }) => {
+  const isSideOpen = useSelector((state) => state.sideMenu.value);
+
+  useEffect(() => {}, [isSideOpen]);
 
   return (
-    <header id={id} className={clsName.join(" ")}>
+    <header
+      id={id}
+      className={
+        isSideOpen ? classes.header_left_250px : classes.header_left_60px
+      }
+    >
       <label className={classes.header_label}>{titolo}</label>
-
-      {/* VECCHIO HEADER */}
-      {/* <div id={id} className={classes.header_contentorizontal}>
-        <div className={classes.header_contentvertical}>
-          <label className={classes.header_label}>{titolo}</label>
-        </div>
-        <div className={classes.header_contentvertical}>
-        </div>
-      </div>
-       <span>
-        <Img src={pathimg + "/message.png"} type={"button"} />
-        <Img src={pathimg + "/notification.png"} type={"button"} />
-        <Img src={pathimg + "/settings.png"} type={"button"} />
-      </span> */}
     </header>
   );
 };
