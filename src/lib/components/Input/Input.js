@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import useInput from "../../hooks/useInput";
 import classes from "../style/Input.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
+import ImgFont from "../Img/ImgFont";
 
 const Input = ({
   value = "",
@@ -157,7 +156,7 @@ const Input = ({
             className={classes.input_preicon}
             onClick={onPreIconClickHandler}
           >
-            <FontAwesomeIcon icon={faEllipsis} />
+            <ImgFont icon={icon} size='medium' />
           </div>
         )}
         {type === "textarea" && (
@@ -189,7 +188,7 @@ const Input = ({
         )}
         {icon && (
           <div className={classes.input_icon}>
-            <FontAwesomeIcon icon={faEllipsis} onClick={onIconClickHandler} />
+            <ImgFont icon={icon} onClick={onIconClickHandler} size='medium' />
           </div>
         )}
       </div>

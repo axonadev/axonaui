@@ -62,8 +62,8 @@ input::-webkit-calendar-picker-indicator {
 .input_icon {
     position: relative;
     width: 0px;
-    top: 2px;
-    right: 20px;
+    top: 4px;
+    right: 25px;
     cursor: pointer;
     height: 15px;
 }

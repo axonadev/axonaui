@@ -75,7 +75,7 @@ const Citta = ({
             id={citta.id}
             onChangeValue={onChangeValue}
             onChange={onChange}
-            icon='trepuntini'
+            icon='faEllipsis'
             onIconClick={cittaClickHandler}
           />
         </div>
