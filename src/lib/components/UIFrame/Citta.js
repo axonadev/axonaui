@@ -66,19 +66,15 @@ const Citta = ({
           }
           nameList='v_nazioni'
         />
-
-        {/* QUI */}
-        <div style={{ width: "100%" }}>
-          <Input
-            className={"input_flex"}
-            label={citta.label}
-            id={citta.id}
-            onChangeValue={onChangeValue}
-            onChange={onChange}
-            icon='faEllipsis'
-            onIconClick={cittaClickHandler}
-          />
-        </div>
+        <Input
+          className={"input_flex"}
+          label={citta.label}
+          id={citta.id}
+          onChangeValue={onChangeValue}
+          onChange={onChange}
+          icon='faEllipsis'
+          onIconClick={cittaClickHandler}
+        />
 
         <Input
           label={provincia.label}

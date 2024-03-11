@@ -17,24 +17,24 @@ const MessageModal = ({
     classes["messagemodal_modal_" + (type ? type : "msg")],
   ];
 
-  // const c_buttons = buttons
-  //   ? buttons
-  //   : [
-  //       {
-  //         key: 1,
-  //         onClick: "onSave",
-  //         type: "success",
-  //         label: "Salva",
-  //         icon: "faFloppyDisk",
-  //       },
-  //       {
-  //         key: 2,
-  //         onClick: "onStop",
-  //         type: "stop",
-  //         label: "Annulla",
-  //         icon: "faBan",
-  //       },
-  //     ];
+  const c_buttons = buttons
+    ? buttons
+    : [
+        {
+          key: 1,
+          onClick: "onSave",
+          type: "success",
+          label: "Salva",
+          icon: "faFloppyDisk",
+        },
+        {
+          key: 2,
+          onClick: "onStop",
+          type: "stop",
+          label: "Annulla",
+          icon: "faBan",
+        },
+      ];
 
   // console.log(c_buttons);
 
@@ -47,7 +47,7 @@ const MessageModal = ({
           {message && <p>{message}</p>}
           {children && children}
         </div>
-        {/* <div className={classes.buttonContainer}>
+        <div className={classes.buttonContainer}>
           {c_buttons.map((item) => {
             return (
               <Button
@@ -62,7 +62,7 @@ const MessageModal = ({
               </Button>
             );
           })}
-        </div> */}
+        </div>
       </div>
     </div>
   );
