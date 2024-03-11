@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import Img from "../Img/Img";
-import Button from "../Button/Button";
-import Profilo from "../Profilo/Profilo";
 import classes from "../style/Header.module.css";
 const Header = ({ id, titolo, pathimg, className }) => {
   const [openProfilo, setOpenProfilo] = useState(false);
