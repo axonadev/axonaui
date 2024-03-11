@@ -32,10 +32,12 @@ import useList from "./hooks/useList";
 import Pagination from "./components/Pagination/Pagination";
 import TextEditor from "./components/TextEditor/TextEditor";
 import List from "./components/List/List";
+import ImgFont from "./components/Img/ImgFont";
 
 export {
   Button,
   Img,
+  ImgFont,
   MessageModal,
   Card,
   Input,
