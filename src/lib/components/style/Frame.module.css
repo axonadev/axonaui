@@ -65,6 +65,7 @@
 
 .frame_dimensione_1 .frame_label {
    color: var(--axn-white-color);
+
 }
 
 .frame_dimensione_1 .ridimensionaico {
@@ -88,6 +89,12 @@
    font-weight: 600;
    font-size: 1.4rem;
    color: var(--axn-primary-color);
+   display: flex;
+   align-items: center;
+}
+
+.frame_label svg {
+   padding-right: 5px;
 }
 
 .frame_inserimento {

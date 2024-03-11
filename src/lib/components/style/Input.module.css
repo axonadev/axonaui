@@ -34,7 +34,7 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .input_input input[type=date] {
-    height: calc(var(--axn-input-font-size) + 7px);
+    height: calc(var(--axn-input-font-size) + 10px);
 }
 
 .input_input input:hover {
