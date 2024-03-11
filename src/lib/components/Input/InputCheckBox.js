@@ -103,17 +103,6 @@ const InputCheckBox = ({
 
   return (
     <div key={id} id={"cont_" + id} className={classContent.join(" ")}>
-      {labelAlign === "top" && (
-        <div className={classLabel.join(" ")}>
-          <label>
-            {objLabel}
-            {!InputIsValid && (
-              <span className={classes.errorText}>{InputMessageError}</span>
-            )}
-          </label>
-        </div>
-      )}
-
       <div className={classDivInput.join(" ")}>
         <input
           id={id}
@@ -133,6 +122,17 @@ const InputCheckBox = ({
           </label>
         )}
       </div>
+
+      {labelAlign === "top" && (
+        <div className={classLabel.join(" ")}>
+          <label>
+            {objLabel}
+            {!InputIsValid && (
+              <span className={classes.errorText}>{InputMessageError}</span>
+            )}
+          </label>
+        </div>
+      )}
     </div>
   );
 };
