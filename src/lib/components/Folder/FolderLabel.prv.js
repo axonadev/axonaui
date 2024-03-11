@@ -19,7 +19,7 @@ const FolderLabel = ({ target, children, onClick, img, chiave }) => {
         onMouseEnter={() => setIsShown(true)}
         onMouseLeave={() => setIsShown(false)}
       >
-        <ImgFont icon={img} pathImg='getlocal' />
+        <ImgFont icon={img} pathImg='getlocal' size='medium' />
       </div>
     </React.Fragment>
   );

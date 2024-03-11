@@ -30,7 +30,7 @@ input::-webkit-calendar-picker-indicator {
     font-size: var(--axn-input-font-size);
     border: var(--axn-primary-color) 1px solid;
     border-radius: var(--axn-border-radius);
-    height: calc(var(--axn-input-font-size) + 5px);
+    height: calc(var(--axn-input-font-size) + 10px);
 }
 
 .input_input input[type=date] {

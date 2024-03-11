@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import classes from "../style/Frame.module.css";
 import Card from "../Card/Card";
 import Button from "../Button/Button";
-import Img from "../Img/Img";
 import ImgFont from "../Img/ImgFont";
 
 const Frame = ({
@@ -87,7 +86,7 @@ const Frame = ({
         <div className={classes.frame_header}>
           {label && (
             <div className={classStyle.join(" ")}>
-              {icon && <ImgFont icon={icon} />} {label}
+              {icon && <ImgFont icon={icon} size='medium' />} {label}
             </div>
           )}
           {ridimensiona && (
@@ -99,9 +98,9 @@ const Frame = ({
                 }}
               >
                 {dimFrame === 1 ? (
-                  <ImgFont icon='faChevronDown' />
+                  <ImgFont icon='faChevronDown' size='medium' />
                 ) : (
-                  <ImgFont icon='faChevronUp' />
+                  <ImgFont icon='faChevronUp' size='medium' />
                 )}
               </Button>
               <Button
@@ -110,7 +109,7 @@ const Frame = ({
                   setDimFrame(3);
                 }}
               >
-                <ImgFont icon='faUpRightAndDownLeftFromCenter' />
+                <ImgFont icon='faUpRightAndDownLeftFromCenter' size='medium' />
               </Button>
               {isSetup && (
                 <Button
@@ -119,7 +118,7 @@ const Frame = ({
                     setOpenSetup(true);
                   }}
                 >
-                  <ImgFont icon='faGears' />
+                  <ImgFont icon='faGears' size='medium' />
                 </Button>
               )}
             </div>

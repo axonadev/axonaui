@@ -253,7 +253,7 @@ const Form = ({
           type='submit'
           id={id_submit}
         >
-          <ImgFont icon='faFloppyDisk' />
+          <ImgFont icon='faFloppyDisk' size='medium' />
         </Button>
       </form>
       {mex && (

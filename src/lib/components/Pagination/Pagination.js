@@ -1,13 +1,9 @@
 import React from "react";
 import classes from "../style/Pagination.module.css";
-import Img from "../Img/Img";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretRight, faCaretLeft } from "@fortawesome/free-solid-svg-icons";
+import ImgFont from "../Img/ImgFont";
 const Pagination = ({
   id,
   page,
-  leftIcon,
-  rightIcon,
   onChange,
   onLeftIconClick,
   onRightIconClick,
@@ -28,7 +24,7 @@ const Pagination = ({
         className={classes.pagination_lefticon}
         onClick={onLeftIconClickHandler}
       >
-        <FontAwesomeIcon icon={faCaretLeft} />
+        <ImgFont icon={"faCaretLeft"} size='medium' />
       </div>
       <input
         className={classes.paginationInput}
@@ -40,7 +36,7 @@ const Pagination = ({
         className={classes.pagination_righticon}
         onClick={onRightIconClickHandler}
       >
-        <FontAwesomeIcon icon={faCaretRight} />
+        <ImgFont icon={"faCaretRight"} size='medium' />
       </div>
     </div>
   );

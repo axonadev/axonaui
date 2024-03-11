@@ -39,10 +39,10 @@ const FormButton = ({ id_submit, onAnnulla, numberGrid }) => {
     <>
       <>
         <Button className={classBSave.join(" ")} onClick={formSubmit}>
-          <ImgFont icon='faFloppyDisk' />
+          <ImgFont icon='faFloppyDisk' size='medium' />
         </Button>
         <Button className={classBAnnulla.join(" ")} onClick={clickAnnulla}>
-          <ImgFont icon='faXmark' />
+          <ImgFont icon='faXmark' size='medium' />
         </Button>
       </>
 
@@ -53,10 +53,10 @@ const FormButton = ({ id_submit, onAnnulla, numberGrid }) => {
           message={mexAnnulla.label}
         >
           <Button onClick={onConfirmAnnulla}>
-            <ImgFont icon='faCheck' />
+            <ImgFont icon='faCheck' size='medium' />
           </Button>
           <Button onClick={onStophandler}>
-            <ImgFont icon='faXmark' />
+            <ImgFont icon='faXmark' size='medium' />
           </Button>
         </MessageModal>
       )}

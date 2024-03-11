@@ -39,7 +39,7 @@ const ProjectMenuButton = ({
         {/* Icona */}
         <div className={classes.projectmenubutton_item_div}>
           <div className={classes.projectmenubutton_item_img}>
-            <ImgFont icon={icon} />
+            <ImgFont icon={icon} size='medium' />
           </div>
         </div>
       </div>

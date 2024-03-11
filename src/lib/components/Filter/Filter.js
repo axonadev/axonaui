@@ -1,8 +1,7 @@
 import React from "react";
 import Input from "../Input/Input";
 import classes from "../style/Filter.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import ImgFont from "../Img/ImgFont";
 const Filter = ({ id, itemSearch, onFilter }) => {
   const clickSearchHandler = () => {
     const valFilter = document.getElementById(id).value;
@@ -13,7 +12,11 @@ const Filter = ({ id, itemSearch, onFilter }) => {
 
   return (
     <React.Fragment>
-      <FontAwesomeIcon className={classes.icona} icon={faMagnifyingGlass} />
+      <ImgFont
+        className={classes.icona}
+        size='medium'
+        icon={"faMagnifyingGlass"}
+      />
       <div className={classes.iconContainer}>
         <Input
           className={classes.filter_search}

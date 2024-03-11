@@ -6,7 +6,6 @@ import useGrid from "../../hooks/useGrid";
 import useForm from "../../hooks/useForm";
 import Filter from "../Filter/Filter";
 import Button from "../Button/Button";
-import Img from "../Img/Img";
 import Input from "../Input/Input";
 import MessageModal from "../MessageModal/MessageModal";
 import Form from "../Form/Form";
@@ -275,14 +274,18 @@ const Grid = ({
                     className={`${classes.grid_button} ${classes.grid_buttonAdd}`}
                     type='sm'
                   >
-                    <ImgFont icon='faPlus' />
+                    <ImgFont icon='faPlus' size='medium' />
                   </Button>
                   <Button
                     onClick={deleteHandler}
                     className={`${classes.grid_button} ${classes.grid_buttonDelete}`}
                     type='sm'
                   >
-                    <ImgFont icon='faTrashCan' className='deleteBtn' />
+                    <ImgFont
+                      icon='faTrashCan'
+                      className='deleteBtn'
+                      size='medium'
+                    />
                   </Button>
                 </div>
               )}

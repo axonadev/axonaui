@@ -30,3 +30,15 @@
 .img_success {
     color: var(--axn-success-color);
 }
+
+.img_small {
+    height: 1em;
+}
+
+.img_medium {
+    height: 1.3em;
+}
+
+.img_large {
+    height: 1.5em;
+}

@@ -40,7 +40,7 @@ const SideMenuBottone = ({
   return (
     <div className={stylecontent.join(" ")} onClick={btnhandler}>
       <div>
-        <ImgFont icon={src} />
+        <ImgFont icon={src} size='medium' />
       </div>
 
       <div className={stylelabel.join(" ")}>
