@@ -5,7 +5,6 @@ import Project from "../Pages/Project";
 import useList from "../lib/hooks/useList";
 import List from "../lib/components/List/List";
 import ProjectMenuButton from "../lib/components/ProjectMenu/ProjectMenuButton.prv";
-import { useSelector, useDispatch } from "react-redux";
 
 const Layout = () => {
   //* LISTA DICHIARATA SOLO PER PASSARE UNA LISTA AL COMPONENTE LIST
@@ -44,12 +43,9 @@ const Layout = () => {
   const versione = "00.00.00";
   const { REACT_APP_IMGFOLDER, REACT_APP_SERVERAPI } = useEnv();
 
-  const styleMenu = useSelector((state) => state.sideMenu.value);
-  const dispatch = useDispatch();
-
-  // const [styleMenu, setStyleMenu] = useState(
-  //   localStorage.getItem("axn_sidemenuswitch") === "true" ? true : false
-  // );
+  const [styleMenu, setStyleMenu] = useState(
+    localStorage.getItem("axn_sidemenuswitch") === "true" ? true : false
+  );
 
   const { list } = useList(
     [
@@ -73,8 +69,7 @@ const Layout = () => {
   const [isHelp, setIsHelp] = useState(false);
 
   const onSideMenuChangeHandler = (stmenu) => {
-    // setStyleMenu(stmenu);
-    console.log("ciao");
+    setStyleMenu(stmenu);
   };
 
   useEffect(() => {
