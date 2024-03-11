@@ -14,7 +14,7 @@
 }
 
 .listItem:hover {
-    background-color: var(--axn-white-color);
+    background-color: var(--axn-lightgray-color);
 }
 
 .listTitle {
