@@ -1,6 +1,4 @@
 .sidemenu_content {
-  /* position: absolute; */
-  /* top: 0px; */
   height: 100vh;
   background-color: var(--axn-primary-color);
   color: var(--axn-black-color);
@@ -34,7 +32,6 @@
   max-width: 90%;
   max-height: 50px;
   width: auto;
-
 }
 
 .sidemenu_open {

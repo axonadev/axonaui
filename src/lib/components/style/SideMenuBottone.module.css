@@ -36,6 +36,7 @@
 .sidemenubottone_content:hover {
     color: var(--axn-primary-color);
     background-color: var(--axn-white-color);
+    transition: 0.2s background-color, color;
 }
 
 .sidemenubottone_contentopen {
