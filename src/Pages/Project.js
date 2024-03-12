@@ -131,7 +131,7 @@ const Project = ({ request, list, help }) => {
         setup={true}
         icon={"faAddressCard"}
       >
-        <Input />
+        <Input value={"ciaccafodfiaosdhf"} />
         <TextEditor />
       </Frame>
 

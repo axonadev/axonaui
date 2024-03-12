@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import useInput from "../../hooks/useInput";
 import classes from "../style/Input.module.css";
 import ImgFont from "../Img/ImgFont";
@@ -26,19 +26,20 @@ const Input = ({
 }) => {
   const pers = localStorage.getItem("pers");
 
-  let effVal = "";
+  // let effVal = "";
+  const [effVal, setEffVal] = useState("");
 
   const valincache = JSON.parse(localStorage.getItem("axn_record_" + form_id));
 
-  try {
-    if (valincache[0][id] !== undefined) {
-      effVal = valincache[0][id];
-    }
-  } catch (error) {}
+  // try {
+  //   if (valincache[0][id] !== undefined) {
+  //     setEffVal(valincache[0][id]);
+  //   }
+  // } catch (error) {}
 
-  if (decimali !== undefined) {
-    effVal = parseFloat(effVal).toFixed(parseInt(decimali));
-  }
+  // if (decimali !== undefined) {
+  //   setEffVal(parseFloat(effVal).toFixed(parseInt(decimali)));
+  // }
 
   const objLabel = label;
   let sTipo = "text";
@@ -128,7 +129,7 @@ const Input = ({
     setInputValidate(validate);
 
     if (value) {
-      effVal = value;
+      setEffVal(value);
       try {
         onChangeValue(id, value);
       } catch (error) {}
