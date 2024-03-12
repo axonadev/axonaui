@@ -25,6 +25,18 @@ const TextEditor = ({ onChange, toolbarOnFocus = false }) => {
           wrapperClassName={classes.editorWrapper}
           editorClassName={classes.editor}
           onEditorStateChange={onChangeHandler}
+          toolbar={{
+            options: [
+              "inline",
+              "fontSize",
+              "fontFamily",
+              "colorPicker",
+              "list",
+              "textAlign",
+              "emoji",
+              "image",
+            ],
+          }}
           localization={{
             locale: "it",
           }}
