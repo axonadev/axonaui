@@ -132,7 +132,7 @@ const Project = ({ request, list, help }) => {
         icon={"faAddressCard"}
       >
         <Input value={"ciaccafodfiaosdhf"} />
-        <TextEditor />
+        <TextEditor onChange={(value) => console.log(value)} size={"300px"} />
       </Frame>
 
       <Frame

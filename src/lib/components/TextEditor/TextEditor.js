@@ -5,7 +5,7 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import draftToHtml from "draftjs-to-html";
 import classes from "../style/TextEditor.module.css";
 
-const TextEditor = ({ onChange, toolbarOnFocus = false }) => {
+const TextEditor = ({ onChange, toolbarOnFocus = false, size }) => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
 
   const onChangeHandler = (newEditorState) => {
@@ -25,6 +25,7 @@ const TextEditor = ({ onChange, toolbarOnFocus = false }) => {
           wrapperClassName={classes.editorWrapper}
           editorClassName={classes.editor}
           onEditorStateChange={onChangeHandler}
+          editorStyle={{ height: size }}
           toolbar={{
             options: [
               "inline",
