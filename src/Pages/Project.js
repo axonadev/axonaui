@@ -131,6 +131,18 @@ const Project = ({ request, list, help }) => {
         setup={true}
         icon={"faAddressCard"}
       >
+        <Input />
+        <TextEditor />
+      </Frame>
+
+      <Frame
+        label='TESTATA'
+        type='form_t'
+        stato={""}
+        ridimensiona={true}
+        setup={true}
+        icon={"faAddressCard"}
+      >
         <Grid
           id='maint_t'
           loadGrid={

@@ -25,6 +25,9 @@ const TextEditor = ({ onChange, toolbarOnFocus = false }) => {
           wrapperClassName={classes.editorWrapper}
           editorClassName={classes.editor}
           onEditorStateChange={onChangeHandler}
+          localization={{
+            locale: "it",
+          }}
           placeholder='Inserisci il tuo testo...'
         />
       </label>
