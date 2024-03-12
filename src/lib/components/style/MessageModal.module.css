@@ -50,7 +50,7 @@
   padding: 1rem;
   overflow-y: auto;
   max-height: 45vh;
-  text-align: center;
+  text-align: left;
 }
 
 .messagemodal_actions {
@@ -76,10 +76,11 @@
 
 @media (min-width: 768px) {
   .messagemodal_modal {
-    left: calc(50% - 20rem);
-    width: 40rem;
-    max-height: 600px;
+    /* left: calc(50% - 20rem); */
+    /* width: 40rem; */
+    /* max-height: 600px; */
     overflow: scroll;
+    min-height: 600px;
   }
 }
 
