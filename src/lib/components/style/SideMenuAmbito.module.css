@@ -4,10 +4,14 @@
   width: 100%;
 }
 
+/* .sidemenuambito_content .sidemenuambito_list div {
+  padding-left: 15px;
+  font-size: 0.8rem;
+} */
+
 .sidemenuambito_list {
   float: left;
   width: 100%;
-
   transition: 0.2s height;
 }
 
@@ -15,9 +19,6 @@
   background-color: var(--axn-white-color);
 }
 
-.sidemenuambito_listopen {}
-
 .sidemenuambito_listclose {
   height: 0px !important;
-
 }
