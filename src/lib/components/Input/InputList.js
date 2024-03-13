@@ -44,11 +44,11 @@ const InputList = ({
     setValidate: setInputValidate,
   } = useInput();
 
-  /* const [list, setList] = useState(
+  const [list, setList] = useState(
     defList === undefined ? [] : defList[0].data
-  ); */
+  );
 
-  const [list, setList] = useState();
+  // const [list, setList] = useState();
   const [list_value, setListValue] = useState(effVal);
 
   const classFocus = InputIsFocussed ? classes["input_focused"] : "";
