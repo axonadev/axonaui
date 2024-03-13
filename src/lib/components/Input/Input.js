@@ -31,15 +31,17 @@ const Input = ({
 
   const valincache = JSON.parse(localStorage.getItem("axn_record_" + form_id));
 
-  // try {
-  //   if (valincache[0][id] !== undefined) {
-  //     setEffVal(valincache[0][id]);
-  //   }
-  // } catch (error) {}
+  useEffect(() => {
+    try {
+      if (valincache[0][id] !== undefined) {
+        setEffVal(valincache[0][id]);
+      }
+    } catch (error) {}
 
-  // if (decimali !== undefined) {
-  //   setEffVal(parseFloat(effVal).toFixed(parseInt(decimali)));
-  // }
+    if (decimali !== undefined) {
+      setEffVal(parseFloat(effVal).toFixed(parseInt(decimali)));
+    }
+  }, []);
 
   const objLabel = label;
   let sTipo = "text";
