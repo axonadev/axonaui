@@ -129,7 +129,8 @@ const Layout = () => {
             element={"label"}
             onClick
             onDelete={deleteFromList}
-            icon='faBell'
+            icon1='faBan'
+            // icon2='faBell'
           />
         </ProjectMenuButton>
 

@@ -131,7 +131,6 @@ const Project = ({ request, list, help }) => {
         setup={true}
         icon={"faAddressCard"}
       >
-        <Input value={"ciaccafodfiaosdhf"} />
         <TextEditor
           onChange={(value) => console.log(value)}
           size={"300px"}
