@@ -4,9 +4,7 @@ const useProjectMenu = () => {
   const [items, setItems] = useState([]);
   const [answerReq, setAnserReq] = useState([]);
 
-  const calendario = () => {
-    // console.log("funzione esterna");
-  };
+  const calendario = () => {};
 
   useEffect(() => {
     const itemspj = [

@@ -90,7 +90,6 @@ const useGrid = () => {
     try {
       rr = listItems.filter((item) => {
         for (var key in nameItem) {
-          console.log(item);
           if (
             item[nameItem[key]].toLowerCase().indexOf(valueItem.toLowerCase()) >
             -1

@@ -20,6 +20,7 @@ import TextEditor from "../lib/components/TextEditor/TextEditor";
 import ChartBar from "../lib/components/Chart/ChartBar";
 import Citta from "../lib/components/UIFrame/Citta";
 import InputCheckList from "../lib/components/Input/InputCheckList";
+import ListItem from "../lib/components/List/ListItem";
 
 const Project = ({ request, list, help }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
@@ -107,12 +108,85 @@ const Project = ({ request, list, help }) => {
     setStatoGriglia("");
     onChangeSelected(idobj_T);
   };
-  const onChangeRow = (idobj) => {
+  const onChangeRow = (idobj, items) => {
+    console.log(items.Nome);
     setIdobj_T(idobj);
     setFocusForm("form_t");
     setStatoGriglia("");
     onChangeSelected(idobj);
   };
+
+  // ******************TEST***********************************
+  const [listaNotifiche, setListaNotifiche] = useState([
+    { tipo: "cartello", urgenza: "Urgente", testo: "Scadenza imminente" },
+    {
+      tipo: "cartello",
+      urgenza: "Non Urgente",
+      testo: "Promozione speciale in corso",
+    },
+    {
+      tipo: "cartello",
+      urgenza: "Critica",
+      testo: "Errore di sistema rilevato",
+    },
+    { tipo: "cartello", urgenza: "Urgente", testo: "Pagamento in sospeso" },
+    {
+      tipo: "cartello",
+      urgenza: "Non Urgente",
+      testo: "Nuovo aggiornamento disponibile",
+    },
+    {
+      tipo: "cartello",
+      urgenza: "Urgente",
+      testo: "Accesso non autorizzato rilevato",
+    },
+    { tipo: "contratto", urgenza: "Critica", testo: "Sistema in crash" },
+    {
+      tipo: "contratto",
+      urgenza: "Urgente",
+      testo: "Richiesta di assistenza in arrivo",
+    },
+    {
+      tipo: "contratto",
+      urgenza: "Non Urgente",
+      testo: "Nuova email ricevuta",
+    },
+    {
+      tipo: "contratto",
+      urgenza: "Critica",
+      testo: "Violazione della sicurezza rilevata",
+    },
+    {
+      tipo: "contratto",
+      urgenza: "Urgente",
+      testo: "Riunione urgente programmata",
+    },
+    {
+      tipo: "contratto",
+      urgenza: "Non Urgente",
+      testo: "Nuovo articolo pubblicato sul blog",
+    },
+    { tipo: "evento", urgenza: "Critica", testo: "Perdita di dati critici" },
+    {
+      tipo: "evento",
+      urgenza: "Urgente",
+      testo: "Richiesta di autorizzazione pendente",
+    },
+    {
+      tipo: "evento",
+      urgenza: "Non Urgente",
+      testo: "Notifica di compleanno",
+    },
+    {
+      tipo: "evento",
+      urgenza: "Scaduta",
+      testo: "Scaduta questa roba, mandare mail",
+    },
+    { tipo: "evento", urgenza: "Scaduta", testo: "Attenzione!! Scaduta!!" },
+    { tipo: "evento", urgenza: "Scaduta", testo: "Problemi che arrivano!" },
+    { tipo: "evento", urgenza: "Scaduta", testo: "Pagare la mora, subeeto" },
+    { tipo: "evento", urgenza: "Scaduta", testo: "Notifica di compleanno" },
+  ]);
 
   const onChangeInput = () => {};
 
@@ -131,11 +205,26 @@ const Project = ({ request, list, help }) => {
         setup={true}
         icon={"faAddressCard"}
       >
-        <TextEditor
-          onChange={(value) => console.log(value)}
+        {/* <TextEditor
           size={"300px"}
           testoPredefinito={"prova questo testo e vediamo se funziona"}
-        />
+        /> */}
+
+        <List>
+          {listaNotifiche.map((item, i) => {
+            return (
+              <ListItem
+                item={item}
+                keyID={i}
+                element={"tipo"}
+                icon1={"faBell"}
+                icon2={"faEnvelope"}
+                icon1Color={"danger"}
+                icon2Color={"warning"}
+              />
+            );
+          })}
+        </List>
       </Frame>
 
       <Frame
@@ -154,8 +243,8 @@ const Project = ({ request, list, help }) => {
             localStorage.getItem("axn_token") +
             cmd_getGrid
           }
-          onClickRow={(IDOBJ) => {
-            onChangeRow(IDOBJ);
+          onClickRow={(IDOBJ, items) => {
+            onChangeRow(IDOBJ, items);
           }}
           onDoubleClickRow={() => {}}
           onBtnInsert={insertClickHandler}

@@ -32,6 +32,7 @@ import useList from "./hooks/useList";
 import Pagination from "./components/Pagination/Pagination";
 import TextEditor from "./components/TextEditor/TextEditor";
 import List from "./components/List/List";
+import ListItem from "./components/List/ListItem";
 import ImgFont from "./components/Img/ImgFont";
 
 export {
@@ -68,6 +69,7 @@ export {
   Pagination,
   TextEditor,
   List,
+  ListItem,
   ProjectMenuButton,
   RightSideForm,
 };

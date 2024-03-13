@@ -36,8 +36,6 @@ const MessageModal = ({
         },
       ];
 
-  // console.log(c_buttons);
-
   return (
     <div id={id}>
       <div className={classes.messagemodal_backdrop} onClick={onOut} />

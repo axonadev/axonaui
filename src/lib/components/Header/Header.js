@@ -3,7 +3,6 @@ import classes from "../style/Header.module.css";
 const Header = ({ id, titolo, pathimg, className }) => {
   const [openProfilo, setOpenProfilo] = useState(false);
   const profiloClick = () => {
-    // console.log("hai cliccato profilo");
     setOpenProfilo((prec) => {
       return !prec;
     });

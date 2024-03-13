@@ -39,6 +39,7 @@ const Grid = ({
   closeSetup,
   testata = true,
   modulosecondario = "",
+  lista,
 }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
   const { onChangeSelected, onReset, onChangeForm } = useForm(
@@ -66,6 +67,7 @@ const Grid = ({
   const {
     filterGrid,
     initList,
+    listItems,
     filteredListItem,
     loadGrid: loadGridint,
     IsLoading,
@@ -111,6 +113,7 @@ const Grid = ({
       return IDOBJ;
     });
     onClickRow(IDOBJ, items);
+    // lista(listItems);
   };
 
   const insertHandler = () => {
