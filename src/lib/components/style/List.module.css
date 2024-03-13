@@ -29,16 +29,9 @@
 
 .icon {
     padding: 5px;
-    color: var(--axn-orange-color);
     cursor: pointer;
-    border: 1px solid var(--axn-orange-color);
     border-radius: var(--axn-border-radius);
     margin-right: 5px;
-}
-
-.icon:hover {
-    color: var(--axn-white-color);
-    background-color: var(--axn-orange-color);
 }
 
 .singleElement {

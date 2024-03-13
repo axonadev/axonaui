@@ -18,19 +18,55 @@
     filter: var(--anx-svg-color-bianco);
 }
 
-/* Esperimenti */
-.img_warning {
-    color: var(--axn-warning-color);
+/** Cambio colore icone */
+.img_primary {
+    color: var(--axn-primary-color);
+    border: 1px solid var(--axn-primary-color);
 }
 
 .img_danger {
     color: var(--axn-danger-color);
+    border: 1px solid var(--axn-danger-color);
 }
+
+.img_warning {
+    color: var(--axn-warning-color);
+    border: 1px solid var(--axn-warning-color);
+}
+
 
 .img_success {
     color: var(--axn-success-color);
+    border: 1px solid var(--axn-success-color);
 }
 
+
+/** Hover sulle icone */
+.img_primary:hover,
+.img_danger:hover,
+.img_warning:hover,
+.img_success:hover {
+    color: var(--axn-white-color);
+}
+
+.img_primary:hover {
+    background-color: var(--axn-primary-color);
+}
+
+.img_danger:hover {
+    background-color: var(--axn-danger-color);
+}
+
+.img_warning:hover {
+    background-color: var(--axn-warning-color);
+}
+
+.img_success:hover {
+    background-color: var(--axn-success-color);
+}
+
+
+/** Dimensioni icone */
 .img_small {
     height: 1em;
 }

@@ -13,7 +13,10 @@ const List = ({
   icon2 = "",
   icon1Size = "medium",
   icon2Size = "medium",
+  icon1Color = "primary",
+  icon2Color = "primary",
 }) => {
+  //* Click dell'elemento
   const itemHandler = (item) => {
     try {
       onClick(item);
@@ -22,6 +25,7 @@ const List = ({
     }
   };
 
+  //* Click di icona1
   const onIcon1ClickHandler = (item) => {
     try {
       onClickIcon1(item);
@@ -30,6 +34,7 @@ const List = ({
     }
   };
 
+  //* Click di icona2
   const onIcon2ClickHandler = (item) => {
     try {
       onClickIcon2(item);
@@ -64,8 +69,10 @@ const List = ({
                         e.stopPropagation();
                         onIcon1ClickHandler(item);
                       }}
+                      color={icon1Color}
                     />
                   )}
+
                   {/* ICONA2 */}
                   {icon2 && icon2.length > 0 && (
                     <ImgFont
@@ -76,6 +83,7 @@ const List = ({
                         e.stopPropagation();
                         onIcon2ClickHandler(item);
                       }}
+                      color={icon2Color}
                     />
                   )}
                 </div>
