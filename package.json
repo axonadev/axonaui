@@ -1,6 +1,6 @@
 {
   "name": "axonaui",
-  "version": "0.1.198",
+  "version": "0.1.199",
   "private": false,
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
@@ -15,7 +15,6 @@
     "@testing-library/user-event": "^13.5.0",
     "axonaform": "^0.1.31",
     "axonalib": "^0.1.43",
-    "axonaui": "^0.1.188",
     "chart.js": "^4.3.0",
     "core-js": "^3.32.2",
     "draft-convert": "^2.1.13",
@@ -37,7 +36,7 @@
     "prod": "set NODE_ENV=development && react-scripts build && xcopy \"build\" \"Y:\\axonaui\" /h /e /y /i ",
     "build:test": "set NODE_ENV=test && react-scripts build",
     "build:prod": "set NODE_ENV=production && react-scripts build",
-    "upd": "npm i axonaui && npm i axonalib && npm i axonaform",
+    "upd": "npm i axonalib && npm i axonaform",
     "reload": "npm rm -rf node_modules && npm install --save core-js && npm install",
     "doc": "styleguidist server",
     "docbuild": "styleguidist build && xcopy \"styleguide\" \"T:\\doc\\axonaui\" /h /e /y /i "
