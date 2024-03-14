@@ -24,6 +24,11 @@
     border: 1px solid var(--axn-primary-color);
 }
 
+.img_white {
+    color: var(--axn-white-color);
+    border: 1px solid var(--axn-white-color);
+}
+
 .img_danger {
     color: var(--axn-danger-color);
     border: 1px solid var(--axn-danger-color);
@@ -33,7 +38,6 @@
     color: var(--axn-warning-color);
     border: 1px solid var(--axn-warning-color);
 }
-
 
 .img_success {
     color: var(--axn-success-color);
@@ -51,6 +55,11 @@
 
 .img_primary:hover {
     background-color: var(--axn-primary-color);
+}
+
+.img_white {
+    color: var(--axn-primary-color);
+    background-color: var(--axn-white-color);
 }
 
 .img_danger:hover {
