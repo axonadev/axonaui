@@ -178,6 +178,7 @@ const Input = forwardRef(
               onFocus={InputFocus}
               value={InputValue}
               disabled={disabled}
+              ref={ref}
             ></textarea>
           )}
 

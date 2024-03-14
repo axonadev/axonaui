@@ -213,14 +213,17 @@ const Project = ({ request, list, help }) => {
         setup={true}
         icon={"faAddressCard"}
       >
-        <Input ref={inputRef2}></Input>
+        {/* <Input ref={inputRef2}></Input> */}
 
-        <button onClick={() => console.log(inputRef2.current.value)}>
+        <button
+          onClick={() => console.log(inputRef2.current.editor.editor.innerHTML)}
+        >
           Clicca
         </button>
         <TextEditor
           size={"300px"}
           testoPredefinito={"prova questo testo e vediamo se funziona"}
+          ref={inputRef2}
         />
       </Frame>
 
