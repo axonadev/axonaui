@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   useForm,
   Input,
@@ -77,6 +77,13 @@ const Project = ({ request, list, help }) => {
       target: "altridati",
     },
   ];
+
+  // # REF
+  const inputRef2 = useRef("");
+
+  // useEffect(() => {
+  // }, [inputRef2]);
+
   const itemsSearch = ["Soggetti_Nome1", "Soggetti_Nome2"];
   const domiciliItemsSearch = ["Nome", "Cognome"];
   const [focusForm, setFocusForm] = useState("");
@@ -206,26 +213,15 @@ const Project = ({ request, list, help }) => {
         setup={true}
         icon={"faAddressCard"}
       >
-        {/* <TextEditor
+        <Input ref={inputRef2}></Input>
+
+        <button onClick={() => console.log(inputRef2.current.value)}>
+          Clicca
+        </button>
+        <TextEditor
           size={"300px"}
           testoPredefinito={"prova questo testo e vediamo se funziona"}
-        /> */}
-
-        <List>
-          {listaNotifiche.map((item, i) => {
-            return (
-              <ListItem
-                item={item}
-                keyID={i}
-                element={"tipo"}
-                icon1={"faBell"}
-                icon2={"faEnvelope"}
-                icon1Color={"danger"}
-                icon2Color={"warning"}
-              />
-            );
-          })}
-        </List>
+        />
       </Frame>
 
       <Frame
