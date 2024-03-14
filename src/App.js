@@ -2,6 +2,7 @@ import React from "react";
 import { useEnv, useToken } from "axonalib";
 import { CssStruct, LoadingSpinner } from "./lib/index";
 import Layout from "./Layout/Layout";
+import { SnackBar } from "axonaui";
 
 const App = () => {
   const { REACT_APP_CSSFOLDER, REACT_APP_SERVERAPI } = useEnv();

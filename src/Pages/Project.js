@@ -21,6 +21,7 @@ import ChartBar from "../lib/components/Chart/ChartBar";
 import Citta from "../lib/components/UIFrame/Citta";
 import InputCheckList from "../lib/components/Input/InputCheckList";
 import ListItem from "../lib/components/List/ListItem";
+import { SnackBar } from "axonaui";
 
 const Project = ({ request, list, help }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
@@ -256,6 +257,7 @@ const Project = ({ request, list, help }) => {
         />
       </Frame>
       <FormButton onAnnulla={onLoadRow} id_submit='form_t' />
+      <SnackBar timer={6000000} onTimeOut={() => console.log()}></SnackBar>
       {focusForm === "form_t" && (
         <Form
           id='form_t'

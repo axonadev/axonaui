@@ -5,6 +5,7 @@ import Project from "../Pages/Project";
 import useList from "../lib/hooks/useList";
 import List from "../lib/components/List/List";
 import ProjectMenuButton from "../lib/components/ProjectMenu/ProjectMenuButton.prv";
+import { SnackBar } from "axonaui";
 
 const Layout = () => {
   //* LISTA DICHIARATA SOLO PER PASSARE UNA LISTA AL COMPONENTE LIST
@@ -38,7 +39,6 @@ const Layout = () => {
   //* ***********************
 
   const [idOpen, setIdOpen] = useState("");
-
   const titolo = "titolo";
   const versione = "00.00.00";
   const { REACT_APP_IMGFOLDER, REACT_APP_SERVERAPI } = useEnv();
@@ -72,6 +72,11 @@ const Layout = () => {
     setStyleMenu(stmenu);
   };
 
+  const [isToastOpen, setIsToastOpen] = useState(false);
+  const openSnackBar = () => {
+    setIsToastOpen(true);
+  };
+
   useEffect(() => {
     var key;
     for (var i = 0; i < localStorage.length; i++) {
@@ -101,6 +106,7 @@ const Layout = () => {
           "/logo.png"
         }
       />
+
       <SideMenu
         onSideMenuChange={onSideMenuChangeHandler}
         pathImg={REACT_APP_IMGFOLDER}
@@ -127,7 +133,7 @@ const Layout = () => {
             items={itemFolders}
             title={"Lista di prova"}
             element={"label"}
-            onClick
+            onClick={openSnackBar}
             onDelete={deleteFromList}
             icon1='faBan'
             icon2='faBell'

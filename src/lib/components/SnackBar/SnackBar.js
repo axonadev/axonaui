@@ -10,17 +10,17 @@ const SnackBar = ({ img, label, onTimeOut, timer = 2800 }) => {
     }, timer);
   }, []);
   return (
-    <Fragment>
+    <div className={classes.snackbarOld}>
       {visibile && (
         <div className={classes.snackbar_content}>
           <div className={classes.snackbar_body}>
-            <img className={classes.snackbar_img} src={img} alt="" />
+            <img className={classes.snackbar_img} src={img} alt='' />
             <label className={classes.snackbar_label}>{label}</label>
           </div>
           <div className={classes.snackbar_progress}></div>
         </div>
       )}
-    </Fragment>
+    </div>
   );
 };
 export default SnackBar;
