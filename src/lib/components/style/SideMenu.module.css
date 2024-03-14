@@ -5,7 +5,7 @@
   background-color: var(--axn-primary-color);
   color: var(--axn-black-color);
   transition: 0.2s width;
-  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 5px 0px, rgba(0, 0, 0, 0.12) 0px 2px 10px 0px; */
+  z-index: 2;
 }
 
 .sidemenu_top {
