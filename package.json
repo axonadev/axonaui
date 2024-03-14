@@ -1,6 +1,6 @@
 {
   "name": "axonaui",
-  "version": "0.1.199",
+  "version": "0.1.200",
   "private": false,
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
@@ -15,6 +15,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axonaform": "^0.1.31",
     "axonalib": "^0.1.43",
+    "axonaui": "^0.1.199",
     "chart.js": "^4.3.0",
     "core-js": "^3.32.2",
     "draft-convert": "^2.1.13",
