@@ -7,12 +7,11 @@ import SideMenuSwitch from "./SideMenuSwitch.prv";
 
 const SideMenu = ({ onSideMenuChange }) => {
   const [onoff, setOnoff] = useState(
-    false
-    // localStorage.axn_sidemenuswitch
-    //   ? localStorage.axn_sidemenuswitch === "true"
-    //     ? true
-    //     : false
-    //   : true
+    localStorage.axn_sidemenuswitch
+      ? localStorage.axn_sidemenuswitch === "true"
+        ? true
+        : false
+      : false
   );
 
   const [idAmbito, setIdAmbito] = useState(0);
@@ -71,7 +70,7 @@ const SideMenu = ({ onSideMenuChange }) => {
       <div className={classes.sidemenu_top}>
         <div className={classes.sidemenu_topimg}>
           <div className={classes.sidemenu_topimgcenter}>
-            <Img type='my_logo' pathImg='getlocal' />
+            <Img type="my_logo" pathImg="getlocal" />
           </div>
         </div>
         <SideMenuSwitch onoff={onoff} onClick={switchEvent} />
@@ -79,8 +78,8 @@ const SideMenu = ({ onSideMenuChange }) => {
       <div className={classes.sidemenu_buttoncontent}>
         <SideMenuBottone
           onoff={onoff}
-          label='Home'
-          src='faHouse'
+          label="Home"
+          src="faHouse"
           onClick={selProgetto}
           path={"/"}
           className={"sidemenubottone_contentambito"}
@@ -90,8 +89,8 @@ const SideMenu = ({ onSideMenuChange }) => {
         <SideMenuAmbito
           idAmbito={1}
           onoff={onoff}
-          label='Anagrafica'
-          src='faAddressCard'
+          label="Anagrafica"
+          src="faAddressCard"
           selezionato={idAmbito}
           list={datatextanagrafica}
           onClick={selAmbito}
@@ -102,8 +101,8 @@ const SideMenu = ({ onSideMenuChange }) => {
         <SideMenuAmbito
           idAmbito={2}
           onoff={onoff}
-          label='Gestione'
-          src='faUsersCog'
+          label="Gestione"
+          src="faUsersCog"
           selezionato={idAmbito}
           list={datatextgestione}
           onClick={selAmbito}
@@ -114,8 +113,8 @@ const SideMenu = ({ onSideMenuChange }) => {
         <SideMenuAmbito
           idAmbito={3}
           onoff={onoff}
-          label='Ordini'
-          src='faShoppingCart'
+          label="Ordini"
+          src="faShoppingCart"
           selezionato={idAmbito}
           list={datatextordini}
           onClick={selAmbito}
@@ -126,8 +125,8 @@ const SideMenu = ({ onSideMenuChange }) => {
         <SideMenuAmbito
           idAmbito={4}
           onoff={onoff}
-          label='Contabilità'
-          src='faCalculator'
+          label="Contabilità"
+          src="faCalculator"
           selezionato={idAmbito}
           list={datatextconta}
           onClick={selAmbito}
@@ -139,7 +138,7 @@ const SideMenu = ({ onSideMenuChange }) => {
         <SideMenuAmbito
           idAmbito={5}
           onoff={onoff}
-          label='utilita'
+          label="utilita"
           src={datatextutilita[0].Ambito_Icona}
           selezionato={idAmbito}
           list={datatextutilita}
@@ -152,7 +151,7 @@ const SideMenu = ({ onSideMenuChange }) => {
         <SideMenuAmbito
           idAmbito={6}
           onoff={onoff}
-          label='Servizi'
+          label="Servizi"
           src={datatextservizi[0].Ambito_Icona}
           selezionato={idAmbito}
           list={datatextservizi}
