@@ -228,13 +228,15 @@ const Form = ({
         onSubmit={formSubmissionHandler}
         id={id}
       >
-        <div className={classes.form_folders}>
-          <Folder
-            items={folders}
-            onSelect={folderSelect}
-            startSelect={idFolder1[0].target}
-          ></Folder>
-        </div>
+        {folders && (
+          <div className={classes.form_folders}>
+            <Folder
+              items={folders}
+              onSelect={folderSelect}
+              startSelect={idFolder1[0].target}
+            />
+          </div>
+        )}
         <div className={classesBody.join(" ")}>
           {children.length > 1 &&
             children.map((item) => {

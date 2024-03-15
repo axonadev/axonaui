@@ -179,7 +179,7 @@ const Input = forwardRef(
               value={InputValue}
               disabled={disabled}
               ref={ref}
-            ></textarea>
+            />
           )}
 
           {type !== "textarea" && (

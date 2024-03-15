@@ -205,6 +205,63 @@ const Project = ({ request, list, help }) => {
 
   return (
     <>
+      <Frame label={"CARTELLI"}>
+        <Grid
+          formTitle={"Ciao"}
+          testata={false}
+          id='maint_t'
+          pidobj={idobj_T}
+          loadGrid={
+            REACT_APP_SERVERAPI +
+            "api/axo_sel/" +
+            localStorage.getItem("axn_token") +
+            cmd_getGrid
+          }
+          onClickRow={(IDOBJ) => {
+            cmd_getGrid(IDOBJ);
+          }}
+          onDoubleClickRow={() => {}}
+          onBtnInsert={insertClickHandler}
+          onBtnDelete={deleteClickHandler}
+          btn_insert={true}
+          nameView={"v_contratticartelli"}
+          reload={reloadGriglia}
+          itemSearch={itemsSearch}
+          selezionato={focusForm === "form_t" ? true : false}
+        >
+          {/* Cose per il cartello */}
+          {/* PRIMA RIGA */}
+          <FrameInRow width={[30]}>
+            <Input label='Impianto' type='text' onChange={onChangeInput} />
+          </FrameInRow>
+
+          {/* SECONDA RIGA */}
+          <FrameInRow width={[10, 20, 20]}>
+            <Input
+              label='Cartello N°'
+              id='Contratti_Pre_NotaCorpo'
+              onChange={onChangeInput}
+            />
+            <InputData
+              label='Data Installazione'
+              id='Contratti_DataStipula'
+              onChange={onChangeInput}
+              disabled={true}
+            />
+            <InputData
+              label='Data Scadenza'
+              id='Contratti_DataStipula'
+              onChange={onChangeInput}
+              disabled={true}
+            />
+          </FrameInRow>
+
+          {/* TERZO RIGA */}
+          <FrameInRow width={[100]}>
+            <Input label='Descrizione' type='text' onChange={onChangeInput} />
+          </FrameInRow>
+        </Grid>
+      </Frame>
       <Frame
         label='TESTATA'
         type='form_t'
