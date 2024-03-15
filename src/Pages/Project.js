@@ -117,7 +117,6 @@ const Project = ({ request, list, help }) => {
     onChangeSelected(idobj_T);
   };
   const onChangeRow = (idobj, items) => {
-    console.log(items.Nome);
     setIdobj_T(idobj);
     setFocusForm("form_t");
     setStatoGriglia("");

@@ -11,11 +11,11 @@ const Profilo = ({}) => {
 
   //* Imposta utenti
   const pIva = localStorage.axn_piva ? localStorage.axn_piva : "Nessuna Piva";
-  const utente = localStorage.axn_utente
-    ? localStorage.axn_utente
+  const utente = localStorage.axn_nomesoggetto
+    ? localStorage.axn_nomesoggetto
     : "Utente Di Esempio";
-  const mail = localStorage.axn_mail
-    ? localStorage.axn_mail
+  const mail = localStorage.axn_utente
+    ? localStorage.axn_utente
     : "mail.esempio.it";
 
   return (
