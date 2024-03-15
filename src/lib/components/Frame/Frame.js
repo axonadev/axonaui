@@ -103,13 +103,14 @@ const Frame = ({
                   <ImgFont icon='faChevronUp' size='medium' />
                 )}
               </Button>
+
               <Button
                 className={classes.ridimensionaico}
                 onClick={() => {
-                  setDimFrame(3);
+                  dimFrame === 3 ? setDimFrame(2) : setDimFrame(3);
                 }}
               >
-                <ImgFont icon='faUpRightAndDownLeftFromCenter' size='medium' />
+                <ImgFont icon='faExpand' size='medium' />
               </Button>
               {isSetup && (
                 <Button
