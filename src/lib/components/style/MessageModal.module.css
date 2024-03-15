@@ -76,11 +76,8 @@
 
 @media (min-width: 768px) {
   .messagemodal_modal {
-    /* left: calc(50% - 20rem); */
-    /* width: 40rem; */
-    /* max-height: 600px; */
+    max-height: 600px;
     overflow: scroll;
-    min-height: 600px;
   }
 }
 
