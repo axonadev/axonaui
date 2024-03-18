@@ -204,7 +204,7 @@ const Project = ({ request, list, help }) => {
 
   return (
     <>
-      <Frame label={"CARTELLI"}>
+      <Frame label={"CARTELLI"} ridimensiona={true}>
         <Grid
           formTitle={"Ciao"}
           testata={false}
@@ -268,6 +268,7 @@ const Project = ({ request, list, help }) => {
         ridimensiona={true}
         setup={true}
         icon={"faAddressCard"}
+        frameSize={1}
       >
         {/* <Input ref={inputRef2}></Input> */}
 
@@ -290,6 +291,7 @@ const Project = ({ request, list, help }) => {
         ridimensiona={true}
         setup={true}
         icon={"faAddressCard"}
+        frameSize={1}
       >
         <Grid
           id='maint_t'

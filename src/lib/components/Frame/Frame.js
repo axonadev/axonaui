@@ -18,8 +18,9 @@ const Frame = ({
   setup = false,
   help = false,
   icon,
+  frameSize = 2,
 }) => {
-  const [dimFrame, setDimFrame] = useState(2);
+  const [dimFrame, setDimFrame] = useState(frameSize);
   const [isSetup, setIsSetup] = useState(false);
   const [openSetup, setOpenSetup] = useState(false);
 
