@@ -52,6 +52,7 @@ const Citta = ({
         form_id={form_id}
       >
         <InputList
+          className={"input_width_100"}
           label={nazione.label}
           id={nazione.id}
           onChange={onChange}
@@ -77,6 +78,7 @@ const Citta = ({
         />
 
         <Input
+          className='input_width_50'
           label={provincia.label}
           id={provincia.id}
           onChangeValue={onChangeValue}
@@ -89,6 +91,7 @@ const Citta = ({
           ]}
         />
         <Input
+          className='input_width_50'
           label={cap.label}
           id={cap.id}
           onChangeValue={onChangeValue}

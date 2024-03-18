@@ -63,10 +63,15 @@ input::-webkit-calendar-picker-indicator {
 .input_icon {
     position: relative;
     width: 0px;
-    top: 4px;
+    top: 2px;
     right: 25px;
     cursor: pointer;
     height: 15px;
+}
+
+.input_icon svg {
+    background-color: var(--axn-white-color);
+    padding: 2px;
 }
 
 .inputDateWidth input {
@@ -75,11 +80,20 @@ input::-webkit-calendar-picker-indicator {
 
 .input_flex .input_input {
     display: flex;
+    width: 288px;
 }
 
 .input_icon img {
     width: 15px;
     height: 15px;
+}
+
+.input_width_50 {
+    width: 50px;
+}
+
+.input_width_100 {
+    width: 100px;
 }
 
 .input_checklist {
