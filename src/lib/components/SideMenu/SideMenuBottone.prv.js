@@ -39,20 +39,22 @@ const SideMenuBottone = ({
   };
 
   return (
-    <div className={stylecontent.join(" ")} onClick={btnhandler}>
-      <div>
-        <ImgFont icon={src} size={iconsize} />
-      </div>
-
-      <div className={stylelabel.join(" ")}>
-        <label>{label}</label>
-      </div>
-      {/* {ambito && (
+    <>
+      <div className={stylecontent.join(" ")} onClick={btnhandler}>
         <div>
-          <label>{selezionato ? "-" : "+"}</label>
+          <ImgFont icon={src} size={iconsize} />
+        </div>
+
+        <div className={stylelabel.join(" ")}>
+          <label>{label}</label>
+        </div>
+        {/* {ambito && (
+        <div>
+        <label>{selezionato ? "-" : "+"}</label>
         </div>
       )} */}
-    </div>
+      </div>
+    </>
   );
 };
 
