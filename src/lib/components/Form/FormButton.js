@@ -35,6 +35,23 @@ const FormButton = ({ id_submit, onAnnulla, numberGrid }) => {
     document.getElementById("b_submit_" + id_submit).click();
   };
 
+  const buttons = [
+    {
+      key: 1,
+      onClick: "onConfirmAnnulla",
+      type: "success",
+      label: "Salva",
+      icon: "faFloppyDisk",
+    },
+    {
+      key: 2,
+      onClick: "onStophandler",
+      type: "stop",
+      label: "Annulla",
+      icon: "faBan",
+    },
+  ];
+
   return (
     <>
       <>
@@ -51,13 +68,22 @@ const FormButton = ({ id_submit, onAnnulla, numberGrid }) => {
           onOut={onStophandler}
           title={mexAnnulla.title}
           message={mexAnnulla.label}
+          buttons={[]}
         >
-          <Button onClick={onConfirmAnnulla}>
-            <ImgFont icon='faCheck' size='medium' />
-          </Button>
-          <Button onClick={onStophandler}>
-            <ImgFont icon='faXmark' size='medium' />
-          </Button>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Button onClick={onConfirmAnnulla}>
+              <ImgFont icon='faCheck' size='medium' />
+            </Button>
+            <Button onClick={onStophandler}>
+              <ImgFont icon='faXmark' size='medium' />
+            </Button>
+          </div>
         </MessageModal>
       )}
     </>
