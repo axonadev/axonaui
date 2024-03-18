@@ -188,3 +188,8 @@
     float: right;
     cursor: col-resize;
 }
+
+thead {
+    position: sticky;
+    top: 0;
+}
