@@ -69,6 +69,11 @@ input::-webkit-calendar-picker-indicator {
     height: 15px;
 }
 
+input:disabled {
+    background-color: var(--axn-gray-color);
+    color: var(--axn-black-color)
+}
+
 .input_icon svg {
     background-color: var(--axn-white-color);
     padding: 2px;
