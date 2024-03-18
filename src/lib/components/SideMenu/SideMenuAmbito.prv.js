@@ -48,12 +48,14 @@ const SideMenuAmbito = ({
           list.map((item) => {
             return (
               <SideMenuBottone
+                iconsize="xs"
                 key={item.IDOBJ}
                 onoff={onoff}
                 label={item.Moduli_Nome}
                 src={item.Moduli_Icona}
                 onClick={selProgetto}
                 path={"../" + item.Moduli_IndirizzoModulo}
+                className={classes.sidemenuambito_progetti}
               />
             );
           })}

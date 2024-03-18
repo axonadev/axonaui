@@ -5,7 +5,7 @@ import ImgFont from "../Img/ImgFont";
 const SideMenuBottone = ({
   path,
   src,
-  icon,
+  iconsize = "medium",
   label,
   onoff,
   className,
@@ -16,6 +16,7 @@ const SideMenuBottone = ({
   const stylecontent = [
     classes.sidemenubottone_content,
     classes[className],
+    className,
     ambito ? classes.sidemenubottone_contentambito : "",
     onoff
       ? classes.sidemenubottone_contentopen
@@ -40,7 +41,7 @@ const SideMenuBottone = ({
   return (
     <div className={stylecontent.join(" ")} onClick={btnhandler}>
       <div>
-        <ImgFont icon={src} size='medium' />
+        <ImgFont icon={src} size={iconsize} />
       </div>
 
       <div className={stylelabel.join(" ")}>

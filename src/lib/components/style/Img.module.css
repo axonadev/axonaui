@@ -75,6 +75,9 @@
 
 
 /** Dimensioni icone */
+.img_xs {
+    height: 0.8em;
+}
 .img_small {
     height: 1em;
 }

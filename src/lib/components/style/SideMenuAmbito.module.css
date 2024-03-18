@@ -16,9 +16,12 @@
 }
 
 .sidemenuambito_label {
-  background-color: var(--axn-white-color);
+
 }
 
 .sidemenuambito_listclose {
   height: 0px !important;
+}
+.sidemenuambito_progetti{
+  color: var(--axn-orange-color);
 }
