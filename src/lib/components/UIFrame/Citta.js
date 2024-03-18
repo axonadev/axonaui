@@ -76,7 +76,13 @@ const Citta = ({
           icon='faEllipsis'
           onIconClick={cittaClickHandler}
         />
-
+        <Input
+          className='input_width_50'
+          label={cap.label}
+          id={cap.id}
+          onChangeValue={onChangeValue}
+          onChange={onChange}
+        />
         <Input
           className='input_width_50'
           label={provincia.label}
@@ -89,13 +95,6 @@ const Citta = ({
               value: 2,
             },
           ]}
-        />
-        <Input
-          className='input_width_50'
-          label={cap.label}
-          id={cap.id}
-          onChangeValue={onChangeValue}
-          onChange={onChange}
         />
       </FrameInRow>
       {formIsVisible && (
