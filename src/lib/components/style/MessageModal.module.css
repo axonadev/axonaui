@@ -19,9 +19,9 @@
   background-color: var(--axn-white-color);
   color: var(--axn-black-color);
   position: fixed;
-  top: 20vh;
-  left: 10%;
-  min-width: 50%;
+  top: calc(100vh / 4);
+  left: calc(100vw / 4);
+  min-width: 40%;
   z-index: 100;
   overflow: hidden;
   max-height: 600px;
