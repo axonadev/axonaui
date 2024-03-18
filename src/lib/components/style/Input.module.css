@@ -70,7 +70,7 @@ input::-webkit-calendar-picker-indicator {
 }
 
 input:disabled {
-    background-color: var(--axn-gray-color);
+    background-color: var(--axn-lightgray-color);
     color: var(--axn-black-color)
 }
 
