@@ -227,8 +227,14 @@ const Form = ({
         onSubmit={formSubmissionHandler}
         id={id}
       >
-        {folders.length > 1 && (
-          <div className={classes.form_folders}>
+        {folders && (
+          <div
+            className={
+              folders.length > 1
+                ? classes.form_folders
+                : classes.form_foldersHidden
+            }
+          >
             <Folder
               items={folders}
               onSelect={folderSelect}
@@ -251,10 +257,10 @@ const Form = ({
 
         <Button
           className={classes.form_save_hidden}
-          type='submit'
+          type="submit"
           id={id_submit}
         >
-          <ImgFont icon='faFloppyDisk' size='medium' />
+          <ImgFont icon="faFloppyDisk" size="medium" />
         </Button>
       </form>
       {mex && (

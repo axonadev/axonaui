@@ -16,6 +16,9 @@
 .form_folders {
 	position: relative;
 }
+.form_foldersHidden{
+	display: none;
+}
 
 .form_save,
 .form_annulla {
