@@ -76,14 +76,15 @@
 
 /** Dimensioni icone */
 .img_xs {
-    height: 0.8em;
+    height: 15px;
 }
+
 .img_small {
-    height: 1em;
+    height: 18px;
 }
 
 .img_medium {
-    height: 1.3em;
+    height: 21px;
 }
 
 .img_large {

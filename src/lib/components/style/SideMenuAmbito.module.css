@@ -1,27 +1,17 @@
 .sidemenuambito_content {
   text-align: left;
-  float: left;
   width: 100%;
 }
-
-/* .sidemenuambito_content .sidemenuambito_list div {
-  padding-left: 15px;
-  font-size: 0.8rem;
-} */
 
 .sidemenuambito_list {
-  float: left;
   width: 100%;
   transition: 0.2s height;
-}
-
-.sidemenuambito_label {
-
 }
 
 .sidemenuambito_listclose {
   height: 0px !important;
 }
-.sidemenuambito_progetti{
+
+.sidemenuambito_progetti {
   color: var(--axn-orange-color);
 }

@@ -27,11 +27,12 @@ input::-webkit-calendar-picker-indicator {
     font-size: var(--axn-input-font-size);
     border: var(--axn-primary-color) 1px solid;
     border-radius: var(--axn-border-radius);
-    height: calc(var(--axn-input-font-size) + 10px);
+    /* height: calc(var(--axn-input-font-size) + 10px); */
+    height: 25px;
 }
 
 .input_input input[type=date] {
-    height: calc(var(--axn-input-font-size) + 10px);
+    height: 26px;
 }
 
 .input_input input[type=checkbox] {
@@ -120,10 +121,6 @@ input:disabled {
 textarea {
     margin: 10px 0;
     font-size: var(--axn-input-font-size);
-    height: calc(var(--axn-input-font-size) + 5px);
-}
-
-textarea {
     border-radius: var(--axn-border-radius);
     border-color: var(--axn-lightgray-color);
     height: 100px;

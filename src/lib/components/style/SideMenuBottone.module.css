@@ -61,17 +61,12 @@
     display: none;
 }
 
-/* 
-.sidemenubottone_contentclose:hover .sidemenubottone_labelclose {
-    display: block;
-} */
-
 .sidemenubottone_contentclose:hover :nth-child(2) {
-    display: block;
     position: absolute;
-    width: 100px;
-    height: 50px;
-    left: 60px;
+    display: block;
+    min-width: 80px;
+    height: auto;
+    left: var(--axn-height-top);
     z-index: 99;
     background-color: var(--axn-primary-color);
     color: var(--axn-white-color);
@@ -82,9 +77,11 @@
     border-radius: var(--axn-border-radius);
 }
 
-/* .sidemenubottone_contentclose:hover :nth-child(3) {
-    visibility: hidden;
-} */
+.sidemenubottone_contentclose:hover :nth-child(2) :not(svg) {
+    text-align: center;
+    padding: 10px;
+    font-size: 0.8rem;
+}
 
 .sidemenubottonesel {
     font-weight: 600;
