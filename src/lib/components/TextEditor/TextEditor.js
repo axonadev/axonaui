@@ -51,8 +51,6 @@ const TextEditor = forwardRef(
                 "fontFamily",
                 "colorPicker",
                 "list",
-                "textAlign",
-                "emoji",
                 "image",
               ],
             }}
