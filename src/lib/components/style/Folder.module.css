@@ -45,7 +45,7 @@
     color: var(--axn-white-color);
     position: absolute;
     z-index: 51;
-    top: 50px;
+    top: 65px;
     background-color: var(--axn-primary-color);
     border-radius: var(--axn-border-radius);
     padding: 5px;
