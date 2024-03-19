@@ -25,6 +25,7 @@ const Input = forwardRef(
       help,
       helpMessage,
       disabled = false,
+      required = false,
     },
     ref
   ) => {
@@ -179,6 +180,7 @@ const Input = forwardRef(
               value={InputValue}
               disabled={disabled}
               ref={ref}
+              required={required}
             />
           )}
 
@@ -194,6 +196,7 @@ const Input = forwardRef(
               min={min}
               max={max}
               disabled={disabled}
+              required={required}
               ref={ref}
             />
           )}
