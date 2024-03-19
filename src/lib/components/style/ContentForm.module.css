@@ -11,10 +11,10 @@
 
 .content_body_sidemenuopen {
     left: 250px;
-    right: 60px;
+    right: var(--axn-height-top);
 }
 
 .content_body_sidemenuclose {
-    left: 60px;
-    right: 60px;
+    left: var(--axn-height-top);
+    right: var(--axn-height-top);
 }

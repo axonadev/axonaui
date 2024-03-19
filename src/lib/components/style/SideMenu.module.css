@@ -43,7 +43,7 @@
 }
 
 .sidemenu_close {
-  width: 60px;
+  width: var(--axn-height-top);
 }
 
 .sidemenu_buttoncontent {

@@ -71,7 +71,7 @@
     position: absolute;
     width: 100px;
     height: 50px;
-    left: 60px;
+    left: var(--axn-height-top);
     z-index: 99;
     background-color: var(--axn-primary-color);
     color: var(--axn-white-color);
