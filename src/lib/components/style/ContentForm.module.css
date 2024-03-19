@@ -7,6 +7,12 @@
     right: 0px;
     transition: 0.2s left;
     overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.content_body::-webkit-scrollbar {
+    display: none;
 }
 
 .content_body_sidemenuopen {
