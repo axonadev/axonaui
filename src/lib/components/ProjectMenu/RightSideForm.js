@@ -21,7 +21,7 @@ const RightSideForm = ({ children, openMenu, onClose }) => {
           className={classes.projectmenu_sideoperation_top_x}
           onClick={closeMenuHandler}
         >
-          <ImgFont icon='faXmark' size='medium' />
+          <ImgFont icon="faXmark" size="medium" />
         </div>
         {/* CHILDREN */}
         <div className={classes.projectmenu_children_content}>{children}</div>
