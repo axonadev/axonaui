@@ -26,6 +26,7 @@ const Input = forwardRef(
       helpMessage,
       disabled = false,
       required = false,
+      placeholder,
     },
     ref
   ) => {
@@ -181,6 +182,7 @@ const Input = forwardRef(
               disabled={disabled}
               ref={ref}
               required={required}
+              placeholder={placeholder}
             />
           )}
 
@@ -198,6 +200,7 @@ const Input = forwardRef(
               disabled={disabled}
               required={required}
               ref={ref}
+              placeholder={placeholder}
             />
           )}
           {icon && (
