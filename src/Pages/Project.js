@@ -228,10 +228,9 @@ const Project = ({ request, list, help }) => {
           itemSearch={itemsSearch}
           selezionato={focusForm === "form_t" ? true : false}
         >
-          {/* Cose per il cartello */}
-          {/* PRIMA RIGA */}
-          <FrameInRow width={[30]}>
-            <Input label='Impianto' type='text' onChange={onChangeInput} />
+          <FrameInRow width={[100]}>
+            <Input label='Descrizione' type='text' onChange={onChangeInput} />
+            <Input label='Ciao' type='textarea' />
           </FrameInRow>
 
           {/* SECONDA RIGA */}
@@ -258,6 +257,7 @@ const Project = ({ request, list, help }) => {
           {/* TERZO RIGA */}
           <FrameInRow width={[100]}>
             <Input label='Descrizione' type='text' onChange={onChangeInput} />
+            <Input label='Ciao' type='textarea' />
           </FrameInRow>
         </Grid>
       </Frame>
@@ -358,6 +358,9 @@ const Project = ({ request, list, help }) => {
                   id='Soggetti_Holding'
                   onChange={onChangeInput}
                 ></Input>
+              </FrameInRow>
+              <FrameInRow width={[100]}>
+                <Input label='Ciao' type='textarea' />
               </FrameInRow>
               <FrameInRow width={[100]}>
                 <Input

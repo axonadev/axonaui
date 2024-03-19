@@ -119,6 +119,7 @@ input:disabled {
 }
 
 textarea {
+    width: 98%;
     margin: 10px 0;
     font-size: var(--axn-input-font-size);
     border-radius: var(--axn-border-radius);

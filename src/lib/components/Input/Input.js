@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, forwardRef } from "react";
+import React, { useEffect, useState, forwardRef } from "react";
 import useInput from "../../hooks/useInput";
 import classes from "../style/Input.module.css";
 import ImgFont from "../Img/ImgFont";
