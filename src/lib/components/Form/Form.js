@@ -3,7 +3,6 @@ import classes from "../style/Form.module.css";
 import { formatDate, postData } from "axonalib";
 import MessageModal from "../MessageModal/MessageModal";
 import Button from "../Button/Button";
-import Img from "../Img/Img";
 import ImgFont from "../Img/ImgFont";
 import SnackBar from "../SnackBar/SnackBar";
 import Folder from "../Folder/Folder";
@@ -228,7 +227,7 @@ const Form = ({
         onSubmit={formSubmissionHandler}
         id={id}
       >
-        {folders && (
+        {folders.length > 1 && (
           <div className={classes.form_folders}>
             <Folder
               items={folders}

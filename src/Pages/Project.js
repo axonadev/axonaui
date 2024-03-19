@@ -314,7 +314,7 @@ const Project = ({ request, list, help }) => {
         />
       </Frame>
       <FormButton onAnnulla={onLoadRow} id_submit='form_t' />
-      <SnackBar timer={6000000} onTimeOut={() => console.log()}></SnackBar>
+      {/* <SnackBar timer={6000000} onTimeOut={() => console.log()}></SnackBar> */}
       {focusForm === "form_t" && (
         <Form
           id='form_t'
