@@ -5,7 +5,7 @@ import ImgFont from "../Img/ImgFont";
 import useGrid from "../../hooks/useGrid";
 import useForm from "../../hooks/useForm";
 import Filter from "../Filter/Filter";
-import Button from "../Button/Button.tsx";
+import Button from "../Button/Button";
 import Input from "../Input/Input";
 import MessageModal from "../MessageModal/MessageModal";
 import Form from "../Form/Form";
@@ -406,10 +406,8 @@ const Grid = ({
         <MessageModal
           onOut={onStophandler}
           title={formTitle}
-
           icon={icon}
-          message=''
-
+          message=""
           buttons={[
             {
               key: 1,

@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../Button/Button.tsx";
+import Button from "../Button/Button";
 import ImgFont from "../Img/ImgFont";
 import classes from "../style/MessageModal.module.css";
 

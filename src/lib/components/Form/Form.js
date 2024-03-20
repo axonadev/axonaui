@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import classes from "../style/Form.module.css";
 import { formatDate, postData } from "axonalib";
 import MessageModal from "../MessageModal/MessageModal";
-import Button from "../Button/Button.tsx";
+import Button from "../Button/Button";
 import ImgFont from "../Img/ImgFont";
 import SnackBar from "../SnackBar/SnackBar";
 import Folder from "../Folder/Folder";

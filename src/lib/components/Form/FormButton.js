@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "../Button/Button.tsx";
+import Button from "../Button/Button";
 import Img from "../Img/Img";
 import ImgFont from "../Img/ImgFont";
 import MessageModal from "../MessageModal/MessageModal";

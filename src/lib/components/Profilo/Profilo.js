@@ -1,7 +1,7 @@
 import React from "react";
 import ImgFont from "../Img/ImgFont";
 import classes from "../style/Profilo.module.css";
-import Button from "../Button/Button.tsx";
+import Button from "../Button/Button";
 
 const Profilo = ({}) => {
   const logoutHandler = () => {

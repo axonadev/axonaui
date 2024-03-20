@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "../style/Button.module.css";
 
-interface MyButtonProps {
+/* interface MyButtonProps {
   children : JSX.Element | JSX.Element[];
   id: string ;
   onClick : React.MouseEventHandler<HTMLButtonElement>;
@@ -9,14 +9,17 @@ interface MyButtonProps {
   type: "md" | "sm" | "submit" | "doc" ;
 }
 
-const Button = ({
-  children ,
-  id ,
-  onClick ,
-  className ,
+{
+  children,
+  id,
+  onClick,
+  className,
   type = "md",
-}:MyButtonProps) => {
+}: MyButtonProps
 
+*/
+
+const Button = ({ children, id, onClick, className, type = "md" }) => {
   const clsStyle = [classes.button, className, classes["button_type_" + type]];
   const onClickHandler = (evt) => {
     try {
@@ -27,7 +30,8 @@ const Button = ({
   const btntype = type === "submit" ? type : "button";
 
   return (
-    <button id={id}
+    <button
+      id={id}
       className={clsStyle.join(" ")}
       onClick={onClickHandler}
       type={btntype}

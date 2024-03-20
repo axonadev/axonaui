@@ -1,4 +1,4 @@
-import Button from "./components/Button/Button.tsx";
+import Button from "./components/Button/Button";
 import Img from "./components/Img/Img";
 import MessageModal from "./components/MessageModal/MessageModal";
 import Card from "./components/Card/Card";
