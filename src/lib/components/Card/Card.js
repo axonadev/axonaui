@@ -1,7 +1,14 @@
 import React, { useCallback, useEffect } from "react";
 import classes from "../style/Card.module.css";
 
-const Card = ({ children, className, id, type = "", onClick, onKeyUp }) => {
+const Card = ({
+  children = null,
+  className = null,
+  id = "",
+  type = "",
+  onClick = null,
+  onKeyUp = null,
+}) => {
   const cls = [classes.card, className, classes["card_" + type]];
 
   const keyState = {
