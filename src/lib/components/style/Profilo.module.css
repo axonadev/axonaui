@@ -33,3 +33,12 @@
     padding: 5px;
 
 }
+.profilo_login{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.profilo_login img{
+    max-width: 100px;
+    
+}
