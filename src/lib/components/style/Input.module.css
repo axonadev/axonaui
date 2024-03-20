@@ -213,6 +213,37 @@ textarea::placeholder {
     border-color: var(--axn-darkgray-color) transparent transparent transparent;
 }
 
+.input {
+    position: relative;
+}
+
+.input:hover .secondaLista {
+    display: block;
+}
+
+.secondaLista {
+    display: none;
+    position: absolute;
+    z-index: 3;
+    width: 198px;
+    top: 45px;
+    max-height: 100px;
+    overflow-y: scroll;
+    border: 1px solid var(--axn-gray-color);
+    background-color: var(--axn-white-color);
+    border-radius: var(--axn-border-radius);
+    box-shadow: 0 1px 4px var(--axn-gray-color);
+}
+
+.secondaLista .item {
+    cursor: pointer;
+}
+
+.secondaLista .item:hover {
+    background-color: var(--axn-lighthaven-color);
+    cursor: pointer;
+}
+
 @media (max-width: 1000px) {
     .cont_checkbox {
         display: flex;

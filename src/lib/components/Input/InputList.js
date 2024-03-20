@@ -130,10 +130,13 @@ const InputList = ({
     }
   };
 
+  const setInputDaClick = (item) => {
+    setInputValue(item[field_description]);
+  };
+
   useEffect(() => {
     goList();
   }, [defList]);
-
   useEffect(() => {
     if (defList) {
       try {
@@ -142,7 +145,6 @@ const InputList = ({
     } else {
     }
   }, []);
-
   useEffect(() => {
     return () => {
       if (defList) {
@@ -199,10 +201,32 @@ const InputList = ({
                   key={id + "_" + item[field_id]}
                   value={valList.join(" ")}
                   idobj={item[field_id]}
-                ></option>
+                />
               );
             })}
         </datalist>
+        <div className={classes.secondaLista}>
+          {list &&
+            list.map((item) => {
+              const valList = field_description.map((columnselect) => {
+                return item[columnselect];
+              });
+
+              return (
+                <div
+                  className={classes.item}
+                  key={id + "_" + item[field_id]}
+                  value={valList.join(" ")}
+                  idobj={item[field_id]}
+                  onClick={() => {
+                    setInputDaClick(item);
+                  }}
+                >
+                  {valList.join(" ")}
+                </div>
+              );
+            })}
+        </div>
       </div>
     </div>
   );
