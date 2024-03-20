@@ -208,7 +208,10 @@ const Project = ({ request, list, help }) => {
         <Grid
           formTitle={"Ciao"}
           testata={false}
-          id="maint_t"
+
+          icon={"faBan"}
+          id='maint_t'
+
           pidobj={idobj_T}
           loadGrid={
             REACT_APP_SERVERAPI +

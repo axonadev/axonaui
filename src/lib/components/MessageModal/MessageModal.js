@@ -11,6 +11,8 @@ const MessageModal = ({
   message,
   children,
   onOut,
+  icon,
+  iconSize,
 }) => {
   const classContent = [
     classes.messagemodal_modal,
@@ -41,7 +43,9 @@ const MessageModal = ({
       <div className={classes.messagemodal_backdrop} onClick={onOut} />
       <div className={classContent.join(" ")}>
         <div className={classes.messagemodal_header}>
-          <h2>{title}</h2>
+          <h2>
+            <ImgFont icon={icon} size={iconSize} /> {title}
+          </h2>
           {message && <p>{message}</p>}
           {children && children}
         </div>

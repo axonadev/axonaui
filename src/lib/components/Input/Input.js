@@ -83,10 +83,6 @@ const Input = forwardRef(
       className,
       icon ? classes.input_posticon : "",
       preIcon ? classes.input_preicon : "",
-      // icon && preIcon
-      //   ? classes.input_preposticon_grid
-      //   : preIcon? classes.input_preicon_grid
-      //   : classes.input_posticon_grid,
     ];
 
     const onChangeInput = (evt) => {
