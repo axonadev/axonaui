@@ -60,6 +60,7 @@ const Profilo = ({}) => {
       {isOpenLogIn && (
         <MessageModal type="sm" onOut={modalOutHandler}>
           <Login
+            className={classes.profilo_login}
             urlApi={REACT_APP_SERVERAPI + "api/axo_login/"}
             onSubmit={() => {
               if (localStorage.getItem("axn_token")) {
