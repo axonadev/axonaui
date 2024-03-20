@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classes from "../style/Frame.module.css";
 import Card from "../Card/Card";
-import Button from "../Button/Button.tsx";
+import Button from "../Button/Button";
 import ImgFont from "../Img/ImgFont";
 
 const Frame = ({

@@ -2,6 +2,7 @@ import React, { useEffect, useState, forwardRef } from "react";
 import useInput from "../../hooks/useInput";
 import classes from "../style/Input.module.css";
 import ImgFont from "../Img/ImgFont";
+import { formatDate } from "axonalib";
 
 const Input = forwardRef(
   (
@@ -42,7 +43,11 @@ const Input = forwardRef(
     useEffect(() => {
       try {
         if (valincache[0][id] !== undefined) {
-          setEffVal(valincache[0][id]);
+          if (type === "date") {
+            setEffVal(formatDate(valincache[0][id]));
+          } else {
+            setEffVal(valincache[0][id]);
+          }
         }
       } catch (error) {}
 
@@ -135,7 +140,11 @@ const Input = forwardRef(
       setInputValidate(validate);
 
       if (value) {
-        setEffVal(value);
+        if (type === "date") {
+          setEffVal(formatDate(value));
+        } else {
+          setEffVal(value);
+        }
         try {
           onChangeValue(id, value);
         } catch (error) {}
@@ -163,7 +172,7 @@ const Input = forwardRef(
               className={classes.input_preicon}
               onClick={onPreIconClickHandler}
             >
-              <ImgFont icon={icon} size='medium' />
+              <ImgFont icon={icon} size="medium" />
             </div>
           )}
           {type === "textarea" && (
@@ -201,7 +210,7 @@ const Input = forwardRef(
           )}
           {icon && (
             <div className={classes.input_icon}>
-              <ImgFont icon={icon} onClick={onIconClickHandler} size='medium' />
+              <ImgFont icon={icon} onClick={onIconClickHandler} size="medium" />
             </div>
           )}
         </div>

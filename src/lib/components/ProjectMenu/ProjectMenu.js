@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import classes from "../style/ProjectMenu.module.css";
-import Button from "../Button/Button.tsx";
+import Button from "../Button/Button";
 import ImgFont from "../Img/ImgFont";
 import Profilo from "../Profilo/Profilo";
 

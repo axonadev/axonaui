@@ -49,7 +49,7 @@ module.exports = {
     {
       name: "UI Components",
       content: "docs/ui.md",
-      components: "src/lib/components/**/*.js",
+      components: "src/lib/components/**/*.tsx",
       ignore: "src/lib/components/**/*.prv.js",
       exampleMode: "expand", // 'hide' | 'collapse' | 'expand'
       usageMode: "collapse", // 'hide' | 'collapse' | 'expand'
