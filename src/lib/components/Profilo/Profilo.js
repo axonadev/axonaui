@@ -44,21 +44,23 @@ const Profilo = ({}) => {
           <p>P.Iva: {pIva}</p>
           <p>{mail}</p>
         </div>
-        <div className={classes.profilo_logout}>
-          <Button onClick={logoutHandler}>
-            <ImgFont icon="faRightFromBracket" size="medium" />
-          </Button>
-        </div>
-        {isSviluppo && (
-          <div>
-            <Button onClick={loginHandler}>
-              <ImgFont icon="faRightToBracket" size="medium" />
+        <div className={classes.profilo_bottoni}>
+          <div className={classes.profilo_logout}>
+            <Button onClick={logoutHandler}>
+              <ImgFont icon="faRightFromBracket" size="medium" />
             </Button>
           </div>
-        )}
+          {isSviluppo && (
+            <div>
+              <Button onClick={loginHandler}>
+                <ImgFont icon="faRightToBracket" size="medium" />
+              </Button>
+            </div>
+          )}
+        </div>
       </div>
       {isOpenLogIn && (
-        <MessageModal type="sm" onOut={modalOutHandler}>
+        <MessageModal type="sm" onOut={modalOutHandler} buttons={[]}>
           <Login
             className={classes.profilo_login}
             urlApi={REACT_APP_SERVERAPI + "api/axo_login/"}
