@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import classes from "../style/ProjectMenu.module.css";
-import Button from "../Button/Button";
+import Button from "../Button/Button.tsx";
 import ImgFont from "../Img/ImgFont";
 import Profilo from "../Profilo/Profilo";
 
@@ -28,7 +28,7 @@ const ProjectMenu = ({ children, onHelp }) => {
         <div>
           <div className={classes.projectmenu_profilo}>
             <Button onClick={profiloClick}>
-              <ImgFont icon='faUser' size='medium' />
+              <ImgFont icon="faUser" size="medium" />
             </Button>
           </div>
           {children}
@@ -37,7 +37,7 @@ const ProjectMenu = ({ children, onHelp }) => {
         <div>
           <div className={classes.projectmenu_help}>
             <Button onClick={onHelpHandler}>
-              <ImgFont icon='faQuestion' size='medium' />
+              <ImgFont icon="faQuestion" size="medium" />
             </Button>
           </div>
         </div>

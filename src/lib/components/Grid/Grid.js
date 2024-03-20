@@ -5,7 +5,7 @@ import ImgFont from "../Img/ImgFont";
 import useGrid from "../../hooks/useGrid";
 import useForm from "../../hooks/useForm";
 import Filter from "../Filter/Filter";
-import Button from "../Button/Button";
+import Button from "../Button/Button.tsx";
 import Input from "../Input/Input";
 import MessageModal from "../MessageModal/MessageModal";
 import Form from "../Form/Form";
@@ -276,19 +276,19 @@ const Grid = ({
                   <Button
                     onClick={insertHandler}
                     className={`${classes.grid_button} ${classes.grid_buttonAdd}`}
-                    type='sm'
+                    type="sm"
                   >
-                    <ImgFont icon='faPlus' size='medium' />
+                    <ImgFont icon="faPlus" size="medium" />
                   </Button>
                   <Button
                     onClick={deleteHandler}
                     className={`${classes.grid_button} ${classes.grid_buttonDelete}`}
-                    type='sm'
+                    type="sm"
                   >
                     <ImgFont
-                      icon='faTrashCan'
-                      className='deleteBtn'
-                      size='medium'
+                      icon="faTrashCan"
+                      className="deleteBtn"
+                      size="medium"
                     />
                   </Button>
                 </div>
@@ -308,12 +308,12 @@ const Grid = ({
             <div className={classes.grid_filtergridright}>
               <div className={classes.grid_pagecontrols}>
                 <Pagination
-                  id='Grid_Pagination'
+                  id="Grid_Pagination"
                   page={String(page)}
                   onChange={onChangePage}
-                  rightIcon='right'
+                  rightIcon="right"
                   onRightIconClick={pageAfterHandler}
-                  leftIcon='left'
+                  leftIcon="left"
                   onLeftIconClick={pageBeforeHandler}
                 />
               </div>
@@ -324,13 +324,13 @@ const Grid = ({
           <table className={classes.grid_table} id={id}>
             <thead>
               <Row
-                key='INT'
+                key="INT"
                 columns={
                   columns === undefined || columns === null
                     ? columnsint
                     : columns
                 }
-                type='testata'
+                type="testata"
                 onClick={onClickHeaderHandler}
                 onDoubleClick={() => {}}
                 labeltestata={testata}
@@ -362,7 +362,7 @@ const Grid = ({
         <MessageModal
           onOut={onStopDeletehandler}
           title={"Eliminare il record selezionato?"}
-          message=''
+          message=""
           buttons={[
             {
               key: 1,
@@ -381,7 +381,7 @@ const Grid = ({
           <Form
             id={"form_" + id}
             idobj={rowSelected}
-            modulo='general'
+            modulo="general"
             db={dbForm}
             serverApi={REACT_APP_SERVERAPI}
             afterSubmit={onSaveformhandler}
@@ -391,9 +391,9 @@ const Grid = ({
           >
             <FrameContainer>
               <FrameInRow width={["20 hidden", "20 hidden", "20 hidden"]}>
-                <Input label='IDOBJ' id='IDOBJ' value={rowSelected} />
+                <Input label="IDOBJ" id="IDOBJ" value={rowSelected} />
                 <InputData
-                  label='Scadenza'
+                  label="Scadenza"
                   id={dbForm + "_ScadenzaOBJ"}
                   value={formatDate(Date.now())}
                 />
@@ -406,8 +406,10 @@ const Grid = ({
         <MessageModal
           onOut={onStophandler}
           title={formTitle}
+
           icon={icon}
           message=''
+
           buttons={[
             {
               key: 1,
@@ -426,7 +428,7 @@ const Grid = ({
           <Form
             id={"form_" + id}
             idobj={rowSelected}
-            modulo='general'
+            modulo="general"
             db={dbForm}
             serverApi={REACT_APP_SERVERAPI}
             afterSubmit={onSaveformhandler}
@@ -436,20 +438,20 @@ const Grid = ({
             <FrameContainer>
               <FrameInRow width={["20 hidden", "20 hidden", "20 hidden"]}>
                 <Input
-                  label='IDOBJ'
-                  id='IDOBJ'
+                  label="IDOBJ"
+                  id="IDOBJ"
                   value={rowSelected}
                   onChangeValue={onChangeForm}
                 />
                 <Input
-                  label='PIDOBJ'
-                  id='PIDOBJ'
+                  label="PIDOBJ"
+                  id="PIDOBJ"
                   value={pidobj}
                   onChangeValue={onChangeForm}
                 />
                 <Input
-                  label='ConfigGriglie_NomeCampo'
-                  id='ConfigGriglie_NomeCampo'
+                  label="ConfigGriglie_NomeCampo"
+                  id="ConfigGriglie_NomeCampo"
                   value={rowItem["ConfigGriglie_NomeCampo"]}
                   onChangeValue={onChangeForm}
                 />

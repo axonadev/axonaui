@@ -1,7 +1,7 @@
 import React from "react";
 import ImgFont from "../Img/ImgFont";
 import classes from "../style/Profilo.module.css";
-import Button from "../Button/Button";
+import Button from "../Button/Button.tsx";
 
 const Profilo = ({}) => {
   const logoutHandler = () => {
@@ -27,7 +27,7 @@ const Profilo = ({}) => {
       </div>
       <div className={classes.profilo_logout}>
         <Button onClick={logoutHandler}>
-          <ImgFont icon='faRightFromBracket' size='medium' />
+          <ImgFont icon="faRightFromBracket" size="medium" />
         </Button>
       </div>
     </div>
