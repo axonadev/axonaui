@@ -26,6 +26,11 @@
     justify-content: center;
 }
 
+.profilo_bottoni{
+    display:  flex;
+    justify-content:space-around;
+}
+
 .profilo_immagine {
     width: 75px;
     border: 1px solid;
@@ -34,9 +39,11 @@
 
 }
 .profilo_login{
-    width: 100%;
+    width: 100% !important;
+    height: auto !important;
     display: flex;
     justify-content: center;
+
 }
 .profilo_login img{
     max-width: 100px;
