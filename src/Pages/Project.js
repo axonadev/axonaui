@@ -208,10 +208,8 @@ const Project = ({ request, list, help }) => {
         <Grid
           formTitle={"Ciao"}
           testata={false}
-
           icon={"faBan"}
-          id='maint_t'
-
+          id="maint_t"
           pidobj={idobj_T}
           loadGrid={
             REACT_APP_SERVERAPI +
@@ -356,6 +354,7 @@ const Project = ({ request, list, help }) => {
                   label="Scadenza"
                   id="Soggetti_ScadenzaOBJ"
                   onChange={onChangeInput}
+                  value="01-01-2025"
                 />
                 <Input
                   label="Holding"
