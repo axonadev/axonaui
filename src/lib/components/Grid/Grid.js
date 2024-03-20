@@ -39,6 +39,7 @@ const Grid = ({
   closeSetup,
   testata = true,
   modulosecondario = "",
+  icon,
   lista,
 }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
@@ -405,6 +406,7 @@ const Grid = ({
         <MessageModal
           onOut={onStophandler}
           title={formTitle}
+          icon={icon}
           message=''
           buttons={[
             {

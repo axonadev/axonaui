@@ -61,6 +61,10 @@ input::-webkit-calendar-picker-indicator {
     max-height: 100%;
 }
 
+.input_preicon svg {
+    cursor: pointer;
+}
+
 .input_icon {
     position: relative;
     width: 0px;

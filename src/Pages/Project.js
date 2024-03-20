@@ -208,6 +208,7 @@ const Project = ({ request, list, help }) => {
         <Grid
           formTitle={"Ciao"}
           testata={false}
+          icon={"faBan"}
           id='maint_t'
           pidobj={idobj_T}
           loadGrid={
