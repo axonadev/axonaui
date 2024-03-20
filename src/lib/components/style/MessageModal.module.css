@@ -74,6 +74,11 @@
   justify-content: center;
 }
 
+.messagemodal_modal_sm {
+  left: 30%;
+  width: 40%;
+}
+
 @media (min-width: 768px) {
   .messagemodal_modal {
     max-height: 600px;

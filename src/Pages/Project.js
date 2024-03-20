@@ -206,14 +206,6 @@ const Project = ({ request, list, help }) => {
   return (
     <>
       <Frame label={"CARTELLI"} ridimensiona={true}>
-        <ButtonTest
-          type=""
-          onClick={() => {
-            alert("cliccato");
-          }}
-        >
-          clicca qui
-        </ButtonTest>
         <Grid
           formTitle={"Ciao"}
           testata={false}
