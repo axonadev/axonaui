@@ -15,10 +15,6 @@
     flex-direction: column;
 }
 
-.sidemenubottone_content div {
-    margin-right: 5px;
-}
-
 .sidemenu_close .sidemenubottone_content div {
     width: 100%;
 }
@@ -48,6 +44,7 @@
 
 .sidemenubottone_contentopen div {
     padding-left: 15px;
+    width: 20px;
 }
 
 .sidemenubottone_contentclose {
@@ -85,4 +82,20 @@
 
 .sidemenubottonesel {
     font-weight: 600;
+}
+
+.sidemenubottone_progetti {
+    color: var(--axn-orange-color);
+}
+
+.sidemenubottone_contentopen.sidemenubottone_progetti {
+    padding-left: 35px;
+    width: calc(100% - 35px);
+    transition: width 0.2s;
+}
+
+.sidemenubottone_contentopen.sidemenubottone_progetti label {
+    display: inline-block;
+    width: 150px;
+    transition: width 0.2s;
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import SideMenuBottone from "./SideMenuBottone.prv";
 import classes from "../style/SideMenuAmbito.module.css";
+import class2 from "../style/SideMenuBottone.module.css";
 
 const SideMenuAmbito = ({
   label,
@@ -48,14 +49,14 @@ const SideMenuAmbito = ({
           list.map((item) => {
             return (
               <SideMenuBottone
-                iconsize="xs"
+                iconsize='xs'
                 key={item.IDOBJ}
                 onoff={onoff}
                 label={item.Moduli_Nome}
                 src={item.Moduli_Icona}
                 onClick={selProgetto}
                 path={"../" + item.Moduli_IndirizzoModulo}
-                className={classes.sidemenuambito_progetti}
+                className={`${classes.sidemenuambito_progetti} ${class2.sidemenubottone_progetti}`}
               />
             );
           })}
