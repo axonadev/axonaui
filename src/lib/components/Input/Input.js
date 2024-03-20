@@ -43,7 +43,11 @@ const Input = forwardRef(
     useEffect(() => {
       try {
         if (valincache[0][id] !== undefined) {
-          setEffVal(valincache[0][id]);
+          if (type === "date") {
+            setEffVal(formatDate(valincache[0][id]));
+          } else {
+            setEffVal(valincache[0][id]);
+          }
         }
       } catch (error) {}
 
