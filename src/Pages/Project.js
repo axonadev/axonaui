@@ -12,6 +12,7 @@ import {
   FrameContainer,
   Button,
   Card,
+  ButtonTest,
 } from "../lib";
 import { useEnv } from "axonalib";
 import List from "../lib/components/List/List";
@@ -205,6 +206,14 @@ const Project = ({ request, list, help }) => {
   return (
     <>
       <Frame label={"CARTELLI"} ridimensiona={true}>
+        <ButtonTest
+          type=""
+          onClick={() => {
+            alert("cliccato");
+          }}
+        >
+          clicca qui
+        </ButtonTest>
         <Grid
           formTitle={"Ciao"}
           testata={false}
@@ -354,7 +363,7 @@ const Project = ({ request, list, help }) => {
                   label="Scadenza"
                   id="Soggetti_ScadenzaOBJ"
                   onChange={onChangeInput}
-                  value="01-01-2025"
+                  value="2024-03-18T00:00:00"
                 />
                 <Input
                   label="Holding"

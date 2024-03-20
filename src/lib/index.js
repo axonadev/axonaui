@@ -1,4 +1,5 @@
 import Button from "./components/Button/Button";
+import ButtonTest from "./components/Button/Button.tsx";
 import Img from "./components/Img/Img";
 import MessageModal from "./components/MessageModal/MessageModal";
 import Card from "./components/Card/Card";
@@ -37,6 +38,7 @@ import ImgFont from "./components/Img/ImgFont";
 
 export {
   Button,
+  ButtonTest,
   Img,
   ImgFont,
   MessageModal,
