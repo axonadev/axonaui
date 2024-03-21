@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Button from "../Button/Button";
-import Img from "../Img/Img";
 import ImgFont from "../Img/ImgFont";
 import MessageModal from "../MessageModal/MessageModal";
 import classes from "../style/Form.module.css";
@@ -56,10 +55,10 @@ const FormButton = ({ id_submit, onAnnulla, numberGrid }) => {
     <>
       <>
         <Button className={classBSave.join(" ")} onClick={formSubmit}>
-          <ImgFont icon="faFloppyDisk" size="medium" />
+          <ImgFont icon='faFloppyDisk' size='medium' />
         </Button>
         <Button className={classBAnnulla.join(" ")} onClick={clickAnnulla}>
-          <ImgFont icon="faXmark" size="medium" />
+          <ImgFont icon='faXmark' size='medium' />
         </Button>
       </>
 
@@ -78,10 +77,10 @@ const FormButton = ({ id_submit, onAnnulla, numberGrid }) => {
             }}
           >
             <Button onClick={onConfirmAnnulla}>
-              <ImgFont icon="faCheck" size="medium" />
+              <ImgFont icon='faCheck' size='medium' />
             </Button>
             <Button onClick={onStophandler}>
-              <ImgFont icon="faXmark" size="medium" />
+              <ImgFont icon='faXmark' size='medium' />
             </Button>
           </div>
         </MessageModal>
