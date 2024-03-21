@@ -310,7 +310,7 @@ const Project = ({ request, list, help }) => {
           <FrameContainer id='anagrafica' help={help}>
             <Frame label='ANAGRAFICA'>
               <FrameInRow width={[10, 10, 10, 70]}>
-                <Input label='Codice' id='Soggetti_Codice'></Input>
+                <Input label='Codice' id='Soggetti_Codice' align='right' />
                 <InputList
                   label='Tipo'
                   id='Soggetti_Tipo'
@@ -334,6 +334,7 @@ const Project = ({ request, list, help }) => {
                   id='Soggetti_ScadenzaOBJ'
                   onChange={onChangeInput}
                   value='2024-03-18T00:00:00'
+                  align='left'
                 />
                 <Input
                   label='Holding'

@@ -213,6 +213,28 @@ textarea::placeholder {
     border-color: var(--axn-darkgray-color) transparent transparent transparent;
 }
 
+/** Allineamento testo in input */
+.input_align_left input {
+    text-align: left;
+}
+
+.input_align_right input {
+    text-align: right;
+}
+
+.input_align_center input {
+    text-align: center;
+}
+
+.input_align_justify input {
+    text-align: justify;
+}
+
+
+.input_align_left {
+    text-align: left;
+}
+
 @media (max-width: 1000px) {
     .cont_checkbox {
         display: flex;

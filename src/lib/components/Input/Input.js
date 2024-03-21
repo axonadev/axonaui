@@ -28,6 +28,7 @@ const Input = forwardRef(
       disabled = false,
       required = false,
       placeholder,
+      align = "left",
     },
     ref
   ) => {
@@ -75,6 +76,7 @@ const Input = forwardRef(
     const classContent = [
       classes.input,
       classes["input_" + pers],
+      classes["input_align_" + align],
       classes["cont_text"],
       classes[className],
       className,
@@ -172,7 +174,7 @@ const Input = forwardRef(
               className={classes.input_preicon}
               onClick={onPreIconClickHandler}
             >
-              <ImgFont icon={icon} size="medium" />
+              <ImgFont icon={icon} size='medium' />
             </div>
           )}
           {type === "textarea" && (
@@ -210,7 +212,7 @@ const Input = forwardRef(
           )}
           {icon && (
             <div className={classes.input_icon}>
-              <ImgFont icon={icon} onClick={onIconClickHandler} size="medium" />
+              <ImgFont icon={icon} onClick={onIconClickHandler} size='medium' />
             </div>
           )}
         </div>
