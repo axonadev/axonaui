@@ -1,31 +1,24 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import {
   useForm,
   Input,
   InputCheckBox,
+  InputCheckList,
   InputData,
+  InputList,
   Form,
+  FormButton,
+  FrameContainer,
   Frame,
   FrameInRow,
   Grid,
-  InputList,
-  FrameContainer,
-  Button,
-  Card,
-  ButtonTest,
-  SnackBar,
+  Citta,
 } from "../lib";
 import { useEnv } from "axonalib";
-import List from "../lib/components/List/List";
-import FormButton from "../lib/components/Form/FormButton";
-import TextEditor from "../lib/components/TextEditor/TextEditor";
-import ChartBar from "../lib/components/Chart/ChartBar";
-import Citta from "../lib/components/UIFrame/Citta";
-import InputCheckList from "../lib/components/Input/InputCheckList";
-import ListItem from "../lib/components/List/ListItem";
 
 const Project = ({ request, list, help }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
+
   const moduloForm = "soggetti";
   const nameView = "v_" + moduloForm;
   const nameTable = moduloForm;
@@ -57,7 +50,7 @@ const Project = ({ request, list, help }) => {
     {
       key: 3,
       label: "Contabilità",
-      img: "faCalculator",
+      img: "faFileInvoice",
       target: "contabilita",
     },
     { key: 4, label: "CRM", img: "faUsersGear", target: "crm" },
@@ -79,19 +72,17 @@ const Project = ({ request, list, help }) => {
     },
   ];
 
-  // # REF
-  const inputRef2 = useRef("");
-
-  // useEffect(() => {
-  // }, [inputRef2]);
-
   const itemsSearch = ["Soggetti_Nome1", "Soggetti_Nome2"];
+
   const domiciliItemsSearch = ["Nome", "Cognome"];
+
   const [focusForm, setFocusForm] = useState("");
   const [statoGriglia, setStatoGriglia] = useState("");
   const [reloadGriglia, setReloadGriglia] = useState(0);
+
   const [idobj_T, setIdobj_T] = useState(0);
   const [idobj_Famiglie, setIdobj_Famiglie] = useState(0);
+
   const { onChangeSelected, onReset, onChangeForm } = useForm(
     "form_t",
     REACT_APP_SERVERAPI +
@@ -100,8 +91,11 @@ const Project = ({ request, list, help }) => {
       cmd_getForm,
     nameTable
   );
+
   const listPagamenti = list.filter((item) => item.nameView === "v_pagamenti");
+
   const listDivisa = list.filter((item) => item.nameView === "v_divise");
+
   const insertClickHandler = (idGriglia) => {
     const idform = "form_" + idGriglia.split("_")[1];
     onReset();
@@ -109,169 +103,42 @@ const Project = ({ request, list, help }) => {
     setStatoGriglia("INSERIMENTO");
     setIdobj_T(0);
   };
-  const deleteClickHandler = (idGriglia) => {};
+  const deleteClickHandler = (idGriglia) => {
+    console.log(idGriglia);
+  };
+
   const onLoadRow = () => {
     setReloadGriglia((item) => {
       return item + 1;
     });
+
     setStatoGriglia("");
     onChangeSelected(idobj_T);
   };
-  const onChangeRow = (idobj, items) => {
+  const onChangeRow = (idobj) => {
     setIdobj_T(idobj);
     setFocusForm("form_t");
     setStatoGriglia("");
     onChangeSelected(idobj);
   };
 
-  // ******************TEST***********************************
-  const [listaNotifiche, setListaNotifiche] = useState([
-    { tipo: "cartello", urgenza: "Urgente", testo: "Scadenza imminente" },
-    {
-      tipo: "cartello",
-      urgenza: "Non Urgente",
-      testo: "Promozione speciale in corso",
-    },
-    {
-      tipo: "cartello",
-      urgenza: "Critica",
-      testo: "Errore di sistema rilevato",
-    },
-    { tipo: "cartello", urgenza: "Urgente", testo: "Pagamento in sospeso" },
-    {
-      tipo: "cartello",
-      urgenza: "Non Urgente",
-      testo: "Nuovo aggiornamento disponibile",
-    },
-    {
-      tipo: "cartello",
-      urgenza: "Urgente",
-      testo: "Accesso non autorizzato rilevato",
-    },
-    { tipo: "contratto", urgenza: "Critica", testo: "Sistema in crash" },
-    {
-      tipo: "contratto",
-      urgenza: "Urgente",
-      testo: "Richiesta di assistenza in arrivo",
-    },
-    {
-      tipo: "contratto",
-      urgenza: "Non Urgente",
-      testo: "Nuova email ricevuta",
-    },
-    {
-      tipo: "contratto",
-      urgenza: "Critica",
-      testo: "Violazione della sicurezza rilevata",
-    },
-    {
-      tipo: "contratto",
-      urgenza: "Urgente",
-      testo: "Riunione urgente programmata",
-    },
-    {
-      tipo: "contratto",
-      urgenza: "Non Urgente",
-      testo: "Nuovo articolo pubblicato sul blog",
-    },
-    { tipo: "evento", urgenza: "Critica", testo: "Perdita di dati critici" },
-    {
-      tipo: "evento",
-      urgenza: "Urgente",
-      testo: "Richiesta di autorizzazione pendente",
-    },
-    {
-      tipo: "evento",
-      urgenza: "Non Urgente",
-      testo: "Notifica di compleanno",
-    },
-    {
-      tipo: "evento",
-      urgenza: "Scaduta",
-      testo: "Scaduta questa roba, mandare mail",
-    },
-    { tipo: "evento", urgenza: "Scaduta", testo: "Attenzione!! Scaduta!!" },
-    { tipo: "evento", urgenza: "Scaduta", testo: "Problemi che arrivano!" },
-    { tipo: "evento", urgenza: "Scaduta", testo: "Pagare la mora, subeeto" },
-    { tipo: "evento", urgenza: "Scaduta", testo: "Notifica di compleanno" },
-  ]);
-
   const onChangeInput = () => {};
 
   useEffect(() => {
     const loadRequest = () => {};
+
     loadRequest();
   }, [request]);
 
   return (
     <>
-      <Frame label={"CARTELLI"} ridimensiona={true}>
-        <Grid
-          formTitle={"Ciao"}
-          testata={false}
-          icon={"faBan"}
-          id='maint_t'
-          pidobj={idobj_T}
-          loadGrid={
-            REACT_APP_SERVERAPI +
-            "api/axo_sel/" +
-            localStorage.getItem("axn_token") +
-            cmd_getGrid
-          }
-          onClickRow={(IDOBJ) => {
-            cmd_getGrid(IDOBJ);
-          }}
-          onDoubleClickRow={() => {}}
-          onBtnInsert={insertClickHandler}
-          onBtnDelete={deleteClickHandler}
-          btn_insert={true}
-          nameView={"v_contratticartelli"}
-          reload={reloadGriglia}
-          itemSearch={itemsSearch}
-          selezionato={focusForm === "form_t" ? true : false}
-        >
-          <FrameInRow width={[100]}>
-            <Input label='Descrizione' type='text' onChange={onChangeInput} />
-            <Input label='Ciao' type='textarea' />
-          </FrameInRow>
-
-          {/* SECONDA RIGA */}
-          <FrameInRow width={[10, 20, 20]}>
-            <Input
-              label='Cartello N°'
-              id='Contratti_Pre_NotaCorpo'
-              onChange={onChangeInput}
-            />
-            <InputData
-              label='Data Installazione'
-              id='Contratti_DataStipula'
-              onChange={onChangeInput}
-              disabled={true}
-            />
-            <InputData
-              label='Data Scadenza'
-              id='Contratti_DataStipula'
-              onChange={onChangeInput}
-              disabled={true}
-            />
-          </FrameInRow>
-
-          {/* TERZO RIGA */}
-          <FrameInRow width={[100]}>
-            <Input label='Descrizione' type='text' onChange={onChangeInput} />
-            <Input label='Ciao' type='textarea' />
-          </FrameInRow>
-        </Grid>
-      </Frame>
-
       <Frame
-        label='TESTATA'
+        label='SOGGETTI'
+        icon={"faUsers"}
         type='form_t'
-        stato={""}
+        stato={statoGriglia}
         ridimensiona={true}
         setup={true}
-        icon={"faAddressCard"}
-        frameSize={1}
       >
         <Grid
           id='maint_t'
@@ -281,10 +148,12 @@ const Project = ({ request, list, help }) => {
             localStorage.getItem("axn_token") +
             cmd_getGrid
           }
-          onClickRow={(IDOBJ, items) => {
-            onChangeRow(IDOBJ, items);
+          onClickRow={(IDOBJ) => {
+            onChangeRow(IDOBJ);
           }}
-          onDoubleClickRow={() => {}}
+          onDoubleClickRow={() => {
+            console.log("click");
+          }}
           onBtnInsert={insertClickHandler}
           onBtnDelete={deleteClickHandler}
           btn_insert={true}
@@ -294,7 +163,6 @@ const Project = ({ request, list, help }) => {
         />
       </Frame>
       <FormButton onAnnulla={onLoadRow} id_submit='form_t' />
-      <SnackBar timer={2300} onTimeOut={() => console.log()} />
       {focusForm === "form_t" && (
         <Form
           id='form_t'
@@ -308,136 +176,151 @@ const Project = ({ request, list, help }) => {
           onChangeValue={onChangeForm}
         >
           <FrameContainer id='anagrafica' help={help}>
-            <Frame label='ANAGRAFICA'>
-              <FrameInRow width={[10, 10, 10, 70]}>
-                <Input label='Codice' id='Soggetti_Codice' align='right' />
-                <InputList
-                  label='Tipo'
-                  id='Soggetti_Tipo'
-                  nameList='soggettitipo'
-                  field_id='IDOBJ'
-                  field_description={["SoggettiTipo_Descrizione"]}
-                  defList={[
-                    {
-                      data: [
-                        { IDOBJ: 1, SoggettiTipo_Descrizione: "Privato" },
-                        { IDOBJ: 2, SoggettiTipo_Descrizione: "Società" },
-                        { IDOBJ: 3, SoggettiTipo_Descrizione: "Ente" },
-                      ],
-                    },
-                  ]}
-                  onChange={onChangeInput}
-                />
-                <Input
-                  type='date'
-                  label='Scadenza'
-                  id='Soggetti_ScadenzaOBJ'
-                  onChange={onChangeInput}
-                  value='2024-03-18T00:00:00'
-                  align='left'
-                />
-                <Input
-                  label='Holding'
-                  id='Soggetti_Holding'
-                  onChange={onChangeInput}
-                ></Input>
-              </FrameInRow>
-              <FrameInRow width={[100]}>
-                <Input
-                  label='Nome'
-                  id='Soggetti_Nome1'
-                  validate={[{ type: "obb" }, { type: "maxlenght", value: 10 }]}
-                />
-              </FrameInRow>
-              <FrameInRow width={[100]}>
-                <Input
-                  label='Cognome'
-                  id='Soggetti_Nome2'
-                  onChange={onChangeInput}
-                />
-              </FrameInRow>
-              <FrameInRow width={[100]}>
-                <Input
-                  label='Indirizzo'
-                  id='Soggetti_Indirizzo'
-                  onChange={onChangeInput}
-                />
-              </FrameInRow>
-              <FrameInRow width={[70, 10, 20]}>
-                <Citta
-                  nazione={{ label: "Nazione", id: "Soggetti_Nazione" }}
-                  citta={{ label: "Citta", id: "Soggetti_Citta" }}
-                  provincia={{ label: "Provincia", id: "Soggetti_Prov" }}
-                  cap={{ label: "CAP", id: "Soggetti_CAP" }}
-                  onChange={onChangeInput}
-                />
-                <Input
-                  label='Regione'
-                  id='Soggetti_Regione'
-                  onChange={onChangeInput}
-                />
-                <Input
-                  label='Zona'
-                  id='Soggetti_Zona'
-                  onChange={onChangeInput}
-                />
-              </FrameInRow>
-              <FrameInRow width={[20, 20, 20]}>
-                <Input
-                  label='Telefono'
-                  id='Soggetti_Tel'
-                  onChange={onChangeInput}
-                />
-                <Input
-                  label='Telefono'
-                  id='Soggetti_Tel'
-                  onChange={onChangeInput}
-                />
+            <Frame label='ANAGRAFICA' icon={"faIdCard"}>
+              <FrameInRow width={[90, 10]}>
+                <Frame type='noborder'>
+                  <FrameInRow width={[10, 10, 10, 70]}>
+                    <Input label='Codice' id='Soggetti_Codice'></Input>
+                    <InputList
+                      label='Tipo'
+                      id='Soggetti_Tipo'
+                      nameList='soggettitipo'
+                      field_description={["SoggettiTipo_Descrizione"]}
+                      defList={[
+                        {
+                          data: [
+                            { IDOBJ: 1, SoggettiTipo_Descrizione: "Privato" },
+                            { IDOBJ: 2, SoggettiTipo_Descrizione: "Società" },
+                            { IDOBJ: 3, SoggettiTipo_Descrizione: "Ente" },
+                          ],
+                        },
+                      ]}
+                      onChange={onChangeInput}
+                    />
+                    <Input
+                      type='date'
+                      label='Scadenza'
+                      id='Soggetti_ScadenzaOBJ'
+                      onChange={onChangeInput}
+                    />
 
-                <Input
-                  label='Rif. amministrativo'
-                  id='Soggetti_Tel'
-                  onChange={onChangeInput}
-                />
+                    <Input
+                      label='Holding'
+                      id='Soggetti_Holding'
+                      onChange={onChangeInput}
+                    ></Input>
+                  </FrameInRow>
+                  <FrameInRow width={[100]}>
+                    <Input
+                      label='Nome'
+                      id='Soggetti_Nome1'
+                      validate={[
+                        { type: "obb" },
+                        { type: "maxlenght", value: 200 },
+                      ]}
+                    />
+                  </FrameInRow>
+                  <FrameInRow width={[100]}>
+                    <Input
+                      label='Cognome'
+                      id='Soggetti_Nome2'
+                      onChange={onChangeInput}
+                    />
+                  </FrameInRow>
+                  <FrameInRow width={[100]}>
+                    <Input
+                      label='Indirizzo'
+                      id='Soggetti_Indirizzo'
+                      onChange={onChangeInput}
+                    />
+                  </FrameInRow>
+                  <FrameInRow width={[70, 10, 20]}>
+                    <Citta
+                      nazione={{ label: "Nazione", id: "Soggetti_Nazione" }}
+                      citta={{ label: "Citta", id: "Soggetti_Citta" }}
+                      provincia={{ label: "Provincia", id: "Soggetti_Prov" }}
+                      cap={{ label: "CAP", id: "Soggetti_CAP" }}
+                      onChange={onChangeInput}
+                    />
+                    <Input
+                      label='Regione'
+                      id='Soggetti_Regione'
+                      onChange={onChangeInput}
+                    />
+                    <Input
+                      label='Zona'
+                      id='Soggetti_Zona'
+                      onChange={onChangeInput}
+                    />
+                  </FrameInRow>
+                  <FrameInRow width={[20, 20, 20]}>
+                    <Input
+                      label='Telefono'
+                      id='Soggetti_Tel'
+                      onChange={onChangeInput}
+                    />
+                    <Input
+                      label='Telefono'
+                      id='Soggetti_Tel'
+                      onChange={onChangeInput}
+                    />
+                    <Input
+                      label='Rif. amministrativo'
+                      id='Soggetti_Tel'
+                      onChange={onChangeInput}
+                    />
+                  </FrameInRow>
+                  <FrameInRow width={[20, 20, 20]}>
+                    <Input
+                      label='Fax'
+                      id='Soggetti_Tel'
+                      onChange={onChangeInput}
+                    />
+                    <Input
+                      label='PEC'
+                      id='Soggetti_Tel'
+                      onChange={onChangeInput}
+                    />
+                  </FrameInRow>
+                  <FrameInRow width={[20, 20, 20]}>
+                    <Input
+                      label='www'
+                      id='Soggetti_Tel'
+                      onChange={onChangeInput}
+                    />
+                    <Input
+                      label='email'
+                      id='Soggetti_Tel'
+                      onChange={onChangeInput}
+                    />
+                  </FrameInRow>
+                </Frame>
+                <Frame type='noborder'>
+                  <InputCheckList
+                    label='tipisoggetto'
+                    id='tipisoggetto'
+                    url={
+                      REACT_APP_SERVERAPI +
+                      "api/axo_sel/" +
+                      localStorage.getItem("axn_token") +
+                      "/" +
+                      moduloForm +
+                      "/" +
+                      moduloForm +
+                      "sel/leggitipisoggetto/" +
+                      idobj_T
+                    }
+                    nameList='v_tipisoggetto'
+                    field_id='IDOBJ'
+                    field_description='TipiSoggetto_Descrizione'
+                    field_value='valore'
+                    field_target='SoggettiTipi_Tipo'
+                    db_target='SoggettiTipi'
+                    pidobj={idobj_T}
+                    onChange={onChangeInput}
+                  />
+                </Frame>
               </FrameInRow>
-              <FrameInRow width={[20, 20, 20]}>
-                <Input label='Fax' id='Soggetti_Tel' onChange={onChangeInput} />
-                <Input label='PEC' id='Soggetti_Tel' onChange={onChangeInput} />
-              </FrameInRow>
-              <FrameInRow width={[20, 20, 20]}>
-                <Input label='www' id='Soggetti_Tel' onChange={onChangeInput} />
-                <Input
-                  label='email'
-                  id='Soggetti_Tel'
-                  onChange={onChangeInput}
-                />
-              </FrameInRow>
-
-              <Frame type='noborder'>
-                <InputCheckList
-                  label='tipisoggetto'
-                  id='tipisoggetto'
-                  url={
-                    REACT_APP_SERVERAPI +
-                    "api/axo_sel/" +
-                    localStorage.getItem("axn_token") +
-                    "/" +
-                    moduloForm +
-                    "/" +
-                    moduloForm +
-                    "sel/leggitipisoggetto/" +
-                    idobj_T
-                  }
-                  nameList='v_tipisoggetto'
-                  field_id='IDOBJ'
-                  field_description='TipiSoggetto_Descrizione'
-                  field_value='valore'
-                  field_target='SoggettiTipi_Tipo'
-                  db_target='SoggettiTipi'
-                  pidobj={idobj_T}
-                  onChange={onChangeInput}
-                />
-              </Frame>
             </Frame>
             <Frame label='Condizioni'>
               <FrameInRow width={[15, 15, 15, 15, 15]}>
@@ -566,22 +449,18 @@ const Project = ({ request, list, help }) => {
                   field_description={["IVAEsigibilita_Descrizione"]}
                   defList={[
                     {
-                      data: [
-                        {
-                          IDOBJ: 1,
-                          IVAEsigibilita_Descrizione:
-                            "IVA ad esigibilità immediata",
-                        },
-                        {
-                          IDOBJ: 2,
-                          IVAEsigibilita_Descrizione:
-                            "IVA ad esigibilità differita",
-                        },
-                        {
-                          IDOBJ: 3,
-                          IVAEsigibilita_Descrizione: "Scissione dei pagamenti",
-                        },
-                      ],
+                      IDOBJ: 1,
+                      IVAEsigibilita_Descrizione:
+                        "IVA ad esigibilità immediata",
+                    },
+                    {
+                      IDOBJ: 2,
+                      IVAEsigibilita_Descrizione:
+                        "IVA ad esigibilità differita",
+                    },
+                    {
+                      IDOBJ: 3,
+                      IVAEsigibilita_Descrizione: "Scissione dei pagamenti",
                     },
                   ]}
                   onChange={onChangeInput}
@@ -596,20 +475,16 @@ const Project = ({ request, list, help }) => {
                   field_description={["TipoTrasporto_Descrizione"]}
                   defList={[
                     {
-                      data: [
-                        ({
-                          IDOBJ: 1,
-                          TipoTrasporto_Descrizione: "Mittente",
-                        },
-                        {
-                          IDOBJ: 2,
-                          TipoTrasporto_Descrizione: "Destinatario",
-                        },
-                        {
-                          IDOBJ: 3,
-                          TipoTrasporto_Descrizione: "Vettore",
-                        }),
-                      ],
+                      IDOBJ: 1,
+                      TipoTrasporto_Descrizione: "Mittente",
+                    },
+                    {
+                      IDOBJ: 2,
+                      TipoTrasporto_Descrizione: "Destinatario",
+                    },
+                    {
+                      IDOBJ: 3,
+                      TipoTrasporto_Descrizione: "Vettore",
                     },
                   ]}
                   onChange={onChangeInput}
@@ -622,16 +497,12 @@ const Project = ({ request, list, help }) => {
                   field_description={["Porto_Descrizione"]}
                   defList={[
                     {
-                      data: [
-                        {
-                          IDOBJ: 1,
-                          Porto_Descrizione: "Franco",
-                        },
-                        {
-                          IDOBJ: 2,
-                          Porto_Descrizione: "Assegnato",
-                        },
-                      ],
+                      IDOBJ: 1,
+                      Porto_Descrizione: "Franco",
+                    },
+                    {
+                      IDOBJ: 2,
+                      Porto_Descrizione: "Assegnato",
                     },
                   ]}
                   onChange={onChangeInput}
@@ -697,15 +568,18 @@ const Project = ({ request, list, help }) => {
                     label='Numero di protocollo'
                     id='SoggettiLetteraIntentoIva_Protocollo'
                   />
-                  <InputData
+                  <Input
+                    type='date'
                     label='Data di protocollo'
                     id='SoggettiLetteraIntentoIva_DataProtocollo'
                   />
-                  <InputData
+                  <Input
+                    type='date'
                     label='Data inizio'
                     id='SoggettiLetteraIntentoIva_DataInizio'
                   />
-                  <InputData
+                  <Input
+                    type='date'
                     label='Data fine'
                     id='SoggettiLetteraIntentoIva_DataFine'
                   />
@@ -764,7 +638,8 @@ const Project = ({ request, list, help }) => {
                 <Input label='Descrizione attività' />
               </FrameInRow>
               <FrameInRow width={[20, 20]}>
-                <InputData
+                <Input
+                  type='date'
                   label='inizio rapporto'
                   id='Soggetti_InizioRapporto'
                 />
@@ -776,28 +651,24 @@ const Project = ({ request, list, help }) => {
                   field_description={["SoggettiTipoRelazione_Descrizione"]}
                   defList={[
                     {
-                      data: [
-                        {
-                          IDOBJ: 1,
-                          SoggettiTipoRelazione_Descrizione: "Censito",
-                        },
-                        {
-                          IDOBJ: 2,
-                          SoggettiTipoRelazione_Descrizione: "Potenziale",
-                        },
-                        {
-                          IDOBJ: 3,
-                          SoggettiTipoRelazione_Descrizione: "Effettivo",
-                        },
-                        {
-                          IDOBJ: 4,
-                          SoggettiTipoRelazione_Descrizione: "Lasciato",
-                        },
-                        {
-                          IDOBJ: 5,
-                          SoggettiTipoRelazione_Descrizione: "Perso",
-                        },
-                      ],
+                      IDOBJ: 1,
+                      SoggettiTipoRelazione_Descrizione: "Censito",
+                    },
+                    {
+                      IDOBJ: 2,
+                      SoggettiTipoRelazione_Descrizione: "Potenziale",
+                    },
+                    {
+                      IDOBJ: 3,
+                      SoggettiTipoRelazione_Descrizione: "Effettivo",
+                    },
+                    {
+                      IDOBJ: 4,
+                      SoggettiTipoRelazione_Descrizione: "Lasciato",
+                    },
+                    {
+                      IDOBJ: 5,
+                      SoggettiTipoRelazione_Descrizione: "Perso",
                     },
                   ]}
                   onChange={onChangeInput}
@@ -888,8 +759,12 @@ const Project = ({ request, list, help }) => {
               >
                 <FrameInRow width={[40, 30, 30]}>
                   <Input label='Riferimento' id='SoggettiCRM_Rif' />
-                  <InputData label='Data' id='SoggettiCRM_Data' />
-                  <InputData label='Data fine' id='SoggettiCRM_DataFine' />
+                  <Input type='date' label='Data' id='SoggettiCRM_Data' />
+                  <Input
+                    type='date'
+                    label='Data fine'
+                    id='SoggettiCRM_DataFine'
+                  />
                 </FrameInRow>
                 <FrameInRow width={[100]}>
                   <Input
@@ -907,32 +782,28 @@ const Project = ({ request, list, help }) => {
                     field_description={["SoggettiCRM_TipoDescrizione"]}
                     defList={[
                       {
-                        data: [
-                          {
-                            IDOBJ: 1,
-                            SoggettiCRM_TipoDescrizione: "Telefono",
-                          },
-                          {
-                            IDOBJ: 2,
-                            SoggettiCRM_TipoDescrizione: "Whatsapp",
-                          },
-                          {
-                            IDOBJ: 3,
-                            SoggettiCRM_TipoDescrizione: "Mail",
-                          },
-                          {
-                            IDOBJ: 4,
-                            SoggettiCRM_TipoDescrizione: "A faccia",
-                          },
-                          {
-                            IDOBJ: 5,
-                            SoggettiCRM_TipoDescrizione: "Interno",
-                          },
-                          {
-                            IDOBJ: 6,
-                            SoggettiCRM_TipoDescrizione: "Pgm Teleassistenza",
-                          },
-                        ],
+                        IDOBJ: 1,
+                        SoggettiCRM_TipoDescrizione: "Telefono",
+                      },
+                      {
+                        IDOBJ: 2,
+                        SoggettiCRM_TipoDescrizione: "Whatsapp",
+                      },
+                      {
+                        IDOBJ: 3,
+                        SoggettiCRM_TipoDescrizione: "Mail",
+                      },
+                      {
+                        IDOBJ: 4,
+                        SoggettiCRM_TipoDescrizione: "A faccia",
+                      },
+                      {
+                        IDOBJ: 5,
+                        SoggettiCRM_TipoDescrizione: "Interno",
+                      },
+                      {
+                        IDOBJ: 6,
+                        SoggettiCRM_TipoDescrizione: "Pgm Teleassistenza",
                       },
                     ]}
                   />
@@ -1005,7 +876,8 @@ const Project = ({ request, list, help }) => {
                     label='Titolo'
                     id='SoggettiFattureAutomatiche_Titolo'
                   />
-                  <InputData
+                  <Input
+                    type='date'
                     label='Data Fine'
                     id='SoggettiFattureAutomatiche_DataFine'
                   />
@@ -1014,24 +886,20 @@ const Project = ({ request, list, help }) => {
                     id='SoggettiFattureAutomatiche_TipoDocumento'
                     defList={[
                       {
-                        data: [
-                          {
-                            IDOBJ: 1,
-                            Descrizione: "Preventivo",
-                          },
-                          {
-                            IDOBJ: 2,
-                            Descrizione: "Ordine Cliente",
-                          },
-                          {
-                            IDOBJ: 3,
-                            Descrizione: "DDT",
-                          },
-                          {
-                            IDOBJ: 4,
-                            Descrizione: "Fattura",
-                          },
-                        ],
+                        IDOBJ: 1,
+                        Descrizione: "Preventivo",
+                      },
+                      {
+                        IDOBJ: 2,
+                        Descrizione: "Ordine Cliente",
+                      },
+                      {
+                        IDOBJ: 3,
+                        Descrizione: "DDT",
+                      },
+                      {
+                        IDOBJ: 4,
+                        Descrizione: "Fattura",
                       },
                     ]}
                   />
@@ -1115,24 +983,20 @@ const Project = ({ request, list, help }) => {
                     id='SoggettiNote_TipoDocumento'
                     defList={[
                       {
-                        data: [
-                          {
-                            IDOBJ: 1,
-                            Descrizione: "Preventivo",
-                          },
-                          {
-                            IDOBJ: 2,
-                            Descrizione: "Ordine Cliente",
-                          },
-                          {
-                            IDOBJ: 3,
-                            Descrizione: "DDT",
-                          },
-                          {
-                            IDOBJ: 4,
-                            Descrizione: "Fattura",
-                          },
-                        ],
+                        IDOBJ: 1,
+                        Descrizione: "Preventivo",
+                      },
+                      {
+                        IDOBJ: 2,
+                        Descrizione: "Ordine Cliente",
+                      },
+                      {
+                        IDOBJ: 3,
+                        Descrizione: "DDT",
+                      },
+                      {
+                        IDOBJ: 4,
+                        Descrizione: "Fattura",
                       },
                     ]}
                   />
@@ -1151,26 +1015,24 @@ const Project = ({ request, list, help }) => {
                   field_description={["SoggettiTipoGDPR_Descrizione"]}
                   defList={[
                     {
-                      data: [
-                        {
-                          IDOBJ: 1,
-                          SoggettiTipoGDPR_Descrizione: "Dati Personali",
-                        },
-                        {
-                          IDOBJ: 2,
-                          SoggettiTipoGDPR_Descrizione: "Dati Sensibili",
-                        },
-                      ],
+                      IDOBJ: 1,
+                      SoggettiTipoGDPR_Descrizione: "Dati Personali",
+                    },
+                    {
+                      IDOBJ: 2,
+                      SoggettiTipoGDPR_Descrizione: "Dati Sensibili",
                     },
                   ]}
                   onChange={onChangeInput}
                 />
-                <InputData
+                <Input
+                  type='date'
                   label='Prima Raccolta'
                   id='Soggetti_PrimaRaccoltaGDPR'
                   onChange={onChangeInput}
                 />
-                <InputData
+                <Input
+                  type='date'
                   label='Ultimo ultilizzo'
                   id='Soggetti_UltimoUtilizzoGDPR'
                   onChange={onChangeInput}
@@ -1184,20 +1046,13 @@ const Project = ({ request, list, help }) => {
                   field_id='IDOBJ'
                   field_description={["SoggettiTipo_Descrizione"]}
                   defList={[
+                    { IDOBJ: 1, SoggettiTipo_Descrizione: "Non Richiesto" },
                     {
-                      data: [
-                        { IDOBJ: 1, SoggettiTipo_Descrizione: "Non Richiesto" },
-                        {
-                          IDOBJ: 2,
-                          SoggettiTipo_Descrizione: "Richiesto Consenso",
-                        },
-                        { IDOBJ: 3, SoggettiTipo_Descrizione: "Dato Consenso" },
-                        {
-                          IDOBJ: 4,
-                          SoggettiTipo_Descrizione: "Negato Consenso",
-                        },
-                      ],
+                      IDOBJ: 2,
+                      SoggettiTipo_Descrizione: "Richiesto Consenso",
                     },
+                    { IDOBJ: 3, SoggettiTipo_Descrizione: "Dato Consenso" },
+                    { IDOBJ: 4, SoggettiTipo_Descrizione: "Negato Consenso" },
                   ]}
                   onChange={onChangeInput}
                 />
@@ -1300,7 +1155,8 @@ const Project = ({ request, list, help }) => {
                     id='SoggettiAltriDatiGestionali_RiferimentoNumerico'
                     type='number'
                   />
-                  <InputData
+                  <Input
+                    type='date'
                     label='Riferimento Data'
                     id='SoggettiAltriDatiGestionali_RiferimentoData'
                   />

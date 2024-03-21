@@ -5,7 +5,6 @@ import ImgFont from "../Img/ImgFont";
 const Filter = ({ id, itemSearch, onFilter }) => {
   const inputRef = useRef(null);
   const clickSearchHandler = () => {
-    // alert("ciccioPanzer");
     const valFilter = inputRef.current.value;
     onFilter(valFilter, itemSearch);
   };
