@@ -31,6 +31,7 @@ const Pagination = ({
         type='numeric'
         value={page}
         onChange={onChangeHandler}
+        disabled
       />
       <div
         className={classes.pagination_righticon}
