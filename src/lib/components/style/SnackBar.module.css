@@ -29,7 +29,7 @@
   transform-origin: left;
   background: linear-gradient(to right, var(--axn-primary-color), var(--axn-green-color));
   border-radius: inherit;
-  animation: progress 2.5s 0.3s linear;
+  animation: progress 2s 0.3s linear;
 }
 
 @keyframes fade-in {

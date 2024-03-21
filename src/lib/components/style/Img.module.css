@@ -89,3 +89,8 @@
 .img_large {
     height: 1.5em;
 }
+
+/** Altre cose delle icone */
+.img_cursor {
+    cursor: pointer;
+}

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useRef } from "react";
 import Input from "../Input/Input";
 import classes from "../style/Filter.module.css";
 import ImgFont from "../Img/ImgFont";
 const Filter = ({ id, itemSearch, onFilter }) => {
+  const inputRef = useRef(null);
   const clickSearchHandler = () => {
-    const valFilter = document.getElementById(id).value;
+    // alert("ciccioPanzer");
+    const valFilter = inputRef.current.value;
     onFilter(valFilter, itemSearch);
   };
 
@@ -16,13 +18,11 @@ const Filter = ({ id, itemSearch, onFilter }) => {
         className={classes.icona}
         size='medium'
         icon={"faMagnifyingGlass"}
+        onClick={clickSearchHandler}
+        cursor={true}
       />
       <div className={classes.iconContainer}>
-        <Input
-          className={classes.filter_search}
-          id={idFilter}
-          onIconClick={clickSearchHandler}
-        ></Input>
+        <Input className={classes.filter_search} id={idFilter} ref={inputRef} />
       </div>
     </React.Fragment>
   );

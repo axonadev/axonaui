@@ -3,9 +3,18 @@ import classes from "../style/Img.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as Icons from "@fortawesome/free-solid-svg-icons";
 
-const ImgFont = ({ className, id, icon = "", size = "", onClick, color }) => {
+const ImgFont = ({
+  className,
+  id,
+  icon = "",
+  size = "",
+  onClick,
+  color,
+  cursor,
+}) => {
   const classn = [
     classes["img_" + color],
+    classes["img_" + (cursor ? "cursor" : "")],
     classes.img,
     classes["img_" + size],
     className ? " " + className : "",
