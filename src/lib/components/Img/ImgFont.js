@@ -14,8 +14,8 @@ const ImgFont = ({
 }) => {
   const classn = [
     classes["img_" + color],
-    // classes["img_" + (cursor ? "cursor" : "")],
-    classes["img_cursor"],
+    classes["img_" + (cursor ? "cursor" : "")],
+    // classes["img_cursor"],
     classes.img,
     classes["img_" + size],
     className ? " " + className : "",
