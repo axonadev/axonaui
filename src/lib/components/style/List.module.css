@@ -22,11 +22,6 @@
     text-align: center;
 }
 
-.iconContainer {
-    height: 20px;
-    width: 20px;
-}
-
 .icon {
     padding: 5px;
     cursor: pointer;
@@ -39,4 +34,24 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
+}
+
+.filterDiv {
+    width: 80%;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.filterDiv input {
+    border-radius: 0 var(--axn-border-radius) var(--axn-border-radius) 0;
+}
+
+.filterIcona {
+    padding: 3px;
+    color: var(--axn-white-color);
+    border: 1px solid var(--axn-primary-color);
+    border-radius: var(--axn-border-radius) 0 0 var(--axn-border-radius);
+    background-color: var(--axn-primary-color);
 }

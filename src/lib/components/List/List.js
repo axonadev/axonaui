@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "../style/List.module.css";
 import ListItem from "./ListItem";
+import { ImgFont, Input } from "axonaui";
 
 const List = ({
   items,
@@ -16,6 +17,8 @@ const List = ({
   icon1Color = "primary",
   icon2Color = "primary",
   children,
+  filter = true,
+  filterElement = element,
 }) => {
   //* Click dell'elemento
   const itemHandler = (item) => {
@@ -48,6 +51,19 @@ const List = ({
     <>
       {/* TITOLO */}
       {title && <h1 className={classes.listTitle}>{title}</h1>}
+
+      {/* FILTRO */}
+      {filter && (
+        <div className={classes.filterDiv}>
+          <ImgFont
+            className={classes.filterIcona}
+            size='medium'
+            icon={"faMagnifyingGlass"}
+            cursor={true}
+          />
+          <Input className={classes.filter_search} />
+        </div>
+      )}
 
       {/* Se c'è un children passa quello, in caso contrario cicla su items */}
       {children ? (
