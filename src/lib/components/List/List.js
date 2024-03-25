@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import classes from "../style/List.module.css";
 import ListItem from "./ListItem";
 import { ImgFont, Input } from "axonaui";
@@ -20,6 +20,10 @@ const List = ({
   filter = true,
   filterElement = element,
 }) => {
+  //* UseStates
+  const [parolaRicerca, setParolaRicerca] = useState("");
+  const [listaFiltrata, setListaFiltrata] = useState(items);
+
   //* Click dell'elemento
   const itemHandler = (item) => {
     try {
@@ -47,6 +51,23 @@ const List = ({
     }
   };
 
+  //* Filtro
+  const filtro = () => {
+    if (parolaRicerca.length > 0) {
+      const filteredList = items.filter((item) =>
+        item[filterElement].toLowerCase().includes(parolaRicerca.toLowerCase())
+      );
+      setListaFiltrata(filteredList);
+    } else {
+      setListaFiltrata(items);
+    }
+  };
+
+  //* UseEffects
+  useEffect(() => {
+    filtro();
+  }, [parolaRicerca]);
+
   return (
     <>
       {/* TITOLO */}
@@ -61,16 +82,19 @@ const List = ({
             icon={"faMagnifyingGlass"}
             cursor={true}
           />
-          <Input className={classes.filter_search} />
+          <Input
+            className={classes.filter_search}
+            onChange={(e) => setParolaRicerca(e.target.value)}
+          />
         </div>
       )}
 
-      {/* Se c'è un children passa quello, in caso contrario cicla su items */}
+      {/* Se c'è un children passa quello, in caso contrario cicla su listaFiltrata */}
       {children ? (
         children
-      ) : items && items.length > 0 ? (
+      ) : listaFiltrata && listaFiltrata.length > 0 ? (
         <ul className={classes.list}>
-          {items.map((item, i) => {
+          {listaFiltrata.map((item, i) => {
             return (
               <ListItem
                 key={i}
@@ -90,7 +114,7 @@ const List = ({
           })}
         </ul>
       ) : (
-        <li className={classes.singleElement}>Non ci sono elementi</li>
+        <li className={classes.singleElement}>Nessun elemento</li>
       )}
     </>
   );
