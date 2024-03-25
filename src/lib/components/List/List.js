@@ -65,6 +65,9 @@ const List = ({
 
   //* UseEffects
   useEffect(() => {
+    setListaFiltrata(items);
+  }, []);
+  useEffect(() => {
     filtro();
   }, [parolaRicerca]);
 
