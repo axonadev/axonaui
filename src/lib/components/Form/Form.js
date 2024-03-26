@@ -25,8 +25,8 @@ const Form = ({
   isScaduto = false,
   numberGrid = 1,
 }) => {
-  const idFolder1 = folders
-    ? folders.filter((item) => item.ConfigFolderProject_Key === 1)
+  const idFolder1 = folders[0]
+    ? folders[0].data.filter((item) => item.ConfigFolderProject_Key === 1)
     : [{ ConfigFolderProject_Key: 1, ConfigFolderProject_Target: "info" }];
   const [mex, setMex] = useState(null);
   const [isSnackBar, setSnackBar] = useState(null);
@@ -227,16 +227,16 @@ const Form = ({
         onSubmit={formSubmissionHandler}
         id={id}
       >
-        {folders && (
+        {folders[0] && (
           <div
             className={
-              folders.length > 1
+              folders[0].data.length > 1
                 ? classes.form_folders
                 : classes.form_foldersHidden
             }
           >
             <Folder
-              items={folders}
+              items={folders[0].data}
               onSelect={folderSelect}
               startSelect={
                 idFolder1 ? idFolder1[0].ConfigFolderProject_Target : null
@@ -259,10 +259,10 @@ const Form = ({
 
         <Button
           className={classes.form_save_hidden}
-          type="submit"
+          type='submit'
           id={id_submit}
         >
-          <ImgFont icon="faFloppyDisk" size="medium" />
+          <ImgFont icon='faFloppyDisk' size='medium' />
         </Button>
       </form>
       {mex && (
