@@ -65,7 +65,7 @@ const List = ({
 
   //* UseEffects
   useEffect(() => {
-    setListaFiltrata(items);
+    filtro();
   }, [items]);
   useEffect(() => {
     filtro();
