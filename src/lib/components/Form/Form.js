@@ -26,13 +26,13 @@ const Form = ({
   numberGrid = 1,
 }) => {
   const idFolder1 = folders
-    ? folders.filter((item) => item.key === 1)
-    : [{ key: 1, target: "info" }];
+    ? folders.filter((item) => item.ConfigFolderProject_Key === 1)
+    : [{ ConfigFolderProject_Key: 1, ConfigFolderProject_Target: "info" }];
   const [mex, setMex] = useState(null);
   const [isSnackBar, setSnackBar] = useState(null);
   const [frameIdSelezionato, setFrameIdSelezionato] = useState(() => {
     try {
-      return idFolder1[0].target;
+      return idFolder1[0].ConfigFolderProject_Target;
     } catch (error) {
       return 0;
     }
@@ -238,7 +238,9 @@ const Form = ({
             <Folder
               items={folders}
               onSelect={folderSelect}
-              startSelect={idFolder1[0].target}
+              startSelect={
+                idFolder1 ? idFolder1[0].ConfigFolderProject_Target : null
+              }
             />
           </div>
         )}
