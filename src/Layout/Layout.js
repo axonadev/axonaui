@@ -9,33 +9,33 @@ import { SnackBar } from "axonaui";
 
 const Layout = () => {
   //* LISTA DICHIARATA SOLO PER PASSARE UNA LISTA AL COMPONENTE LIST
-  const [itemFolders, setItemFolders] = useState([
-    { key: 1, label: "Anagrafica", img: "faAddressCard", target: "anagrafica" },
-    { key: 2, label: "Domicili", img: "faHouseUser", target: "domicili" },
-    {
-      key: 3,
-      label: "Contabilità",
-      img: "faCalculator",
-      target: "contabilita",
-    },
-    { key: 4, label: "CRM", img: "faUsersGear", target: "crm" },
-    {
-      key: 5,
-      label: "Fatture Automatiche",
-      img: "faFileSignature",
-      target: "fattureautomatiche",
-    },
-    { key: 6, label: "Dotazioni", img: "faListUl", target: "dotazioni" },
-    { key: 7, label: "Note", img: "faFilePen", target: "note" },
-    { key: 8, label: "GDPR", img: "faFileShield", target: "gdpr" },
-    { key: 9, label: "Storico", img: "faScroll", target: "pergamenta" },
-    {
-      key: 10,
-      label: "Altri dati gestionali",
-      img: "faDatabase",
-      target: "altridati",
-    },
-  ]);
+  // const [itemFolders, setItemFolders] = useState([
+  //   { key: 1, label: "Anagrafica", img: "faAddressCard", target: "anagrafica" },
+  //   { key: 2, label: "Domicili", img: "faHouseUser", target: "domicili" },
+  //   {
+  //     key: 3,
+  //     label: "Contabilità",
+  //     img: "faCalculator",
+  //     target: "contabilita",
+  //   },
+  //   { key: 4, label: "CRM", img: "faUsersGear", target: "crm" },
+  //   {
+  //     key: 5,
+  //     label: "Fatture Automatiche",
+  //     img: "faFileSignature",
+  //     target: "fattureautomatiche",
+  //   },
+  //   { key: 6, label: "Dotazioni", img: "faListUl", target: "dotazioni" },
+  //   { key: 7, label: "Note", img: "faFilePen", target: "note" },
+  //   { key: 8, label: "GDPR", img: "faFileShield", target: "gdpr" },
+  //   { key: 9, label: "Storico", img: "faScroll", target: "pergamenta" },
+  //   {
+  //     key: 10,
+  //     label: "Altri dati gestionali",
+  //     img: "faDatabase",
+  //     target: "altridati",
+  //   },
+  // ]);
   //* ***********************
 
   const [idOpen, setIdOpen] = useState("");
@@ -50,19 +50,23 @@ const Layout = () => {
   const { list } = useList(
     [
       {
-        command: "articoli/articolisel/leggicombotipi",
-        nameView: "v_tipiarticolo",
+        command: "soggetti/soggettisel/leggicomboclienti",
+        nameView: "v_clienti",
       },
       {
-        command: "pagamenti/pagamentisel/leggicombo",
-        nameView: "v_pagamenti",
+        command: "soggetti/soggettisel/leggicomboagenti",
+        nameView: "v_agenti",
       },
       {
-        command: "divise/divisesel/leggicombo",
-        nameView: "v_divise",
+        command: "contratti/contrattisel/legginotifiche",
+        nameView: "v_notifiche",
       },
       {
-        command: "soggetti/general/configfolder/soggetti",
+        command: "impianti/impiantisel/leggicombo",
+        nameView: "v_impianti",
+      },
+      {
+        command: "contratti/general/configfolder/contratti",
         nameView: "v_configfolder",
       },
     ],
@@ -95,10 +99,6 @@ const Layout = () => {
     setIsHelp(valore);
   };
 
-  const deleteFromList = (element) => {
-    setItemFolders(itemFolders.filter((item) => item !== element));
-  };
-
   return (
     <>
       <Header
@@ -120,41 +120,20 @@ const Layout = () => {
       </ContentForm>
 
       <ProjectMenu
-        title="Prova"
+        title='Prova'
         pathImg={REACT_APP_IMGFOLDER}
         versione={versione}
         onHelp={onHelpstato}
       >
         <ProjectMenuButton
-          id={"lista"}
-          idOpen={idOpen}
-          icon="faBan"
-          label={"ban"}
-          onOpen={(id) => setIdOpen(id)}
-          onClose={() => setIdOpen("")}
-        >
-          <List
-            items={itemFolders}
-            title={"Lista di prova"}
-            element={"label"}
-            onClick={openSnackBar}
-            onDelete={deleteFromList}
-            icon1="faBan"
-            icon2="faBell"
-            icon1Color="danger"
-            icon2Color="success"
-          />
-        </ProjectMenuButton>
-
-        <ProjectMenuButton
           id={"floppy"}
           idOpen={idOpen}
-          icon="faFloppyDisk"
+          icon='faFloppyDisk'
           label={"2ban"}
           onOpen={(id) => setIdOpen(id)}
           onClose={() => setIdOpen("")}
         >
-          <input type="color" />
+          <input type='color' />
         </ProjectMenuButton>
       </ProjectMenu>
     </>

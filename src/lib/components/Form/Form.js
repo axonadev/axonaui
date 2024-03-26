@@ -25,9 +25,12 @@ const Form = ({
   isScaduto = false,
   numberGrid = 1,
 }) => {
-  const idFolder1 = folders[0]
-    ? folders[0].data.filter((item) => item.ConfigFolderProject_Key === 1)
-    : [{ ConfigFolderProject_Key: 1, ConfigFolderProject_Target: "info" }];
+  console.log(folders);
+  const idFolder1 = folders
+    ? folders[0]
+      ? folders[0].data.filter((item) => item.ConfigFolderProject_Key === 1)
+      : [{ ConfigFolderProject_Key: 1, ConfigFolderProject_Target: "info" }]
+    : null;
   const [mex, setMex] = useState(null);
   const [isSnackBar, setSnackBar] = useState(null);
   const [frameIdSelezionato, setFrameIdSelezionato] = useState(() => {
@@ -227,23 +230,25 @@ const Form = ({
         onSubmit={formSubmissionHandler}
         id={id}
       >
-        {folders[0] && (
-          <div
-            className={
-              folders[0].data.length > 1
-                ? classes.form_folders
-                : classes.form_foldersHidden
-            }
-          >
-            <Folder
-              items={folders[0].data}
-              onSelect={folderSelect}
-              startSelect={
-                idFolder1 ? idFolder1[0].ConfigFolderProject_Target : null
-              }
-            />
-          </div>
-        )}
+        {folders
+          ? folders[0] && (
+              <div
+                className={
+                  folders[0].data.length > 1
+                    ? classes.form_folders
+                    : classes.form_foldersHidden
+                }
+              >
+                <Folder
+                  items={folders[0].data}
+                  onSelect={folderSelect}
+                  startSelect={
+                    idFolder1 ? idFolder1[0].ConfigFolderProject_Target : null
+                  }
+                />
+              </div>
+            )
+          : null}
         <div className={classesBody.join(" ")}>
           {children.length > 1 &&
             children.map((item) => {

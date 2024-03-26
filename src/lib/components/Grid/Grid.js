@@ -84,25 +84,41 @@ const Grid = ({
   const [page, setPage] = useState(1);
 
   const onActiveHandler = () => {
-    onActive();
+    try {
+      onActive();
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   const onDoubleClickHandler = (IDOBJ, items) => {
     try {
       setRowItem(items);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error.message);
+    }
 
     try {
       onActiveHandler();
-    } catch (error) {}
+    } catch (error) {
+      console.log(error.message);
+    }
     try {
       modificaHandler(IDOBJ);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error.message);
+    }
 
     try {
       onDoubleClickRow(IDOBJ, items);
-    } catch (error) {}
-    onChangeSelected(IDOBJ);
+    } catch (error) {
+      console.log(error.message);
+    }
+    try {
+      onChangeSelected(IDOBJ);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   const onClickRowHandler = (IDOBJ, items) => {
@@ -157,7 +173,7 @@ const Grid = ({
     dt_filter: nameView,
     page: page,
     filteredValue: filteredValue,
-    pidobj: pidobj ? pidobj : -1,
+    pidobj: pidobj ? pidobj : 0,
   };
 
   const clickFilterGrid = (valueItem, nameItem) => {

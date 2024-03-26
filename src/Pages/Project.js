@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import {
   useForm,
   Input,
-  InputCheckBox,
-  InputCheckList,
-  InputData,
   InputList,
   Form,
   FormButton,
@@ -12,65 +9,29 @@ import {
   Frame,
   FrameInRow,
   Grid,
-  Citta,
-} from "../lib";
+} from "../lib/index";
 import { useEnv } from "axonalib";
 
-const Project = ({ request, list, help }) => {
+const Project = ({ request, list }) => {
   const { REACT_APP_SERVERAPI } = useEnv();
-
-  const moduloForm = "soggetti";
+  // const urlPost = "https://svil.axonasrl.com:4411/api/axo_sel";
+  const moduloForm = "contratti";
   const nameView = "v_" + moduloForm;
   const nameTable = moduloForm;
   const cmd_getForm = "/" + moduloForm + "/" + moduloForm + "sel/getrow/";
   const cmd_getGrid = "/" + moduloForm + "/" + moduloForm + "sel/leggi";
-  const cmd_getDomiciliGrid =
-    "/soggettivarianti/soggettivariantisel/leggidomicili";
-  const cmd_getContattiGrid =
-    "/soggettivarianti/soggettivariantisel/leggicontatti";
-  const cmd_getCRMGrid = "/soggetticrm/soggetticrmsel/leggi";
-  const cmd_getFattureAutomaticheGrid =
-    "/soggettifattureautomatiche/soggettifattureautomatichesel/leggi";
-  const cmd_getDotazioniGrid = "/soggettidotazioni/soggettidotazionisel/leggi";
-  const cmd_getDotazioniEsterneGrid =
-    "/soggettidotazioni/soggettidotazionisel/leggidotazioniesterne";
-  const cmd_getNoteGrid = "/soggettinote/soggettinotesel/leggi";
-  const cmd_getStoricoPrevGrid = "/soggetti/soggettisel/leggistoricoprev";
-  const cmd_getStoricoOrdiniGrid = "/soggetti/soggettisel/leggistoricoordini";
-  const cmd_getStoricoDDTGrid = "/soggetti/soggettisel/leggistoricoddt";
-  const cmd_getStoricoFattureGrid = "/soggetti/soggettisel/leggistoricofatt";
-  const cmd_getLetteraIntentoIvaGrid =
-    "/soggettiletteraintentoiva/soggettiletteraintentoivasel/leggi";
-  const cmd_getAltriDatiGestionaliGrid =
-    "/soggettialtridatigestionali/soggettialtridatigestionalisel/leggi";
-
-  /*   const itemFolders = [
-    {
-      ConfigFolderProject_Key: 1,
-      ConfigFolderProject_Label: "Anagrafica",
-      ConfigFolderProject_Immagine: "faAddressCard",
-      ConfigFolderProject_Target: "anagrafica",
-    },
-    {
-      ConfigFolderProject_Key: 2,
-      ConfigFolderProject_Label: "Domicili",
-      ConfigFolderProject_Immagine: "faHouseUser",
-      ConfigFolderProject_Target: "domicili",
-    },
-  ]; */
-
-  const itemFolders = list.filter((item) => item.nameView === "v_configfolder");
+  const cmd_getFormCartelli = "/" + moduloForm + "/cartellisel/getrow/";
+  const cmd_getFormEventi = "/" + moduloForm + "/contrattieventisel/getrow/";
+  const cmd_getCartelliGrid = "/contratti/cartellisel/leggi";
+  const cmd_getCartelliEventiGrid = "/contratti/contrattieventisel/leggi";
 
   const itemsSearch = ["Soggetti_Nome1", "Soggetti_Nome2"];
-
-  const domiciliItemsSearch = ["Nome", "Cognome"];
-
   const [focusForm, setFocusForm] = useState("");
   const [statoGriglia, setStatoGriglia] = useState("");
   const [reloadGriglia, setReloadGriglia] = useState(0);
-
   const [idobj_T, setIdobj_T] = useState(0);
-  const [idobj_Famiglie, setIdobj_Famiglie] = useState(0);
+  const [idobj_Cartelli, setIdobj_Cartelli] = useState(0);
+  const [idobj_Eventi, setIdobj_Eventi] = useState(0);
 
   const { onChangeSelected, onReset, onChangeForm } = useForm(
     "form_t",
@@ -81,53 +42,75 @@ const Project = ({ request, list, help }) => {
     nameTable
   );
 
-  const listPagamenti = list.filter((item) => item.nameView === "v_pagamenti");
-
-  const listDivisa = list.filter((item) => item.nameView === "v_divise");
-
   const insertClickHandler = (idGriglia) => {
     const idform = "form_" + idGriglia.split("_")[1];
     onReset();
     setFocusForm(idform);
-    setStatoGriglia("INSERIMENTO");
     setIdobj_T(0);
   };
-  const deleteClickHandler = (idGriglia) => {
-    console.log(idGriglia);
-  };
+  const deleteClickHandler = (idGriglia) => {};
 
   const onLoadRow = () => {
     setReloadGriglia((item) => {
       return item + 1;
     });
-
-    setStatoGriglia("");
     onChangeSelected(idobj_T);
   };
-  const onChangeRow = (idobj) => {
+  const onChangeRow = (idobj, items) => {
     setIdobj_T(idobj);
     setFocusForm("form_t");
-    setStatoGriglia("");
     onChangeSelected(idobj);
   };
 
+  const onChangeRowCartelli = (idobj, items) => {
+    setIdobj_Cartelli(idobj);
+  };
+  const onChangeRowEventi = (idobj, items) => {
+    setIdobj_Eventi(idobj);
+  };
   const onChangeInput = () => {};
+
+  const generaInvioMail = (
+    idobj,
+    blob,
+    destinatario = "marcocareddulavoro@gmail.com",
+    ccn = "",
+    oggetto = "Nuovo Contratto",
+    corpoMail = "refCorpoMail.current.value"
+  ) => {
+    const b64appoggio = {
+      idobj: idobj,
+      b64: blob,
+      destinatario: destinatario,
+      ccn: ccn,
+      oggetto: oggetto,
+      corpoMail: corpoMail,
+    };
+    return b64appoggio;
+  };
 
   useEffect(() => {
     const loadRequest = () => {};
-
     loadRequest();
   }, [request]);
+
+  const itemFolders = list.filter((item) => item.nameView === "v_configfolder");
+  const listaImpianti = list.filter((item) => item.nameView === "v_impianti");
+  const listaAgenti = list.filter((item) => item.nameView === "v_agenti");
+  const listaClienti = list.filter((item) => item.nameView === "v_clienti");
 
   return (
     <>
       <Frame
-        label='SOGGETTI'
-        icon={"faUsers"}
+        label='CONTRATTI'
         type='form_t'
         stato={statoGriglia}
+        onActive={() => {
+          setFocusForm("form_t");
+        }}
         ridimensiona={true}
         setup={true}
+        icon={"faFileSignature"}
       >
         <Grid
           id='maint_t'
@@ -137,18 +120,17 @@ const Project = ({ request, list, help }) => {
             localStorage.getItem("axn_token") +
             cmd_getGrid
           }
-          onClickRow={(IDOBJ) => {
-            onChangeRow(IDOBJ);
+          onClickRow={(IDOBJ, items) => {
+            onChangeRow(IDOBJ, items);
           }}
-          onDoubleClickRow={() => {
-            console.log("click");
-          }}
+          onDoubleClickRow={() => {}}
           onBtnInsert={insertClickHandler}
           onBtnDelete={deleteClickHandler}
-          btn_insert={true}
+          btn_insert={false}
           nameView={nameView}
           reload={reloadGriglia}
           itemSearch={itemsSearch}
+          selezionato={focusForm === "form_t" ? true : false}
         />
       </Frame>
       <FormButton onAnnulla={onLoadRow} id_submit='form_t' />
@@ -164,990 +146,412 @@ const Project = ({ request, list, help }) => {
           onAnnulla={onLoadRow}
           onChangeValue={onChangeForm}
         >
-          <FrameContainer id='anagrafica' help={help}>
-            <Frame label='ANAGRAFICA' icon={"faIdCard"}>
-              <FrameInRow width={[90, 10]}>
-                <Frame type='noborder'>
-                  <FrameInRow width={[10, 10, 10, 70]}>
-                    <Input label='Codice' id='Soggetti_Codice'></Input>
-                    <InputList
-                      label='Tipo'
-                      id='Soggetti_Tipo'
-                      nameList='soggettitipo'
-                      field_description={["SoggettiTipo_Descrizione"]}
-                      defList={[
-                        {
-                          data: [
-                            { IDOBJ: 1, SoggettiTipo_Descrizione: "Privato" },
-                            { IDOBJ: 2, SoggettiTipo_Descrizione: "Società" },
-                            { IDOBJ: 3, SoggettiTipo_Descrizione: "Ente" },
-                          ],
-                        },
-                      ]}
-                      onChange={onChangeInput}
-                    />
-                    <Input
-                      type='date'
-                      label='Scadenza'
-                      id='Soggetti_ScadenzaOBJ'
-                      onChange={onChangeInput}
-                    />
-
-                    <Input
-                      label='Holding'
-                      id='Soggetti_Holding'
-                      onChange={onChangeInput}
-                    ></Input>
-                  </FrameInRow>
-                  <FrameInRow width={[100]}>
-                    <Input
-                      label='Nome'
-                      id='Soggetti_Nome1'
-                      validate={[
-                        { type: "obb" },
-                        { type: "maxlenght", value: 200 },
-                      ]}
-                    />
-                  </FrameInRow>
-                  <FrameInRow width={[100]}>
-                    <Input
-                      label='Cognome'
-                      id='Soggetti_Nome2'
-                      onChange={onChangeInput}
-                    />
-                  </FrameInRow>
-                  <FrameInRow width={[100]}>
-                    <Input
-                      label='Indirizzo'
-                      id='Soggetti_Indirizzo'
-                      onChange={onChangeInput}
-                    />
-                  </FrameInRow>
-                  <FrameInRow width={[70, 10, 20]}>
-                    <Citta
-                      nazione={{ label: "Nazione", id: "Soggetti_Nazione" }}
-                      citta={{ label: "Citta", id: "Soggetti_Citta" }}
-                      provincia={{ label: "Provincia", id: "Soggetti_Prov" }}
-                      cap={{ label: "CAP", id: "Soggetti_CAP" }}
-                      onChange={onChangeInput}
-                    />
-                    <Input
-                      label='Regione'
-                      id='Soggetti_Regione'
-                      onChange={onChangeInput}
-                    />
-                    <Input
-                      label='Zona'
-                      id='Soggetti_Zona'
-                      onChange={onChangeInput}
-                    />
-                  </FrameInRow>
-                  <FrameInRow width={[20, 20, 20]}>
-                    <Input
-                      label='Telefono'
-                      id='Soggetti_Tel'
-                      onChange={onChangeInput}
-                    />
-                    <Input
-                      label='Telefono'
-                      id='Soggetti_Tel'
-                      onChange={onChangeInput}
-                    />
-                    <Input
-                      label='Rif. amministrativo'
-                      id='Soggetti_Tel'
-                      onChange={onChangeInput}
-                    />
-                  </FrameInRow>
-                  <FrameInRow width={[20, 20, 20]}>
-                    <Input
-                      label='Fax'
-                      id='Soggetti_Tel'
-                      onChange={onChangeInput}
-                    />
-                    <Input
-                      label='PEC'
-                      id='Soggetti_Tel'
-                      onChange={onChangeInput}
-                    />
-                  </FrameInRow>
-                  <FrameInRow width={[20, 20, 20]}>
-                    <Input
-                      label='www'
-                      id='Soggetti_Tel'
-                      onChange={onChangeInput}
-                    />
-                    <Input
-                      label='email'
-                      id='Soggetti_Tel'
-                      onChange={onChangeInput}
-                    />
-                  </FrameInRow>
-                </Frame>
-                <Frame type='noborder'>
-                  <InputCheckList
-                    label='tipisoggetto'
-                    id='tipisoggetto'
-                    url={
-                      REACT_APP_SERVERAPI +
-                      "api/axo_sel/" +
-                      localStorage.getItem("axn_token") +
-                      "/" +
-                      moduloForm +
-                      "/" +
-                      moduloForm +
-                      "sel/leggitipisoggetto/" +
-                      idobj_T
-                    }
-                    nameList='v_tipisoggetto'
-                    field_id='IDOBJ'
-                    field_description='TipiSoggetto_Descrizione'
-                    field_value='valore'
-                    field_target='SoggettiTipi_Tipo'
-                    db_target='SoggettiTipi'
-                    pidobj={idobj_T}
-                    onChange={onChangeInput}
-                  />
-                </Frame>
-              </FrameInRow>
-            </Frame>
-            <Frame label='Condizioni'>
-              <FrameInRow width={[15, 15, 15, 15, 15]}>
-                <InputCheckBox
-                  label='Raggruppa bolle'
-                  id='Soggetti_RaggruppaBolle'
-                />
-                <InputCheckBox label='Raggruppa bolle per Destinazione/Cantiere' />
-                <InputCheckBox label='Blocco Amministrativo' />
-                <InputCheckBox label='Visualizza articolo per cliente in fattura' />
-                <InputCheckBox label='Fatturazione automatica' />
-              </FrameInRow>
-              <FrameInRow width={[15, 15, 15, 15, 15]}>
-                <InputCheckBox label='Non inviare progetto tessera sanitaria' />
-                <InputCheckBox label='Prezzo articoli preso da ultima fattura' />
-                <InputCheckBox label='Raggruppa preventivi' />
-              </FrameInRow>
-            </Frame>
-          </FrameContainer>
-          <FrameContainer id='domicili' help={help}>
-            <Frame label='DOMICILI' ridimensiona={true} setup={true}>
-              <Grid
-                id='grid_domicili'
-                loadGrid={
-                  REACT_APP_SERVERAPI +
-                  "api/axo_sel/" +
-                  localStorage.getItem("axn_token") +
-                  cmd_getDomiciliGrid
-                }
-                pidobj={idobj_T}
-                btn_insert={true}
-                onClickRow={() => {}}
-                nameView={"v_soggettidomicili"}
-                itemSearch={domiciliItemsSearch}
-                formTitle='Inserisci'
-                dbForm='soggettivarianti'
-              >
-                <FrameInRow width={["hidden"]}>
-                  <Input label='Tipo' id='SoggettiVarianti_Tipo' value='1' />
-                </FrameInRow>
-                <FrameInRow width={[50, 50]}>
-                  <Input label='Nome' id='SoggettiVarianti_Nome1' />
-                  <Input label='Cognome' id='SoggettiVarianti_Nome2' />
-                </FrameInRow>
-                <FrameInRow width={[100]}>
-                  <Input label='Indirizzo' id='SoggettiVarianti_Indirizzo' />
-                </FrameInRow>
-                <FrameInRow width={[100]}>
-                  <Citta
-                    nazione={{
-                      label: "Nazione",
-                      id: "SoggettiVarianti_Nazione",
-                    }}
-                    citta={{ label: "Citta", id: "SoggettiVarianti_Citta" }}
-                    provincia={{
-                      label: "Provincia",
-                      id: "SoggettiVarianti_Prov",
-                    }}
-                    cap={{ label: "CAP", id: "SoggettiVarianti_CAP" }}
-                  />
-                </FrameInRow>
-              </Grid>
-            </Frame>
-          </FrameContainer>
-          <FrameContainer id='contabilita' help={help}>
-            <Frame label='Condizioni'>
-              <FrameInRow width={[30, 20]}>
-                <InputList
-                  label={"Pagamento"}
-                  id={"Soggetti_Pagamento"}
-                  onChange={() => {}}
-                  field_id='IDOBJ'
-                  field_description={["Pagamenti_Descrizione"]}
-                  nameList='v_pagamenti'
-                  defList={listPagamenti}
-                />
-                <InputList
-                  label={"Divisa"}
-                  id={"Soggetti_Divisa"}
-                  onChange={() => {}}
-                  field_id='IDOBJ'
-                  field_description={["Divise_Descrizione"]}
-                  nameList='v_divise'
-                  defList={listDivisa}
-                />
-              </FrameInRow>
-              <FrameInRow width={[10, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]}>
-                <Input label='Margine' id='Soggetti_Margine' />
-                <Input label='Sc. Testata 1' id='Soggetti_ScontoT1' />
-                <Input label='2' id='Soggetti_ScontoT2' />
-                <Input label='3' id='Soggetti_ScontoT3' />
-                <Input label='4' id='Soggetti_ScontoT4' />
-                <Input label='5' id='Soggetti_ScontoT5' />
-                <Input label='Sc. Dettaglio 1' id='Soggetti_ScontoD1' />
-                <Input label='2' id='Soggetti_ScontoD2' />
-                <Input label='3' id='Soggetti_ScontoD3' />
-                <Input label='4' id='Soggetti_ScontoD4' />
-                <Input label='5' id='Soggetti_ScontoD5' />
-              </FrameInRow>
-              <FrameInRow width={[20, 60, 20]}>
-                <InputList
-                  label={"Iva"}
-                  id={"Soggetti_Iva"}
-                  onChange={() => {}}
-                  field_id='IDOBJ'
-                  field_description={["Ive_Descrizione"]}
-                  url={
-                    REACT_APP_SERVERAPI +
-                    "api/axo_sel/" +
-                    localStorage.getItem("axn_token") +
-                    "/ive/ivesel/leggicombo"
-                  }
-                  nameList='v_ive'
-                />
+          <FrameContainer id='terget_folder'>
+            <Frame
+              label='ANAGRAFICA'
+              icon={"faAddressCard"}
+              ridimensiona={true}
+            >
+              {/* RIGA 1*/}
+              <FrameInRow width={[5, 10, 5, 10, 20]}>
                 <Input
-                  label='Lettera di Intento'
-                  id='Soggetti_LetteraIntento'
+                  label='N° Contratto'
+                  id='Contratti_Numero'
                   onChange={onChangeInput}
+                  type='number'
+                  disabled={true}
+                  align='right'
                 />
 
-                <InputList
-                  label='Esigibilità iva'
-                  id='Soggetti_IVAEsigibilita'
-                  nameList='esigibilitaiva'
-                  field_id='IDOBJ'
-                  field_description={["IVAEsigibilita_Descrizione"]}
-                  defList={[
-                    {
-                      IDOBJ: 1,
-                      IVAEsigibilita_Descrizione:
-                        "IVA ad esigibilità immediata",
-                    },
-                    {
-                      IDOBJ: 2,
-                      IVAEsigibilita_Descrizione:
-                        "IVA ad esigibilità differita",
-                    },
-                    {
-                      IDOBJ: 3,
-                      IVAEsigibilita_Descrizione: "Scissione dei pagamenti",
-                    },
-                  ]}
-                  onChange={onChangeInput}
-                />
-              </FrameInRow>
-              <FrameInRow width={[20, 20, 20, 20]}>
-                <InputList
-                  label='Tipo Trasporto'
-                  id='Soggetti_TipoTrasporto'
-                  nameList='v_tipotrasporto'
-                  field_id='IDOBJ'
-                  field_description={["TipoTrasporto_Descrizione"]}
-                  defList={[
-                    {
-                      IDOBJ: 1,
-                      TipoTrasporto_Descrizione: "Mittente",
-                    },
-                    {
-                      IDOBJ: 2,
-                      TipoTrasporto_Descrizione: "Destinatario",
-                    },
-                    {
-                      IDOBJ: 3,
-                      TipoTrasporto_Descrizione: "Vettore",
-                    },
-                  ]}
-                  onChange={onChangeInput}
-                />
-                <InputList
-                  label='Porto'
-                  id='Soggetti_Porto'
-                  nameList='v_porto'
-                  field_id='IDOBJ'
-                  field_description={["Porto_Descrizione"]}
-                  defList={[
-                    {
-                      IDOBJ: 1,
-                      Porto_Descrizione: "Franco",
-                    },
-                    {
-                      IDOBJ: 2,
-                      Porto_Descrizione: "Assegnato",
-                    },
-                  ]}
-                  onChange={onChangeInput}
-                />
-                <InputList
-                  label={"Vettore"}
-                  id={"Soggetti_Vettore"}
-                  onChange={() => {}}
-                  field_id='IDOBJ'
-                  field_description={["Nome", "Cognome"]}
-                  url={
-                    REACT_APP_SERVERAPI +
-                    "api/axo_sel/" +
-                    localStorage.getItem("axn_token") +
-                    "/soggetti/soggettisel/leggivettori"
-                  }
-                  nameList='v_soggetti'
-                />
-              </FrameInRow>
-            </Frame>
-            <Frame label='Banca per ricevute bancarie'>
-              <FrameInRow width={[20, 20, 20]}>
-                <Input label='IBAN' id='Soggetti_IBAN' />
-                <Input label='Swift' id='Soggetti_Swift' />
-                <Input label='Banca Azienda' />
-              </FrameInRow>
-              <FrameInRow width={[20, 20, 20]}>
-                <Input label='ABI' id='Soggetti_ABI' />
-                <Input label='CAB' id='Soggetti_CAB' />
-              </FrameInRow>
-            </Frame>
-            <Frame label='Coordinate fiscali'>
-              <FrameInRow width={[20, 2, 10, 20]}>
-                <Input label='Cod. Fiscale' id='Soggetti_CodFisc' />
-                <Input label='PIVA' id='Soggetti_PIVANaz' />
-                <Input label='-' id='Soggetti_PIVA' />
-                <Input label='Cod. Destinazione SDI' id='Soggetti_CodiceSDI' />
-                <Input label='Cod. C.C.I.A.A.' id='Soggetti_CCIAA' />
-              </FrameInRow>
-            </Frame>
-            <Frame label='Lettera intento iva' ridimensiona={true} setup={true}>
-              <Grid
-                id='grid_letteraintentoiva'
-                loadGrid={
-                  REACT_APP_SERVERAPI +
-                  "api/axo_sel/" +
-                  localStorage.getItem("axn_token") +
-                  cmd_getLetteraIntentoIvaGrid
-                }
-                onClickRow={(IDOBJ) => {}}
-                pidobj={idobj_T}
-                onDoubleClickRow={() => {}}
-                onBtnInsert={() => {}}
-                onBtnDelete={() => {}}
-                btn_insert={true}
-                nameView={"v_soggettiletteraintentoiva"}
-                itemSearch={domiciliItemsSearch}
-                formTitle='Inserisci'
-                dbForm='soggettiletteraintentoiva'
-              >
-                <FrameInRow width={[70, 10, 10, 10]}>
-                  <Input
-                    label='Numero di protocollo'
-                    id='SoggettiLetteraIntentoIva_Protocollo'
-                  />
-                  <Input
-                    type='date'
-                    label='Data di protocollo'
-                    id='SoggettiLetteraIntentoIva_DataProtocollo'
-                  />
-                  <Input
-                    type='date'
-                    label='Data inizio'
-                    id='SoggettiLetteraIntentoIva_DataInizio'
-                  />
-                  <Input
-                    type='date'
-                    label='Data fine'
-                    id='SoggettiLetteraIntentoIva_DataFine'
-                  />
-                </FrameInRow>
-                <FrameInRow width={[30, 30]}>
-                  <Input
-                    label='Importo'
-                    id='SoggettiLetteraIntentoIva_Importo'
-                    type='number'
-                    decimali='2'
-                  />
-                  <InputCheckBox
-                    label='Abilitato'
-                    id='SoggettiLetteraIntentoIva_Abilitato'
-                  />
-                </FrameInRow>
-              </Grid>
-            </Frame>
-          </FrameContainer>
-          <FrameContainer id='crm' help={help}>
-            <Frame label='Classificazione'>
-              <FrameInRow width={[30, 30]}>
-                <InputList
-                  label={"Famiglia"}
-                  id={"Soggetti_Famiglia"}
-                  onChange={(id) => {
-                    setIdobj_Famiglie(id);
-                  }}
-                  field_id='IDOBJ'
-                  field_description={["Descrizione"]}
-                  url={
-                    REACT_APP_SERVERAPI +
-                    "api/axo_sel/" +
-                    localStorage.getItem("axn_token") +
-                    "/famiglie/famigliesel/leggicombo"
-                  }
-                  nameList='v_famiglie'
-                />
-                <InputList
-                  label={"Micro Famiglia"}
-                  id={"Soggetti_MicroFamiglia"}
-                  onChange={() => {}}
-                  field_id='IDOBJ'
-                  field_description={["Descrizione"]}
-                  url={
-                    REACT_APP_SERVERAPI +
-                    "api/axo_sel/" +
-                    localStorage.getItem("axn_token") +
-                    "/famiglie/famigliesel/leggicombomicrofamiglie/" +
-                    idobj_Famiglie
-                  }
-                  nameList='v_microfamiglie'
-                />
-              </FrameInRow>
-              <FrameInRow width={[100]}>
-                <Input label='Descrizione attività' />
-              </FrameInRow>
-              <FrameInRow width={[20, 20]}>
                 <Input
+                  label='Data Stipula'
+                  id='Contratti_DataStipula'
+                  onChange={onChangeInput}
                   type='date'
-                  label='inizio rapporto'
-                  id='Soggetti_InizioRapporto'
+                  disabled={true}
+                />
+
+                <Input
+                  label='Durata Mesi'
+                  onChange={onChangeInput}
+                  id='Contratti_Pre_Durata'
+                  disabled={true}
+                  align={"right"}
+                />
+
+                <Input
+                  label='Data Scadenza'
+                  id='Contratti_ScadenzaObj'
+                  onChange={onChangeInput}
+                  type='date'
+                  disabled={true}
                 />
                 <InputList
-                  label='Relazione'
-                  id='Soggetti_TipoRelazione'
-                  nameList='v_soggettitiporelazione'
+                  label='Stato Contratto'
+                  id='Contratti_Stato'
+                  nameList='contrattitipo'
                   field_id='IDOBJ'
-                  field_description={["SoggettiTipoRelazione_Descrizione"]}
+                  field_description={["Contratti_StatoDescrizione"]}
                   defList={[
                     {
-                      IDOBJ: 1,
-                      SoggettiTipoRelazione_Descrizione: "Censito",
-                    },
-                    {
-                      IDOBJ: 2,
-                      SoggettiTipoRelazione_Descrizione: "Potenziale",
-                    },
-                    {
-                      IDOBJ: 3,
-                      SoggettiTipoRelazione_Descrizione: "Effettivo",
-                    },
-                    {
-                      IDOBJ: 4,
-                      SoggettiTipoRelazione_Descrizione: "Lasciato",
-                    },
-                    {
-                      IDOBJ: 5,
-                      SoggettiTipoRelazione_Descrizione: "Perso",
+                      data: [
+                        { IDOBJ: 0, Contratti_StatoDescrizione: "Bozza" },
+                        { IDOBJ: 1, Contratti_StatoDescrizione: "Attivo" },
+                        {
+                          IDOBJ: 2,
+                          Contratti_StatoDescrizione: "Scaduto",
+                        },
+                        {
+                          IDOBJ: 3,
+                          Contratti_StatoDescrizione: "Cessato",
+                        },
+                        {
+                          IDOBJ: 10,
+                          Contratti_StatoDescrizione: "Da rinnovare",
+                        },
+                      ],
                     },
                   ]}
                   onChange={onChangeInput}
                 />
               </FrameInRow>
-            </Frame>
-            <Frame label='Agente'>
-              <FrameInRow width={[20, 10, 40]}>
+
+              {/* RIGA 2*/}
+              <FrameInRow width={[100]}>
                 <InputList
-                  label={"Agente"}
-                  id={"Soggetti_Agente"}
-                  onChange={() => {}}
+                  label='Cliente'
+                  id='Contratti_Cliente'
+                  nameList='v_clienti'
                   field_id='IDOBJ'
                   field_description={["Soggetti_Nome1", "Soggetti_Nome2"]}
-                  url={
-                    REACT_APP_SERVERAPI +
-                    "api/axo_sel/" +
-                    localStorage.getItem("axn_token") +
-                    "/soggetti/soggettisel/leggiagenti"
-                  }
-                  nameList='v_agenti'
-                />
-                <Input
-                  label='Provvigione'
-                  id='Soggetti_AgenteProvv'
-                  type='number'
-                  max='100'
-                  decimali='2'
-                />
-              </FrameInRow>
-            </Frame>
-            <Frame label='Contatti' ridimensiona={true} setup={true}>
-              <Grid
-                id='grid_contatti'
-                loadGrid={
-                  REACT_APP_SERVERAPI +
-                  "api/axo_sel/" +
-                  localStorage.getItem("axn_token") +
-                  cmd_getContattiGrid
-                }
-                onClickRow={(IDOBJ) => {}}
-                pidobj={idobj_T}
-                onDoubleClickRow={() => {}}
-                onBtnInsert={() => {}}
-                onBtnDelete={() => {}}
-                btn_insert={true}
-                nameView={"v_soggetticontatti"}
-                itemSearch={domiciliItemsSearch}
-                formTitle='Inserisci'
-                dbForm='soggettivarianti'
-              >
-                <FrameInRow width={["hidden"]}>
-                  <Input label='Tipo' id='SoggettiVarianti_Tipo' value='2' />
-                </FrameInRow>
-                <FrameInRow width={[50, 50]}>
-                  <Input label='Nome' id='SoggettiVarianti_Nome1' />
-                  <Input label='Cognome' id='SoggettiVarianti_Nome2' />
-                </FrameInRow>
-                <FrameInRow width={[30, 30]}>
-                  <Input label='Telefono' id='SoggettiVarianti_Tel1' />
-                  <Input label='Mail' id='SoggettiVarianti_Email' />
-                </FrameInRow>
-              </Grid>
-            </Frame>
-            <Frame
-              label='Eventi relativi al soggetto'
-              ridimensiona={true}
-              setup={true}
-            >
-              <Grid
-                id='grid_crm'
-                loadGrid={
-                  REACT_APP_SERVERAPI +
-                  "api/axo_sel/" +
-                  localStorage.getItem("axn_token") +
-                  cmd_getCRMGrid
-                }
-                onClickRow={(IDOBJ) => {}}
-                pidobj={idobj_T}
-                onDoubleClickRow={() => {}}
-                onBtnInsert={() => {}}
-                onBtnDelete={() => {}}
-                btn_insert={true}
-                nameView={"v_soggetticrm"}
-                itemSearch={domiciliItemsSearch}
-                formTitle='Inserisci'
-                dbForm='soggetticrm'
-              >
-                <FrameInRow width={[40, 30, 30]}>
-                  <Input label='Riferimento' id='SoggettiCRM_Rif' />
-                  <Input type='date' label='Data' id='SoggettiCRM_Data' />
-                  <Input
-                    type='date'
-                    label='Data fine'
-                    id='SoggettiCRM_DataFine'
-                  />
-                </FrameInRow>
-                <FrameInRow width={[100]}>
-                  <Input
-                    type='textarea'
-                    label='Descrizione'
-                    id='SoggettiCRM_Descrizione'
-                  />
-                </FrameInRow>
-                <FrameInRow width={[40, 30, 30]}>
-                  <InputList
-                    label='Tipo'
-                    id='SoggettiCRM_Tipo'
-                    nameList='v_tipo'
-                    field_id='IDOBJ'
-                    field_description={["SoggettiCRM_TipoDescrizione"]}
-                    defList={[
-                      {
-                        IDOBJ: 1,
-                        SoggettiCRM_TipoDescrizione: "Telefono",
-                      },
-                      {
-                        IDOBJ: 2,
-                        SoggettiCRM_TipoDescrizione: "Whatsapp",
-                      },
-                      {
-                        IDOBJ: 3,
-                        SoggettiCRM_TipoDescrizione: "Mail",
-                      },
-                      {
-                        IDOBJ: 4,
-                        SoggettiCRM_TipoDescrizione: "A faccia",
-                      },
-                      {
-                        IDOBJ: 5,
-                        SoggettiCRM_TipoDescrizione: "Interno",
-                      },
-                      {
-                        IDOBJ: 6,
-                        SoggettiCRM_TipoDescrizione: "Pgm Teleassistenza",
-                      },
-                    ]}
-                  />
-                </FrameInRow>
-              </Grid>
-            </Frame>
-          </FrameContainer>
-          <FrameContainer id='fattureautomatiche' help={help}>
-            <Frame
-              label='Articoli che verranno fatturati in modo automatico'
-              ridimensiona={true}
-              setup={true}
-            >
-              <Grid
-                id='grid_soggettifattureautomatiche'
-                loadGrid={
-                  REACT_APP_SERVERAPI +
-                  "api/axo_sel/" +
-                  localStorage.getItem("axn_token") +
-                  cmd_getFattureAutomaticheGrid
-                }
-                onClickRow={(IDOBJ) => {}}
-                pidobj={idobj_T}
-                onDoubleClickRow={() => {}}
-                onBtnInsert={() => {}}
-                onBtnDelete={() => {}}
-                btn_insert={true}
-                nameView={"v_soggettifattureautomatiche"}
-                itemSearch={domiciliItemsSearch}
-                dbForm='soggettifattureautomatiche'
-              >
-                <FrameInRow width={[40, 30, 20]}>
-                  <InputList
-                    label='Prodotto/Servizio'
-                    id='SoggettiFattureAutomatiche_Prodotto'
-                  />
-                  <Input
-                    label='Prezzo'
-                    id='SoggettiFattureAutomatiche_Prezzo'
-                    type='number'
-                    min='0'
-                    decimali='2'
-                  />
-                  <Input
-                    label='Quantità'
-                    id='SoggettiFattureAutomatiche_Qta'
-                    type='number'
-                    min='0'
-                  />
-                </FrameInRow>
-                <FrameInRow width={[50, 10, 10]}>
-                  <Input label='Nota' id='SoggettiFattureAutomatiche_Nota' />
-                  <Input
-                    label='Numero mesi'
-                    id='SoggettiFattureAutomatiche_NumeroMesi'
-                    type='number'
-                    min='0'
-                    max='12'
-                  />
-                  <Input
-                    label='Mese'
-                    id='SoggettiFattureAutomatiche_Mese'
-                    type='number'
-                    min='0'
-                    max='12'
-                  />
-                </FrameInRow>
-                <FrameInRow width={[30, 30, 30]}>
-                  <Input
-                    label='Titolo'
-                    id='SoggettiFattureAutomatiche_Titolo'
-                  />
-                  <Input
-                    type='date'
-                    label='Data Fine'
-                    id='SoggettiFattureAutomatiche_DataFine'
-                  />
-                  <InputList
-                    label='Tipo Documento'
-                    id='SoggettiFattureAutomatiche_TipoDocumento'
-                    defList={[
-                      {
-                        IDOBJ: 1,
-                        Descrizione: "Preventivo",
-                      },
-                      {
-                        IDOBJ: 2,
-                        Descrizione: "Ordine Cliente",
-                      },
-                      {
-                        IDOBJ: 3,
-                        Descrizione: "DDT",
-                      },
-                      {
-                        IDOBJ: 4,
-                        Descrizione: "Fattura",
-                      },
-                    ]}
-                  />
-                </FrameInRow>
-              </Grid>
-            </Frame>
-          </FrameContainer>
-          <FrameContainer id='dotazioni' help={help}>
-            <Frame label='Dotazioni fornite' ridimensiona={true} setup={true}>
-              <Grid
-                id='grid_dotazioni'
-                loadGrid={
-                  REACT_APP_SERVERAPI +
-                  "api/axo_sel/" +
-                  localStorage.getItem("axn_token") +
-                  cmd_getDotazioniGrid
-                }
-                onClickRow={(IDOBJ) => {}}
-                pidobj={idobj_T}
-                onDoubleClickRow={() => {}}
-                onBtnInsert={() => {}}
-                onBtnDelete={() => {}}
-                btn_insert={true}
-                nameView={"v_soggettifattureautomatiche"}
-                itemSearch={domiciliItemsSearch}
-              />
-            </Frame>
-            <Frame
-              label='Dotazioni fornite da ditte esterne'
-              ridimensiona={true}
-              setup={true}
-            >
-              <Grid
-                id='grid_dotazioniesterne'
-                loadGrid={
-                  REACT_APP_SERVERAPI +
-                  "api/axo_sel/" +
-                  localStorage.getItem("axn_token") +
-                  cmd_getDotazioniEsterneGrid
-                }
-                pidobj={idobj_T}
-                btn_insert={true}
-                nameView={"v_soggettifattureautomatiche"}
-                itemSearch={domiciliItemsSearch}
-              />
-            </Frame>
-          </FrameContainer>
-          <FrameContainer id='note' help={help}>
-            <Frame label='Note' ridimensiona={true} setup={true}>
-              <Grid
-                id='grid_soggettinote'
-                loadGrid={
-                  REACT_APP_SERVERAPI +
-                  "api/axo_sel/" +
-                  localStorage.getItem("axn_token") +
-                  cmd_getNoteGrid
-                }
-                pidobj={idobj_T}
-                onClickRow={() => {}}
-                btn_insert={true}
-                nameView={"v_soggettinote"}
-                itemSearch={domiciliItemsSearch}
-                dbForm='soggettinote'
-              >
-                <FrameInRow width={[100]}>
-                  <Input
-                    type='textarea'
-                    label='Nota'
-                    id='SoggettiNote_Descrizione'
-                  />
-                </FrameInRow>
-                <FrameInRow width={[20, 20]}>
-                  <Input
-                    label='Progressivo'
-                    type='number'
-                    min='0'
-                    id='SoggettiNote_Progressivo'
-                  />
-                  <InputList
-                    label='Tipo Documento'
-                    id='SoggettiNote_TipoDocumento'
-                    defList={[
-                      {
-                        IDOBJ: 1,
-                        Descrizione: "Preventivo",
-                      },
-                      {
-                        IDOBJ: 2,
-                        Descrizione: "Ordine Cliente",
-                      },
-                      {
-                        IDOBJ: 3,
-                        Descrizione: "DDT",
-                      },
-                      {
-                        IDOBJ: 4,
-                        Descrizione: "Fattura",
-                      },
-                    ]}
-                  />
-                </FrameInRow>
-              </Grid>
-            </Frame>
-          </FrameContainer>
-          <FrameContainer id='gdpr' help={help}>
-            <Frame label='Dati per normativa GDPR'>
-              <FrameInRow width={[20, 20, 20]}>
-                <InputList
-                  label='Tipologia di dato'
-                  id='Soggetti_TipoDatiGDPR'
-                  nameList='v_soggettitipogdpr'
-                  field_id='IDOBJ'
-                  field_description={["SoggettiTipoGDPR_Descrizione"]}
-                  defList={[
-                    {
-                      IDOBJ: 1,
-                      SoggettiTipoGDPR_Descrizione: "Dati Personali",
-                    },
-                    {
-                      IDOBJ: 2,
-                      SoggettiTipoGDPR_Descrizione: "Dati Sensibili",
-                    },
-                  ]}
-                  onChange={onChangeInput}
-                />
-                <Input
-                  type='date'
-                  label='Prima Raccolta'
-                  id='Soggetti_PrimaRaccoltaGDPR'
-                  onChange={onChangeInput}
-                />
-                <Input
-                  type='date'
-                  label='Ultimo ultilizzo'
-                  id='Soggetti_UltimoUtilizzoGDPR'
+                  defList={listaClienti}
                   onChange={onChangeInput}
                 />
               </FrameInRow>
+
+              {/* RIGA 3*/}
               <FrameInRow width={[100]}>
                 <InputList
-                  label='Privacy'
-                  id='Soggetti_Privacy'
-                  nameList='v_soggettiprivacy'
+                  label='Agente'
+                  id='Contratti_Agente'
+                  nameList='contrattitipo'
                   field_id='IDOBJ'
-                  field_description={["SoggettiTipo_Descrizione"]}
-                  defList={[
-                    { IDOBJ: 1, SoggettiTipo_Descrizione: "Non Richiesto" },
-                    {
-                      IDOBJ: 2,
-                      SoggettiTipo_Descrizione: "Richiesto Consenso",
-                    },
-                    { IDOBJ: 3, SoggettiTipo_Descrizione: "Dato Consenso" },
-                    { IDOBJ: 4, SoggettiTipo_Descrizione: "Negato Consenso" },
-                  ]}
+                  field_description={["Soggetti_Nome1", "Soggetti_Nome2"]}
+                  defList={listaAgenti}
                   onChange={onChangeInput}
                 />
               </FrameInRow>
+
+              {/* RIGA 4*/}
+              <FrameInRow width={[20]}>
+                <div
+                  style={{
+                    width: "50%",
+                    display: "flex",
+                    justifyContent: "flex-start",
+                    alignItems: "end",
+                  }}
+                >
+                  {/* <span style={{ marginRight: "5px" }}>€</span> */}
+                  <Input
+                    label='Canone Mensile'
+                    type='number'
+                    onChange={onChangeInput}
+                    id='Contratti_Pre_Canone'
+                    align={"right"}
+                  />
+                  ,00
+                </div>
+              </FrameInRow>
+
+              {/* RIGA 5*/}
+              <FrameInRow width={[100]}>
+                <Input
+                  label='Ragione Sociale'
+                  id='Contratti_Pre_RagioneSociale'
+                  onChange={onChangeInput}
+                  disabled={true}
+                />
+              </FrameInRow>
+
+              {/* RIGA 6*/}
+              <FrameInRow width={[100]}>
+                <Input
+                  disabled={true}
+                  label='Indirizzo'
+                  onChange={onChangeInput}
+                  id='Contratti_Pre_ClienteIndirizzo'
+                />
+              </FrameInRow>
+
+              {/* RIGA 7*/}
+              <FrameInRow width={[100]}>
+                <Input
+                  disabled={true}
+                  label='Modalità di pagamento comunicata'
+                  id='Contratti_Pre_Iban'
+                  onChange={onChangeInput}
+                />
+              </FrameInRow>
+
+              {/*  RIGA 8*/}
+              <FrameInRow width={[30, 30, 20, 20]}>
+                <Input
+                  disabled={true}
+                  label='Email'
+                  onChange={onChangeInput}
+                  id='Contratti_Pre_ClienteMail'
+                />
+
+                <Input
+                  disabled={true}
+                  label='Contatto'
+                  onChange={onChangeInput}
+                  id='Contratti_Pre_ClienteContatto'
+                />
+
+                <Input
+                  label='Partita IVA'
+                  id='Contratti_Pre_ClientePiva'
+                  onChange={onChangeInput}
+                  disabled={true}
+                />
+                <Input
+                  label='Cod. Univ.'
+                  id='Contratti_Pre_ClienteCodiceUnivoco'
+                  onChange={onChangeInput}
+                  disabled={true}
+                />
+              </FrameInRow>
+
+              {/*  RIGA 9*/}
+              <FrameInRow width={[100]}>
+                <Input
+                  disabled={true}
+                  label='Nota Contratto'
+                  id='Contratti_Pre_NotaCorpo'
+                  onChange={onChangeInput}
+                />
+              </FrameInRow>
+
+              {/* RIGA 10*/}
+              <FrameInRow width={[100]}>
+                <Input
+                  disabled={true}
+                  label='Note Specifiche'
+                  id='Contratti_Pre_NotaBene'
+                  onChange={onChangeInput}
+                />
+              </FrameInRow>
+
+              {/*  RIGA 11*/}
+              <FrameInRow width={[100]}>
+                <Input
+                  disabled={true}
+                  type='input'
+                  label='Nota Interna'
+                  onChange={onChangeInput}
+                  id='Contratti_NotaInterna'
+                />
+              </FrameInRow>
             </Frame>
-          </FrameContainer>
-          <FrameContainer id='storico' help={help}>
-            <Frame label='Preventivi' ridimensiona={true} setup={true}>
-              <Grid
-                id='grid_soggettistoricoprev'
-                loadGrid={
-                  REACT_APP_SERVERAPI +
-                  "api/axo_sel/" +
-                  localStorage.getItem("axn_token") +
-                  cmd_getStoricoPrevGrid
-                }
-                pidobj={idobj_T}
-                nameView={"v_soggettistorico"}
-                itemSearch={domiciliItemsSearch}
-              />
-            </Frame>
-            <Frame label='Ordini' ridimensiona={true} setup={true}>
-              <Grid
-                id='grid_soggettistoricoordini'
-                loadGrid={
-                  REACT_APP_SERVERAPI +
-                  "api/axo_sel/" +
-                  localStorage.getItem("axn_token") +
-                  cmd_getStoricoOrdiniGrid
-                }
-                pidobj={idobj_T}
-                nameView={"v_soggettistorico"}
-                itemSearch={domiciliItemsSearch}
-              />
-            </Frame>
-            <Frame label='DDT' ridimensiona={true} setup={true}>
-              <Grid
-                id='grid_soggettistoricoddt'
-                loadGrid={
-                  REACT_APP_SERVERAPI +
-                  "api/axo_sel/" +
-                  localStorage.getItem("axn_token") +
-                  cmd_getStoricoDDTGrid
-                }
-                pidobj={idobj_T}
-                nameView={"v_soggettistorico"}
-                itemSearch={domiciliItemsSearch}
-              />
-            </Frame>
-            <Frame label='Fatture' ridimensiona={true} setup={true}>
-              <Grid
-                id='grid_soggettistoricofatture'
-                loadGrid={
-                  REACT_APP_SERVERAPI +
-                  "api/axo_sel/" +
-                  localStorage.getItem("axn_token") +
-                  cmd_getStoricoFattureGrid
-                }
-                pidobj={idobj_T}
-                nameView={"v_soggettistorico"}
-                itemSearch={domiciliItemsSearch}
-              />
-            </Frame>
-          </FrameContainer>
-          <FrameContainer id='altridati' help={help}>
+
+            {/* ************CARTELLI************ */}
             <Frame
-              label='Altri dati gestionali'
+              label={"CARTELLI"}
+              icon={"faSignHanging"}
               ridimensiona={true}
-              setup={true}
             >
               <Grid
-                id='grid_soggettialtridatigestionali'
+                formTitle={"Cartello"}
+                icon={"faSignHanging"}
+                id='grid_cartelli'
+                pidobj={idobj_T}
                 loadGrid={
                   REACT_APP_SERVERAPI +
                   "api/axo_sel/" +
                   localStorage.getItem("axn_token") +
-                  cmd_getAltriDatiGestionaliGrid
+                  cmd_getCartelliGrid
                 }
-                onClickRow={(IDOBJ) => {}}
-                pidobj={idobj_T}
+                onClickRow={(IDOBJ) => {
+                  onChangeRowCartelli(IDOBJ);
+                }}
+                onDoubleClickRow={() => {}}
+                onBtnInsert={insertClickHandler}
+                onBtnDelete={deleteClickHandler}
                 btn_insert={true}
-                formTitle='Inserisci'
-                nameView={"v_soggettialtridatigestionali"}
-                itemSearch={domiciliItemsSearch}
-                dbForm='soggettialtridatigestionali'
+                nameView={"v_contratticartelli"}
+                reload={reloadGriglia}
+                itemSearch={itemsSearch}
+                selezionato={focusForm === "form_t" ? true : false}
+                dbForm='ContrattiCartelli'
+                onActive={() => {}}
               >
-                <FrameInRow width={[50, 50]}>
+                {/* Cartello singolo */}
+                {/* RIGA 1 */}
+                <FrameInRow width={[30, 70]}>
                   <Input
-                    label='Tipo Dato'
-                    id='SoggettiAltriDatiGestionali_TipoDato'
+                    label='Cartello N°'
+                    id='ContrattiCartelli_Numero'
+                    onChange={onChangeInput}
+                    align='right'
                   />
-                  <Input
-                    label='Riferimento Testo'
-                    id='SoggettiAltriDatiGestionali_RiferimentoTesto'
+
+                  <InputList
+                    label='Impianto'
+                    id='ContrattiCartelli_Impianto'
+                    nameList='v_impianti'
+                    field_id='IDOBJ'
+                    field_description={["Impianti_Descrizione"]}
+                    defList={listaImpianti}
+                    onChange={onChangeInput}
                   />
                 </FrameInRow>
-                <FrameInRow width={[50, 50]}>
+
+                {/* RIGA 2 */}
+                <FrameInRow width={[30, 30, 30]}>
                   <Input
-                    label='Riferimento Numerico'
-                    id='SoggettiAltriDatiGestionali_RiferimentoNumerico'
-                    type='number'
+                    label='Data Installazione'
+                    type='date'
+                    id='ContrattiCartelli_DataInstallazione'
+                    onChange={onChangeInput}
                   />
                   <Input
+                    label='Durata Mesi'
+                    id='ContrattiCartelli_NumeroMesi'
+                    onChange={onChangeInput}
+                    align='right'
+                  />
+                  <Input
+                    label='Data Scadenza'
                     type='date'
-                    label='Riferimento Data'
-                    id='SoggettiAltriDatiGestionali_RiferimentoData'
+                    id='ContrattiCartelli_ScadenzaObj'
+                    onChange={onChangeInput}
+                  />
+                </FrameInRow>
+
+                {/* RIGA 3 */}
+                <FrameInRow width={[30, 30]}>
+                  <Input
+                    label='Data Rimozione'
+                    id='ContrattiCartelli_DataDisdetta'
+                    onChange={onChangeInput}
+                    type='date'
+                  />
+                  <Input
+                    label='Data Disdetta'
+                    type='date'
+                    id='ContrattiCartelli_DataDisdetta'
+                    onChange={onChangeInput}
+                  />
+                </FrameInRow>
+
+                {/* RIGA 4 */}
+                <FrameInRow width={[100]}>
+                  <Input
+                    id='ContrattiCartelli_Testo'
+                    label='Testo cartello'
+                    type='text'
+                    onChange={onChangeInput}
+                  />
+                </FrameInRow>
+
+                {/* RIGA 5 */}
+                <FrameInRow width={[100]}>
+                  <Input
+                    id='ContrattiCartelli_Descrizione'
+                    label='Nota Aggiuntiva'
+                    type='text'
+                    onChange={onChangeInput}
+                  />
+                </FrameInRow>
+              </Grid>
+            </Frame>
+
+            {/* ************EVENTI************ */}
+            <Frame label={"EVENTI"} icon={"faCalendarDays"} ridimensiona={true}>
+              <Grid
+                icon={"faCalendarDays"}
+                formTitle={"Evento"}
+                id='grid_eventi'
+                pidobj={idobj_Cartelli}
+                loadGrid={
+                  REACT_APP_SERVERAPI +
+                  "api/axo_sel/" +
+                  localStorage.getItem("axn_token") +
+                  cmd_getCartelliEventiGrid
+                }
+                onClickRow={(IDOBJ) => {
+                  onChangeRowEventi(IDOBJ);
+                }}
+                onDoubleClickRow={() => {}}
+                onBtnInsert={insertClickHandler}
+                onBtnDelete={deleteClickHandler}
+                btn_insert={true}
+                nameView={"v_contrattieventi"}
+                reload={reloadGriglia}
+                itemSearch={itemsSearch}
+                selezionato={focusForm === "form_t" ? true : false}
+                dbForm='ContrattiEventi'
+              >
+                {/* Singolo Evento */}
+                {/* PRIMA RIGA */}
+                <FrameInRow width={[20, 30]}>
+                  <InputList
+                    label='Tipo'
+                    id='ContrattiEventi_Tipo'
+                    nameList='v_impianti'
+                    field_id='IDOBJ'
+                    field_description={["Eventi_Tipo"]}
+                    defList={[
+                      {
+                        data: [
+                          {
+                            IDOBJ: 1,
+                            Eventi_Tipo: "Rinnovo",
+                          },
+                          {
+                            IDOBJ: 2,
+                            Eventi_Tipo: "Disdetta",
+                          },
+                        ],
+                      },
+                    ]}
+                    onChange={onChangeInput}
+                  />
+
+                  <Input
+                    label='Scadenza Evento'
+                    type='date'
+                    id='ContrattiEventi_ScadenzaObj'
+                    onChange={onChangeInput}
+                  />
+                </FrameInRow>
+
+                {/* SECONDA RIGA */}
+                <FrameInRow width={[30, 20]}>
+                  <Input
+                    label='Data Inizio'
+                    type='date'
+                    id='ContrattiEventi_DataInizio'
+                    onChange={onChangeInput}
+                  />
+                  <Input
+                    type={"number"}
+                    label='Importo Iscrizione'
+                    id='ContrattiEventi_Importo'
+                    onChange={onChangeInput}
+                    placeholder={"€"}
+                  />
+                </FrameInRow>
+
+                {/* TERZO RIGA */}
+                <FrameInRow width={[100]}>
+                  <Input
+                    id='ContrattiEventi_Nota'
+                    label='Note Aggiuntive'
+                    type='text'
+                    onChange={onChangeInput}
                   />
                 </FrameInRow>
               </Grid>
