@@ -61,6 +61,10 @@ const Layout = () => {
         command: "divise/divisesel/leggicombo",
         nameView: "v_divise",
       },
+      {
+        command: "soggetti/general/configfolder/soggetti",
+        nameView: "v_configfolder",
+      },
     ],
     localStorage.getItem("axn_token"),
     REACT_APP_SERVERAPI
@@ -116,7 +120,7 @@ const Layout = () => {
       </ContentForm>
 
       <ProjectMenu
-        title='Prova'
+        title="Prova"
         pathImg={REACT_APP_IMGFOLDER}
         versione={versione}
         onHelp={onHelpstato}
@@ -124,7 +128,7 @@ const Layout = () => {
         <ProjectMenuButton
           id={"lista"}
           idOpen={idOpen}
-          icon='faBan'
+          icon="faBan"
           label={"ban"}
           onOpen={(id) => setIdOpen(id)}
           onClose={() => setIdOpen("")}
@@ -135,22 +139,22 @@ const Layout = () => {
             element={"label"}
             onClick={openSnackBar}
             onDelete={deleteFromList}
-            icon1='faBan'
-            icon2='faBell'
-            icon1Color='danger'
-            icon2Color='success'
+            icon1="faBan"
+            icon2="faBell"
+            icon1Color="danger"
+            icon2Color="success"
           />
         </ProjectMenuButton>
 
         <ProjectMenuButton
           id={"floppy"}
           idOpen={idOpen}
-          icon='faFloppyDisk'
+          icon="faFloppyDisk"
           label={"2ban"}
           onOpen={(id) => setIdOpen(id)}
           onClose={() => setIdOpen("")}
         >
-          <input type='color' />
+          <input type="color" />
         </ProjectMenuButton>
       </ProjectMenu>
     </>
