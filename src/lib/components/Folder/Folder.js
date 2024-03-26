@@ -12,22 +12,26 @@ const Folder = ({ items, onSelect, startSelect }) => {
   };
 
   return (
-    <Card type='lg'>
+    <Card type="lg">
       <div className={classes.folder_content}>
         {items &&
           items.map((item) => {
             return (
               <div
-                key={item.key}
-                className={item.target === active ? classes.folder_active : ""}
+                key={item.ConfigFolderProject_Key}
+                className={
+                  item.ConfigFolderProject_Target === active
+                    ? classes.folder_active
+                    : ""
+                }
               >
                 <FolderLabel
-                  chiave={item.key}
-                  target={item.target}
+                  chiave={item.ConfigFolderProject_Key}
+                  target={item.ConfigFolderProject_Target}
                   onClick={onClickHendler}
-                  img={item.img}
+                  img={item.ConfigFolderProject_Immagine}
                 >
-                  {item.label}
+                  {item.ConfigFolderProject_Label}
                 </FolderLabel>
               </div>
             );
