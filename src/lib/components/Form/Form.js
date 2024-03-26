@@ -238,7 +238,7 @@ const Form = ({
             <Folder
               items={folders}
               onSelect={folderSelect}
-              startSelect={idFolder1[0].target}
+              startSelect={idFolder1 ? idFolder1[0].target : null}
             />
           </div>
         )}
