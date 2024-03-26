@@ -85,6 +85,22 @@
     /* width: var(--axn-height-top); */
 }
 
+.notifica {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 30px;
+    top: 27px;
+    height: 15px;
+    width: 15px;
+    border-radius: 15px;
+    background-color: red;
+    font-size: 10px;
+    color: white;
+    font-weight: bold;
+}
+
 .projectmenubutton_item {
     width: 100%;
     display: flex;

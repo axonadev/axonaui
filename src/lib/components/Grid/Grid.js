@@ -157,7 +157,7 @@ const Grid = ({
     dt_filter: nameView,
     page: page,
     filteredValue: filteredValue,
-    pidobj: pidobj ? pidobj : 0,
+    pidobj: pidobj ? pidobj : -1,
   };
 
   const clickFilterGrid = (valueItem, nameItem) => {

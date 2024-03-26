@@ -11,6 +11,8 @@ const ProjectMenuButton = ({
   children,
   onOpen,
   onClose,
+  notify = false,
+  notifyAmount = 0,
 }) => {
   const openMenu = idOpen === id ? true : false;
   useEffect(() => {}, [idOpen, openMenu]);
@@ -38,6 +40,9 @@ const ProjectMenuButton = ({
 
         {/* Icona */}
         <div className={classes.projectmenubutton_item_div}>
+          {notify && notifyAmount > 0 && (
+            <div className={classes.notifica}>{notifyAmount}</div>
+          )}
           <div className={classes.projectmenubutton_item_img}>
             <ImgFont icon={icon} size='medium' />
           </div>
