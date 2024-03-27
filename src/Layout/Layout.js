@@ -5,7 +5,7 @@ import Project from "../Pages/Project";
 import useList from "../lib/hooks/useList";
 import List from "../lib/components/List/List";
 import ProjectMenuButton from "../lib/components/ProjectMenu/ProjectMenuButton.prv";
-import { SnackBar } from "axonaui";
+import { SnackBar } from "../lib/components/SnackBar/SnackBar";
 
 const Layout = () => {
   //* LISTA DICHIARATA SOLO PER PASSARE UNA LISTA AL COMPONENTE LIST
@@ -120,7 +120,7 @@ const Layout = () => {
       </ContentForm>
 
       <ProjectMenu
-        title='Prova'
+        title="Prova"
         pathImg={REACT_APP_IMGFOLDER}
         versione={versione}
         onHelp={onHelpstato}
@@ -128,12 +128,12 @@ const Layout = () => {
         <ProjectMenuButton
           id={"floppy"}
           idOpen={idOpen}
-          icon='faFloppyDisk'
+          icon="faFloppyDisk"
           label={"2ban"}
           onOpen={(id) => setIdOpen(id)}
           onClose={() => setIdOpen("")}
         >
-          <input type='color' />
+          <input type="color" />
         </ProjectMenuButton>
       </ProjectMenu>
     </>
