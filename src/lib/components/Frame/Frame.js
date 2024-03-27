@@ -48,7 +48,6 @@ const Frame = ({
         closeSetup: closeSetup,
         help: help,
         key: id,
-        frameSize: dimFrame,
       });
     } else {
       setArgpost({
@@ -57,10 +56,13 @@ const Frame = ({
         closeSetup: closeSetup,
         help: help,
         key: id,
-        frameSize: dimFrame,
       });
     }
   }, []);
+
+  useEffect(() => {
+    console.log("dimFrame", dimFrame);
+  }, [dimFrame]);
 
   const clickHandler = () => {
     try {
@@ -137,11 +139,12 @@ const Frame = ({
           children.map((item, i) => {
             return (
               <React.Fragment key={i}>
-                {React.cloneElement(item, argpost)}
+                {React.cloneElement(item, { ...argpost, frameSize: dimFrame })}
               </React.Fragment>
             );
           })}
-        {children.length === undefined && React.cloneElement(children, argpost)}
+        {children.length === undefined &&
+          React.cloneElement(children, { ...argpost, frameSize: dimFrame })}
       </div>
     </Card>
   );

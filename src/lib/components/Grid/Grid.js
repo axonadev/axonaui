@@ -40,9 +40,9 @@ const Grid = ({
   testata = true,
   modulosecondario = "",
   icon,
-  framesize,
+  frameSize,
 }) => {
-  // console.log("framesize", framesize);
+  console.log("frameSize", frameSize);
   const { REACT_APP_SERVERAPI } = useEnv();
   const { onChangeSelected, onReset, onChangeForm } = useForm(
     "form_" + id,
@@ -338,7 +338,7 @@ const Grid = ({
         )}
         <div
           className={
-            framesize === 2
+            frameSize === 3
               ? classes.grid_table_contentOpen
               : classes.grid_table_contentClosed
           }
