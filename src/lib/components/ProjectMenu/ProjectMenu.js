@@ -28,18 +28,19 @@ const ProjectMenu = ({ children, onHelp }) => {
         <div>
           <div className={classes.projectmenu_profilo}>
             <Button onClick={profiloClick}>
-              <ImgFont icon="faUser" size="medium" />
+              <ImgFont icon='faUser' size='medium' />
             </Button>
           </div>
           {children}
         </div>
 
         <div>
-          <div className={classes.projectmenu_help}>
+          {/* BOTTONE HELP */}
+          {/* <div className={classes.projectmenu_help}>
             <Button onClick={onHelpHandler}>
               <ImgFont icon="faQuestion" size="medium" />
             </Button>
-          </div>
+          </div> */}
         </div>
       </aside>
     </>
