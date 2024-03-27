@@ -25,7 +25,6 @@ const Form = ({
   isScaduto = false,
   numberGrid = 1,
 }) => {
-  console.log(folders);
   const idFolder1 = folders
     ? folders[0]
       ? folders[0].data.filter((item) => item.ConfigFolderProject_Key === 1)

@@ -42,7 +42,7 @@ const Grid = ({
   icon,
   framesize,
 }) => {
-  console.log("framesize", framesize);
+  // console.log("framesize", framesize);
   const { REACT_APP_SERVERAPI } = useEnv();
   const { onChangeSelected, onReset, onChangeForm } = useForm(
     "form_" + id,
