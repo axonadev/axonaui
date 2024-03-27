@@ -27,16 +27,18 @@
 }
 
 .projectmenu_sideoperation_open {
-    transform: translateX(-1px);
+    /* transform: translateX(-1px); */
+    display: inherit;
     box-shadow: -3px 2px 5px 0 rgba(0, 0, 0, .16);
-    transition: 0.2s;
+    transition: display 0.5s;
     overflow: scroll;
 }
 
 .projectmenu_sideoperation_close {
+    display: none;
     right: 100%;
-    transform: translateX(120%);
-    transition: 0.2s;
+    /* transform: translateX(120%); */
+    transition: display 0.5s;
     z-index: 0;
 }
 

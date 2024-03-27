@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "../style/ProjectMenu.module.css";
 
 const RightSideForm = ({ children, openMenu, onClose }) => {
@@ -14,7 +14,7 @@ const RightSideForm = ({ children, openMenu, onClose }) => {
   const onMouseEnterHandler = () => {
     setTimeout(() => {
       setIsOpen(true);
-    }, "500");
+    }, "1000");
   };
 
   const onMouseLeaveHandler = () => {
@@ -23,6 +23,11 @@ const RightSideForm = ({ children, openMenu, onClose }) => {
       setIsOpen(false);
     }
   };
+
+  useEffect(() => {
+    onMouseEnterHandler();
+    console.log(openMenu);
+  }, [openMenu]);
 
   return (
     <div
