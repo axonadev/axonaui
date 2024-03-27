@@ -6,7 +6,7 @@ import Profilo from "../Profilo/Profilo";
 
 const ProjectMenu = ({ children, onHelp }) => {
   const [openProfilo, setOpenProfilo] = useState(false);
-  const [isHelp, setIsHelp] = useState(true);
+  // const [isHelp, setIsHelp] = useState(true);
 
   const profiloClick = () => {
     setOpenProfilo((prec) => {
@@ -14,12 +14,12 @@ const ProjectMenu = ({ children, onHelp }) => {
     });
   };
 
-  const onHelpHandler = () => {
-    setIsHelp((prec) => {
-      onHelp(!prec);
-      return !prec;
-    });
-  };
+  // const onHelpHandler = () => {
+  //   setIsHelp((prec) => {
+  //     onHelp(!prec);
+  //     return !prec;
+  //   });
+  // };
 
   return (
     <>
