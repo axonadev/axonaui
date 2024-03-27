@@ -111,6 +111,7 @@ const Project = ({ request, list }) => {
         ridimensiona={true}
         setup={true}
         icon={"faFileSignature"}
+        frameSize={2}
       >
         <Grid
           id='maint_t'

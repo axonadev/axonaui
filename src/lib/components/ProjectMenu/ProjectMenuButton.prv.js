@@ -18,7 +18,11 @@ const ProjectMenuButton = ({
   useEffect(() => {}, [idOpen, openMenu]);
 
   const onClickHandler = () => {
-    onOpen(id);
+    if (idOpen === id) {
+      onClose();
+    } else {
+      onOpen(id);
+    }
   };
 
   const onCloseHandler = () => {

@@ -1,6 +1,5 @@
 import React from "react";
 import classes from "../style/ProjectMenu.module.css";
-import ImgFont from "../Img/ImgFont";
 
 const RightSideForm = ({ children, openMenu, onClose }) => {
   const styled = [
@@ -10,19 +9,16 @@ const RightSideForm = ({ children, openMenu, onClose }) => {
       : classes.projectmenu_sideoperation_close,
   ];
 
-  const closeMenuHandler = () => {
-    onClose(false);
+  const closeOnLeave = () => {
+    setTimeout(() => {
+      onClose(false);
+    }, 1500);
   };
 
   return (
-    <div className={styled.join(" ")}>
+    <div className={styled.join(" ")} onMouseLeave={closeOnLeave}>
       <div className={classes.projectmenu_sideoperation_content}>
-        <div
-          className={classes.projectmenu_sideoperation_top_x}
-          onClick={closeMenuHandler}
-        >
-          <ImgFont icon="faXmark" size="medium" />
-        </div>
+        <div className={classes.projectmenu_sideoperation_top_x}></div>
         {/* CHILDREN */}
         <div className={classes.projectmenu_children_content}>{children}</div>
       </div>

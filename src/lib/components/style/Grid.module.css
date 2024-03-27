@@ -4,11 +4,19 @@
     margin-top: 0px;
 }
 
-.grid_table_content {
+.grid_table_contentOpen,
+.grid_table_contentClosed {
     width: 100%;
-    height: calc(100% - 45px);
     overflow-x: auto;
     overflow-y: scroll;
+}
+
+.grid_table_contentClosed {
+    height: calc(100% - 45px);
+}
+
+.grid_table_contentOpen {
+    height: calc(100vh - 90px);
 }
 
 .grid_filtergrid {

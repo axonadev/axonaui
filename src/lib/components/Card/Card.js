@@ -8,6 +8,7 @@ const Card = ({
   type = "",
   onClick = null,
   onKeyUp = null,
+  framesize,
 }) => {
   const cls = [classes.card, className, classes["card_" + type]];
 

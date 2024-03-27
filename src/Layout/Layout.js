@@ -132,6 +132,7 @@ const Layout = () => {
           label={"2ban"}
           onOpen={(id) => setIdOpen(id)}
           onClose={() => setIdOpen("")}
+          onMouseLeave={() => alert("Ciao!")}
         >
           <input type='color' />
         </ProjectMenuButton>
