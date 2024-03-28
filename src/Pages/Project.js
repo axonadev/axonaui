@@ -9,6 +9,8 @@ import {
   Frame,
   FrameInRow,
   Grid,
+  List,
+  ListItem,
 } from "../lib/index";
 import { useEnv } from "axonalib";
 
@@ -101,9 +103,28 @@ const Project = ({ request, list }) => {
 
   return (
     <>
+      <List filter={true}>
+        {itemFolders.map((item, i) => {
+          return (
+            <ListItem
+              item={item}
+              key={i}
+              keyID={i}
+              element={"Impianti_Indirizzo"}
+              icon1={
+                item.Notifica_Tipo === "cartello" ||
+                item.Notifica_Tipo === "contratto"
+                  ? "faClock"
+                  : "faEnvelope"
+              }
+              icon1Color={"white"}
+            />
+          );
+        })}
+      </List>
       <Frame
-        label='CONTRATTI'
-        type='form_t'
+        label="CONTRATTI"
+        type="form_t"
         stato={statoGriglia}
         onActive={() => {
           setFocusForm("form_t");
@@ -114,7 +135,7 @@ const Project = ({ request, list }) => {
         frameSize={2}
       >
         <Grid
-          id='maint_t'
+          id="maint_t"
           loadGrid={
             REACT_APP_SERVERAPI +
             "api/axo_sel/" +
@@ -134,10 +155,10 @@ const Project = ({ request, list }) => {
           selezionato={focusForm === "form_t" ? true : false}
         />
       </Frame>
-      <FormButton onAnnulla={onLoadRow} id_submit='form_t' />
+      <FormButton onAnnulla={onLoadRow} id_submit="form_t" />
       {focusForm === "form_t" && (
         <Form
-          id='form_t'
+          id="form_t"
           idobj={idobj_T}
           modulo={moduloForm}
           db={nameTable}
@@ -147,51 +168,51 @@ const Project = ({ request, list }) => {
           onAnnulla={onLoadRow}
           onChangeValue={onChangeForm}
         >
-          <FrameContainer id='terget_folder'>
+          <FrameContainer id="terget_folder">
             <Frame
-              label='ANAGRAFICA'
+              label="ANAGRAFICA"
               icon={"faAddressCard"}
               ridimensiona={true}
             >
               {/* RIGA 1*/}
               <FrameInRow width={[5, 10, 5, 10, 20]}>
                 <Input
-                  label='N° Contratto'
-                  id='Contratti_Numero'
+                  label="N° Contratto"
+                  id="Contratti_Numero"
                   onChange={onChangeInput}
-                  type='number'
+                  type="number"
                   disabled={true}
-                  align='right'
+                  align="right"
                 />
 
                 <Input
-                  label='Data Stipula'
-                  id='Contratti_DataStipula'
+                  label="Data Stipula"
+                  id="Contratti_DataStipula"
                   onChange={onChangeInput}
-                  type='date'
+                  type="date"
                   disabled={true}
                 />
 
                 <Input
-                  label='Durata Mesi'
+                  label="Durata Mesi"
                   onChange={onChangeInput}
-                  id='Contratti_Pre_Durata'
+                  id="Contratti_Pre_Durata"
                   disabled={true}
                   align={"right"}
                 />
 
                 <Input
-                  label='Data Scadenza'
-                  id='Contratti_ScadenzaObj'
+                  label="Data Scadenza"
+                  id="Contratti_ScadenzaObj"
                   onChange={onChangeInput}
-                  type='date'
+                  type="date"
                   disabled={true}
                 />
                 <InputList
-                  label='Stato Contratto'
-                  id='Contratti_Stato'
-                  nameList='contrattitipo'
-                  field_id='IDOBJ'
+                  label="Stato Contratto"
+                  id="Contratti_Stato"
+                  nameList="contrattitipo"
+                  field_id="IDOBJ"
                   field_description={["Contratti_StatoDescrizione"]}
                   defList={[
                     {
@@ -220,10 +241,10 @@ const Project = ({ request, list }) => {
               {/* RIGA 2*/}
               <FrameInRow width={[100]}>
                 <InputList
-                  label='Cliente'
-                  id='Contratti_Cliente'
-                  nameList='v_clienti'
-                  field_id='IDOBJ'
+                  label="Cliente"
+                  id="Contratti_Cliente"
+                  nameList="v_clienti"
+                  field_id="IDOBJ"
                   field_description={["Soggetti_Nome1", "Soggetti_Nome2"]}
                   defList={listaClienti}
                   onChange={onChangeInput}
@@ -233,10 +254,10 @@ const Project = ({ request, list }) => {
               {/* RIGA 3*/}
               <FrameInRow width={[100]}>
                 <InputList
-                  label='Agente'
-                  id='Contratti_Agente'
-                  nameList='contrattitipo'
-                  field_id='IDOBJ'
+                  label="Agente"
+                  id="Contratti_Agente"
+                  nameList="contrattitipo"
+                  field_id="IDOBJ"
                   field_description={["Soggetti_Nome1", "Soggetti_Nome2"]}
                   defList={listaAgenti}
                   onChange={onChangeInput}
@@ -255,10 +276,10 @@ const Project = ({ request, list }) => {
                 >
                   {/* <span style={{ marginRight: "5px" }}>€</span> */}
                   <Input
-                    label='Canone Mensile'
-                    type='number'
+                    label="Canone Mensile"
+                    type="number"
                     onChange={onChangeInput}
-                    id='Contratti_Pre_Canone'
+                    id="Contratti_Pre_Canone"
                     align={"right"}
                   />
                   ,00
@@ -268,8 +289,8 @@ const Project = ({ request, list }) => {
               {/* RIGA 5*/}
               <FrameInRow width={[100]}>
                 <Input
-                  label='Ragione Sociale'
-                  id='Contratti_Pre_RagioneSociale'
+                  label="Ragione Sociale"
+                  id="Contratti_Pre_RagioneSociale"
                   onChange={onChangeInput}
                   disabled={true}
                 />
@@ -279,9 +300,9 @@ const Project = ({ request, list }) => {
               <FrameInRow width={[100]}>
                 <Input
                   disabled={true}
-                  label='Indirizzo'
+                  label="Indirizzo"
                   onChange={onChangeInput}
-                  id='Contratti_Pre_ClienteIndirizzo'
+                  id="Contratti_Pre_ClienteIndirizzo"
                 />
               </FrameInRow>
 
@@ -289,8 +310,8 @@ const Project = ({ request, list }) => {
               <FrameInRow width={[100]}>
                 <Input
                   disabled={true}
-                  label='Modalità di pagamento comunicata'
-                  id='Contratti_Pre_Iban'
+                  label="Modalità di pagamento comunicata"
+                  id="Contratti_Pre_Iban"
                   onChange={onChangeInput}
                 />
               </FrameInRow>
@@ -299,27 +320,27 @@ const Project = ({ request, list }) => {
               <FrameInRow width={[30, 30, 20, 20]}>
                 <Input
                   disabled={true}
-                  label='Email'
+                  label="Email"
                   onChange={onChangeInput}
-                  id='Contratti_Pre_ClienteMail'
+                  id="Contratti_Pre_ClienteMail"
                 />
 
                 <Input
                   disabled={true}
-                  label='Contatto'
+                  label="Contatto"
                   onChange={onChangeInput}
-                  id='Contratti_Pre_ClienteContatto'
+                  id="Contratti_Pre_ClienteContatto"
                 />
 
                 <Input
-                  label='Partita IVA'
-                  id='Contratti_Pre_ClientePiva'
+                  label="Partita IVA"
+                  id="Contratti_Pre_ClientePiva"
                   onChange={onChangeInput}
                   disabled={true}
                 />
                 <Input
-                  label='Cod. Univ.'
-                  id='Contratti_Pre_ClienteCodiceUnivoco'
+                  label="Cod. Univ."
+                  id="Contratti_Pre_ClienteCodiceUnivoco"
                   onChange={onChangeInput}
                   disabled={true}
                 />
@@ -329,8 +350,8 @@ const Project = ({ request, list }) => {
               <FrameInRow width={[100]}>
                 <Input
                   disabled={true}
-                  label='Nota Contratto'
-                  id='Contratti_Pre_NotaCorpo'
+                  label="Nota Contratto"
+                  id="Contratti_Pre_NotaCorpo"
                   onChange={onChangeInput}
                 />
               </FrameInRow>
@@ -339,8 +360,8 @@ const Project = ({ request, list }) => {
               <FrameInRow width={[100]}>
                 <Input
                   disabled={true}
-                  label='Note Specifiche'
-                  id='Contratti_Pre_NotaBene'
+                  label="Note Specifiche"
+                  id="Contratti_Pre_NotaBene"
                   onChange={onChangeInput}
                 />
               </FrameInRow>
@@ -349,10 +370,10 @@ const Project = ({ request, list }) => {
               <FrameInRow width={[100]}>
                 <Input
                   disabled={true}
-                  type='input'
-                  label='Nota Interna'
+                  type="input"
+                  label="Nota Interna"
                   onChange={onChangeInput}
-                  id='Contratti_NotaInterna'
+                  id="Contratti_NotaInterna"
                 />
               </FrameInRow>
             </Frame>
@@ -366,7 +387,7 @@ const Project = ({ request, list }) => {
               <Grid
                 formTitle={"Cartello"}
                 icon={"faSignHanging"}
-                id='grid_cartelli'
+                id="grid_cartelli"
                 pidobj={idobj_T}
                 loadGrid={
                   REACT_APP_SERVERAPI +
@@ -385,24 +406,24 @@ const Project = ({ request, list }) => {
                 reload={reloadGriglia}
                 itemSearch={itemsSearch}
                 selezionato={focusForm === "form_t" ? true : false}
-                dbForm='ContrattiCartelli'
+                dbForm="ContrattiCartelli"
                 onActive={() => {}}
               >
                 {/* Cartello singolo */}
                 {/* RIGA 1 */}
                 <FrameInRow width={[30, 70]}>
                   <Input
-                    label='Cartello N°'
-                    id='ContrattiCartelli_Numero'
+                    label="Cartello N°"
+                    id="ContrattiCartelli_Numero"
                     onChange={onChangeInput}
-                    align='right'
+                    align="right"
                   />
 
                   <InputList
-                    label='Impianto'
-                    id='ContrattiCartelli_Impianto'
-                    nameList='v_impianti'
-                    field_id='IDOBJ'
+                    label="Impianto"
+                    id="ContrattiCartelli_Impianto"
+                    nameList="v_impianti"
+                    field_id="IDOBJ"
                     field_description={["Impianti_Descrizione"]}
                     defList={listaImpianti}
                     onChange={onChangeInput}
@@ -412,21 +433,21 @@ const Project = ({ request, list }) => {
                 {/* RIGA 2 */}
                 <FrameInRow width={[30, 30, 30]}>
                   <Input
-                    label='Data Installazione'
-                    type='date'
-                    id='ContrattiCartelli_DataInstallazione'
+                    label="Data Installazione"
+                    type="date"
+                    id="ContrattiCartelli_DataInstallazione"
                     onChange={onChangeInput}
                   />
                   <Input
-                    label='Durata Mesi'
-                    id='ContrattiCartelli_NumeroMesi'
+                    label="Durata Mesi"
+                    id="ContrattiCartelli_NumeroMesi"
                     onChange={onChangeInput}
-                    align='right'
+                    align="right"
                   />
                   <Input
-                    label='Data Scadenza'
-                    type='date'
-                    id='ContrattiCartelli_ScadenzaObj'
+                    label="Data Scadenza"
+                    type="date"
+                    id="ContrattiCartelli_ScadenzaObj"
                     onChange={onChangeInput}
                   />
                 </FrameInRow>
@@ -434,15 +455,15 @@ const Project = ({ request, list }) => {
                 {/* RIGA 3 */}
                 <FrameInRow width={[30, 30]}>
                   <Input
-                    label='Data Rimozione'
-                    id='ContrattiCartelli_DataDisdetta'
+                    label="Data Rimozione"
+                    id="ContrattiCartelli_DataDisdetta"
                     onChange={onChangeInput}
-                    type='date'
+                    type="date"
                   />
                   <Input
-                    label='Data Disdetta'
-                    type='date'
-                    id='ContrattiCartelli_DataDisdetta'
+                    label="Data Disdetta"
+                    type="date"
+                    id="ContrattiCartelli_DataDisdetta"
                     onChange={onChangeInput}
                   />
                 </FrameInRow>
@@ -450,9 +471,9 @@ const Project = ({ request, list }) => {
                 {/* RIGA 4 */}
                 <FrameInRow width={[100]}>
                   <Input
-                    id='ContrattiCartelli_Testo'
-                    label='Testo cartello'
-                    type='text'
+                    id="ContrattiCartelli_Testo"
+                    label="Testo cartello"
+                    type="text"
                     onChange={onChangeInput}
                   />
                 </FrameInRow>
@@ -460,9 +481,9 @@ const Project = ({ request, list }) => {
                 {/* RIGA 5 */}
                 <FrameInRow width={[100]}>
                   <Input
-                    id='ContrattiCartelli_Descrizione'
-                    label='Nota Aggiuntiva'
-                    type='text'
+                    id="ContrattiCartelli_Descrizione"
+                    label="Nota Aggiuntiva"
+                    type="text"
                     onChange={onChangeInput}
                   />
                 </FrameInRow>
@@ -474,7 +495,7 @@ const Project = ({ request, list }) => {
               <Grid
                 icon={"faCalendarDays"}
                 formTitle={"Evento"}
-                id='grid_eventi'
+                id="grid_eventi"
                 pidobj={idobj_Cartelli}
                 loadGrid={
                   REACT_APP_SERVERAPI +
@@ -493,16 +514,16 @@ const Project = ({ request, list }) => {
                 reload={reloadGriglia}
                 itemSearch={itemsSearch}
                 selezionato={focusForm === "form_t" ? true : false}
-                dbForm='ContrattiEventi'
+                dbForm="ContrattiEventi"
               >
                 {/* Singolo Evento */}
                 {/* PRIMA RIGA */}
                 <FrameInRow width={[20, 30]}>
                   <InputList
-                    label='Tipo'
-                    id='ContrattiEventi_Tipo'
-                    nameList='v_impianti'
-                    field_id='IDOBJ'
+                    label="Tipo"
+                    id="ContrattiEventi_Tipo"
+                    nameList="v_impianti"
+                    field_id="IDOBJ"
                     field_description={["Eventi_Tipo"]}
                     defList={[
                       {
@@ -522,9 +543,9 @@ const Project = ({ request, list }) => {
                   />
 
                   <Input
-                    label='Scadenza Evento'
-                    type='date'
-                    id='ContrattiEventi_ScadenzaObj'
+                    label="Scadenza Evento"
+                    type="date"
+                    id="ContrattiEventi_ScadenzaObj"
                     onChange={onChangeInput}
                   />
                 </FrameInRow>
@@ -532,15 +553,15 @@ const Project = ({ request, list }) => {
                 {/* SECONDA RIGA */}
                 <FrameInRow width={[30, 20]}>
                   <Input
-                    label='Data Inizio'
-                    type='date'
-                    id='ContrattiEventi_DataInizio'
+                    label="Data Inizio"
+                    type="date"
+                    id="ContrattiEventi_DataInizio"
                     onChange={onChangeInput}
                   />
                   <Input
                     type={"number"}
-                    label='Importo Iscrizione'
-                    id='ContrattiEventi_Importo'
+                    label="Importo Iscrizione"
+                    id="ContrattiEventi_Importo"
                     onChange={onChangeInput}
                     placeholder={"€"}
                   />
@@ -549,9 +570,9 @@ const Project = ({ request, list }) => {
                 {/* TERZO RIGA */}
                 <FrameInRow width={[100]}>
                   <Input
-                    id='ContrattiEventi_Nota'
-                    label='Note Aggiuntive'
-                    type='text'
+                    id="ContrattiEventi_Nota"
+                    label="Note Aggiuntive"
+                    type="text"
                     onChange={onChangeInput}
                   />
                 </FrameInRow>

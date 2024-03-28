@@ -55,10 +55,19 @@ const List = ({
   //* Filtro
   const filtro = () => {
     if (parolaRicerca.length > 0) {
-      const filteredList = items.filter((item) =>
-        item[filterElement].toLowerCase().includes(parolaRicerca.toLowerCase())
-      );
-      setListaFiltrata(filteredList);
+      if (items === undefined) {
+      } else {
+        const filteredList = items.filter((item) => {
+          try {
+            return item[filterElement]
+              ? item[filterElement]
+                  .toLowerCase()
+                  .includes(parolaRicerca.toLowerCase())
+              : null;
+          } catch (error) {}
+        });
+        setListaFiltrata(filteredList);
+      }
     } else {
       setListaFiltrata(items);
     }
