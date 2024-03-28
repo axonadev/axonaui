@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import ImgFont from "../Img/ImgFont";
 import classes from "../style/Profilo.module.css";
 import Button from "../Button/Button";
-import { Login } from "axonaform";
+import Login from "./Login.prv";
 import { useEnv } from "axonalib";
-import { MessageModal } from "axonaui";
+import MessageModal from "../MessageModal/MessageModal";
 
 const Profilo = ({}) => {
   const { REACT_APP_SERVERAPI } = useEnv();

@@ -2,7 +2,7 @@ import React from "react";
 import { useEnv, useToken } from "axonalib";
 import { CssStruct, LoadingSpinner } from "./lib/index";
 import Layout from "./Layout/Layout";
-import { SnackBar } from "axonaui";
+import SnackBar from "./lib/components/SnackBar/SnackBar";
 
 const App = () => {
   const { REACT_APP_CSSFOLDER, REACT_APP_SERVERAPI } = useEnv();
@@ -34,7 +34,7 @@ const App = () => {
       piva={localStorage.getItem("axn_piva")}
       template={"template1"}
     >
-      <div className='App'>
+      <div className="App">
         {connesso === 0 && <LoadingSpinner />}
         {connesso === 1 && <Layout piva={localStorage.getItem("axn_piva")} />}
       </div>

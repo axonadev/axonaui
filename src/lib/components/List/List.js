@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import classes from "../style/List.module.css";
 import ListItem from "./ListItem";
-import { ImgFont, Input } from "axonaui";
+import ImgFont from "../Img/ImgFont";
+import Input from "../Input/Input";
 
 const List = ({
   items,
@@ -81,7 +82,7 @@ const List = ({
         <div className={classes.filterDiv}>
           <ImgFont
             className={classes.filterIcona}
-            size='medium'
+            size="medium"
             icon={"faMagnifyingGlass"}
             cursor={true}
           />
