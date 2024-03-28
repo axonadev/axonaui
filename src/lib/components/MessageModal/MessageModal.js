@@ -40,30 +40,31 @@ const MessageModal = ({
 
   return (
     <div id={id}>
-      <div className={classes.messagemodal_backdrop} onClick={onOut} />
-      <div className={classContent.join(" ")}>
-        <div className={classes.messagemodal_header}>
-          <h2>
-            <ImgFont icon={icon} size={iconSize} /> {title}
-          </h2>
-          {message && <p>{message}</p>}
-          {children && children}
-        </div>
-        <div className={classes.buttonContainer}>
-          {c_buttons.map((item) => {
-            return (
-              <Button
-                key={item.key}
-                onClick={item.onClick}
-                className={`${classes.messagemodal_minButton} ${
-                  classes[item.type]
-                }`}
-              >
-                <ImgFont icon={item.icon} />
-                {item.label}
-              </Button>
-            );
-          })}
+      <div className={classes.messagemodal_backdrop} onClick={onOut}>
+        <div className={classContent.join(" ")}>
+          <div className={classes.messagemodal_header}>
+            <h2>
+              <ImgFont icon={icon} size={iconSize} /> {title}
+            </h2>
+            {message && <p>{message}</p>}
+            {children && children}
+          </div>
+          <div className={classes.buttonContainer}>
+            {c_buttons.map((item) => {
+              return (
+                <Button
+                  key={item.key}
+                  onClick={item.onClick}
+                  className={`${classes.messagemodal_minButton} ${
+                    classes[item.type]
+                  }`}
+                >
+                  <ImgFont icon={item.icon} />
+                  {item.label}
+                </Button>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

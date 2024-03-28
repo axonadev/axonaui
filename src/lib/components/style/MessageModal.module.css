@@ -18,13 +18,10 @@
   border-radius: var(--axn-border-radius);
   background-color: var(--axn-white-color);
   color: var(--axn-black-color);
-  position: fixed;
-  top: calc(100vh / 4);
-  left: calc(100vw / 4);
-  min-width: 40%;
+  min-width: 80%;
   z-index: 100;
   overflow: hidden;
-  max-height: 600px;
+  max-height: 800px;
   overflow: scroll;
 }
 
